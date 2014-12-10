@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Demo: Layout with Dijit</title>
+    <link rel="stylesheet" href="codemirror-4.8/lib/codemirror.css" />
+    <!-- <link rel="stylesheet" href="codemirror-4.8/theme/default.css" /> -->
+    <script src="codemirror-4.8/lib/codemirror.js"></script>
+    <script src="codemirror-4.8/addon/edit/matchbrackets.js"></script>
+    <script src="codemirror-4.8/mode/clike/clike.js"></script>
+    <link rel="stylesheet" href="style.css" media="screen">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/dojo/1.10.2/dijit/themes/claro/claro.css" media="screen">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  </head>
+  <body class="claro" style="opacity: 0">
+    <!-- Tags end on line afterwards to eliminate any whitespace -->
+    <div id="toolbar1" data-dojo-type="dijit/Toolbar" class="flat"
+      ><input type="file"
+          data-dojo-type="dijit/form/Button" id="toolbar1.open"
+          data-dojo-props="iconClass:'fa fa-download', showLabel:false"
+      /><span data-dojo-type="dijit/ToolbarSeparator"
+      ></span><div data-dojo-type="dijit/form/Button" id="toolbar1.run"
+          data-dojo-props="iconClass:'fa fa-play', showLabel:false">Run</div
+      ><div data-dojo-type="dijit/form/Button" id="toolbar1.pause"
+          data-dojo-props="iconClass:'fa fa-pause', showLabel:false">Pause</div
+      ><div data-dojo-type="dijit/form/Button" id="toolbar1.stepOver"
+          data-dojo-props="iconClass:'fa fa-long-arrow-right', showLabel:false">Step over</div
+      ><div data-dojo-type="dijit/form/Button" id="toolbar1.stepInto"
+          data-dojo-props="iconClass:'fa fa-level-down', showLabel:false">Step into</div
+      ><div data-dojo-type="dijit/form/Button" id="toolbar1.stepOut"
+          data-dojo-props="iconClass:'fa fa-level-up', showLabel:false">Step out</div
+      >
+    </div>
+    <div id="appLayout" class="demoLayout"
+        data-dojo-type="dijit/layout/BorderContainer"
+        data-dojo-props="design: 'headline'">
+      <div class="nochrome"
+          data-dojo-type="dijit/layout/ContentPane"
+          data-dojo-props="region: 'center'">
+        <div
+            data-dojo-type="dijit/layout/BorderContainer"
+            data-dojo-props="design: 'headline'">
+          <div class="centerPanel nochrome"
+              data-dojo-type="dijit/layout/ContentPane"
+              data-dojo-props="region: 'center'">
+            <textarea id="code" name="code"></textarea>
+          </div>
+          <pre id="console" class="edgePanel"
+              data-dojo-type="dijit/layout/ContentPane"
+              data-dojo-props="region: 'bottom', splitter: true"></pre>
+        </div>
+      </div>
+      <div id="leftCol" class="edgePanel nochrome"
+          data-dojo-type="dijit/layout/ContentPane"
+          data-dojo-props="region: 'right', splitter: true">
+        <div
+            data-dojo-type="dijit/layout/BorderContainer"
+            data-dojo-props="design: 'headline'">
+          <div id="variablesPanel" class="edgePanel"
+              data-dojo-type="dijit/layout/ContentPane"
+              data-dojo-props="region: 'center'">
+          </div>
+          <div id="breakpointsPanel" class="edgePanel"
+              data-dojo-type="dijit/layout/ContentPane"
+              data-dojo-props="region: 'top', splitter: true">
+            Breakpoints
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.10.2/dojo/dojo.js" data-dojo-config="async:true, parseOnLoad:true"></script>
+    <script src="log.js"></script>
+    <script>
+      require(["dijit/registry", "dijit/layout/BorderContainer",
+          "dijit/layout/TabContainer", "dijit/layout/ContentPane",
+          "dijit/MenuBar", "dijit/MenuBarItem", "dijit/PopupMenuBarItem",
+          "dijit/DropDownMenu", "dijit/MenuItem",
+          "dojo/domReady!"
+        ],
+        function(registry, BorderContainer, TabContainer, ContentPane, MenuBar) {
+
+          document.body.setAttribute('style', '');
+          
+          var myTextArea = document.getElementById("code");
+          var editor = CodeMirror(function(elt) {
+            myTextArea.parentNode.replaceChild(elt, myTextArea);
+          }, {
+            lineNumbers: true,
+            matchBrackets: true,
+            readOnly: true,
+            theme: "default",
+            mode: "text/x-scala",
+            gutters: [
+              'CodeMirror-linenumbers',
+              'breakpoints'
+            ]
+          });
+
+          editor.on("gutterClick", function(cm, n) {
+            var info = cm.lineInfo(n);
+            cm.setGutterMarker(n, "breakpoints", info.gutterMarkers ? null : makeMarker());
+          });
+
+          function makeMarker() {
+            var marker = document.createElement("div");
+            marker.style.color = "#822";
+            marker.innerHTML = "●";
+            return marker;
+          }
+
+
+          // Start-up refresh
+          window.setTimeout(function() {
+            editor.refresh();
+
+            var open = document.getElementById('toolbar1.open').parentElement.nextSibling;
+            open.addEventListener('change', function() {
+              openFiles(this.files);
+            });
+          }, 500);
+
+          function openFiles(files) {
+            if (files.length < 1) {
+              alert('No file selected, aborting');
+            }
+            var file = files[0];
+            var fr = new FileReader();
+
+            fr.addEventListener('loadend', function() {
+              editor.setValue(fr.result);
+              log.success('File '+file.name+' successfully loaded!');
+            });
+
+            fr.readAsText(file);
+          }
+
+          log('\t### Tool debugger v0.0 ###\n\n');
+          log('No file loaded, click the load icon to load a file');
+        });
+    </script>
+  </body>
+</html>

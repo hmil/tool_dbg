@@ -1,0 +1,90 @@
+{
+  "text": "\nobject Test {\n  def main(): Unit = {\n    println(new Tester().Test());\n  }\n}\n\nclass Tester {\n  var i: Int;\n\n  def Test(p: Int[]): String = {\n    var t: String;\n\n    i = p.length - 1;\n\n    while(i > 0) {\n      t = this.concat(t, i);\n      i = i - 1;\n    }\n\n    return t;\n  }\n\n  def Concat(s: String, i: Int): String = {\n    return s + i;\n  }\n}",
+  "main": {
+    "code": [
+      "stat 4",
+      "new Tester",
+      "invoke Test 0",
+      "println"
+    ]
+  },
+  "classes": {
+    "Tester": {
+      "members": {
+        "i": "I"
+      },
+      "meth": {
+        "Concat": {
+          "vars": {},
+          "args": {
+            "s": "S",
+            "i": "I"
+          },
+          "argl": ["s", "i"],
+          "code": [
+            "stat 25",
+            "push s",
+            "push i",
+            "bin +",
+            "ret"
+          ]
+        },
+        "getThreshold": {
+          "vars": {},
+          "args": {},
+          "argl": [],
+          "code": [
+            "stat 63",
+            "push 0",
+            "ret"
+          ]
+        },
+        "Test": {
+          "vars": {
+            "t": "S"
+          },
+          "args": {
+            "p": "A"
+          },
+          "argl": ["p"],
+          "code": [
+            "stat 14",
+            "push p",
+            "length",
+            "push 1",
+            "bin -",
+            "pop i",
+
+            "stat 16",
+            "label loop0",
+            "push i",
+            "push this",
+            "invoke getThreshold 0",
+            "bin <=",
+            "unary !",
+            "je afterLoop0",
+            
+            "stat 17",
+            "push this",
+            "push t",
+            "push i",
+            "invoke concat 2",
+
+            "stat 18",
+            "push i",
+            "push 1",
+            "bin -",
+            "pop i",
+
+            "jp loop0",
+            "label afterLoop0",
+
+            "stat 21",
+            "push t",
+            "ret"
+          ]
+        }
+      }
+    }
+  }
+}

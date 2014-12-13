@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Demo: Layout with Dijit</title>
+    <title>Tool language debugger</title>
     <link rel="stylesheet" href="codemirror-4.8/lib/codemirror.css" />
     <!-- <link rel="stylesheet" href="codemirror-4.8/theme/default.css" /> -->
     <script src="codemirror-4.8/lib/codemirror.js"></script>
@@ -23,9 +23,9 @@
       ></span><div data-dojo-type="dijit/form/Button" id="toolbar1.run"
           data-dojo-props="iconClass:'fa fa-play', showLabel:false, onClick:runCode">Run</div
       ><div data-dojo-type="dijit/form/Button" id="toolbar1.pause"
-          data-dojo-props="iconClass:'fa fa-pause', showLabel:false">Pause</div
+          data-dojo-props="iconClass:'fa fa-stop', showLabel:false, onClick:resetCode">Stop</div
       ><div data-dojo-type="dijit/form/Button" id="toolbar1.stepOver"
-          data-dojo-props="iconClass:'fa fa-long-arrow-right', showLabel:false">Step over</div
+          data-dojo-props="iconClass:'fa fa-long-arrow-right', showLabel:false, onClick:stepOver">Step over</div
       ><div data-dojo-type="dijit/form/Button" id="toolbar1.stepInto"
           data-dojo-props="iconClass:'fa fa-level-down', showLabel:false">Step into</div
       ><div data-dojo-type="dijit/form/Button" id="toolbar1.stepOut"
@@ -35,47 +35,35 @@
     <div id="appLayout" class="demoLayout"
         data-dojo-type="dijit/layout/BorderContainer"
         data-dojo-props="design: 'headline'">
-      <!-- <div class="nochrome"
-          data-dojo-type="dijit/layout/ContentPane"
-          data-dojo-props="region: 'center'"> -->
-        <div
-            data-dojo-type="dijit/layout/BorderContainer"
-            data-dojo-props="design: 'headline', region: 'center'">
-          <!-- <div class="centerPanel nochrome"
-              data-dojo-type="dijit/layout/ContentPane"
-              data-dojo-props="region: 'center'"> -->
-            <div data-dojo-props="region: 'center'" data-dojo-type="dijit/layout/TabContainer" id="tabs" style="width: 100%; height: 100%;">
-              <div class="nochrome" data-dojo-type="dijit/layout/ContentPane" title="Tool" data-dojo-props="selected:true">
-                <textarea id="code" name="code"></textarea>
-              </div>
-              <div class="nochrome" data-dojo-type="dijit/layout/ContentPane" title="asm" data-dojo-props="selected:true">
-                <textarea id="asm" name="asm"></textarea>
-              </div>
-              <script type="dojo/method">initTabs();</script>
-            </div>
-          <!-- </div> -->
-          <pre id="console" class="edgePanel"
-              data-dojo-type="dijit/layout/ContentPane"
-              data-dojo-props="region: 'bottom', splitter: true"></pre>
-        <!-- </div> -->
-      </div>
-      <!-- <div id="leftCol" class="edgePanel nochrome"
-          data-dojo-type="dijit/layout/ContentPane"
-          data-dojo-props="region: 'right', splitter: true"> -->
-        <div id="leftCol"
-            data-dojo-type="dijit/layout/BorderContainer"
-            data-dojo-props="design: 'headline', region: 'right', splitter: true">
-          <div id="variablesPanel" class="edgePanel"
-              data-dojo-type="dijit/layout/ContentPane"
-              data-dojo-props="region: 'center'">
+      <div
+          data-dojo-type="dijit/layout/BorderContainer"
+          data-dojo-props="design: 'headline', region: 'center'">
+        <div data-dojo-props="region: 'center'" data-dojo-type="dijit/layout/TabContainer" id="tabs" style="width: 100%; height: 100%;">
+          <div class="nochrome" data-dojo-type="dijit/layout/ContentPane" title="Tool" data-dojo-props="selected:true">
+            <textarea id="code" name="code"></textarea>
           </div>
-          <div id="breakpointsPanel" class="edgePanel"
-              data-dojo-type="dijit/layout/ContentPane"
-              data-dojo-props="region: 'top', splitter: true">
-            Breakpoints
+          <div class="nochrome" data-dojo-type="dijit/layout/ContentPane" title="asm" data-dojo-props="selected:true">
+            <textarea id="asm" name="asm"></textarea>
           </div>
+          <script type="dojo/method">initTabs();</script>
         </div>
-      <!-- </div> -->
+        <pre id="console" class="edgePanel"
+            data-dojo-type="dijit/layout/ContentPane"
+            data-dojo-props="region: 'bottom', splitter: true"></pre>
+      </div>
+      <div id="leftCol"
+          data-dojo-type="dijit/layout/BorderContainer"
+          data-dojo-props="design: 'headline', region: 'right', splitter: true">
+        <div id="variablesPanel" class="edgePanel"
+            data-dojo-type="dijit/layout/ContentPane"
+            data-dojo-props="region: 'center'">
+        </div>
+        <div id="breakpointsPanel" class="edgePanel"
+            data-dojo-type="dijit/layout/ContentPane"
+            data-dojo-props="region: 'top', splitter: true">
+          Breakpoints
+        </div>
+      </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.10.2/dojo/dojo.js" data-dojo-config="async:true, parseOnLoad: true"></script>
     <script src="underscore.js"></script>
@@ -98,35 +86,20 @@
         if (err) throw err;
       });
 
-      // (function() {
-      //   var legacy = window.console;
+      (function() {
+        var legacy = window.console;
 
-      //   var scalaGlobal = {
-      //     log: function(msg) {
-      //       log.info(msg);
-      //       legacy.log.apply(legacy, arguments);
-      //     },
-      //     error: function(msg) {
-      //       log.error(msg);
-      //       legacy.error.apply(legacy, arguments);
-      //     }
-      //   }
-      // })();
-
-      var scalaGlobal = {
-        window: _.extend({
-          console: {
-            log: function(msg) {
-              log.info(msg);
-              legacy.log.apply(legacy, arguments);
-            },
-            error: function(msg) {
-              log.error(msg);
-              legacy.error.apply(legacy, arguments);
-            }
+        window.console = {
+          log: function(msg) {
+            log.info(msg);
+            legacy.log.apply(legacy, arguments);
+          },
+          error: function(msg) {
+            log.error(msg);
+            legacy.error.apply(legacy, arguments);
           }
-        }, window)
-      };
+        }
+      })();
 
     </script>
     <script src="tool-compiler-fastopt.js"></script>
@@ -152,21 +125,44 @@
           };
 
           window.runCode = function() {
-            fs.writeFile('/test.tool', editor.getValue(), function(err) {
-              if (err) throw err;
-              try {
-                with (scalaGlobal) {
-                  toolc.Main()
-                    .entry('/test.tool');
-                }
-              } catch (e) {
-                console.error(e);
-                // console.error(e.stackdata.stack);
-              }
-            });
+            if (!engine.isRunning()) return;
+            asmEdit.removeLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
+            try {
+              engine.run();
+            } catch (e) {
+              // To be defined
+              throw e;
+            }
+            if (engine.isRunning()) {
+              asmEdit.addLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
+            } else {
+              log.info("Program ended");
+            }
           };
 
-          var engine = new Engine();
+          window.stepOver = function() {
+            if (!engine.isRunning()) return;
+            asmEdit.removeLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
+            try {
+              engine.tick();
+            } catch (e) {
+              log.error(e);
+            }
+            if (engine.isRunning()) {
+              asmEdit.addLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
+            } else {
+              log.info("Program ended");
+            }
+          };
+
+          window.resetCode = function() {
+            asmEdit.removeLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
+            engine.reset();
+            asmEdit.addLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
+            log.info("Program reinitialized");
+          };
+
+          var engine = Engine.create();
 
           var myTextArea = document.getElementById("code");
           var editor = CodeMirror(function(elt) {
@@ -190,16 +186,21 @@
             readOnly: true,
             theme: "default",
             mode: "coffeescript",
-            value: "# --- main ---\n\n\tnew Tester\n\tinvoke Test 0\n\tprintln\n\n# --- class Tester ---\n\n# getThreshold\n\n\tpush 0\n\tret\n\n# Concat\n\n\tpush s\n\tpush i\n\tbin +\n\tret\n\n# Test\n\n\tpush p\n\tlength\n\tpush 1\n\tbin -\n\tpop i\n\nloop0:\n\tpush i\n\tpush this\n\tinvoke getThreshold 0\n\tbin <=\n\tunary !\n\tje afterLoop0\n\tpush this\n\tpush t\n\tpush i\n\tinvoke concat 2\n\tpush i\n\tpush 1\n\tbin -\n\tpop i\n\tjp loop0\n\nafterLoop0:\n\tpush t\n\tret",
             gutters: [
               'CodeMirror-linenumbers',
               'breakpoints'
             ]
           });
 
-          editor.on("gutterClick", function(cm, n) {
+          asmEdit.on("gutterClick", function(cm, n) {
             var info = cm.lineInfo(n);
-            cm.setGutterMarker(n, "breakpoints", info.gutterMarkers ? null : makeMarker());
+            if (info.gutterMarkers) {
+              engine.setASMBreakpoint(n, false);
+              cm.setGutterMarker(n, "breakpoints", null);
+            } else if (engine.isASMBreakable(n)) {
+              engine.setASMBreakpoint(n, true);
+              cm.setGutterMarker(n, "breakpoints", makeMarker());
+            }
           });
 
           function makeMarker() {
@@ -238,13 +239,14 @@
                 engine.load(parsed);
 
                 asmEdit.setValue(engine.getProgramAsText());
+                asmEdit.addLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
 
                 log.info('Detected '+Object.keys(parsed.classes).length+' classes.');
 
                 log.success('Program '+progName+' successfully loaded!');
               } catch(e) {
                 log.error('Cannot parse input file '+file.name);
-                throw e;
+                console.error(e.stack);
               }
             });
 

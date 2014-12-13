@@ -37,21 +37,29 @@ class Tester {
     new  xx   : creates a new instance of xx and push result to the stack
     pop xx    : pops element and puts result in xx (xx is identifier)
     length    : pops 1 elem, gets its length, push result
-    ret       : exits current method
+    ret       : exits current method or terminates the program if in main
     label ll  : labels the next instruction with ll
     invoke x y: pops y+1 elem, calls x on obj with arguments arg1, ..., argy. Stack is [obj, arg1, ..., argy -> ]
-    bin xx    : pops 2 elems, invokes binary operator xx and push result [op1, op2 -> (op1 xx op2)], xx is any binary javascript operand
-    unary  xx : pops 1 elem, invokes unary operator xx and push result [op1 -> xxop1], xx is any unary javascript operand
+
+    sub
+    add
+    mul
+    div
+
+    lt
+    le
+    gt
+    ge
+
+    not
+    and
+    or
+
     je ll     : pops 1 elem, compares to 0, jumps to ll if equals
     jne ll    : pops 1 elem, compares to 0, jumps to ll if not equals
     jp ll     : jumps to ll
 
   notes:
-    can translate shortcutted binary operand `a && b` simply by:
-      push a
-      push b
-      bin &&
     need an index of all breakable lines
-    map of labels => pc addr
 
 */

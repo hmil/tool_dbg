@@ -5,7 +5,8 @@
       "stat 4",
       "new Tester",
       "invoke Test 0",
-      "println"
+      "println",
+      "ret"
     ]
   },
   "classes": {
@@ -25,7 +26,7 @@
             "stat 25",
             "push s",
             "push i",
-            "bin +",
+            "add",
             "ret"
           ]
         },
@@ -52,7 +53,7 @@
             "push p",
             "length",
             "push 1",
-            "bin -",
+            "sub",
             "pop i",
 
             "stat 16",
@@ -60,8 +61,8 @@
             "push i",
             "push this",
             "invoke getThreshold 0",
-            "bin <=",
-            "unary !",
+            "le",
+            "not",
             "je afterLoop0",
             
             "stat 17",
@@ -73,7 +74,7 @@
             "stat 18",
             "push i",
             "push 1",
-            "bin -",
+            "sub",
             "pop i",
 
             "jp loop0",

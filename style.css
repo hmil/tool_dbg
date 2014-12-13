@@ -59,7 +59,7 @@ html, body {
 
 #console {
   margin: 0;
-  padding: 0;
+  padding: 5px;
   word-wrap: break-word;
   height: 150px;
 }
@@ -74,4 +74,8 @@ html, body {
 
 .success {
   color: #0c0;
+}
+
+.line-highlight {
+  background-color: #DCF8B8;
 }

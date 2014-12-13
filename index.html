@@ -21,7 +21,7 @@
           data-dojo-props="iconClass:'fa fa-download', showLabel:false"
       /><span data-dojo-type="dijit/ToolbarSeparator"
       ></span><div data-dojo-type="dijit/form/Button" id="toolbar1.run"
-          data-dojo-props="iconClass:'fa fa-play', showLabel:false">Run</div
+          data-dojo-props="iconClass:'fa fa-play', showLabel:false, onClick:runCode">Run</div
       ><div data-dojo-type="dijit/form/Button" id="toolbar1.pause"
           data-dojo-props="iconClass:'fa fa-pause', showLabel:false">Pause</div
       ><div data-dojo-type="dijit/form/Button" id="toolbar1.stepOver"
@@ -81,6 +81,57 @@
     <script src="underscore.js"></script>
     <script src="log.js"></script>
     <script src="Engine.js"></script>
+
+    <script src="browserfs.js"></script>
+    <script type="text/javascript">
+      BrowserFS.install(window);
+
+      var lsfs = new BrowserFS.FileSystem.LocalStorage();
+      // Initialize it as the root file system.
+      BrowserFS.initialize(lsfs);
+
+
+      // export fs object
+      var fs = require('fs');
+
+      fs.writeFile('/test.txt', 'object BinarySearch {\n    df main(): Unit = {\n        println(new BS().Start(20));\n    }\n}\n\n// This class contains an array of integers and\n// methods to initialize, print and search the array\n// using Binary Search\nclass BS {\n    var number : Int[];\n    var size : Int;\n\n    /* Invoke methods to initialize, print and search\n       for elements on the array **/\n    def Start(sz : Int) : String = {\n        var b: Bool;\n        \n        return "bar";\n    }\n}', function(err) {
+        if (err) throw err;
+      });
+
+      // (function() {
+      //   var legacy = window.console;
+
+      //   var scalaGlobal = {
+      //     log: function(msg) {
+      //       log.info(msg);
+      //       legacy.log.apply(legacy, arguments);
+      //     },
+      //     error: function(msg) {
+      //       log.error(msg);
+      //       legacy.error.apply(legacy, arguments);
+      //     }
+      //   }
+      // })();
+
+      var scalaGlobal = {
+        window: _.extend({
+          console: {
+            log: function(msg) {
+              log.info(msg);
+              legacy.log.apply(legacy, arguments);
+            },
+            error: function(msg) {
+              log.error(msg);
+              legacy.error.apply(legacy, arguments);
+            }
+          }
+        }, window)
+      };
+
+    </script>
+    <script src="tool-compiler-fastopt.js"></script>
+
+
     <script>
       require(["dijit/registry", "dijit/layout/BorderContainer",
           "dijit/layout/TabContainer", "dijit/layout/ContentPane",
@@ -100,6 +151,21 @@
             });
           };
 
+          window.runCode = function() {
+            fs.writeFile('/test.tool', editor.getValue(), function(err) {
+              if (err) throw err;
+              try {
+                with (scalaGlobal) {
+                  toolc.Main()
+                    .entry('/test.tool');
+                }
+              } catch (e) {
+                console.error(e);
+                // console.error(e.stackdata.stack);
+              }
+            });
+          };
+
           var engine = new Engine();
 
           var myTextArea = document.getElementById("code");
@@ -108,7 +174,6 @@
           }, {
             lineNumbers: true,
             matchBrackets: true,
-            readOnly: true,
             theme: "default",
             mode: "text/x-scala",
             gutters: [

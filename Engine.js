@@ -1,6 +1,6 @@
 'use strict';
 
-var Engine = (function() {
+var Engine = window.Engine = (function() {
 
   function StateMachine() {
     this.pc = 2; // Skips the initial comments. First instr executed is 2
@@ -24,6 +24,10 @@ var Engine = (function() {
 
   StateMachine.prototype.getCurrentScope = function() {
     return this.scopes[this.scope.length - 1];
+  };
+
+  StateMachine.prototype.getIdentifierValue = function(identifier) {
+    // body...
   };
 
   function fn_nop() {}
@@ -72,8 +76,12 @@ var Engine = (function() {
   _.extend(Instr_Const.prototype, Instruction.prototype);
 
   // load x
-  function Instr_Load(identfier) {
-    var value = _.find(???.getCurrentScope(), function())
+  function Instr_Load(identifier) {
+    Instruction.call(this, "\tload "+identifier, function(sm) {
+      var value = _.find(sm.getCurrentScope().vars, function() {
+
+      });
+    });
   }
   _.extend(Instr_Load.prototype, Instruction.prototype)
 

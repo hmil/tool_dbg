@@ -1,5 +1,4 @@
 {
-  "text": "\nobject Test {\n  def main(): Unit = {\n    println(new Tester().Test());\n  }\n}\n\nclass Tester {\n  var i: Int;\n\n  def Test(p: Int[]): String = {\n    var t: String;\n\n    i = p.length - 1;\n\n    while(i > 0) {\n      t = this.concat(t, i);\n      i = i - 1;\n    }\n\n    return t;\n  }\n\n  def Concat(s: String, i: Int): String = {\n    return s + i;\n  }\n}",
   "main": {
     "code": [
       "stat 4",

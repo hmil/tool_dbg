@@ -9,6 +9,7 @@ var Engine = (function() {
     this.hasEnded = false;
   }
 
+
   StateMachine.prototype.reset = function() {
     StateMachine.call(this);
   };
@@ -123,7 +124,7 @@ var Engine = (function() {
         prog.push(new Instruction('', fn_invalid));
         prog.push(new Instruction('# --- class ' + cname.replace(/\n/g, ' ') + ' ---', fn_invalid));
 
-        _.each(cd.meth, function(md, mname) {
+        _.each(cd.methods, function(md, mname) {
           prog.push(new Instruction('', fn_invalid));
           prog.push(new Instruction('# ' + mname.replace(/\n/g, ' '), fn_invalid));
           prog.push(new Instruction('', fn_invalid));
@@ -230,6 +231,23 @@ var Engine = (function() {
 
     Engine.prototype.isASMBreakable = function(instr) {
       return true;
+    };
+
+    // State dump
+    Engine.prototype.getStack = function() {
+      return [];
+    };
+
+    Engine.prototype.getObjectByRef = function(objRef) {
+      
+    };
+
+    Engine.prototype.getCallStack = function() {
+      
+    };
+
+    Engine.prototype.getCurrentScope = function() {
+      
     };
 
 

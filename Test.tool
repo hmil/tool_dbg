@@ -21,7 +21,7 @@ class Tester {
     return t;
   }
 
-  def Concat(s: String, i: Int): String = {
+  def concat(s: String, i: Int): String = {
     return s + i;
   }
 
@@ -30,36 +30,97 @@ class Tester {
   }
 }
 
-/*
-  Instructions: 
-    stat xx   : begin of a statement at source line xx
-    push xx   : push expression xx (xx is literal, identifier)
-    new  xx   : creates a new instance of xx and push result to the stack
-    pop xx    : pops element and puts result in xx (xx is identifier)
-    length    : pops 1 elem, gets its length, push result
-    ret       : exits current method or terminates the program if in main
-    label ll  : labels the next instruction with ll
-    invoke x y: pops y+1 elem, calls x on obj with arguments arg1, ..., argy. Stack is [obj, arg1, ..., argy -> ]
 
-    sub
-    add
-    mul
-    div
-
-    lt
-    le
-    gt
-    ge
-
-    not
-    and
-    or
-
-    je ll     : pops 1 elem, compares to 0, jumps to ll if equals
-    jne ll    : pops 1 elem, compares to 0, jumps to ll if not equals
-    jp ll     : jumps to ll
-
-  notes:
-    need an index of all breakable lines
-
-*/
+{
+    "main": {
+        "code": [
+            "new Tester",
+            "invoke Test", 
+            "println",
+            "ret"
+        ]
+    },
+    "classes": {
+        "Tester": {
+            "fields": {
+                "t": "String"
+            },
+            "methods": {
+                "concat": {
+                    "args": [
+                        {
+                            "name": "s",
+                            "type": "S"
+                        },
+                        {
+                            "name": "i",
+                            "type": "I"
+                        }
+                    ],
+                    "vars": {
+                        
+                    },
+                    "code": [
+                        "load s",
+                        "load i",
+                        "add",
+                        "ret"
+                    ]
+                },
+                "getThreshold": {
+                    "args": [
+                        
+                    ],
+                    "vars": {
+                        
+                    },
+                    "code": [
+                        "const 0",
+                        "ret"
+                    ]
+                },
+                "Test": {
+                    "args": [
+                        {
+                            "name": "t",
+                            "type": "[I"
+                        }
+                    ],
+                    "vars": [
+                        {
+                            "name": "t",
+                            "type": "S"
+                        }
+                    ],
+                    "code": [
+                        "load p",
+                        "length",
+                        "const 1",
+                        "sub",
+                        "store i",
+                        "label loop",
+                        "load i",
+                        "this",
+                        "invoke getThreshold",
+                        "le",
+                        "not",
+                        "jz loop_end",
+                        "this",
+                        "load t",
+                        "load i",
+                        "invoke concat",
+                        "store t",
+                        "load i",
+                        "const 1",
+                        "sub",
+                        "store i",
+                        "goto loop",
+                        "label loop_end",
+                        "load t",
+                        "ret"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -6,6 +6,7 @@ var log = (function() {
     tmp.className=level;
     tmp.innerText=message;
     el.appendChild(tmp);
+    dojo.query('#console')[0].scrollTop = 1000000;
   }
 
   function log(message) {

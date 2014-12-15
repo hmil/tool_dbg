@@ -53,6 +53,15 @@ var Engine = (function() {
   }
   _.extend(Label.prototype, Instruction.prototype);
 
+  function Instr_Const(value) {
+    var intVal = parseInt(value);
+    if (!_.isNaN(intVal)) value = intVal;
+    Instruction.call(this, '\tpush '+value, function(sm) {
+      sm.push(value);
+    });
+  }
+  _.extend(Instr_Const.prototype, Instruction.prototype);
+
 
   function createInstr(text) {
     var split = text.indexOf(' ');
@@ -65,6 +74,8 @@ var Engine = (function() {
         return new Instruction('\tret', fn_ret);
       case 'stat':
         return new Instruction('\t'+text, fn_nop);
+      case 'const':
+        return new Instr_Const(text.substr(split + 1));
       default:
         return new Instruction('\t#' + text, fn_nop);
     }

@@ -79,3 +79,7 @@ html, body {
 .line-highlight {
   background-color: #DCF8B8;
 }
+*
+.mark-error {
+  background-image: url('squiggle.png');
+}

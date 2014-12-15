@@ -30,6 +30,9 @@
           data-dojo-props="iconClass:'fa fa-level-down', showLabel:false">Step into</div
       ><div data-dojo-type="dijit/form/Button" id="toolbar1.stepOut"
           data-dojo-props="iconClass:'fa fa-level-up', showLabel:false">Step out</div
+      ><span data-dojo-type="dijit/ToolbarSeparator"
+      ></span><div data-dojo-type="dijit/form/Button" id="toolbar1.compile"
+          data-dojo-props="iconClass:'fa fa-cogs', showLabel:false, onClick:compile">Compile</div
       >
     </div>
     <div id="appLayout" class="demoLayout"
@@ -86,20 +89,9 @@
         if (err) throw err;
       });
 
-      (function() {
-        var legacy = window.console;
-
-        window.console = {
-          log: function(msg) {
-            log.info(msg);
-            legacy.log.apply(legacy, arguments);
-          },
-          error: function(msg) {
-            log.error(msg);
-            legacy.error.apply(legacy, arguments);
-          }
-        }
-      })();
+      __ScalaJSEnv = {
+        exitFunction: function() { throw new Error("Program exited");}
+      };
 
     </script>
     <script src="tool-compiler-fastopt.js"></script>
@@ -115,6 +107,65 @@
         function(registry, BorderContainer, TabContainer, ContentPane, MenuBar) {
 
           document.body.setAttribute('style', '');
+
+          function parseError(msg) {
+            // /test.tool:16:13: Fatal: Unknown operator >
+            var match = /^([^:]+):(\d+):(\d+):.+$/.exec(msg);
+            if (match != null) {
+              reportError(match[1], parseInt(match[2])-1, parseInt(match[3]));
+            }
+          }
+
+          var markers = [];
+          function clearMarkers() {
+            _.each(markers, function(m) {
+              m.clear();
+            });
+            markers.length = 0;
+            editor.clearGutter('breakpoints');
+          }
+
+          (function() {
+            var legacy = window.console;
+            var override = {
+              log: function(msg) {
+                log.info(msg);
+                legacy.log.apply(legacy, arguments);
+              },
+              error: function(msg) {
+                parseError(msg);
+                log.error(msg);
+                legacy.error.apply(legacy, arguments);
+              }
+            };
+
+            window.overrideConsole = function() {
+              legacy = window.console;
+              window.console = override;
+            };
+
+            window.restoreConsole = function() {
+              window.console = legacy;
+            };
+          })();
+
+          window.compile = function() {
+            clearMarkers();
+            fs.writeFile('/test.tool', editor.getValue(), function(err) {
+              log.info('compiling test.tool');
+
+              overrideConsole();
+              if (err) throw err;
+              try {
+                toolc.Main().entry('/test.tool');
+                log.success('done without errors');
+              } catch (e) {
+                console.error(e);
+                // console.error(e.stack);
+              }
+              restoreConsole();
+            });
+          };
 
           window.initTabs = function() {
             var tabs = registry.byId('tabs');
@@ -178,6 +229,12 @@
             ]
           });
 
+          function reportError(file, line, col) {
+            var tk = editor.getTokenAt({line: line, ch: col});
+            markers.push(editor.markText({line: line, ch: tk.start}, {line: line, ch: tk.end}, {className: 'mark-error'}));
+            editor.setGutterMarker(line, "breakpoints", makeErrorMarker());
+          }
+
           var asmTextArea = document.getElementById("asm");
           var asmEdit = CodeMirror(function(elt) {
             asmTextArea.parentNode.replaceChild(elt, asmTextArea);
@@ -207,6 +264,13 @@
             var marker = document.createElement("div");
             marker.style.color = "#822";
             marker.innerHTML = "●";
+            return marker;
+          }
+
+          function makeErrorMarker() {
+            var marker = document.createElement("div");
+            marker.style.color = "#a00";
+            marker.innerHTML = "✗";
             return marker;
           }
 

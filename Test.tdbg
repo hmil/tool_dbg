@@ -3,6 +3,9 @@
   "main": {
     "code": [
       "stat 4",
+      "const 3",
+      "const 4",
+      "sub",
       "new Tester",
       "invoke Test 0",
       "println",

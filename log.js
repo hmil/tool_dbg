@@ -4,7 +4,7 @@ var log = (function() {
   function _log(level, message) {
     var tmp = document.createElement('div');
     tmp.className=level;
-    tmp.innerText=message;
+    tmp.textContent=message;
     el.appendChild(tmp);
     dojo.query('#console')[0].scrollTop = 1000000;
   }

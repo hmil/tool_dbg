@@ -22,6 +22,7 @@ var Engine = (function() {
   };
 
   function fn_nop() {}
+
   function fn_invalid() {
     throw new Error('Invalid instruction');
   }
@@ -109,7 +110,7 @@ var Engine = (function() {
 
     Engine.prototype.load = function(program) {
 
-      sm.reset();
+      this.reset();
 
       prog.push(new Instruction('# --- main ---', fn_invalid));
       prog.push(new Instruction('', fn_invalid));
@@ -135,6 +136,9 @@ var Engine = (function() {
     };
 
     Engine.prototype.reset = function() {
+      prog.length = 0;
+      labels = {};
+      breakpoints.length = 0;
       sm.reset();
     };
 
@@ -180,15 +184,20 @@ var Engine = (function() {
     };
 
 
-    // Source-level debug
+    // Source-level debug (tool)
 
     Engine.prototype.getNextLine = function() {
       return 0;
     };
 
-    Engine.prototype.setBreakpoint = function(line, state) {
+    Engine.prototype.setBreakpoint = function(line) {
       
     };
+
+    Engine.prototype.removeBreakpoint = function(line) {
+
+    };
+    
 
     Engine.prototype.hasBreakpoint = function(line) {
       return false
@@ -205,9 +214,14 @@ var Engine = (function() {
       return sm.pc;
     };
 
-    Engine.prototype.setASMBreakpoint = function(instr, state) {
+    Engine.prototype.setASMBreakpoint = function(instr) {
       console.log("setting br at "+instr);
-      breakpoints[instr] = state;
+      breakpoints[instr] = true;
+    };
+
+    Engine.prototype.removeASMBreakpoint = function(instr) {
+      console.log("deleting br at "+instr);
+      breakpoints[instr] = false;
     };
 
     Engine.prototype.hasASMBreakpoint = function(instr) {

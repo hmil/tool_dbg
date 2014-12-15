@@ -85,10 +85,6 @@
       // export fs object
       var fs = require('fs');
 
-      fs.writeFile('/test.txt', 'object BinarySearch {\n    df main(): Unit = {\n        println(new BS().Start(20));\n    }\n}\n\n// This class contains an array of integers and\n// methods to initialize, print and search the array\n// using Binary Search\nclass BS {\n    var number : Int[];\n    var size : Int;\n\n    /* Invoke methods to initialize, print and search\n       for elements on the array **/\n    def Start(sz : Int) : String = {\n        var b: Bool;\n        \n        return "bar";\n    }\n}', function(err) {
-        if (err) throw err;
-      });
-
       __ScalaJSEnv = {
         exitFunction: function() { throw new Error("Program exited");}
       };
@@ -149,10 +145,11 @@
             };
           })();
 
+          // engrenages
           window.compile = function() {
             clearMarkers();
-            fs.writeFile('/test.tool', editor.getValue(), function(err) {
-              log.info('compiling test.tool');
+            /*fs.writeFile('/test.tool', editor.getValue(), function(err) {
+              /*log.info('compiling test.tool');
 
               overrideConsole();
               if (err) throw err;
@@ -164,7 +161,21 @@
                 // console.error(e.stack);
               }
               restoreConsole();
-            });
+            });*/
+            var json;
+            overrideConsole();
+            try {
+              json = JSON.parse(editor.getValue());
+              engine.load(json);
+              console.log("Program loaded");
+              asmEdit.setValue(engine.getProgramAsText());
+              asmEdit.addLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
+            }
+            catch (e) {
+              console.error(e);
+              console.error(e.stack);
+            }
+            restoreConsole();
           };
 
           window.initTabs = function() {
@@ -226,7 +237,8 @@
             gutters: [
               'CodeMirror-linenumbers',
               'breakpoints'
-            ]
+            ], 
+            value: '{\n  "main": {\n    "code": [\n      "stat 6",\n      "const 3",\n      "const 4",\n      "sub",\n      "new Tester",\n      "invoke Test 0",\n      "println",\n      "ret"\n    ]\n  },\n  "classes": {\n    "Tester": {\n      "members": {\n        "i": "I"\n      },\n      "meth": {\n        "Concat": {\n          "vars": {},\n          "args": {\n            "s": "S",\n            "i": "I"\n          },\n          "argl": ["s", "i"],\n          "code": [\n            "stat 25",\n            "push s",\n            "push i",\n            "add",\n            "ret"\n          ]\n        },\n        "getThreshold": {\n          "vars": {},\n          "args": {},\n          "argl": [],\n          "code": [\n            "stat 63",\n            "push 0",\n            "ret"\n          ]\n        },\n        "Test": {\n          "vars": {\n            "t": "S"\n          },\n          "args": {\n            "p": "A"\n          },\n          "argl": ["p"],\n          "code": [\n            "stat 14",\n            "push p",\n            "length",\n            "push 1",\n            "sub",\n            "pop i",\n\n            "stat 16",\n            "label loop0",\n            "push i",\n            "push this",\n            "invoke getThreshold 0",\n            "le",\n            "not",\n            "je afterLoop0",\n            \n            "stat 17",\n            "push this",\n            "push t",\n            "push i",\n            "invoke concat 2",\n\n            "stat 18",\n            "push i",\n            "push 1",\n            "sub",\n            "pop i",\n\n            "jp loop0",\n            "label afterLoop0",\n\n            "stat 21",\n            "push t",\n            "ret"\n          ]\n        }\n      }\n    }\n  }\n}'
           });
 
           function reportError(file, line, col) {

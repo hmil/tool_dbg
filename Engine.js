@@ -22,6 +22,10 @@ var Engine = (function() {
     return this.stack.splice(this.stack.length - 1, 1);
   };
 
+  StateMachine.prototype.getCurrentScope = function() {
+    return this.scopes[this.scope.length - 1];
+  };
+
   function fn_nop() {}
 
   function fn_invalid() {
@@ -47,7 +51,9 @@ var Engine = (function() {
     return this._code;
   };
 
+  /* INSTRUCTIONS DEFINITION */
 
+  // label x
   function Label(name) {
     Instruction.call(this, name + ':', fn_nop);
     this.isLabel = true;
@@ -55,6 +61,7 @@ var Engine = (function() {
   }
   _.extend(Label.prototype, Instruction.prototype);
 
+  // const x
   function Instr_Const(value) {
     var intVal = parseInt(value);
     if (!_.isNaN(intVal)) value = intVal;
@@ -63,6 +70,12 @@ var Engine = (function() {
     });
   }
   _.extend(Instr_Const.prototype, Instruction.prototype);
+
+  // load x
+  function Instr_Load(identfier) {
+    var value = _.find(???.getCurrentScope(), function())
+  }
+  _.extend(Instr_Load.prototype, Instruction.prototype)
 
 
   function createInstr(text) {

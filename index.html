@@ -60,11 +60,14 @@
         <div id="variablesPanel" class="edgePanel"
             data-dojo-type="dijit/layout/ContentPane"
             data-dojo-props="region: 'center'">
+          <script type="dojo/method">initVariablesPanel();</script>
         </div>
         <div id="breakpointsPanel" class="edgePanel"
             data-dojo-type="dijit/layout/ContentPane"
             data-dojo-props="region: 'top', splitter: true">
-          Breakpoints
+          
+
+          </div>
         </div>
       </div>
     </div>
@@ -74,6 +77,7 @@
     <script src="Engine.js"></script>
 
     <script src="browserfs.js"></script>
+    <script src="ScopeStore.js"></script>
     <script type="text/javascript">
       BrowserFS.install(window);
 
@@ -96,11 +100,31 @@
     <script>
       require(["dijit/registry", "dijit/layout/BorderContainer",
           "dijit/layout/TabContainer", "dijit/layout/ContentPane",
+          "dijit/tree/ObjectStoreModel", "dijit/Tree", "dojo/store/Observable",
           "dijit/MenuBar", "dijit/MenuBarItem", "dijit/PopupMenuBarItem",
           "dijit/DropDownMenu", "dijit/MenuItem",
           "dojo/domReady!"
         ],
-        function(registry, BorderContainer, TabContainer, ContentPane, MenuBar) {
+        function(registry, BorderContainer, TabContainer, ContentPane, ObjectStoreModel, Tree, Observable , MenuBar) {
+
+          var ScopeStoreModel = dojo.extend(ObjectStoreModel, {
+              mayHaveChildren: function(node) {
+                return node.hasChildren;
+              }
+          });
+
+          function refreshVariablesTree() {
+            var tree = variablesTree;
+            tree.dndController.selectNone(); 
+            tree._itemNodesMap = {};
+            tree.model.root = null;
+            tree.rootNode.state = "UNCHECKED";
+            if (tree.rootNode) {
+                tree.rootNode.destroyRecursive();
+            }
+            tree.postMixInProperties();
+            tree._load();
+          }
 
           document.body.setAttribute('style', '');
 
@@ -187,37 +211,37 @@
             });
           };
 
-          window.runCode = function() {
-            if (!engine.isRunning()) return;
-            asmEdit.removeLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
-            try {
-              engine.run();
-            } catch (e) {
-              log.error(e);
-              log.error(e.stack);
-            }
-            if (engine.isRunning()) {
-              asmEdit.addLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
-            } else {
-              log.info("Program ended");
-            }
+          window.initVariablesPanel = function() {
+            variablesTree.placeAt(registry.byId('variablesPanel')).startup();
           };
 
-          window.stepOver = function() {
-            if (!engine.isRunning()) return;
-            asmEdit.removeLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
-            try {
-              engine.tick();
-            } catch (e) {
-              log.error(e);
-              log.error(e.stack);
-            }
-            if (engine.isRunning()) {
-              asmEdit.addLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
-            } else {
-              log.info("Program ended");
-            }
-          }; 
+          function wrapEngineOp(op) {
+            return function() {
+              if (!engine.isRunning()) return;
+              asmEdit.removeLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
+              try {
+                op();
+              } catch (e) {
+                log.error(e);
+                log.error(e.stack);
+              }
+              callStackStore.setScope(engine.getCurrentScope());
+              refreshVariablesTree();
+              if (engine.isRunning()) {
+                asmEdit.addLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
+              } else {
+                log.info("Program ended");
+              }
+            };
+          }
+
+          window.runCode = wrapEngineOp(function () {
+            engine.run();
+          });
+
+          window.stepOver = wrapEngineOp(function () {
+            engine.tick();
+          });
 
           window.resetCode = function() {
             asmEdit.removeLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
@@ -227,6 +251,18 @@
           };
 
           var engine = window.engine = Engine.create();
+          var callStackStore = new ScopeStore(engine);
+
+          var myModel = new ScopeStoreModel({
+            store: callStackStore,
+            query: {root: true}
+          });
+
+          var variablesTree = new Tree({
+             model: myModel,
+             showRoot: false
+          });
+
 
           var myTextArea = document.getElementById("code");
           var editor = CodeMirror(function(elt) {

@@ -163,6 +163,7 @@
               restoreConsole();
             });*/
             var json;
+            localStorage['prog'] = editor.getValue();
             overrideConsole();
             try {
               json = JSON.parse(editor.getValue());
@@ -192,8 +193,8 @@
             try {
               engine.run();
             } catch (e) {
-              // To be defined
-              throw e;
+              log.error(e);
+              log.error(e.stack);
             }
             if (engine.isRunning()) {
               asmEdit.addLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
@@ -209,13 +210,14 @@
               engine.tick();
             } catch (e) {
               log.error(e);
+              log.error(e.stack);
             }
             if (engine.isRunning()) {
               asmEdit.addLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
             } else {
               log.info("Program ended");
             }
-          };
+          }; 
 
           window.resetCode = function() {
             asmEdit.removeLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
@@ -224,7 +226,7 @@
             log.info("Program reinitialized");
           };
 
-          var engine = Engine.create();
+          var engine = window.engine = Engine.create();
 
           var myTextArea = document.getElementById("code");
           var editor = CodeMirror(function(elt) {
@@ -237,8 +239,8 @@
             gutters: [
               'CodeMirror-linenumbers',
               'breakpoints'
-            ], 
-            value: '{\n    "main": {\n        "code": [\n            "new Tester",\n            "invoke Test", \n            "println",\n            "ret"\n        ]\n    },\n    "classes": {\n        "Tester": {\n            "fields": {\n                "t": "String"\n            },\n            "methods": {\n                "concat": {\n                    "args": [\n                        {\n                            "name": "s",\n                            "type": "S"\n                        },\n                        {\n                            "name": "i",\n                            "type": "I"\n                        }\n                    ],\n                    "vars": {\n                        \n                    },\n                    "code": [\n                        "load s",\n                        "load i",\n                        "add",\n                        "ret"\n                    ]\n                },\n                "getThreshold": {\n                    "args": [\n                        \n                    ],\n                    "vars": {\n                        \n                    },\n                    "code": [\n                        "const 0",\n                        "ret"\n                    ]\n                },\n                "Test": {\n                    "args": [\n                        {\n                            "name": "t",\n                            "type": "[I"\n                        }\n                    ],\n                    "vars": [\n                        {\n                            "name": "t",\n                            "type": "S"\n                        }\n                    ],\n                    "code": [\n                        "load p",\n                        "length",\n                        "const 1",\n                        "sub",\n                        "store i",\n                        "label loop",\n                        "load i",\n                        "this",\n                        "invoke getThreshold",\n                        "le",\n                        "not",\n                        "jz loop_end",\n                        "this",\n                        "load t",\n                        "load i",\n                        "invoke concat",\n                        "store t",\n                        "load i",\n                        "const 1",\n                        "sub",\n                        "store i",\n                        "goto loop",\n                        "label loop_end",\n                        "load t",\n                        "ret"\n                    ]\n                }\n            }\n        }\n    }\n}'
+            ],
+            value: localStorage['prog'] || ""
           });
 
           function reportError(file, line, col) {
@@ -264,10 +266,10 @@
           asmEdit.on("gutterClick", function(cm, n) {
             var info = cm.lineInfo(n);
             if (info.gutterMarkers) {
-              engine.setASMBreakpoint(n, false);
+              engine.removeASMBreakpoint(n);
               cm.setGutterMarker(n, "breakpoints", null);
             } else if (engine.isASMBreakable(n)) {
-              engine.setASMBreakpoint(n, true);
+              engine.setASMBreakpoint(n);
               cm.setGutterMarker(n, "breakpoints", makeMarker());
             }
           });

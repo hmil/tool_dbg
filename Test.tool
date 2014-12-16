@@ -1,17 +1,17 @@
 
 object Test {
   def main(): Unit = {
-    println(new Tester().Test());
+    println(new Tester().Test(10));
   }
 }
 
 class Tester {
   var i: Int;
 
-  def Test(p: Int[]): String = {
+  def Test(p: Int): String = {
     var t: String;
 
-    i = p.length - 1;
+    i = p - 1;
 
     while(!(i <= this.getThreshold())) {
       t = this.concat(t, i);
@@ -34,6 +34,7 @@ class Tester {
 {
     "main": {
         "code": [
+            "const 10",
             "new Tester",
             "invoke Test", 
             "println",
@@ -43,7 +44,7 @@ class Tester {
     "classes": {
         "Tester": {
             "fields": {
-                "t": "String"
+                "t": "S"
             },
             "methods": {
                 "concat": {
@@ -61,8 +62,8 @@ class Tester {
                         
                     },
                     "code": [
-                        "load s",
-                        "load i",
+                        "lload s",
+                        "lload i",
                         "add",
                         "ret"
                     ]
@@ -82,8 +83,8 @@ class Tester {
                 "Test": {
                     "args": [
                         {
-                            "name": "t",
-                            "type": "[I"
+                            "name": "p",
+                            "type": "I"
                         }
                     ],
                     "vars": [
@@ -93,30 +94,29 @@ class Tester {
                         }
                     ],
                     "code": [
-                        "load p",
-                        "length",
+                        "lload p",
                         "const 1",
                         "sub",
-                        "store i",
+                        "lstore i",
                         "label loop",
-                        "load i",
+                        "lload i",
                         "this",
                         "invoke getThreshold",
                         "le",
                         "not",
                         "jz loop_end",
+                        "lload i",
+                        "fload t",
                         "this",
-                        "load t",
-                        "load i",
                         "invoke concat",
-                        "store t",
-                        "load i",
+                        "fstore t",
+                        "lload i",
                         "const 1",
                         "sub",
-                        "store i",
+                        "lstore i",
                         "goto loop",
                         "label loop_end",
-                        "load t",
+                        "fload t",
                         "ret"
                     ]
                 }

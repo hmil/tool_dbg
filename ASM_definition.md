@@ -60,7 +60,6 @@ Returned by `Engine.getScope`:
 ```javascript
 scope: {
   this: object
-  params: {name -> value}
   locals: {name -> value}
   fields: {name -> value}
 }

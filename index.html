@@ -163,6 +163,7 @@
               restoreConsole();
             });*/
             var json;
+            localStorage['prog'] = editor.getValue();
             overrideConsole();
             try {
               json = JSON.parse(editor.getValue());
@@ -216,7 +217,7 @@
             } else {
               log.info("Program ended");
             }
-          };
+          }; 
 
           window.resetCode = function() {
             asmEdit.removeLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
@@ -239,7 +240,7 @@
               'CodeMirror-linenumbers',
               'breakpoints'
             ], 
-            value: '{\n    "main": {\n        "code": [\n            "const 1",\n            "new Tester",\n            "invoke Test", \n            "println",\n            "ret"\n        ]\n    },\n    "classes": {\n        "Tester": {\n            "fields": {\n                "t": "S"\n            },\n            "methods": {\n                "concat": {\n                    "args": [\n                        {\n                            "name": "s",\n                            "type": "S"\n                        },\n                        {\n                            "name": "i",\n                            "type": "I"\n                        }\n                    ],\n                    "vars": {\n                        \n                    },\n                    "code": [\n                        "lload s",\n                        "lload i",\n                        "add",\n                        "ret"\n                    ]\n                },\n                "getThreshold": {\n                    "args": [\n                        \n                    ],\n                    "vars": {\n                        \n                    },\n                    "code": [\n                        "const 0",\n                        "ret"\n                    ]\n                },\n                "Test": {\n                    "args": [\n                        {\n                            "name": "p",\n                            "type": "I"\n                        }\n                    ],\n                    "vars": [\n                        {\n                            "name": "t",\n                            "type": "S"\n                        }\n                    ],\n                    "code": [\n                        "lload p",\n                        "const 1",\n                        "sub",\n                        "lstore i",\n                        "label loop",\n                        "lload i",\n                        "this",\n                        "invoke getThreshold",\n                        "le",\n                        "not",\n                        "jz loop_end",\n                        "lload i",\n                        "fload t",\n                        "this",\n                        "invoke concat",\n                        "fstore t",\n                        "lload i",\n                        "const 1",\n                        "sub",\n                        "lstore i",\n                        "goto loop",\n                        "label loop_end",\n                        "fload t",\n                        "ret"\n                    ]\n                }\n            }\n        }\n    }\n}'
+            value: localStorage['prog'] || ""
           });
 
           function reportError(file, line, col) {

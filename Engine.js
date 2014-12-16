@@ -3,14 +3,16 @@
 var Engine = (function() {
 
   function newOfType(type) {
-    switch (type) {
+    switch (type.charAt(0)) {
       case 'S':
         return '';
       case 'I':
       case 'B':
         return 0;
-      case 'LI':
+      case '[':
         return [];
+      case 'L':
+        return null;
       default:
         throw new Error('Unknown type: '+type);
     }
@@ -128,6 +130,11 @@ var Engine = (function() {
     var b = sm.pop();
     var a = sm.pop();
     sm.push((a <= b) ? 1 : 0);
+  }
+  function fn_eq(sm) {
+    var b = sm.pop();
+    var a = sm.pop();
+    sm.push((a === b) ? 1 : 0);
   }
   function fn_not(sm) {    sm.push(sm.pop() ? 0 : 1);  }
   function fn_this(sm) {   sm.push(sm.currentScope().this);  }
@@ -295,6 +302,8 @@ var Engine = (function() {
           return new Instruction('\t'+text, fn_ge);
         case 'lt':
           return new Instruction('\t'+text, fn_lt);
+        case 'eq':
+          return new Instruction('\t'+text, fn_eq);
         case 'le':
           return new Instruction('\t'+text, fn_le);
         case 'not':
@@ -354,7 +363,10 @@ var Engine = (function() {
 
     function makeClass(cd) {
       function Class() {
-
+        var that = this;
+        _.each(cd.fields, function(f, fname) {
+          that[fname] = newOfType(f);
+        });
       };
       Class.prototype._methods = {};
 
@@ -520,11 +532,7 @@ var Engine = (function() {
     };
 
     Engine.prototype.getCurrentScope = function() {
-      var scope = sm.currentScope();
-      if (scope != null)
-        return scope.locals;
-      else
-        return {};
+      return sm.currentScope();
     };
 
 

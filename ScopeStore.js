@@ -37,7 +37,7 @@ ScopeStore.prototype.getChildren = function(parent, options){
     }];
 
     _.each(this._scope.locals, function(val, key) {
-      ret.push({name: key+'\t'+val, id: that._uniqId(), children: val, hasChildren: !_.isEmpty(val)});
+      ret.push({name: key+'\t'+val, id: that._uniqId(), children: val, hasChildren: _.keys(val).length != 0});
     });
 
     return ret;
@@ -45,7 +45,7 @@ ScopeStore.prototype.getChildren = function(parent, options){
     var cObj = parent.children;
     return _.map(_.keys(cObj), function(cname) {
       var val = cObj[cname];
-      return {name: cname+'\t'+val, id: that._uniqId(), children: val, hasChildren: !_.isEmpty(val)};
+      return {name: cname+'\t'+val, id: that._uniqId(), children: val, hasChildren: _.keys(val).length != 0};
     });
   }
 };

@@ -19,15 +19,28 @@ var Engine = window.Engine = (function() {
   };
 
   StateMachine.prototype.pop = function() {
-    return this.stack.splice(this.stack.length - 1, 1);
+    return this.stack.splice(this.stack.length - 1, 1)[0];
+  };
+
+  StateMachine.prototype.top = function() {
+    return this.stack[this.stack.length - 1];
   };
 
   StateMachine.prototype.getCurrentScope = function() {
     return this.scopes[this.scope.length - 1];
   };
 
-  StateMachine.prototype.getIdentifierValue = function(identifier) {
-    // body...
+  // Returns the value of a local or a parameter
+  StateMachine.prototype.getLocalValue = function(identifier) {
+    var scope = this.getCurrentScope();
+    var from = [scope.vars, scope.params];
+    for(var i in from) {
+      var value = from[i][identifier];
+      if (value) {
+        return value;
+      }
+    }
+    log.error("Unknown identifier "+identifier)
   };
 
   function fn_nop() {}
@@ -43,6 +56,9 @@ var Engine = window.Engine = (function() {
     if (sm.scopes.length === 0) {
       sm.hasEnded = true;
     }
+  }
+  function fn_print(sm) {
+    log.info(JSON.parse(sm.pop()))
   }
 
 
@@ -78,17 +94,33 @@ var Engine = window.Engine = (function() {
   // load x
   function Instr_Load(identifier) {
     Instruction.call(this, "\tload "+identifier, function(sm) {
-      var value = _.find(sm.getCurrentScope().vars, function() {
-
-      });
+      sm.push(sm.getLocalValue(identifier))
     });
   }
   _.extend(Instr_Load.prototype, Instruction.prototype)
+
+  // store x
+  function Instr_Store(identifier) {
+    Instruction.call(this, "\tstore "+identifier, function(sm) {
+      sm.getCurrentScope()[identifier] = sm.pop();
+    })
+  }
+  _.extend(Instr_Store.prototype, Instruction.prototype)
+
+  // dup
+  function Instr_Dup() {
+    Instruction.call(this, "\tdup", function(sm) {
+      sm.push(sm.top());
+    })
+  }
+  _.extend(Instr_Dup.prototype, Instruction.prototype)
+
 
 
   function createInstr(text) {
     var split = text.indexOf(' ');
     var op = (split > 0) ? text.substr(0, split) : text;
+    var args = text.substr(1 + split);
 
     switch (op) {
       case 'label':
@@ -99,6 +131,17 @@ var Engine = window.Engine = (function() {
         return new Instruction('\t'+text, fn_nop);
       case 'const':
         return new Instr_Const(text.substr(split + 1));
+      case 'println':
+        return new Instruction('\tprintln', fn_print);
+      case 'load':
+        return new Instr_Load(args);
+      case 'new':
+        return new Instr_New(args);
+      case 'invoke':
+        return new Invoke_Instr(args);
+      case 'dup':
+        return new Instr_Dup();
+
       default:
         return new Instruction('\t#' + text, fn_nop);
     }
@@ -114,7 +157,10 @@ var Engine = window.Engine = (function() {
 
     var breakpoints = [];
 
-    function Engine() {}
+    function Engine() {
+      this.sm = sm;
+      this.prog = prog;
+    }
 
     function parseInstr(instr) {
       var parsed = createInstr(instr);
@@ -197,7 +243,8 @@ var Engine = window.Engine = (function() {
     };
 
     Engine.prototype.tick = function() {
-      prog[sm.pc].exec(sm);
+      prog[sm.pc].exec(sm, prog);
+      console.log("Stack after "+prog[sm.pc]._code.substring(1)+": \n--> ["+sm.stack.join(", ")+"]")
       ++sm.pc;
     };
 

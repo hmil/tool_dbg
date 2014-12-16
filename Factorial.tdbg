@@ -1,0 +1,49 @@
+{
+    "main": {
+        "code": [
+            "const 20",
+            "new Tester",
+            "invoke fact", 
+            "println",
+            "ret"
+        ]
+    },
+    "classes": {
+        "Tester": {
+            "fields": {
+                "i": "I"
+            },
+            "methods": {
+                "fact": {
+                    "args": [
+                        {
+                            "name": "n",
+                            "type": "I"
+                        }
+                    ],
+                    "vars": {
+                        
+                    },
+                    "code": [
+                        "const 1", 
+                      	"lload n", 
+                      	"sub", 
+                      	"jz bottom",
+                      	"lload n", 
+                      	"dup", 
+                      	"const 1", 
+                      	"sub", 
+                      	"invoke fact", 
+                     	"mul", 
+                      	"goto end", 
+                      	"label bottom", 
+                      	"lload n",
+                      	"label end",
+                        "ret"
+                    ]
+                }
+                
+            }
+        }
+    }
+} 

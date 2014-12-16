@@ -5,7 +5,7 @@ var Engine = window.Engine = (function() {
   function StateMachine() {
     this.pc = 2; // Skips the initial comments. First instr executed is 2
     this.stack = [];
-    this.scopes = [];
+    this.scopes = [{locals:{}}];
     this.hasEnded = false;
   }
 
@@ -27,16 +27,16 @@ var Engine = window.Engine = (function() {
   };
 
   StateMachine.prototype.getCurrentScope = function() {
-    return this.scopes[this.scope.length - 1];
+    return this.scopes[this.scopes.length - 1];
   };
 
   // Returns the value of a local or a parameter
   StateMachine.prototype.getLocalValue = function(identifier) {
     var scope = this.getCurrentScope();
-    var from = [scope.vars, scope.params];
+    var from = [scope.locals || {}, scope.params || {}];
     for(var i in from) {
       var value = from[i][identifier];
-      if (value) {
+      if (typeof value !== 'undefined') {
         return value;
       }
     }
@@ -102,7 +102,7 @@ var Engine = window.Engine = (function() {
   // store x
   function Instr_Store(identifier) {
     Instruction.call(this, "\tstore "+identifier, function(sm) {
-      sm.getCurrentScope()[identifier] = sm.pop();
+      sm.getCurrentScope().locals[identifier] = sm.pop();
     })
   }
   _.extend(Instr_Store.prototype, Instruction.prototype)
@@ -114,6 +114,95 @@ var Engine = window.Engine = (function() {
     })
   }
   _.extend(Instr_Dup.prototype, Instruction.prototype)
+
+  // not
+  function Instr_Not() {
+    Instruction.call(this, "\tnot", function(sm) {
+      sm.push(1 - sm.pop());
+    })
+  }
+
+  _.extend(Instr_Not.prototype, Instruction.prototype)
+
+  // jz
+  function Instr_JumpIfZero(label, invert) {
+    invert = invert || false
+    var n = "";
+    if(invert) n = "n";
+    Instruction.call(this, "\tj"+n+"z "+label, function(sm, prog) {
+      console.log(prog)
+      var value = sm.pop();
+      if(!invert && value == 1 || invert && value == 0) {
+        return;
+      }
+      sm.pc = prog.labels[label];
+    })
+  }
+
+  _.extend(Instr_JumpIfZero.prototype, Instruction.prototype)
+
+  // goto
+  function Instr_Goto(label) {
+    Instruction.call(this, "\tgoto"+label, function(sm, prog) {
+      sm.pc = prog.labels[label];
+    });
+  }
+  _.extend(Instr_Goto.prototype, Instruction.prototype)
+
+
+  // add, sub, mul, div
+  function Instr_BaseBinaryOperation(op) {
+    Instruction.call(this, "\t"+op, function(sm) {
+      var second = parseInt(sm.pop());
+      var first = parseInt(sm.pop());
+      var result;
+      switch(op) {
+        case 'add':
+          result = first + second;
+          break;
+        case 'sub':
+          result = first - second;
+          break;
+        case 'div':
+          result = Math.floor(first / second);
+          break;
+        case 'mul':
+          result = first * second;
+          break;
+        case 'and':
+          result = first & second;
+          break;
+        case 'or':
+          result = first | second;
+          break;
+      }
+      sm.push(result);
+    })
+  }
+  _.extend(Instr_BaseBinaryOperation.prototype, Instruction.prototype)
+
+  function Instr_BaseBinaryComparison(op) {
+    Instruction.call(this, "\t"+op, function(sm) {
+      var second = parseInt(sm.pop());
+      var first = parseInt(sm.pop());
+      var result;
+      switch(op) {
+        case 'lt':
+          result = first < second;
+          break;
+        case 'le':
+          result = first <= second;
+          break;
+        case 'gt':
+          result = first > second;
+          break;
+        case 'ge':
+          result = first >= second;
+          break;
+      }
+      sm.push(result ? 1 : 0);
+    });
+  }
 
 
 
@@ -135,12 +224,34 @@ var Engine = window.Engine = (function() {
         return new Instruction('\tprintln', fn_print);
       case 'load':
         return new Instr_Load(args);
+      case 'store':
+        return new Instr_Store(args);
       case 'new':
         return new Instr_New(args);
       case 'invoke':
         return new Invoke_Instr(args);
       case 'dup':
         return new Instr_Dup();
+      case 'not':
+        return new Instr_Not();
+      case 'add':
+      case 'mul':
+      case 'sub':
+      case 'div':
+      case 'and':
+      case 'or':
+        return new Instr_BaseBinaryOperation(op)
+      case 'lt':
+      case 'le':
+      case 'gt':
+      case 'ge':
+        return new Instr_BaseBinaryComparison(op);
+      case 'jz':
+        return new Instr_JumpIfZero(args);
+      case 'jnz':
+        return new Instr_JumpIfZero(args, true /* invert */);
+      case 'goto':
+        return new Instr_Goto(args);
 
       default:
         return new Instruction('\t#' + text, fn_nop);
@@ -172,13 +283,14 @@ var Engine = window.Engine = (function() {
       prog.push(parsed);
     }
 
-
+    Engine.prototype.getLabels = function() { return labels };
 
     // Program loading, printing
 
     Engine.prototype.load = function(program) {
 
       this.reset();
+
 
       prog.push(new Instruction('# --- main ---', fn_invalid));
       prog.push(new Instruction('', fn_invalid));
@@ -201,6 +313,7 @@ var Engine = window.Engine = (function() {
       });
 
       breakpoints = new Array(prog.length);
+      prog.labels = labels;
     };
 
     Engine.prototype.reset = function() {

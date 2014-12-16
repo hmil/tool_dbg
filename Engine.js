@@ -157,8 +157,7 @@ var Engine = (function() {
   _.extend(Label.prototype, Instruction.prototype);
 
   function Instr_Const(value) {
-    var intVal = parseInt(value);
-    if (!_.isNaN(intVal)) value = intVal;
+    value = JSON.parse(value);
     Instruction.call(this, '\tpush '+value, function(sm) {
       sm.push(value);
     });
@@ -233,7 +232,7 @@ var Engine = (function() {
 
   function Instr_Fstore(id) {
     Instruction.call(this, '\tfstore '+id, function(sm) {
-      sm.push(sm.currentScope().this[id]);
+      sm.currentScope().this[id] = sm.pop();
     });
   }
   _.extend(Instr_Fstore.prototype, Instruction.prototype);
@@ -451,6 +450,7 @@ var Engine = (function() {
     Engine.prototype.tick = function() {
       prog[sm.pc].exec(sm);
       ++sm.pc;
+      console.log(sm.stack);
     };
 
     Engine.prototype.isRunning = function() {

@@ -5,8 +5,9 @@ var Engine = window.Engine = (function() {
   function StateMachine() {
     this.pc = 2; // Skips the initial comments. First instr executed is 2
     this.stack = [];
-    this.scopes = [{locals:{}}];
+    //this.scopes = [{locals:{}}];
     this.hasEnded = false;
+    this.callStack = [{scope: {locals: {}}}]
   }
 
 
@@ -27,7 +28,7 @@ var Engine = window.Engine = (function() {
   };
 
   StateMachine.prototype.getCurrentScope = function() {
-    return this.scopes[this.scopes.length - 1];
+    return this.callStack[this.callStack.length - 1].scope;
   };
 
   // Returns the value of a local or a parameter
@@ -52,13 +53,21 @@ var Engine = window.Engine = (function() {
     sm.hasEnded = true;
   }
   function fn_ret(sm) {
-    sm.scopes.pop();
-    if (sm.scopes.length === 0) {
+    //sm.scopes.pop();
+    var call = sm.callStack.pop();
+    if (sm.callStack.length === 0) {
       sm.hasEnded = true;
+    }
+    else {
+      sm.pc = call.line;
     }
   }
   function fn_print(sm) {
-    log.info(JSON.parse(sm.pop()))
+    log.info(sm.pop())
+  }
+
+  function fn_this(sm) {
+    sm.push(sm.getCurrentScope()['this']);
   }
 
 
@@ -83,17 +92,17 @@ var Engine = window.Engine = (function() {
 
   // const x
   function Instr_Const(value) {
-    var intVal = parseInt(value);
-    if (!_.isNaN(intVal)) value = intVal;
-    Instruction.call(this, '\tpush '+value, function(sm) {
-      sm.push(value);
+    /*var intVal = parseInt(value);
+    if (!_.isNaN(intVal)) value = intVal;*/
+    Instruction.call(this, '\tconst '+value, function(sm) {
+      sm.push(JSON.parse(value));
     });
   }
   _.extend(Instr_Const.prototype, Instruction.prototype);
 
   // load x
   function Instr_Load(identifier) {
-    Instruction.call(this, "\tload "+identifier, function(sm) {
+    Instruction.call(this, "\tlload "+identifier, function(sm) {
       sm.push(sm.getLocalValue(identifier))
     });
   }
@@ -101,7 +110,7 @@ var Engine = window.Engine = (function() {
 
   // store x
   function Instr_Store(identifier) {
-    Instruction.call(this, "\tstore "+identifier, function(sm) {
+    Instruction.call(this, "\tlstore "+identifier, function(sm) {
       sm.getCurrentScope().locals[identifier] = sm.pop();
     })
   }
@@ -132,7 +141,7 @@ var Engine = window.Engine = (function() {
     Instruction.call(this, "\tj"+n+"z "+label, function(sm, prog) {
       console.log(prog)
       var value = sm.pop();
-      if(!invert && value == 1 || invert && value == 0) {
+      if(!invert && value != 0 || invert && value == 0) {
         return;
       }
       sm.pc = prog.labels[label];
@@ -153,8 +162,8 @@ var Engine = window.Engine = (function() {
   // add, sub, mul, div
   function Instr_BaseBinaryOperation(op) {
     Instruction.call(this, "\t"+op, function(sm) {
-      var second = parseInt(sm.pop());
-      var first = parseInt(sm.pop());
+      var second = sm.pop();
+      var first = sm.pop();
       var result;
       switch(op) {
         case 'add':
@@ -203,7 +212,93 @@ var Engine = window.Engine = (function() {
       sm.push(result ? 1 : 0);
     });
   }
+  _.extend(Instr_BaseBinaryComparison.prototype, Instruction.prototype)
 
+
+  function Instr_New(className) {
+    Instruction.call(this, "\tnew "+className, function(sm, prog) {
+      var fieldsValues = {};
+      for(var field in prog.classes[className].fields) {
+        fieldsValues[field] = undefined
+      }
+
+      sm.push(new Instance(className, fieldsValues, sm.pc));
+    })
+  }
+
+  function Instance(className, fields, id) {
+    this.className = className;
+    this.fields = fields;
+    this.id = id;
+  }
+
+  Instance.prototype.toString = function() {
+    var str = this.className + "@" + this.id;
+    var valuedFields = {};
+    for(var field in this.fields) {
+      if(typeof this.fields[field] !== 'undefined') {
+        valuedFields[field] = this.fields[field];
+      }
+    }
+    str += "{" +_(valuedFields).map(function(value, key) {
+      return key+"="+value
+    }).join(",") + "}";
+
+    return str;
+  }
+
+  function Instr_Fload(fieldname) {
+    Instruction.call(this, "\tfload "+fieldname, function(sm, prog) {
+      var inst = sm.getCurrentScope()['this']
+      if(typeof inst === 'undefined') {
+        inst = sm.pop();
+      }
+      sm.push(inst.fields[fieldname])
+    })
+  }
+  _.extend(Instr_Fload.prototype, Instruction.prototype)
+
+  function Instr_Fstore(fieldname) {
+    Instruction.call(this, "\tfstore "+fieldname, function(sm, prog) {
+      var value = sm.pop();
+      var inst = sm.getCurrentScope()['this']
+      if(typeof inst === 'undefined') {
+        inst = sm.pop();
+      }
+      inst.fields[fieldname] = value;
+    });
+  }
+  _.extend(Instr_Fstore.prototype, Instruction.prototype)
+
+  function Instr_Invoke(methodName) {
+    Instruction.call(this, "\tinvoke "+methodName, function(sm, prog) {
+      //var inst = sm.pop();
+      var inst = sm.getCurrentScope()['this'];
+      if(typeof inst === 'undefined') {
+        inst = sm.pop();
+      }
+      var method = prog.classes[inst.className].methods[methodName];
+      var args = method.args;
+      var nbParams = Object.keys(args).length;
+      var paramNames = _(args).map(function(obj) { return obj.name; });
+      var paramsValues = {};
+      for(var i = 0; i < nbParams; ++i) {
+        paramsValues[paramNames[i]] = sm.pop();
+      }
+      var newScope = {};
+      newScope['this'] = inst;
+      newScope.params = paramsValues;
+      newScope.locals = {};
+      newScope.fields = inst.fields;
+
+      var newCall = {};
+      newCall.scope = newScope;
+      newCall.line = sm.pc;
+      sm.callStack.push(newCall);
+      sm.pc = method.pos - 1;
+    });
+  }
+  _.extend(Instr_Invoke.prototype, Instruction.prototype)
 
 
   function createInstr(text) {
@@ -222,14 +317,18 @@ var Engine = window.Engine = (function() {
         return new Instr_Const(text.substr(split + 1));
       case 'println':
         return new Instruction('\tprintln', fn_print);
-      case 'load':
+      case 'lload':
         return new Instr_Load(args);
-      case 'store':
+      case 'lstore':
         return new Instr_Store(args);
+      case 'fload':
+        return new Instr_Fload(args);
+      case 'fstore':
+        return new Instr_Fstore(args);
       case 'new':
         return new Instr_New(args);
       case 'invoke':
-        return new Invoke_Instr(args);
+        return new Instr_Invoke(args);
       case 'dup':
         return new Instr_Dup();
       case 'not':
@@ -252,6 +351,8 @@ var Engine = window.Engine = (function() {
         return new Instr_JumpIfZero(args, true /* invert */);
       case 'goto':
         return new Instr_Goto(args);
+      case 'this': 
+        return new Instruction("\tthis", fn_this)
 
       default:
         return new Instruction('\t#' + text, fn_nop);
@@ -263,27 +364,25 @@ var Engine = window.Engine = (function() {
 
     var sm = new StateMachine();
 
-    var prog = [];
-    var labels = {};
+    var instructions = [];
 
     var breakpoints = [];
+    var programStruct =  {}
 
     function Engine() {
       this.sm = sm;
-      this.prog = prog;
+      this.prog = instructions;
     }
 
     function parseInstr(instr) {
       var parsed = createInstr(instr);
 
       if (parsed.isLabel) {
-        prog.push(new Instruction('', fn_nop));
-        labels[parsed.name] = prog.length;
+        instructions.push(new Instruction('', fn_nop));
+        programStruct.labels[parsed.name] = instructions.length;
       }
-      prog.push(parsed);
+      instructions.push(parsed);
     }
-
-    Engine.prototype.getLabels = function() { return labels };
 
     // Program loading, printing
 
@@ -291,40 +390,44 @@ var Engine = window.Engine = (function() {
 
       this.reset();
 
+      programStruct = program;
+      programStruct.labels = {};
 
-      prog.push(new Instruction('# --- main ---', fn_invalid));
-      prog.push(new Instruction('', fn_invalid));
+      instructions.push(new Instruction('# --- main ---', fn_invalid));
+      instructions.push(new Instruction('', fn_invalid));
 
       // main
       _.each(program.main.code, parseInstr);
 
       // classes
       _.each(program.classes, function(cd, cname) {
-        prog.push(new Instruction('', fn_invalid));
-        prog.push(new Instruction('# --- class ' + cname.replace(/\n/g, ' ') + ' ---', fn_invalid));
+        instructions.push(new Instruction('', fn_invalid));
+        instructions.push(new Instruction('# --- class ' + cname.replace(/\n/g, ' ') + ' ---', fn_invalid));
 
         _.each(cd.methods, function(md, mname) {
-          prog.push(new Instruction('', fn_invalid));
-          prog.push(new Instruction('# ' + mname.replace(/\n/g, ' '), fn_invalid));
-          prog.push(new Instruction('', fn_invalid));
+          instructions.push(new Instruction('', fn_invalid));
+          instructions.push(new Instruction('# ' + mname.replace(/\n/g, ' '), fn_invalid));
+          instructions.push(new Instruction('', fn_invalid));
+          programStruct.classes[cname].methods[mname].pos = instructions.length;
 
           _.each(md.code, parseInstr);
         });
       });
 
-      breakpoints = new Array(prog.length);
-      prog.labels = labels;
+      breakpoints = new Array(instructions.length);
+      window.struct = programStruct;
     };
 
     Engine.prototype.reset = function() {
-      prog.length = 0;
-      labels = {};
+      instructions.length = 0;
+      programStruct = {}
+      programStruct.labels = {};
       breakpoints.length = 0;
       sm.reset();
     };
 
     Engine.prototype.getProgramAsText = function() {
-      return prog.map(function(instr) {
+      return instructions.map(function(instr) {
         return instr.toString();
       }).join('\n');
     };
@@ -356,8 +459,8 @@ var Engine = window.Engine = (function() {
     };
 
     Engine.prototype.tick = function() {
-      prog[sm.pc].exec(sm, prog);
-      console.log("Stack after "+prog[sm.pc]._code.substring(1)+": \n--> ["+sm.stack.join(", ")+"]")
+      instructions[sm.pc].exec(sm, programStruct);
+      console.log("Stack after "+instructions[sm.pc]._code.substring(1)+": \n--> ["+sm.stack.join(", ")+"]")
       ++sm.pc;
     };
 

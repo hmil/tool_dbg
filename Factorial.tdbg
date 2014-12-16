@@ -33,6 +33,7 @@
                       	"dup", 
                       	"const 1", 
                       	"sub", 
+                      	"this",
                       	"invoke fact", 
                      	"mul", 
                       	"goto end", 

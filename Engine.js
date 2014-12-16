@@ -107,7 +107,7 @@ var Engine = (function() {
       throw new Exrror("Divide by 0");
     }
     var a = sm.pop();
-    sm.push(~~(a / b));
+    sm.push((a / b) >> 0);
   }
   function fn_gt(sm) {
     var b = sm.pop();
@@ -516,11 +516,15 @@ var Engine = (function() {
     };
 
     Engine.prototype.getCallStack = function() {
-      
+      return sm.scopes;
     };
 
     Engine.prototype.getCurrentScope = function() {
-      
+      var scope = sm.currentScope();
+      if (scope != null)
+        return scope.locals;
+      else
+        return {};
     };
 
 

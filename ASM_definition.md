@@ -59,9 +59,8 @@ object = {
 Returned by `Engine.getScope`:
 ```javascript
 scope: {
-  this: object
+  this: {name -> value}
   locals: {name -> value}
-  fields: {name -> value}
 }
 ```
 

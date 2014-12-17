@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Tool language debugger</title>
-    <link rel="stylesheet" href="codemirror-4.8/lib/codemirror.css" />
+    <link rel="stylesheet" href="lib/codemirror-4.8/lib/codemirror.css" />
     <!-- <link rel="stylesheet" href="codemirror-4.8/theme/default.css" /> -->
-    <script src="codemirror-4.8/lib/codemirror.js"></script>
-    <script src="codemirror-4.8/addon/edit/matchbrackets.js"></script>
-    <script src="codemirror-4.8/mode/clike/clike.js"></script>
-    <script src="codemirror-4.8/mode/coffeescript/coffeescript.js"></script>
+    <script src="lib/codemirror-4.8/lib/codemirror.js"></script>
+    <script src="lib/codemirror-4.8/addon/edit/matchbrackets.js"></script>
+    <script src="lib/codemirror-4.8/mode/clike/clike.js"></script>
+    <script src="lib/codemirror-4.8/mode/coffeescript/coffeescript.js"></script>
     <link rel="stylesheet" href="style.css" media="screen">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/dojo/1.10.2/dijit/themes/claro/claro.css" media="screen">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -72,12 +72,43 @@
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.10.2/dojo/dojo.js" data-dojo-config="async:true, parseOnLoad: true"></script>
-    <script src="underscore.js"></script>
-    <script src="log.js"></script>
-    <script src="Engine.js"></script>
+    <script src="lib/underscore.js"></script>
+    <script src="src/log.js"></script>
 
-    <script src="browserfs.js"></script>
-    <script src="ScopeStore.js"></script>
+    <!-- Engine -->
+    <script src="src/Engine.js"></script>
+    <script>
+      var engine = Engine.create();
+    </script>
+
+    <!-- utils -->
+    <script>
+    function openFiles(files, cb) {
+      if (files.length < 1) {
+        alert('No file selected, aborting');
+      }
+      var file = files[0];
+      var fr = new FileReader();
+
+      fr.addEventListener('loadend', function() {
+        try {
+          var progName = file.name.substr(0, file.name.lastIndexOf('.'));
+          log.info('Loading programm '+progName);
+
+          cb(null, fr.result);
+        } catch(e) {
+          cb(e);
+        }
+      });
+
+      fr.readAsText(file);
+    }
+    </script>
+
+    <script src="lib/browserfs.js"></script>
+    <script src="src/ScopeStore.js"></script>
+
+    <!-- fs and ScalaJS -->
     <script type="text/javascript">
       BrowserFS.install(window);
 
@@ -94,7 +125,7 @@
       };
 
     </script>
-    <script src="tool-compiler-fastopt.js"></script>
+    <script src="src/tool-compiler-fastopt.js"></script>
 
 
     <script>
@@ -250,7 +281,7 @@
             log.info("Program reinitialized");
           };
 
-          var engine = window.engine = Engine.create();
+          
           var callStackStore = new ScopeStore(engine);
 
           var myModel = new ScopeStoreModel({
@@ -260,7 +291,10 @@
 
           var variablesTree = new Tree({
              model: myModel,
-             showRoot: false
+             showRoot: false,
+             getIconStyle: function() {
+              return {display: "none"};
+             }
           });
 
 
@@ -331,41 +365,15 @@
 
             var open = document.getElementById('toolbar1.open').parentElement.nextSibling;
             open.addEventListener('change', function() {
-              openFiles(this.files);
+              openFiles(this.files, function(err, data) {
+                if (err) {
+                  log.error(err);
+                } else {
+                  editor.setValue(data);
+                }
+              });
             });
           }, 500);
-
-          function openFiles(files) {
-            if (files.length < 1) {
-              alert('No file selected, aborting');
-            }
-            var file = files[0];
-            var fr = new FileReader();
-
-            fr.addEventListener('loadend', function() {
-              try {
-                var progName = file.name.substr(0, file.name.lastIndexOf('.'));
-                log.info('Loading programm '+progName);
-
-                var parsed = JSON.parse(fr.result);
-                editor.setValue(parsed.text);
-
-                engine.load(parsed);
-
-                asmEdit.setValue(engine.getProgramAsText());
-                asmEdit.addLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
-
-                log.info('Detected '+Object.keys(parsed.classes).length+' classes.');
-
-                log.success('Program '+progName+' successfully loaded!');
-              } catch(e) {
-                log.error('Cannot parse input file '+file.name);
-                console.error(e.stack);
-              }
-            });
-
-            fr.readAsText(file);
-          }
 
           log('\t### Tool debugger v0.0 ###\n\n');
           log('No file loaded, click the load icon to load a file');

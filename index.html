@@ -260,7 +260,10 @@
 
           var variablesTree = new Tree({
              model: myModel,
-             showRoot: false
+             showRoot: false,
+             getIconStyle: function() {
+              return {display: "none"};
+             }
           });
 
 

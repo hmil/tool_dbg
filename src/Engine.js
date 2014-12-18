@@ -139,6 +139,20 @@ var Engine = (function() {
     var a = sm.pop();
     sm.push((a === b) ? 1 : 0);
   }
+  function fn_aget(sm) {
+    var id = sm.pop();
+    var ref = sm.pop();
+    sm.push(ref[id]);
+  }
+  function fn_aput(sm) {
+    var val = sm.pop();
+    var id = sm.pop();
+    var ref = sm.pop();
+    ref[id] = val;
+  }
+  function fn_newArray(sm) {
+    sm.push(new Array(sm.pop()));
+  }
   function fn_not(sm) {    sm.push(sm.pop() ? 0 : 1);  }
   function fn_this(sm) {   sm.push(sm.currentScope().this);  }
   function fn_length(sm) { sm.push(sm.pop().length); }
@@ -272,9 +286,7 @@ var Engine = (function() {
     var jumps = [];
     var breakpoints = [];
 
-    var classes = {
-      '[]': Array
-    };
+    var classes = {};
 
 
     function Instr_New(className) {
@@ -325,6 +337,10 @@ var Engine = (function() {
           return new Instruction('\t'+text, fn_pop);
         case 'println':
           return new Instruction('\t'+text, fn_print);
+        case 'aput':
+          return new Instruction('\t'+text, fn_aput);
+        case 'aget':
+          return new Instruction('\t'+text, fn_aget);
         case 'jz':
           return new Instr_JumpZero(text.substr(split + 1));
         case 'jnz':
@@ -335,6 +351,8 @@ var Engine = (function() {
           return new Instr_Const(text.substr(split + 1));
         case 'new':
           return new Instr_New(text.substr(split + 1));
+        case 'newarray':
+          return new Instruction('\tnewarray', fn_newArray);
         case 'invoke':
           return new Instr_Invoke(text.substr(split + 1));
         case 'this':
@@ -444,7 +462,7 @@ var Engine = (function() {
     Engine.prototype.run = function() {
       while (this.isRunning()) {
         this.tick();
-        if (breakpoints[this.getNextASMLine()]) break;
+        if (breakpoints[this.getNextLine()]) break;
       }
     };
 
@@ -505,55 +523,31 @@ var Engine = (function() {
       return sm.getNextLine();
     };
 
-    Engine.prototype.setBreakpoint = function(line) {
-      
-    };
-
-    Engine.prototype.removeBreakpoint = function(line) {
-
-    };
-    
-
-    Engine.prototype.hasBreakpoint = function(line) {
-      return false
-    };
-
-    Engine.prototype.isBreakable = function(line) {
-      return false;
-    };
-
-
-    // ASM-level debug
-
     Engine.prototype.getNextASMLine = function() {
       return sm.pc;
     };
 
-    Engine.prototype.setASMBreakpoint = function(instr) {
+    Engine.prototype.setBreakpoint = function(instr) {
       console.log("setting br at "+instr);
       breakpoints[instr] = true;
     };
 
-    Engine.prototype.removeASMBreakpoint = function(instr) {
+    Engine.prototype.removeBreakpoint = function(instr) {
       console.log("deleting br at "+instr);
       breakpoints[instr] = false;
     };
 
-    Engine.prototype.hasASMBreakpoint = function(instr) {
+    Engine.prototype.hasBreakpoint = function(instr) {
       return breakpoints[instr];
     };
 
-    Engine.prototype.isASMBreakable = function(instr) {
+    Engine.prototype.isBreakable = function(instr) {
       return true;
     };
 
     // State dump
     Engine.prototype.getStack = function() {
       return [];
-    };
-
-    Engine.prototype.getObjectByRef = function(objRef) {
-      
     };
 
     Engine.prototype.getCallStack = function() {

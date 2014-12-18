@@ -167,6 +167,12 @@
             }
           }
 
+          function jumpToLine(i, editor) { 
+            var t = editor.charCoords({line: i, ch: 0}, "local").top; 
+            var middleHeight = editor.getScrollerElement().offsetHeight / 2; 
+            editor.scrollTo(null, t - middleHeight - 5); 
+          } 
+
           var markers = [];
           function clearMarkers() {
             _.each(markers, function(m) {
@@ -265,8 +271,9 @@
               refreshVariablesTree();
               if (engine.isRunning()) {
                 asmEdit.addLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
-                console.log('highlighting : '+engine.getNextLine());
+                jumpToLine(engine.getNextASMLine(), asmEdit);
                 editor.addLineClass(engine.getNextLine(), 'background', 'line-highlight');
+                jumpToLine(engine.getNextLine(), editor);
               } else {
                 log.info("Program ended");
               }
@@ -348,13 +355,13 @@
             ]
           });
 
-          asmEdit.on("gutterClick", function(cm, n) {
+          editor.on("gutterClick", function(cm, n) {
             var info = cm.lineInfo(n);
             if (info.gutterMarkers) {
-              engine.removeASMBreakpoint(n);
+              engine.removeBreakpoint(n);
               cm.setGutterMarker(n, "breakpoints", null);
-            } else if (engine.isASMBreakable(n)) {
-              engine.setASMBreakpoint(n);
+            } else if (engine.isBreakable(n)) {
+              engine.setBreakpoint(n);
               cm.setGutterMarker(n, "breakpoints", makeMarker());
             }
           });

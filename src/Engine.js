@@ -107,12 +107,17 @@ var Engine = (function() {
   }
   function fn_div(sm) {
     var b = sm.pop();
-    if (b < 0) {
+    if (b === 0) {
       sm.push(b);
-      throw new Exrror("Divide by 0");
+      throw new Error("Divide by 0");
     }
     var a = sm.pop();
-    sm.push((a / b) >> 0);
+    var result = a / b;
+    if (result < 0) {
+      sm.push(Math.ceil(result));
+    } else {
+      sm.push(Math.floor(result));
+    }
   }
   function fn_gt(sm) {
     var b = sm.pop();
@@ -460,9 +465,8 @@ var Engine = (function() {
     // Execution control
 
     Engine.prototype.run = function() {
-      while (this.isRunning()) {
+      while (this.isRunning() && !breakpoints[this.getNextLine()]) {
         this.tick();
-        if (breakpoints[this.getNextLine()]) break;
       }
     };
 

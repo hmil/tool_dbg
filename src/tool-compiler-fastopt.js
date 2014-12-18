@@ -5181,6 +5181,9 @@ ScalaJS.c.Ltoolc_ast_Trees$And.prototype.toolc$utils$Positioned$$$undcol__I = (f
 ScalaJS.c.Ltoolc_ast_Trees$And.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
 });
+ScalaJS.c.Ltoolc_ast_Trees$And.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
+});
 ScalaJS.c.Ltoolc_ast_Trees$And.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
 });
@@ -5500,6 +5503,9 @@ ScalaJS.c.Ltoolc_ast_Trees$ArrayLength.prototype.toolc$utils$Positioned$$$undcol
 ScalaJS.c.Ltoolc_ast_Trees$ArrayLength.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
 });
+ScalaJS.c.Ltoolc_ast_Trees$ArrayLength.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
+});
 ScalaJS.c.Ltoolc_ast_Trees$ArrayLength.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
 });
@@ -5651,6 +5657,9 @@ ScalaJS.c.Ltoolc_ast_Trees$ArrayRead.prototype.toolc$utils$Positioned$$$undcol__
 });
 ScalaJS.c.Ltoolc_ast_Trees$ArrayRead.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$ArrayRead.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$ArrayRead.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -6407,6 +6416,9 @@ ScalaJS.c.Ltoolc_ast_Trees$Div.prototype.toolc$utils$Positioned$$$undcol__I = (f
 ScalaJS.c.Ltoolc_ast_Trees$Div.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
 });
+ScalaJS.c.Ltoolc_ast_Trees$Div.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
+});
 ScalaJS.c.Ltoolc_ast_Trees$Div.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
 });
@@ -6567,6 +6579,9 @@ ScalaJS.c.Ltoolc_ast_Trees$Equals.prototype.toolc$utils$Positioned$$$undcol__I =
 });
 ScalaJS.c.Ltoolc_ast_Trees$Equals.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$Equals.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$Equals.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -6747,6 +6762,9 @@ ScalaJS.c.Ltoolc_ast_Trees$False.prototype.toolc$utils$Positioned$$$undcol__I = 
 });
 ScalaJS.c.Ltoolc_ast_Trees$False.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$False.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$False.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -7050,6 +7068,9 @@ ScalaJS.c.Ltoolc_ast_Trees$Identifier.prototype.toolc$utils$Positioned$$$undcol_
 });
 ScalaJS.c.Ltoolc_ast_Trees$Identifier.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$Identifier.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$Identifier.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -7493,6 +7514,9 @@ ScalaJS.c.Ltoolc_ast_Trees$IntLit.prototype.toolc$utils$Positioned$$$undcol__I =
 ScalaJS.c.Ltoolc_ast_Trees$IntLit.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
 });
+ScalaJS.c.Ltoolc_ast_Trees$IntLit.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
+});
 ScalaJS.c.Ltoolc_ast_Trees$IntLit.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
 });
@@ -7775,6 +7799,9 @@ ScalaJS.c.Ltoolc_ast_Trees$LessThan.prototype.toolc$utils$Positioned$$$undcol__I
 });
 ScalaJS.c.Ltoolc_ast_Trees$LessThan.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$LessThan.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$LessThan.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -8094,6 +8121,9 @@ ScalaJS.c.Ltoolc_ast_Trees$MethodCall.prototype.toolc$utils$Positioned$$$undcol_
 });
 ScalaJS.c.Ltoolc_ast_Trees$MethodCall.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$MethodCall.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$MethodCall.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -8462,6 +8492,9 @@ ScalaJS.c.Ltoolc_ast_Trees$Minus.prototype.toolc$utils$Positioned$$$undcol__I = 
 ScalaJS.c.Ltoolc_ast_Trees$Minus.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
 });
+ScalaJS.c.Ltoolc_ast_Trees$Minus.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
+});
 ScalaJS.c.Ltoolc_ast_Trees$Minus.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
 });
@@ -8622,6 +8655,9 @@ ScalaJS.c.Ltoolc_ast_Trees$New.prototype.toolc$utils$Positioned$$$undcol__I = (f
 ScalaJS.c.Ltoolc_ast_Trees$New.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
 });
+ScalaJS.c.Ltoolc_ast_Trees$New.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
+});
 ScalaJS.c.Ltoolc_ast_Trees$New.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
 });
@@ -8772,6 +8808,9 @@ ScalaJS.c.Ltoolc_ast_Trees$NewIntArray.prototype.toolc$utils$Positioned$$$undcol
 });
 ScalaJS.c.Ltoolc_ast_Trees$NewIntArray.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$NewIntArray.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$NewIntArray.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -8924,6 +8963,9 @@ ScalaJS.c.Ltoolc_ast_Trees$Not.prototype.toolc$utils$Positioned$$$undcol__I = (f
 ScalaJS.c.Ltoolc_ast_Trees$Not.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
 });
+ScalaJS.c.Ltoolc_ast_Trees$Not.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
+});
 ScalaJS.c.Ltoolc_ast_Trees$Not.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
 });
@@ -9075,6 +9117,9 @@ ScalaJS.c.Ltoolc_ast_Trees$Or.prototype.toolc$utils$Positioned$$$undcol__I = (fu
 });
 ScalaJS.c.Ltoolc_ast_Trees$Or.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$Or.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$Or.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -9236,6 +9281,9 @@ ScalaJS.c.Ltoolc_ast_Trees$Plus.prototype.toolc$utils$Positioned$$$undcol__I = (
 });
 ScalaJS.c.Ltoolc_ast_Trees$Plus.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$Plus.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$Plus.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -9701,6 +9749,9 @@ ScalaJS.c.Ltoolc_ast_Trees$StringLit.prototype.toolc$utils$Positioned$$$undcol__
 ScalaJS.c.Ltoolc_ast_Trees$StringLit.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
 });
+ScalaJS.c.Ltoolc_ast_Trees$StringLit.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
+});
 ScalaJS.c.Ltoolc_ast_Trees$StringLit.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
 });
@@ -9996,6 +10047,9 @@ ScalaJS.c.Ltoolc_ast_Trees$This.prototype.toolc$utils$Positioned$$$undcol__I = (
 ScalaJS.c.Ltoolc_ast_Trees$This.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
 });
+ScalaJS.c.Ltoolc_ast_Trees$This.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
+});
 ScalaJS.c.Ltoolc_ast_Trees$This.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
 });
@@ -10124,6 +10178,9 @@ ScalaJS.c.Ltoolc_ast_Trees$Times.prototype.toolc$utils$Positioned$$$undcol__I = 
 });
 ScalaJS.c.Ltoolc_ast_Trees$Times.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$Times.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$Times.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -10283,6 +10340,9 @@ ScalaJS.c.Ltoolc_ast_Trees$True.prototype.toolc$utils$Positioned$$$undcol__I = (
 });
 ScalaJS.c.Ltoolc_ast_Trees$True.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$True.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$True.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -29362,6 +29422,7 @@ ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseMethodDecl$1__p2__Ltoolc_utils_Conte
   var stats = this.parseStatements$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1);
   this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RETURN(), ctx$1, tokens$1, currentToken$1);
   var returnExpr = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
+  returnExpr.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1));
   this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$SEMICOLON(), ctx$1, tokens$1, currentToken$1);
   this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACE(), ctx$1, tokens$1, currentToken$1);
   return new ScalaJS.c.Ltoolc_ast_Trees$MethodDecl().init___Ltoolc_ast_Trees$TypeTree__Ltoolc_ast_Trees$Identifier__sci_List__sci_List__sci_List__Ltoolc_ast_Trees$ExprTree(leType, id, params, varDecls, stats, returnExpr)
@@ -29410,6 +29471,7 @@ ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseIdentifier$1__p2__Ltoolc_utils_Conte
   return new ScalaJS.c.Ltoolc_ast_Trees$Identifier().init___T(ScalaJS.as.Ltoolc_lexer_Tokens$ID(id_tmp).value__T())
 });
 ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree = (function(ctx$1, tokens$1, currentToken$1) {
+  var pos = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
   var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
   matchEnd8: {
     var leStat$2;
@@ -29478,7 +29540,7 @@ ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseStatement$1__p2__Ltoolc_utils_Contex
     };
     this.expected$1__p2__Ltoolc_lexer_TokenKind__sc_Seq__Ltoolc_utils_Context__sr_ObjectRef__sr_Nothing$(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), new ScalaJS.c.sjs_js_WrappedArray().init___sjs_js_Array([ScalaJS.m.Ltoolc_lexer_Tokens$PRINTLN(), ScalaJS.m.Ltoolc_lexer_Tokens$WHILE(), ScalaJS.m.Ltoolc_lexer_Tokens$IF(), ScalaJS.m.Ltoolc_lexer_Tokens$LBRACE()]), ctx$1, currentToken$1)
   };
-  leStat$2.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1));
+  leStat$2.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos);
   return leStat$2
 });
 ScalaJS.c.Ltoolc_ast_Parser$.prototype.inner$5__p2__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(acc, ctx$1, tokens$1, currentToken$1) {
@@ -30242,7 +30304,7 @@ ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.toolc$code$CodeGeneration$$gener
       var s = ScalaJS.as.Ltoolc_ast_Trees$StatTree(s$2);
       ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$generateStatement$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$StatTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth$1, s, outProg$1)
     })
-  })(outProg$1, meth))), this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, md.retExpr__Ltoolc_ast_Trees$ExprTree(), outProg$1), meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undRet().init___()))
+  })(outProg$1, meth))), meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStat().init___I(md.retExpr__Ltoolc_ast_Trees$ExprTree().line__I())), this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, md.retExpr__Ltoolc_ast_Trees$ExprTree(), outProg$1), meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStat().init___I(md.retExpr__Ltoolc_ast_Trees$ExprTree().line__I())).$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undRet().init___()))
 });
 ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.toolc$code$CodeGeneration$$generateStatement$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$StatTree__Ltoolc_code_CodeGenerator$ProgramGen__V = (function(meth, s, outProg$1) {
   meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStat().init___I(s.line__I()));
@@ -33017,7 +33079,7 @@ ScalaJS.c.Ltoolc_lexer_Lexer$.prototype.toolc$lexer$Lexer$$readNextToken$1__Ltoo
       return ScalaJS.as.Ltoolc_lexer_Token(new ScalaJS.c.Ltoolc_lexer_Tokens$INTLIT().init___I(value).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))
     } else if ((c === 48)) {
       if ((charIterator$1.hasNext__Z() && _$this.toolc$lexer$Lexer$$isDigit$1__C__Z(ScalaJS.uC(charIterator$1.seeNext__O())))) {
-        ctx$1.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V("No leading zeros allowed", ctx$1.reporter__Ltoolc_utils_Reporter().error$default$2__Ltoolc_utils_Positioned());
+        ctx$1.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V("No leading zeros allowed", pos);
         return ScalaJS.as.Ltoolc_lexer_Token(new ScalaJS.c.Ltoolc_lexer_Token().init___Ltoolc_lexer_TokenKind(ScalaJS.m.Ltoolc_lexer_Tokens$BAD()).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))
       } else {
         return ScalaJS.as.Ltoolc_lexer_Token(new ScalaJS.c.Ltoolc_lexer_Tokens$INTLIT().init___I(0).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))
@@ -33028,10 +33090,10 @@ ScalaJS.c.Ltoolc_lexer_Lexer$.prototype.toolc$lexer$Lexer$$readNextToken$1__Ltoo
         return ((c !== 34) && (c !== 10))
       })));
       if ((!charIterator$1.hasNext__Z())) {
-        ctx$1.reporter__Ltoolc_utils_Reporter().fatal__O__Ltoolc_utils_Positioned__sr_Nothing$("Unterminated string at end of file", pos);
+        ctx$1.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V("Unterminated string at end of file", pos);
         return ScalaJS.as.Ltoolc_lexer_Token(new ScalaJS.c.Ltoolc_lexer_Token().init___Ltoolc_lexer_TokenKind(ScalaJS.m.Ltoolc_lexer_Tokens$BAD()).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))
       } else if ((ScalaJS.uC(charIterator$1.next__O()) !== 34)) {
-        ctx$1.reporter__Ltoolc_utils_Reporter().fatal__O__Ltoolc_utils_Positioned__sr_Nothing$("Linefeed not allowed in string litterals", ctx$1.reporter__Ltoolc_utils_Reporter().fatal$default$2__Ltoolc_utils_Positioned());
+        ctx$1.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V("Linefeed not allowed in string litterals", pos);
         return ScalaJS.as.Ltoolc_lexer_Token(new ScalaJS.c.Ltoolc_lexer_Token().init___Ltoolc_lexer_TokenKind(ScalaJS.m.Ltoolc_lexer_Tokens$BAD()).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))
       };
       return ScalaJS.as.Ltoolc_lexer_Token(new ScalaJS.c.Ltoolc_lexer_Tokens$STRLIT().init___T(chars.mkString__T()).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))
@@ -33083,7 +33145,7 @@ ScalaJS.c.Ltoolc_lexer_Lexer$.prototype.toolc$lexer$Lexer$$readNextToken$1__Ltoo
               }
             }
           };
-          ctx$1.reporter__Ltoolc_utils_Reporter().fatal__O__Ltoolc_utils_Positioned__sr_Nothing$("Unended comment", pos);
+          ctx$1.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V("Unended comment", pos);
           return ScalaJS.as.Ltoolc_lexer_Token(new ScalaJS.c.Ltoolc_lexer_Token().init___Ltoolc_lexer_TokenKind(ScalaJS.m.Ltoolc_lexer_Tokens$BAD()).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))
         }
       };
@@ -33107,7 +33169,7 @@ ScalaJS.c.Ltoolc_lexer_Lexer$.prototype.toolc$lexer$Lexer$$readNextToken$1__Ltoo
         return ScalaJS.as.Ltoolc_lexer_Token(new ScalaJS.c.Ltoolc_lexer_Token().init___Ltoolc_lexer_TokenKind(tk$2).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))
       };
       if (ScalaJS.anyRefEqEq(ScalaJS.m.s_None(), x1$2)) {
-        ctx$1.reporter__Ltoolc_utils_Reporter().fatal__O__Ltoolc_utils_Positioned__sr_Nothing$(("Unknown operator " + tkstring), pos);
+        ctx$1.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V(("Unknown operator " + tkstring), pos);
         return ScalaJS.as.Ltoolc_lexer_Token(new ScalaJS.c.Ltoolc_lexer_Token().init___Ltoolc_lexer_TokenKind(ScalaJS.m.Ltoolc_lexer_Tokens$BAD()).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))
       };
       throw new ScalaJS.c.s_MatchError().init___O(x1$2)

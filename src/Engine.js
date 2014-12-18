@@ -164,9 +164,9 @@ var Engine = (function() {
   _.extend(Label.prototype, Instruction.prototype);
 
   function Instr_Const(value) {
-    value = JSON.parse(value);
+    var parsed = JSON.parse(value);
     Instruction.call(this, '\tpush '+value, function(sm) {
-      sm.push(value);
+      sm.push(parsed);
     });
   }
   _.extend(Instr_Const.prototype, Instruction.prototype);
@@ -248,9 +248,13 @@ var Engine = (function() {
     Instruction.call(this, '\tinvoke '+mname, function(sm) {
       var obj = sm.pop();
       sm.newScope(obj);
-      sm.pc = obj._methods[mname].addr - 1;
-      _.each(obj._methods[mname].args, function(p) {
+      var method = obj._methods[mname];
+      sm.pc = method.addr - 1;
+      _.each(method.args, function(p) {
         sm.setLocal(p.name, sm.pop());
+      });
+      _.each(method.vars, function(l, name) {
+        sm.setLocal(name, newOfType(l));
       });
     });
   }
@@ -265,7 +269,9 @@ var Engine = (function() {
     var jumps = [];
     var breakpoints = [];
 
-    var classes = {};
+    var classes = {
+      '[]': Array
+    };
 
 
     function Instr_New(className) {
@@ -381,10 +387,6 @@ var Engine = (function() {
         _.each(md.code, parseInstr);
       });
 
-      _.each(cd.fields, function(type, fname) {
-        Class[fname] = newOfType(type);
-      });
-
       return Class;
     }
 
@@ -462,7 +464,6 @@ var Engine = (function() {
     Engine.prototype.tick = function() {
       prog[sm.pc].exec(sm);
       ++sm.pc;
-      console.log(sm.stack);
     };
 
     Engine.prototype.isRunning = function() {

@@ -30562,7 +30562,10 @@ ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.toolc$code$CodeGeneration$$gener
       break matchEnd23
     };
     if (ScalaJS.is.Ltoolc_ast_Trees$NewIntArray(x1)) {
-      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNew().init___T("[]"));
+      var x19 = ScalaJS.as.Ltoolc_ast_Trees$NewIntArray(x1);
+      var size = x19.size__Ltoolc_ast_Trees$ExprTree();
+      this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, size, outProg$1);
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNewArray().init___());
       (void 0);
       break matchEnd23
     };
@@ -30593,7 +30596,7 @@ ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.toolc$code$CodeGeneration$$gener
       var obj = x21.obj__Ltoolc_ast_Trees$ExprTree();
       var method = x21.meth__Ltoolc_ast_Trees$Identifier();
       var args = x21.args__sci_List();
-      args.foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(outProg$1, meth$3) {
+      args.reverse__sci_List().foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(outProg$1, meth$3) {
         return (function(a$2) {
           var a = ScalaJS.as.Ltoolc_ast_Trees$ExprTree(a$2);
           ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth$3, a, outProg$1)
@@ -32345,6 +32348,80 @@ ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undNew = new ScalaJS.ClassTypeData({
   O: 1
 });
 ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNew.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undNew;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNewArray = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNewArray.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNewArray.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNewArray;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undNewArray = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undNewArray.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNewArray.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNewArray.prototype.productPrefix__T = (function() {
+  return "OP_NewArray"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNewArray.prototype.productArity__I = (function() {
+  return 0
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNewArray.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1))
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNewArray.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNewArray.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undNewArray(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNewArray.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNewArray.prototype.equals__O__Z = (function(x$1) {
+  var x1 = x$1;
+  matchEnd4: {
+    var jsx$1;
+    if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undNewArray(x1)) {
+      var jsx$1 = true;
+      break matchEnd4
+    };
+    var jsx$1 = false;
+    break matchEnd4
+  };
+  if (jsx$1) {
+    return ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undNewArray(x$1).canEqual__O__Z(this)
+  } else {
+    return false
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNewArray.prototype.init___ = (function() {
+  return (ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, "newarray"), ScalaJS.i.s_Product$class__$init$__s_Product__V(this), this)
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undNewArray = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undNewArray)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undNewArray = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undNewArray(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_NewArray"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undNewArray = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undNewArray)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undNewArray = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undNewArray(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_NewArray;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undNewArray = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undNewArray: 0
+}, false, "toolc.code.CodeGenerator$OP_NewArray", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undNewArray: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNewArray.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undNewArray;
 /** @constructor */
 ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNot = (function() {
   ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this)

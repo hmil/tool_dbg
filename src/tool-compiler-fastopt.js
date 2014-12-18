@@ -6108,6 +6108,9 @@ ScalaJS.c.Ltoolc_ast_Trees$BooleanType.prototype.toolc$utils$Positioned$$$undcol
 ScalaJS.c.Ltoolc_ast_Trees$BooleanType.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
 });
+ScalaJS.c.Ltoolc_ast_Trees$BooleanType.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
+});
 ScalaJS.c.Ltoolc_ast_Trees$BooleanType.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
 });
@@ -6240,6 +6243,9 @@ ScalaJS.c.Ltoolc_ast_Trees$ClassDecl.prototype.toolc$utils$Positioned$$$undcol__
 });
 ScalaJS.c.Ltoolc_ast_Trees$ClassDecl.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$ClassDecl.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$ClassDecl.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -7384,6 +7390,9 @@ ScalaJS.c.Ltoolc_ast_Trees$IntArrayType.prototype.toolc$utils$Positioned$$$undco
 ScalaJS.c.Ltoolc_ast_Trees$IntArrayType.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
 });
+ScalaJS.c.Ltoolc_ast_Trees$IntArrayType.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
+});
 ScalaJS.c.Ltoolc_ast_Trees$IntArrayType.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
 });
@@ -7668,6 +7677,9 @@ ScalaJS.c.Ltoolc_ast_Trees$IntType.prototype.toolc$utils$Positioned$$$undcol__I 
 });
 ScalaJS.c.Ltoolc_ast_Trees$IntType.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$IntType.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$IntType.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -7963,6 +7975,9 @@ ScalaJS.c.Ltoolc_ast_Trees$MainObject.prototype.toolc$utils$Positioned$$$undcol_
 });
 ScalaJS.c.Ltoolc_ast_Trees$MainObject.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$MainObject.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$MainObject.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -8298,6 +8313,9 @@ ScalaJS.c.Ltoolc_ast_Trees$MethodDecl.prototype.toolc$utils$Positioned$$$undcol_
 });
 ScalaJS.c.Ltoolc_ast_Trees$MethodDecl.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$MethodDecl.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$MethodDecl.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -9572,6 +9590,9 @@ ScalaJS.c.Ltoolc_ast_Trees$Program.prototype.toolc$utils$Positioned$$$undcol__I 
 ScalaJS.c.Ltoolc_ast_Trees$Program.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
 });
+ScalaJS.c.Ltoolc_ast_Trees$Program.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
+});
 ScalaJS.c.Ltoolc_ast_Trees$Program.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
 });
@@ -9901,6 +9922,9 @@ ScalaJS.c.Ltoolc_ast_Trees$StringType.prototype.toolc$utils$Positioned$$$undcol_
 });
 ScalaJS.c.Ltoolc_ast_Trees$StringType.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$StringType.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$StringType.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -10425,6 +10449,27 @@ ScalaJS.d.Ltoolc_ast_Trees$True = new ScalaJS.ClassTypeData({
   O: 1
 });
 ScalaJS.c.Ltoolc_ast_Trees$True.prototype.$classData = ScalaJS.d.Ltoolc_ast_Trees$True;
+ScalaJS.is.Ltoolc_ast_Trees$TypeTree = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_ast_Trees$TypeTree)))
+});
+ScalaJS.as.Ltoolc_ast_Trees$TypeTree = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_ast_Trees$TypeTree(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.ast.Trees$TypeTree"))
+});
+ScalaJS.isArrayOf.Ltoolc_ast_Trees$TypeTree = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_ast_Trees$TypeTree)))
+});
+ScalaJS.asArrayOf.Ltoolc_ast_Trees$TypeTree = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_ast_Trees$TypeTree(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.ast.Trees$TypeTree;", depth))
+});
+ScalaJS.d.Ltoolc_ast_Trees$TypeTree = new ScalaJS.ClassTypeData({
+  Ltoolc_ast_Trees$TypeTree: 0
+}, true, "toolc.ast.Trees$TypeTree", (void 0), {
+  Ltoolc_ast_Trees$TypeTree: 1,
+  Ltoolc_analyzer_Types$Typed: 1,
+  Ltoolc_ast_Trees$Tree: 1,
+  Ltoolc_utils_Positioned: 1,
+  O: 1
+});
 /** @constructor */
 ScalaJS.c.Ltoolc_ast_Trees$VarDecl = (function() {
   ScalaJS.c.O.call(this);
@@ -10477,6 +10522,9 @@ ScalaJS.c.Ltoolc_ast_Trees$VarDecl.prototype.toolc$utils$Positioned$$$undcol__I 
 });
 ScalaJS.c.Ltoolc_ast_Trees$VarDecl.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$VarDecl.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$VarDecl.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -12730,6 +12778,46 @@ ScalaJS.m.Ltoolc_lexer_Tokens$INTLITKIND = (function() {
     ScalaJS.n.Ltoolc_lexer_Tokens$INTLITKIND = new ScalaJS.c.Ltoolc_lexer_Tokens$INTLITKIND$().init___()
   };
   return ScalaJS.n.Ltoolc_lexer_Tokens$INTLITKIND
+});
+/** @constructor */
+ScalaJS.c.Ltoolc_lexer_Tokens$Kinded$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Ltoolc_lexer_Tokens$Kinded$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Ltoolc_lexer_Tokens$Kinded$.prototype.constructor = ScalaJS.c.Ltoolc_lexer_Tokens$Kinded$;
+/** @constructor */
+ScalaJS.h.Ltoolc_lexer_Tokens$Kinded$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_lexer_Tokens$Kinded$.prototype = ScalaJS.c.Ltoolc_lexer_Tokens$Kinded$.prototype;
+ScalaJS.c.Ltoolc_lexer_Tokens$Kinded$.prototype.unapply__Ltoolc_lexer_Token__s_Option = (function(t) {
+  return new ScalaJS.c.s_Some().init___O(t.kind__Ltoolc_lexer_TokenKind())
+});
+ScalaJS.is.Ltoolc_lexer_Tokens$Kinded$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_lexer_Tokens$Kinded$)))
+});
+ScalaJS.as.Ltoolc_lexer_Tokens$Kinded$ = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_lexer_Tokens$Kinded$(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.lexer.Tokens$Kinded$"))
+});
+ScalaJS.isArrayOf.Ltoolc_lexer_Tokens$Kinded$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_lexer_Tokens$Kinded$)))
+});
+ScalaJS.asArrayOf.Ltoolc_lexer_Tokens$Kinded$ = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_lexer_Tokens$Kinded$(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.lexer.Tokens$Kinded$;", depth))
+});
+ScalaJS.d.Ltoolc_lexer_Tokens$Kinded$ = new ScalaJS.ClassTypeData({
+  Ltoolc_lexer_Tokens$Kinded$: 0
+}, false, "toolc.lexer.Tokens$Kinded$", ScalaJS.d.O, {
+  Ltoolc_lexer_Tokens$Kinded$: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_lexer_Tokens$Kinded$.prototype.$classData = ScalaJS.d.Ltoolc_lexer_Tokens$Kinded$;
+ScalaJS.n.Ltoolc_lexer_Tokens$Kinded = (void 0);
+ScalaJS.m.Ltoolc_lexer_Tokens$Kinded = (function() {
+  if ((!ScalaJS.n.Ltoolc_lexer_Tokens$Kinded)) {
+    ScalaJS.n.Ltoolc_lexer_Tokens$Kinded = new ScalaJS.c.Ltoolc_lexer_Tokens$Kinded$().init___()
+  };
+  return ScalaJS.n.Ltoolc_lexer_Tokens$Kinded
 });
 /** @constructor */
 ScalaJS.c.Ltoolc_lexer_Tokens$LBRACE$ = (function() {
@@ -29278,8 +29366,9 @@ ScalaJS.h.Ltoolc_ast_Parser$ = (function() {
 ScalaJS.h.Ltoolc_ast_Parser$.prototype = ScalaJS.c.Ltoolc_ast_Parser$.prototype;
 ScalaJS.c.Ltoolc_ast_Parser$.prototype.run__Ltoolc_utils_Context__sc_Iterator__Ltoolc_ast_Trees$Program = (function(ctx, tokens) {
   var currentToken = ScalaJS.m.sr_ObjectRef().create__O__sr_ObjectRef(new ScalaJS.c.Ltoolc_lexer_Token().init___Ltoolc_lexer_TokenKind(ScalaJS.m.Ltoolc_lexer_Tokens$BAD()));
-  this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens, currentToken);
-  return this.parseGoal$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Program(ctx, tokens, currentToken)
+  var tree = this.parseGoal$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Program(ctx, tokens, currentToken);
+  ctx.reporter__Ltoolc_utils_Reporter().terminateIfErrors__V();
+  return tree
 });
 ScalaJS.c.Ltoolc_ast_Parser$.prototype.run__Ltoolc_utils_Context__O__O = (function(ctx, v) {
   return this.run__Ltoolc_utils_Context__sc_Iterator__Ltoolc_ast_Trees$Program(ctx, ScalaJS.as.sc_Iterator(v))
@@ -29287,7 +29376,7 @@ ScalaJS.c.Ltoolc_ast_Parser$.prototype.run__Ltoolc_utils_Context__O__O = (functi
 ScalaJS.c.Ltoolc_ast_Parser$.prototype.readToken$1__p2__sc_Iterator__sr_ObjectRef__V = (function(tokens$1, currentToken$1) {
   if (tokens$1.hasNext__Z()) {
     currentToken$1.elem$1 = ScalaJS.as.Ltoolc_lexer_Token(tokens$1.next__O());
-    while ((ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$BAD()) && tokens$1.hasNext__Z())) {
+    while (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$BAD())) {
       currentToken$1.elem$1 = ScalaJS.as.Ltoolc_lexer_Token(tokens$1.next__O())
     }
   }
@@ -29305,150 +29394,19 @@ ScalaJS.c.Ltoolc_ast_Parser$.prototype.expected$1__p2__Ltoolc_lexer_TokenKind__s
   jsx$1.fatal__O__Ltoolc_utils_Positioned__sr_Nothing$(((("expected: " + more.toList__sci_List().$$colon$colon__O__sci_List(x$1).mkString__T__T(" or ")) + ", found: ") + ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1)), ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1))
 });
 ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseGoal$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Program = (function(ctx$1, tokens$1, currentToken$1) {
+  this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
   var mainObject = this.parseMainObject$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$MainObject(ctx$1, tokens$1, currentToken$1);
-  var classDecls = this.parseClassDecls$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1);
-  return new ScalaJS.c.Ltoolc_ast_Trees$Program().init___Ltoolc_ast_Trees$MainObject__sci_List(mainObject, classDecls)
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.inner$1__p2__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(acc, ctx$1, tokens$1, currentToken$1) {
-  var _$this = this;
-  _inner: while (true) {
-    var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$EOF(), x1)) {
-      return acc
-    };
-    acc = ScalaJS.as.sci_List(acc.$$colon$plus__O__scg_CanBuildFrom__O(_$this.parseClassDecl$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ClassDecl(ctx$1, tokens$1, currentToken$1), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom()));
-    continue _inner
-  }
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseClassDecls$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(ctx$1, tokens$1, currentToken$1) {
-  return this.inner$1__p2__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ScalaJS.m.sci_Nil(), ctx$1, tokens$1, currentToken$1)
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseClassDecl$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ClassDecl = (function(ctx$1, tokens$1, currentToken$1) {
-  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$CLASS(), ctx$1, tokens$1, currentToken$1);
-  var id = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
-  var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-  matchEnd4: {
-    var parent;
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$EXTENDS(), x1)) {
-      var parent = (this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1), new ScalaJS.c.s_Some().init___O(this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1)));
-      break matchEnd4
-    };
-    var parent = ScalaJS.m.s_None();
-    break matchEnd4
+  var classes = ScalaJS.m.sci_Nil();
+  while (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$CLASS())) {
+    var x$3 = classes;
+    var x$2 = this.parseClassDecl$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ClassDecl(ctx$1, tokens$1, currentToken$1);
+    classes = ScalaJS.m.sci_Nil().$$colon$colon__O__sci_List(x$2).$$colon$colon$colon__sci_List__sci_List(x$3)
   };
-  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACE(), ctx$1, tokens$1, currentToken$1);
-  var vars = this.parseVarDecls$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1);
-  var methods = this.parseMethodDecls$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1);
-  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACE(), ctx$1, tokens$1, currentToken$1);
-  return new ScalaJS.c.Ltoolc_ast_Trees$ClassDecl().init___Ltoolc_ast_Trees$Identifier__s_Option__sci_List__sci_List(id, parent, vars, methods)
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.inner$2__p2__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(acc, ctx$1, tokens$1, currentToken$1) {
-  var _$this = this;
-  _inner: while (true) {
-    var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$VAR(), x1)) {
-      acc = ScalaJS.as.sci_List(acc.$$colon$plus__O__scg_CanBuildFrom__O(_$this.parseVarDecl$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$VarDecl(ctx$1, tokens$1, currentToken$1), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom()));
-      continue _inner
-    };
-    return acc
-  }
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseVarDecls$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(ctx$1, tokens$1, currentToken$1) {
-  return this.inner$2__p2__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ScalaJS.m.sci_Nil(), ctx$1, tokens$1, currentToken$1)
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseVarDecl$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$VarDecl = (function(ctx$1, tokens$1, currentToken$1) {
-  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$VAR(), ctx$1, tokens$1, currentToken$1);
-  var id = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
-  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$COLON(), ctx$1, tokens$1, currentToken$1);
-  var leType = this.parseType$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$TypeTree(ctx$1, tokens$1, currentToken$1);
-  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$SEMICOLON(), ctx$1, tokens$1, currentToken$1);
-  return new ScalaJS.c.Ltoolc_ast_Trees$VarDecl().init___Ltoolc_ast_Trees$TypeTree__Ltoolc_ast_Trees$Identifier(leType, id)
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseType$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$TypeTree = (function(ctx$1, tokens$1, currentToken$1) {
-  var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$INT(), x1)) {
-    this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-    var x1$2 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACKET(), x1$2)) {
-      return (this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACKET(), ctx$1, tokens$1, currentToken$1), this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACKET(), ctx$1, tokens$1, currentToken$1), new ScalaJS.c.Ltoolc_ast_Trees$IntArrayType().init___())
-    };
-    return new ScalaJS.c.Ltoolc_ast_Trees$IntType().init___()
-  };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$BOOLEAN(), x1)) {
-    return (this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1), new ScalaJS.c.Ltoolc_ast_Trees$BooleanType().init___())
-  };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$STRING(), x1)) {
-    return (this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1), new ScalaJS.c.Ltoolc_ast_Trees$StringType().init___())
-  };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), x1)) {
-    return this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1)
-  };
-  this.expected$1__p2__Ltoolc_lexer_TokenKind__sc_Seq__Ltoolc_utils_Context__sr_ObjectRef__sr_Nothing$(ScalaJS.m.Ltoolc_lexer_Tokens$INT(), new ScalaJS.c.sjs_js_WrappedArray().init___sjs_js_Array([ScalaJS.m.Ltoolc_lexer_Tokens$BOOLEAN(), ScalaJS.m.Ltoolc_lexer_Tokens$STRING(), ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND()]), ctx$1, currentToken$1)
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.inner$3__p2__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(acc, ctx$1, tokens$1, currentToken$1) {
-  var _$this = this;
-  _inner: while (true) {
-    var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$DEF(), x1)) {
-      acc = ScalaJS.as.sci_List(acc.$$colon$plus__O__scg_CanBuildFrom__O(_$this.parseMethodDecl$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$MethodDecl(ctx$1, tokens$1, currentToken$1), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom()));
-      continue _inner
-    };
-    return acc
-  }
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseMethodDecls$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(ctx$1, tokens$1, currentToken$1) {
-  return this.inner$3__p2__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ScalaJS.m.sci_Nil(), ctx$1, tokens$1, currentToken$1)
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseMethodDecl$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$MethodDecl = (function(ctx$1, tokens$1, currentToken$1) {
-  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$DEF(), ctx$1, tokens$1, currentToken$1);
-  var id = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
-  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
-  var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-  matchEnd4: {
-    var params;
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), x1)) {
-      var params = ScalaJS.m.sci_Nil();
-      break matchEnd4
-    };
-    var params = this.parseFormals$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1);
-    break matchEnd4
-  };
-  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
-  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$COLON(), ctx$1, tokens$1, currentToken$1);
-  var leType = this.parseType$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$TypeTree(ctx$1, tokens$1, currentToken$1);
-  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$EQSIGN(), ctx$1, tokens$1, currentToken$1);
-  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACE(), ctx$1, tokens$1, currentToken$1);
-  var varDecls = this.parseVarDecls$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1);
-  var stats = this.parseStatements$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1);
-  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RETURN(), ctx$1, tokens$1, currentToken$1);
-  var returnExpr = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
-  returnExpr.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1));
-  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$SEMICOLON(), ctx$1, tokens$1, currentToken$1);
-  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACE(), ctx$1, tokens$1, currentToken$1);
-  return new ScalaJS.c.Ltoolc_ast_Trees$MethodDecl().init___Ltoolc_ast_Trees$TypeTree__Ltoolc_ast_Trees$Identifier__sci_List__sci_List__sci_List__Ltoolc_ast_Trees$ExprTree(leType, id, params, varDecls, stats, returnExpr)
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseFormal$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Formal = (function(ctx$1, tokens$1, currentToken$1) {
-  var id = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
-  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$COLON(), ctx$1, tokens$1, currentToken$1);
-  var tpe = this.parseType$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$TypeTree(ctx$1, tokens$1, currentToken$1);
-  return new ScalaJS.c.Ltoolc_ast_Trees$Formal().init___Ltoolc_ast_Trees$TypeTree__Ltoolc_ast_Trees$Identifier(tpe, id)
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.inner$4__p2__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(acc, ctx$1, tokens$1, currentToken$1) {
-  var _$this = this;
-  _inner: while (true) {
-    var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$COMMA(), x1)) {
-      _$this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-      acc = ScalaJS.as.sci_List(acc.$$colon$plus__O__scg_CanBuildFrom__O(_$this.parseFormal$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Formal(ctx$1, tokens$1, currentToken$1), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom()));
-      continue _inner
-    };
-    return acc
-  }
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseFormals$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(ctx$1, tokens$1, currentToken$1) {
-  return this.inner$4__p2__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ScalaJS.as.sci_List(ScalaJS.m.sci_Nil().$$colon$plus__O__scg_CanBuildFrom__O(this.parseFormal$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Formal(ctx$1, tokens$1, currentToken$1), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())), ctx$1, tokens$1, currentToken$1)
+  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$EOF(), ctx$1, tokens$1, currentToken$1);
+  return ScalaJS.as.Ltoolc_ast_Trees$Program(new ScalaJS.c.Ltoolc_ast_Trees$Program().init___Ltoolc_ast_Trees$MainObject__sci_List(mainObject, classes).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(mainObject))
 });
 ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseMainObject$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$MainObject = (function(ctx$1, tokens$1, currentToken$1) {
+  var pos = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
   this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$OBJECT(), ctx$1, tokens$1, currentToken$1);
   var id = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
   this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACE(), ctx$1, tokens$1, currentToken$1);
@@ -29463,471 +29421,447 @@ ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseMainObject$1__p2__Ltoolc_utils_Conte
   var stats = this.parseStatements$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1);
   this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACE(), ctx$1, tokens$1, currentToken$1);
   this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACE(), ctx$1, tokens$1, currentToken$1);
-  return new ScalaJS.c.Ltoolc_ast_Trees$MainObject().init___Ltoolc_ast_Trees$Identifier__sci_List(id, stats)
+  return ScalaJS.as.Ltoolc_ast_Trees$MainObject(new ScalaJS.c.Ltoolc_ast_Trees$MainObject().init___Ltoolc_ast_Trees$Identifier__sci_List(id, stats).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))
 });
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier = (function(ctx$1, tokens$1, currentToken$1) {
-  var id_tmp = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
-  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), ctx$1, tokens$1, currentToken$1);
-  return new ScalaJS.c.Ltoolc_ast_Trees$Identifier().init___T(ScalaJS.as.Ltoolc_lexer_Tokens$ID(id_tmp).value__T())
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree = (function(ctx$1, tokens$1, currentToken$1) {
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseClassDecl$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ClassDecl = (function(ctx$1, tokens$1, currentToken$1) {
   var pos = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
-  var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-  matchEnd8: {
-    var leStat$2;
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACE(), x1)) {
-      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-      var stats = this.parseStatements$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1);
-      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACE(), ctx$1, tokens$1, currentToken$1);
-      var leStat$2 = new ScalaJS.c.Ltoolc_ast_Trees$Block().init___sci_List(stats);
-      break matchEnd8
-    };
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$IF(), x1)) {
-      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
-      var expr = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
-      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
-      var leThen = this.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree(ctx$1, tokens$1, currentToken$1);
-      var x1$2 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-      matchEnd4: {
-        var leElse;
-        if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$ELSE(), x1$2)) {
-          var leElse = (this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1), new ScalaJS.c.s_Some().init___O(this.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree(ctx$1, tokens$1, currentToken$1)));
-          break matchEnd4
-        };
-        var leElse = ScalaJS.m.s_None();
-        break matchEnd4
-      };
-      var leStat$2 = new ScalaJS.c.Ltoolc_ast_Trees$If().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$StatTree__s_Option(expr, leThen, leElse);
-      break matchEnd8
-    };
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$WHILE(), x1)) {
-      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
-      var expr$2 = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
-      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
-      var leStat = this.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree(ctx$1, tokens$1, currentToken$1);
-      var leStat$2 = new ScalaJS.c.Ltoolc_ast_Trees$While().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$StatTree(expr$2, leStat);
-      break matchEnd8
-    };
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$PRINTLN(), x1)) {
-      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
-      var leString = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
-      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
-      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$SEMICOLON(), ctx$1, tokens$1, currentToken$1);
-      var leStat$2 = new ScalaJS.c.Ltoolc_ast_Trees$Println().init___Ltoolc_ast_Trees$ExprTree(leString);
-      break matchEnd8
-    };
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), x1)) {
-      var id = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
-      var x1$3 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACKET(), x1$3)) {
-        this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-        var index = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
-        this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACKET(), ctx$1, tokens$1, currentToken$1);
-        this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$EQSIGN(), ctx$1, tokens$1, currentToken$1);
-        var value = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
-        this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$SEMICOLON(), ctx$1, tokens$1, currentToken$1);
-        var leStat$2 = new ScalaJS.c.Ltoolc_ast_Trees$ArrayAssign().init___Ltoolc_ast_Trees$Identifier__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(id, index, value);
-        break matchEnd8
-      };
-      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$EQSIGN(), ctx$1, tokens$1, currentToken$1);
-      var value$2 = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
-      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$SEMICOLON(), ctx$1, tokens$1, currentToken$1);
-      var leStat$2 = new ScalaJS.c.Ltoolc_ast_Trees$Assign().init___Ltoolc_ast_Trees$Identifier__Ltoolc_ast_Trees$ExprTree(id, value$2);
-      break matchEnd8
-    };
-    this.expected$1__p2__Ltoolc_lexer_TokenKind__sc_Seq__Ltoolc_utils_Context__sr_ObjectRef__sr_Nothing$(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), new ScalaJS.c.sjs_js_WrappedArray().init___sjs_js_Array([ScalaJS.m.Ltoolc_lexer_Tokens$PRINTLN(), ScalaJS.m.Ltoolc_lexer_Tokens$WHILE(), ScalaJS.m.Ltoolc_lexer_Tokens$IF(), ScalaJS.m.Ltoolc_lexer_Tokens$LBRACE()]), ctx$1, currentToken$1)
+  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$CLASS(), ctx$1, tokens$1, currentToken$1);
+  var id = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
+  var parent = (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$EXTENDS()) ? (this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1), new ScalaJS.c.s_Some().init___O(this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1))) : ScalaJS.m.s_None());
+  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACE(), ctx$1, tokens$1, currentToken$1);
+  var varDecls = this.parseVarDecls$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1);
+  var methDecls = ScalaJS.m.sci_Nil();
+  while (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$DEF())) {
+    var x$5 = methDecls;
+    var x$4 = this.parseMethodDecl$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$MethodDecl(ctx$1, tokens$1, currentToken$1);
+    methDecls = ScalaJS.m.sci_Nil().$$colon$colon__O__sci_List(x$4).$$colon$colon$colon__sci_List__sci_List(x$5)
   };
-  leStat$2.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos);
-  return leStat$2
+  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACE(), ctx$1, tokens$1, currentToken$1);
+  return ScalaJS.as.Ltoolc_ast_Trees$ClassDecl(new ScalaJS.c.Ltoolc_ast_Trees$ClassDecl().init___Ltoolc_ast_Trees$Identifier__s_Option__sci_List__sci_List(id, parent, varDecls, methDecls).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))
 });
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.inner$5__p2__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(acc, ctx$1, tokens$1, currentToken$1) {
-  var _$this = this;
-  _inner: while (true) {
-    var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-    matchEnd11: {
-      var jsx$1;
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACE(), x1)) {
-        var jsx$1 = true;
-        break matchEnd11
-      };
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$IF(), x1)) {
-        var jsx$1 = true;
-        break matchEnd11
-      };
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$WHILE(), x1)) {
-        var jsx$1 = true;
-        break matchEnd11
-      };
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$PRINTLN(), x1)) {
-        var jsx$1 = true;
-        break matchEnd11
-      };
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), x1)) {
-        var jsx$1 = true;
-        break matchEnd11
-      };
-      var jsx$1 = false;
-      break matchEnd11
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseMethodDecl$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$MethodDecl = (function(ctx$1, tokens$1, currentToken$1) {
+  var pos = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
+  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$DEF(), ctx$1, tokens$1, currentToken$1);
+  var id = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
+  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
+  var formals = this.parseFormals$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1);
+  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
+  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$COLON(), ctx$1, tokens$1, currentToken$1);
+  var retTpe = this.parseType$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$TypeTree(ctx$1, tokens$1, currentToken$1);
+  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$EQSIGN(), ctx$1, tokens$1, currentToken$1);
+  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACE(), ctx$1, tokens$1, currentToken$1);
+  var varDecls = this.parseVarDecls$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1);
+  var stats = this.parseStatements$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1);
+  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RETURN(), ctx$1, tokens$1, currentToken$1);
+  var retExpr = this.parseExpr$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1);
+  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$SEMICOLON(), ctx$1, tokens$1, currentToken$1);
+  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACE(), ctx$1, tokens$1, currentToken$1);
+  return ScalaJS.as.Ltoolc_ast_Trees$MethodDecl(new ScalaJS.c.Ltoolc_ast_Trees$MethodDecl().init___Ltoolc_ast_Trees$TypeTree__Ltoolc_ast_Trees$Identifier__sci_List__sci_List__sci_List__Ltoolc_ast_Trees$ExprTree(retTpe, id, formals, varDecls, stats, retExpr).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))
+});
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseFormals$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(ctx$1, tokens$1, currentToken$1) {
+  if ((!ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND()))) {
+    return ScalaJS.m.sci_Nil()
+  } else {
+    var id = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
+    this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$COLON(), ctx$1, tokens$1, currentToken$1);
+    var tpe = this.parseType$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$TypeTree(ctx$1, tokens$1, currentToken$1);
+    var x$6 = new ScalaJS.c.Ltoolc_ast_Trees$Formal().init___Ltoolc_ast_Trees$TypeTree__Ltoolc_ast_Trees$Identifier(tpe, id);
+    var lst = ScalaJS.m.sci_Nil().$$colon$colon__O__sci_List(x$6);
+    while (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$COMMA())) {
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      var id2 = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
+      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$COLON(), ctx$1, tokens$1, currentToken$1);
+      var tpe2 = this.parseType$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$TypeTree(ctx$1, tokens$1, currentToken$1);
+      var x$7 = new ScalaJS.c.Ltoolc_ast_Trees$Formal().init___Ltoolc_ast_Trees$TypeTree__Ltoolc_ast_Trees$Identifier(tpe2, id2);
+      lst = lst.$$colon$colon__O__sci_List(x$7)
     };
-    if (jsx$1) {
-      acc = ScalaJS.as.sci_List(acc.$$colon$plus__O__scg_CanBuildFrom__O(_$this.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree(ctx$1, tokens$1, currentToken$1), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom()));
-      continue _inner
-    };
-    return acc
+    return lst.reverse__sci_List()
   }
 });
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseStatements$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(ctx$1, tokens$1, currentToken$1) {
-  return this.inner$5__p2__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ScalaJS.m.sci_Nil(), ctx$1, tokens$1, currentToken$1)
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseVarDecls$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(ctx$1, tokens$1, currentToken$1) {
+  var lst = ScalaJS.m.sci_Nil();
+  while (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$VAR())) {
+    var x$8 = this.parseVarDecl$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$VarDecl(ctx$1, tokens$1, currentToken$1);
+    lst = lst.$$colon$colon__O__sci_List(x$8)
+  };
+  return lst.reverse__sci_List()
 });
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.inner$6__p2__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(acc, ctx$1, tokens$1, currentToken$1) {
-  var _$this = this;
-  _inner: while (true) {
-    var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$COMMA(), x1)) {
-      _$this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-      acc = ScalaJS.as.sci_List(acc.$$colon$plus__O__scg_CanBuildFrom__O(_$this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(_$this.parseExpr$default$1$1__p2__sci_List(), _$this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom()));
-      continue _inner
-    };
-    return acc
-  }
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseVarDecl$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$VarDecl = (function(ctx$1, tokens$1, currentToken$1) {
+  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$VAR(), ctx$1, tokens$1, currentToken$1);
+  var id = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
+  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$COLON(), ctx$1, tokens$1, currentToken$1);
+  var tpe = this.parseType$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$TypeTree(ctx$1, tokens$1, currentToken$1);
+  this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$SEMICOLON(), ctx$1, tokens$1, currentToken$1);
+  return ScalaJS.as.Ltoolc_ast_Trees$VarDecl(new ScalaJS.c.Ltoolc_ast_Trees$VarDecl().init___Ltoolc_ast_Trees$TypeTree__Ltoolc_ast_Trees$Identifier(tpe, id).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(id))
 });
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseArgs$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(ctx$1, tokens$1, currentToken$1) {
-  return this.inner$6__p2__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ScalaJS.as.sci_List(ScalaJS.m.sci_Nil().$$colon$plus__O__scg_CanBuildFrom__O(this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())), ctx$1, tokens$1, currentToken$1)
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.getOperatorPriority$1__p2__Ltoolc_lexer_TokenKind__I = (function(op) {
-  var x1 = op;
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$OR(), x1)) {
-    return 0
-  };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$AND(), x1)) {
-    return 1
-  };
-  matchEnd17: {
-    var jsx$1;
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$LESSTHAN(), x1)) {
-      var jsx$1 = true;
-      break matchEnd17
-    };
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$EQUALS(), x1)) {
-      var jsx$1 = true;
-      break matchEnd17
-    };
-    var jsx$1 = false;
-    break matchEnd17
-  };
-  if (jsx$1) {
-    return 2
-  };
-  matchEnd22: {
-    var jsx$2;
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$PLUS(), x1)) {
-      var jsx$2 = true;
-      break matchEnd22
-    };
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$MINUS(), x1)) {
-      var jsx$2 = true;
-      break matchEnd22
-    };
-    var jsx$2 = false;
-    break matchEnd22
-  };
-  if (jsx$2) {
-    return 3
-  };
-  matchEnd27: {
-    var jsx$3;
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$DIV(), x1)) {
-      var jsx$3 = true;
-      break matchEnd27
-    };
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$TIMES(), x1)) {
-      var jsx$3 = true;
-      break matchEnd27
-    };
-    var jsx$3 = false;
-    break matchEnd27
-  };
-  if (jsx$3) {
-    return 4
-  };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$BANG(), x1)) {
-    return 5
-  };
-  throw new ScalaJS.c.jl_IllegalStateException().init___()
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.hasHigherPriority$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_lexer_TokenKind__Z = (function(op1, op2) {
-  return (this.getOperatorPriority$1__p2__Ltoolc_lexer_TokenKind__I(op1) >= this.getOperatorPriority$1__p2__Ltoolc_lexer_TokenKind__I(op2))
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.toolc$ast$Parser$$createOperation$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_lexer_TokenKind__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree = (function(a, op, b) {
-  var x1 = op;
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$OR(), x1)) {
-    return new ScalaJS.c.Ltoolc_ast_Trees$Or().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(a, b)
-  };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$AND(), x1)) {
-    return new ScalaJS.c.Ltoolc_ast_Trees$And().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(a, b)
-  };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$LESSTHAN(), x1)) {
-    return new ScalaJS.c.Ltoolc_ast_Trees$LessThan().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(a, b)
-  };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$EQUALS(), x1)) {
-    return new ScalaJS.c.Ltoolc_ast_Trees$Equals().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(a, b)
-  };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$PLUS(), x1)) {
-    return new ScalaJS.c.Ltoolc_ast_Trees$Plus().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(a, b)
-  };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$MINUS(), x1)) {
-    return new ScalaJS.c.Ltoolc_ast_Trees$Minus().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(a, b)
-  };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$DIV(), x1)) {
-    return new ScalaJS.c.Ltoolc_ast_Trees$Div().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(a, b)
-  };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$TIMES(), x1)) {
-    return new ScalaJS.c.Ltoolc_ast_Trees$Times().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(a, b)
-  };
-  throw new ScalaJS.c.jl_IllegalStateException().init___()
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.inner$7__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List__sci_List__Ltoolc_ast_Trees$ExprTree = (function(ctx$1, tokens$1, currentToken$1, operands$1, operators$1) {
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseType$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$TypeTree = (function(ctx$1, tokens$1, currentToken$1) {
   var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$INTLITKIND(), x1)) {
-    var leInt = ScalaJS.as.Ltoolc_lexer_Tokens$INTLIT(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1)).value__I();
+  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$BOOLEAN(), x1)) {
+    var ret = ScalaJS.as.Ltoolc_ast_Trees$BooleanType(new ScalaJS.c.Ltoolc_ast_Trees$BooleanType().init___().setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1)));
     this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-    return new ScalaJS.c.Ltoolc_ast_Trees$IntLit().init___I(leInt)
+    return ret
   };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$STRLITKIND(), x1)) {
-    var leStr = ScalaJS.as.Ltoolc_lexer_Tokens$STRLIT(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1)).value__T();
+  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$INT(), x1)) {
+    var pos = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
     this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-    return new ScalaJS.c.Ltoolc_ast_Trees$StringLit().init___T(leStr)
+    return (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$LBRACKET()) ? (this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1), this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACKET(), ctx$1, tokens$1, currentToken$1), ScalaJS.as.Ltoolc_ast_Trees$TypeTree(new ScalaJS.c.Ltoolc_ast_Trees$IntArrayType().init___().setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))) : ScalaJS.as.Ltoolc_ast_Trees$TypeTree(new ScalaJS.c.Ltoolc_ast_Trees$IntType().init___().setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos)))
   };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$FALSE(), x1)) {
-    return (this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1), new ScalaJS.c.Ltoolc_ast_Trees$False().init___())
-  };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$TRUE(), x1)) {
-    return (this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1), new ScalaJS.c.Ltoolc_ast_Trees$True().init___())
+  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$STRING(), x1)) {
+    var ret$2 = ScalaJS.as.Ltoolc_ast_Trees$StringType(new ScalaJS.c.Ltoolc_ast_Trees$StringType().init___().setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1)));
+    this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+    return ret$2
   };
   if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), x1)) {
-    var leId = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
-    var x1$2 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$DOT(), x1$2)) {
-      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-      var x1$3 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), x1$3)) {
-        var obj = leId;
-        var method = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
-        this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
-        var x1$4 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-        matchEnd4: {
-          var args;
-          if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), x1$4)) {
-            var args = ScalaJS.m.sci_Nil();
-            break matchEnd4
-          };
-          var args = this.parseArgs$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1);
-          break matchEnd4
-        };
-        this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
-        return this.parseExprs$1__p2__Ltoolc_ast_Trees$ExprTree__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List__sci_List__Ltoolc_ast_Trees$ExprTree(new ScalaJS.c.Ltoolc_ast_Trees$MethodCall().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$Identifier__sci_List(obj, method, args), ctx$1, tokens$1, currentToken$1, operands$1, operators$1)
-      };
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$LENGTH(), x1$3)) {
-        return (this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1), new ScalaJS.c.Ltoolc_ast_Trees$ArrayLength().init___Ltoolc_ast_Trees$ExprTree(leId))
-      };
-      this.expected$1__p2__Ltoolc_lexer_TokenKind__sc_Seq__Ltoolc_utils_Context__sr_ObjectRef__sr_Nothing$(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), new ScalaJS.c.sjs_js_WrappedArray().init___sjs_js_Array([ScalaJS.m.Ltoolc_lexer_Tokens$LENGTH()]), ctx$1, currentToken$1)
-    };
-    return leId
+    return this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1)
   };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$THIS(), x1)) {
+  this.expected$1__p2__Ltoolc_lexer_TokenKind__sc_Seq__Ltoolc_utils_Context__sr_ObjectRef__sr_Nothing$(ScalaJS.m.Ltoolc_lexer_Tokens$BOOLEAN(), new ScalaJS.c.sjs_js_WrappedArray().init___sjs_js_Array([ScalaJS.m.Ltoolc_lexer_Tokens$INT(), ScalaJS.m.Ltoolc_lexer_Tokens$STRING(), ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND()]), ctx$1, currentToken$1)
+});
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree = (function(ctx$1, tokens$1, currentToken$1) {
+  var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
+  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACE(), x1)) {
+    var pos = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
     this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-    var x1$5 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$DOT(), x1$5)) {
-      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-      var x1$6 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), x1$6)) {
-        var obj$2 = new ScalaJS.c.Ltoolc_ast_Trees$This().init___();
-        var method$2 = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
-        this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
-        var x1$7 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-        matchEnd4$3: {
-          var args$2;
-          if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), x1$7)) {
-            var args$2 = ScalaJS.m.sci_Nil();
-            break matchEnd4$3
-          };
-          var args$2 = this.parseArgs$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1);
-          break matchEnd4$3
-        };
-        this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
-        return new ScalaJS.c.Ltoolc_ast_Trees$MethodCall().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$Identifier__sci_List(obj$2, method$2, args$2)
-      };
-      this.expected$1__p2__Ltoolc_lexer_TokenKind__sc_Seq__Ltoolc_utils_Context__sr_ObjectRef__sr_Nothing$(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), new ScalaJS.c.sjs_js_WrappedArray().init___sjs_js_Array([ScalaJS.m.Ltoolc_lexer_Tokens$LENGTH()]), ctx$1, currentToken$1)
-    };
-    return new ScalaJS.c.Ltoolc_ast_Trees$This().init___()
+    var ret = ScalaJS.as.Ltoolc_ast_Trees$Block(new ScalaJS.c.Ltoolc_ast_Trees$Block().init___sci_List(this.parseStatements$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1)).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos));
+    this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACE(), ctx$1, tokens$1, currentToken$1);
+    return ret
   };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$NEW(), x1)) {
+  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$IF(), x1)) {
+    var pos$2 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
     this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-    var x1$8 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), x1$8)) {
-      var id = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
-      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
-      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
-      return new ScalaJS.c.Ltoolc_ast_Trees$New().init___Ltoolc_ast_Trees$Identifier(id)
-    };
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$INT(), x1$8)) {
-      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACKET(), ctx$1, tokens$1, currentToken$1);
-      var size = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
-      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACKET(), ctx$1, tokens$1, currentToken$1);
-      return new ScalaJS.c.Ltoolc_ast_Trees$NewIntArray().init___Ltoolc_ast_Trees$ExprTree(size)
-    };
-    this.expected$1__p2__Ltoolc_lexer_TokenKind__sc_Seq__Ltoolc_utils_Context__sr_ObjectRef__sr_Nothing$(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), new ScalaJS.c.sjs_js_WrappedArray().init___sjs_js_Array([ScalaJS.m.Ltoolc_lexer_Tokens$INT()]), ctx$1, currentToken$1)
-  };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$BANG(), x1)) {
-    var tk = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-    this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-    return new ScalaJS.c.Ltoolc_ast_Trees$Not().init___Ltoolc_ast_Trees$ExprTree(this.inner$7__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List__sci_List__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1, operands$1, operators$1))
-  };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), x1)) {
-    this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-    var expr = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
+    this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
+    var cond = this.parseExpr$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1);
     this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
-    return expr
+    var thn = this.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree(ctx$1, tokens$1, currentToken$1);
+    var elz = (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$ELSE()) ? (this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1), new ScalaJS.c.s_Some().init___O(this.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree(ctx$1, tokens$1, currentToken$1))) : ScalaJS.m.s_None());
+    return ScalaJS.as.Ltoolc_ast_Trees$StatTree(new ScalaJS.c.Ltoolc_ast_Trees$If().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$StatTree__s_Option(cond, thn, elz).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos$2))
   };
-  this.expected$1__p2__Ltoolc_lexer_TokenKind__sc_Seq__Ltoolc_utils_Context__sr_ObjectRef__sr_Nothing$(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), new ScalaJS.c.sjs_js_WrappedArray().init___sjs_js_Array([ScalaJS.m.Ltoolc_lexer_Tokens$BANG(), ScalaJS.m.Ltoolc_lexer_Tokens$NEW(), ScalaJS.m.Ltoolc_lexer_Tokens$THIS(), ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), ScalaJS.m.Ltoolc_lexer_Tokens$TRUE(), ScalaJS.m.Ltoolc_lexer_Tokens$FALSE(), ScalaJS.m.Ltoolc_lexer_Tokens$STRLITKIND(), ScalaJS.m.Ltoolc_lexer_Tokens$INTLITKIND()]), ctx$1, currentToken$1)
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.consumeHigherPriority$1__p2__Ltoolc_ast_Trees$ExprTree__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_lexer_TokenKind__Ltoolc_ast_Trees$ExprTree = (function(rightOperand, operands, operators, ctx$1, tokens$1, currentToken$1, operator$1) {
-  var _$this = this;
-  _consumeHigherPriority: while (true) {
-    if ((((!operators.isEmpty__Z()) && (!operands.isEmpty__Z())) && _$this.hasHigherPriority$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_lexer_TokenKind__Z(ScalaJS.as.Ltoolc_lexer_TokenKind(operators.head__O()), operator$1))) {
-      var temp$rightOperand = _$this.toolc$ast$Parser$$createOperation$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_lexer_TokenKind__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(ScalaJS.as.Ltoolc_ast_Trees$ExprTree(operands.head__O()), ScalaJS.as.Ltoolc_lexer_TokenKind(operators.head__O()), rightOperand);
-      var temp$operands = ScalaJS.as.sci_List(operands.tail__O());
-      var temp$operators = ScalaJS.as.sci_List(operators.tail__O());
-      rightOperand = temp$rightOperand;
-      operands = temp$operands;
-      operators = temp$operators;
-      continue _consumeHigherPriority
+  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$WHILE(), x1)) {
+    var pos$3 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
+    this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+    this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
+    var cond$2 = this.parseExpr$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1);
+    this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
+    return ScalaJS.as.Ltoolc_ast_Trees$StatTree(new ScalaJS.c.Ltoolc_ast_Trees$While().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$StatTree(cond$2, this.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree(ctx$1, tokens$1, currentToken$1)).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos$3))
+  };
+  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$PRINTLN(), x1)) {
+    var pos$4 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
+    this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+    this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
+    var expr = this.parseExpr$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1);
+    this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
+    this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$SEMICOLON(), ctx$1, tokens$1, currentToken$1);
+    return ScalaJS.as.Ltoolc_ast_Trees$StatTree(new ScalaJS.c.Ltoolc_ast_Trees$Println().init___Ltoolc_ast_Trees$ExprTree(expr).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos$4))
+  };
+  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), x1)) {
+    var pos$5 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
+    var id = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
+    if (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$EQSIGN())) {
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      var expr$2 = this.parseExpr$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1);
+      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$SEMICOLON(), ctx$1, tokens$1, currentToken$1);
+      return ScalaJS.as.Ltoolc_ast_Trees$StatTree(new ScalaJS.c.Ltoolc_ast_Trees$Assign().init___Ltoolc_ast_Trees$Identifier__Ltoolc_ast_Trees$ExprTree(id, expr$2).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos$5))
+    } else if (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$LBRACKET())) {
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      var index = this.parseExpr$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1);
+      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACKET(), ctx$1, tokens$1, currentToken$1);
+      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$EQSIGN(), ctx$1, tokens$1, currentToken$1);
+      var expr$3 = this.parseExpr$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1);
+      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$SEMICOLON(), ctx$1, tokens$1, currentToken$1);
+      return ScalaJS.as.Ltoolc_ast_Trees$StatTree(new ScalaJS.c.Ltoolc_ast_Trees$ArrayAssign().init___Ltoolc_ast_Trees$Identifier__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(id, index, expr$3).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos$5))
     } else {
-      var x$2 = rightOperand;
-      var jsx$1 = operands.$$colon$colon__O__sci_List(x$2);
-      var x$3 = operator$1;
-      return _$this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(jsx$1, operators.$$colon$colon__O__sci_List(x$3), ctx$1, tokens$1, currentToken$1)
+      this.expected$1__p2__Ltoolc_lexer_TokenKind__sc_Seq__Ltoolc_utils_Context__sr_ObjectRef__sr_Nothing$(ScalaJS.m.Ltoolc_lexer_Tokens$EQSIGN(), new ScalaJS.c.sjs_js_WrappedArray().init___sjs_js_Array([ScalaJS.m.Ltoolc_lexer_Tokens$LBRACKET()]), ctx$1, currentToken$1)
     }
+  };
+  this.expected$1__p2__Ltoolc_lexer_TokenKind__sc_Seq__Ltoolc_utils_Context__sr_ObjectRef__sr_Nothing$(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACE(), new ScalaJS.c.sjs_js_WrappedArray().init___sjs_js_Array([ScalaJS.m.Ltoolc_lexer_Tokens$IF(), ScalaJS.m.Ltoolc_lexer_Tokens$WHILE(), ScalaJS.m.Ltoolc_lexer_Tokens$PRINTLN(), ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND()]), ctx$1, currentToken$1)
+});
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseStatements$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(ctx$1, tokens$1, currentToken$1) {
+  var lst = ScalaJS.m.sci_Nil();
+  while (this.statFirst$1__p2__sr_ObjectRef__Z(currentToken$1)) {
+    var x$10 = lst;
+    var x$9 = this.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree(ctx$1, tokens$1, currentToken$1);
+    lst = ScalaJS.m.sci_Nil().$$colon$colon__O__sci_List(x$9).$$colon$colon$colon__sci_List__sci_List(x$10)
+  };
+  return lst
+});
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseExpr$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree = (function(ctx$1, tokens$1, currentToken$1) {
+  return this.parseExpr7$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1)
+});
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseExpr7$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree = (function(ctx$1, tokens$1, currentToken$1) {
+  var e6 = this.parseExpr6$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1);
+  while (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$OR())) {
+    var opPos = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
+    this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+    e6 = ScalaJS.as.Ltoolc_ast_Trees$ExprTree(new ScalaJS.c.Ltoolc_ast_Trees$Or().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(e6, this.parseExpr6$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1)).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(opPos))
+  };
+  return e6
+});
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseExpr6$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree = (function(ctx$1, tokens$1, currentToken$1) {
+  var e5 = this.parseExpr5$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1);
+  while (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$AND())) {
+    var opPos = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
+    this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+    e5 = ScalaJS.as.Ltoolc_ast_Trees$ExprTree(new ScalaJS.c.Ltoolc_ast_Trees$And().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(e5, this.parseExpr5$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1)).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(opPos))
+  };
+  return e5
+});
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseExpr5$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree = (function(ctx$1, tokens$1, currentToken$1) {
+  var e4 = this.parseExpr4$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1);
+  while ((ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$LESSTHAN()) || ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$EQUALS()))) {
+    var opPos = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
+    if (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$EQUALS())) {
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      e4 = ScalaJS.as.Ltoolc_ast_Trees$ExprTree(new ScalaJS.c.Ltoolc_ast_Trees$Equals().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(e4, this.parseExpr4$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1)).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(opPos))
+    } else {
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      e4 = ScalaJS.as.Ltoolc_ast_Trees$ExprTree(new ScalaJS.c.Ltoolc_ast_Trees$LessThan().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(e4, this.parseExpr4$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1)).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(opPos))
+    }
+  };
+  return e4
+});
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseExpr4$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree = (function(ctx$1, tokens$1, currentToken$1) {
+  var e3 = this.parseExpr3$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1);
+  while ((ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$PLUS()) || ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$MINUS()))) {
+    var opPos = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
+    if (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$PLUS())) {
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      e3 = ScalaJS.as.Ltoolc_ast_Trees$ExprTree(new ScalaJS.c.Ltoolc_ast_Trees$Plus().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(e3, this.parseExpr3$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1)).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(opPos))
+    } else {
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      e3 = ScalaJS.as.Ltoolc_ast_Trees$ExprTree(new ScalaJS.c.Ltoolc_ast_Trees$Minus().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(e3, this.parseExpr3$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1)).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(opPos))
+    }
+  };
+  return e3
+});
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseExpr3$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree = (function(ctx$1, tokens$1, currentToken$1) {
+  var e2 = this.parseExpr2a$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1);
+  while ((ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$DIV()) || ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$TIMES()))) {
+    var opPos = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
+    if (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$DIV())) {
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      e2 = ScalaJS.as.Ltoolc_ast_Trees$ExprTree(new ScalaJS.c.Ltoolc_ast_Trees$Div().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(e2, this.parseExpr2a$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1)).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(opPos))
+    } else {
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      e2 = ScalaJS.as.Ltoolc_ast_Trees$ExprTree(new ScalaJS.c.Ltoolc_ast_Trees$Times().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(e2, this.parseExpr2a$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1)).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(opPos))
+    }
+  };
+  return e2
+});
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseExpr2a$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree = (function(ctx$1, tokens$1, currentToken$1) {
+  var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
+  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$BANG(), x1)) {
+    var pos = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
+    this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+    var expr = this.parseExpr2a$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1);
+    return ScalaJS.as.Ltoolc_ast_Trees$ExprTree(new ScalaJS.c.Ltoolc_ast_Trees$Not().init___Ltoolc_ast_Trees$ExprTree(expr).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))
+  };
+  return this.parseExpr2b$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1)
+});
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseExpr2b$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree = (function(ctx$1, tokens$1, currentToken$1) {
+  var e1 = this.parseExpr1$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1);
+  while ((ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$LBRACKET()) || ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$DOT()))) {
+    while (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$LBRACKET())) {
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      var index = this.parseExpr$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1);
+      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACKET(), ctx$1, tokens$1, currentToken$1);
+      e1 = ScalaJS.as.Ltoolc_ast_Trees$ExprTree(new ScalaJS.c.Ltoolc_ast_Trees$ArrayRead().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(e1, index).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(e1))
+    };
+    while (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$DOT())) {
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      if (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$LENGTH())) {
+        var pos = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
+        this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+        e1 = ScalaJS.as.Ltoolc_ast_Trees$ExprTree(new ScalaJS.c.Ltoolc_ast_Trees$ArrayLength().init___Ltoolc_ast_Trees$ExprTree(e1).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))
+      } else {
+        var id = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
+        this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
+        var exprLst = this.parseExprList$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1);
+        this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
+        e1 = ScalaJS.as.Ltoolc_ast_Trees$ExprTree(new ScalaJS.c.Ltoolc_ast_Trees$MethodCall().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$Identifier__sci_List(e1, id, exprLst).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(id))
+      }
+    }
+  };
+  return e1
+});
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseExpr1$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree = (function(ctx$1, tokens$1, currentToken$1) {
+  var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
+  var o24 = ScalaJS.m.Ltoolc_lexer_Tokens$Kinded().unapply__Ltoolc_lexer_Token__s_Option(x1);
+  if ((!o24.isEmpty__Z())) {
+    var p3 = ScalaJS.as.Ltoolc_lexer_TokenKind(o24.get__O());
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$TRUE(), p3)) {
+      var ret = ScalaJS.as.Ltoolc_ast_Trees$True(new ScalaJS.c.Ltoolc_ast_Trees$True().init___().setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1)));
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      return ret
+    }
+  };
+  var o26 = ScalaJS.m.Ltoolc_lexer_Tokens$Kinded().unapply__Ltoolc_lexer_Token__s_Option(x1);
+  if ((!o26.isEmpty__Z())) {
+    var p5 = ScalaJS.as.Ltoolc_lexer_TokenKind(o26.get__O());
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$FALSE(), p5)) {
+      var ret$2 = ScalaJS.as.Ltoolc_ast_Trees$False(new ScalaJS.c.Ltoolc_ast_Trees$False().init___().setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1)));
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      return ret$2
+    }
+  };
+  var o28 = ScalaJS.m.Ltoolc_lexer_Tokens$Kinded().unapply__Ltoolc_lexer_Token__s_Option(x1);
+  if ((!o28.isEmpty__Z())) {
+    var p7 = ScalaJS.as.Ltoolc_lexer_TokenKind(o28.get__O());
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$THIS(), p7)) {
+      var ret$3 = ScalaJS.as.Ltoolc_ast_Trees$This(new ScalaJS.c.Ltoolc_ast_Trees$This().init___().setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1)));
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      return ret$3
+    }
+  };
+  if (ScalaJS.is.Ltoolc_lexer_Tokens$INTLIT(x1)) {
+    var x15 = ScalaJS.as.Ltoolc_lexer_Tokens$INTLIT(x1);
+    var ret$4 = ScalaJS.as.Ltoolc_ast_Trees$IntLit(new ScalaJS.c.Ltoolc_ast_Trees$IntLit().init___I(x15.value__I()).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1)));
+    this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+    return ret$4
+  };
+  if (ScalaJS.is.Ltoolc_lexer_Tokens$STRLIT(x1)) {
+    var x16 = ScalaJS.as.Ltoolc_lexer_Tokens$STRLIT(x1);
+    var ret$5 = ScalaJS.as.Ltoolc_ast_Trees$StringLit(new ScalaJS.c.Ltoolc_ast_Trees$StringLit().init___T(x16.value__T()).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1)));
+    this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+    return ret$5
+  };
+  var o32 = ScalaJS.m.Ltoolc_lexer_Tokens$Kinded().unapply__Ltoolc_lexer_Token__s_Option(x1);
+  if ((!o32.isEmpty__Z())) {
+    var p9 = ScalaJS.as.Ltoolc_lexer_TokenKind(o32.get__O());
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), p9)) {
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      var res = this.parseExpr$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1);
+      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
+      return res
+    }
+  };
+  if (ScalaJS.is.Ltoolc_lexer_Tokens$ID(x1)) {
+    return this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1)
+  };
+  var o35 = ScalaJS.m.Ltoolc_lexer_Tokens$Kinded().unapply__Ltoolc_lexer_Token__s_Option(x1);
+  if ((!o35.isEmpty__Z())) {
+    var p11 = ScalaJS.as.Ltoolc_lexer_TokenKind(o35.get__O());
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$NEW(), p11)) {
+      var pos = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      if (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$INT())) {
+        this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+        this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACKET(), ctx$1, tokens$1, currentToken$1);
+        var size = this.parseExpr$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1);
+        this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACKET(), ctx$1, tokens$1, currentToken$1);
+        return ScalaJS.as.Ltoolc_ast_Trees$ExprTree(new ScalaJS.c.Ltoolc_ast_Trees$NewIntArray().init___Ltoolc_ast_Trees$ExprTree(size).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))
+      } else {
+        var tpe = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
+        this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
+        this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
+        return ScalaJS.as.Ltoolc_ast_Trees$ExprTree(new ScalaJS.c.Ltoolc_ast_Trees$New().init___Ltoolc_ast_Trees$Identifier(tpe).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))
+      }
+    }
+  };
+  this.expected$1__p2__Ltoolc_lexer_TokenKind__sc_Seq__Ltoolc_utils_Context__sr_ObjectRef__sr_Nothing$(ScalaJS.m.Ltoolc_lexer_Tokens$TRUE(), new ScalaJS.c.sjs_js_WrappedArray().init___sjs_js_Array([ScalaJS.m.Ltoolc_lexer_Tokens$FALSE(), ScalaJS.m.Ltoolc_lexer_Tokens$THIS(), ScalaJS.m.Ltoolc_lexer_Tokens$INTLITKIND(), ScalaJS.m.Ltoolc_lexer_Tokens$STRLITKIND(), ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), ScalaJS.m.Ltoolc_lexer_Tokens$NEW()]), ctx$1, currentToken$1)
+});
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseExprList$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(ctx$1, tokens$1, currentToken$1) {
+  if ((!this.exprFirst$1__p2__sr_ObjectRef__Z(currentToken$1))) {
+    return ScalaJS.m.sci_Nil()
+  } else {
+    var x$11 = this.parseExpr$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1);
+    var lst = ScalaJS.m.sci_Nil().$$colon$colon__O__sci_List(x$11);
+    while (ScalaJS.anyRefEqEq(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind(), ScalaJS.m.Ltoolc_lexer_Tokens$COMMA())) {
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      var x$13 = lst;
+      var x$12 = this.parseExpr$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1);
+      lst = ScalaJS.m.sci_Nil().$$colon$colon__O__sci_List(x$12).$$colon$colon$colon__sci_List__sci_List(x$13)
+    };
+    return lst
   }
 });
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseExprs$1__p2__Ltoolc_ast_Trees$ExprTree__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List__sci_List__Ltoolc_ast_Trees$ExprTree = (function(expr, ctx$1, tokens$1, currentToken$1, operands$1, operators$1) {
-  var _$this = this;
-  _parseExprs: while (true) {
-    var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$DOT(), x1)) {
-      _$this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-      var x1$2 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), x1$2)) {
-        var obj = expr;
-        var method = _$this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
-        _$this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
-        var x1$3 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-        matchEnd4: {
-          var args;
-          if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), x1$3)) {
-            var args = ScalaJS.m.sci_Nil();
-            break matchEnd4
-          };
-          var args = _$this.parseArgs$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1);
-          break matchEnd4
-        };
-        _$this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
-        expr = new ScalaJS.c.Ltoolc_ast_Trees$MethodCall().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$Identifier__sci_List(obj, method, args);
-        continue _parseExprs
-      };
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$LENGTH(), x1$2)) {
-        _$this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-        expr = new ScalaJS.c.Ltoolc_ast_Trees$ArrayLength().init___Ltoolc_ast_Trees$ExprTree(expr);
-        continue _parseExprs
-      };
-      _$this.expected$1__p2__Ltoolc_lexer_TokenKind__sc_Seq__Ltoolc_utils_Context__sr_ObjectRef__sr_Nothing$(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), new ScalaJS.c.sjs_js_WrappedArray().init___sjs_js_Array([ScalaJS.m.Ltoolc_lexer_Tokens$LENGTH()]), ctx$1, currentToken$1)
-    };
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACKET(), x1)) {
-      _$this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-      var index = _$this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(_$this.parseExpr$default$1$1__p2__sci_List(), _$this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
-      _$this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACKET(), ctx$1, tokens$1, currentToken$1);
-      expr = new ScalaJS.c.Ltoolc_ast_Trees$ArrayRead().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(expr, index);
-      continue _parseExprs
-    };
-    matchEnd18: {
-      var jsx$1;
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$TIMES(), x1)) {
-        var jsx$1 = true;
-        break matchEnd18
-      };
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$PLUS(), x1)) {
-        var jsx$1 = true;
-        break matchEnd18
-      };
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$DIV(), x1)) {
-        var jsx$1 = true;
-        break matchEnd18
-      };
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$MINUS(), x1)) {
-        var jsx$1 = true;
-        break matchEnd18
-      };
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$AND(), x1)) {
-        var jsx$1 = true;
-        break matchEnd18
-      };
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$OR(), x1)) {
-        var jsx$1 = true;
-        break matchEnd18
-      };
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$LESSTHAN(), x1)) {
-        var jsx$1 = true;
-        break matchEnd18
-      };
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$EQUALS(), x1)) {
-        var jsx$1 = true;
-        break matchEnd18
-      };
-      var jsx$1 = false;
-      break matchEnd18
-    };
-    if (jsx$1) {
-      var operator = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-      _$this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-      return _$this.consumeHigherPriority$1__p2__Ltoolc_ast_Trees$ExprTree__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_lexer_TokenKind__Ltoolc_ast_Trees$ExprTree(expr, operands$1, operators$1, ctx$1, tokens$1, currentToken$1, operator)
-    };
-    if ((!operators$1.isEmpty__Z())) {
-      var x1$4 = ScalaJS.as.Ltoolc_lexer_TokenKind(operators$1.head__O());
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$BANG(), x1$4)) {
-        return (ScalaJS.m.s_Predef().assert__Z__F0__V(false, new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
-          return "Should not do this"
-        }))), null)
-      };
-      return (ScalaJS.m.s_Predef().assert__Z__F0__V((operands$1.size__I() === operators$1.size__I()), new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
-        return "Not same size"
-      }))), ScalaJS.as.Ltoolc_ast_Trees$ExprTree(ScalaJS.as.sc_LinearSeqOptimized(operators$1.zip__sc_GenIterable__scg_CanBuildFrom__O(operands$1, ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())).foldLeft__O__F2__O(expr, new ScalaJS.c.sjsr_AnonFunction2().init___sjs_js_Function2((function(acc$2, tuple$2) {
-        var acc = ScalaJS.as.Ltoolc_ast_Trees$ExprTree(acc$2);
-        var tuple = ScalaJS.as.T2(tuple$2);
-        var x1 = tuple;
-        if ((x1 !== null)) {
-          var operator = ScalaJS.as.Ltoolc_lexer_TokenKind(x1.$$und1__O());
-          var operand = ScalaJS.as.Ltoolc_ast_Trees$ExprTree(x1.$$und2__O());
-          return ScalaJS.m.Ltoolc_ast_Parser().toolc$ast$Parser$$createOperation$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_lexer_TokenKind__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(operand, operator, acc)
-        };
-        throw new ScalaJS.c.s_MatchError().init___O(x1)
-      })))))
-    } else {
-      return expr
-    }
-  }
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier = (function(ctx$1, tokens$1, currentToken$1) {
+  var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1);
+  if (ScalaJS.is.Ltoolc_lexer_Tokens$ID(x1)) {
+    var x2 = ScalaJS.as.Ltoolc_lexer_Tokens$ID(x1);
+    var ret = ScalaJS.as.Ltoolc_ast_Trees$Identifier(new ScalaJS.c.Ltoolc_ast_Trees$Identifier().init___T(x2.value__T()).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1)));
+    this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+    return ret
+  };
+  this.expected$1__p2__Ltoolc_lexer_TokenKind__sc_Seq__Ltoolc_utils_Context__sr_ObjectRef__sr_Nothing$(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), new ScalaJS.c.sjs_js_WrappedArray().init___sjs_js_Array([]), ctx$1, currentToken$1)
 });
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree = (function(operands, operators, ctx$1, tokens$1, currentToken$1) {
-  return this.parseExprs$1__p2__Ltoolc_ast_Trees$ExprTree__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List__sci_List__Ltoolc_ast_Trees$ExprTree(this.inner$7__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List__sci_List__Ltoolc_ast_Trees$ExprTree(ctx$1, tokens$1, currentToken$1, operands, operators), ctx$1, tokens$1, currentToken$1, operands, operators)
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.exprFirst$1__p2__sr_ObjectRef__Z = (function(currentToken$1) {
+  var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
+  matchEnd15: {
+    var jsx$1;
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), x1)) {
+      var jsx$1 = true;
+      break matchEnd15
+    };
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$INTLITKIND(), x1)) {
+      var jsx$1 = true;
+      break matchEnd15
+    };
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$STRLITKIND(), x1)) {
+      var jsx$1 = true;
+      break matchEnd15
+    };
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$TRUE(), x1)) {
+      var jsx$1 = true;
+      break matchEnd15
+    };
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$FALSE(), x1)) {
+      var jsx$1 = true;
+      break matchEnd15
+    };
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$THIS(), x1)) {
+      var jsx$1 = true;
+      break matchEnd15
+    };
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$NEW(), x1)) {
+      var jsx$1 = true;
+      break matchEnd15
+    };
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$BANG(), x1)) {
+      var jsx$1 = true;
+      break matchEnd15
+    };
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), x1)) {
+      var jsx$1 = true;
+      break matchEnd15
+    };
+    var jsx$1 = false;
+    break matchEnd15
+  };
+  if (jsx$1) {
+    return true
+  };
+  return false
 });
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseExpr$default$1$1__p2__sci_List = (function() {
-  return ScalaJS.m.sci_Nil()
-});
-ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseExpr$default$2$1__p2__sci_List = (function() {
-  return ScalaJS.m.sci_Nil()
+ScalaJS.c.Ltoolc_ast_Parser$.prototype.statFirst$1__p2__sr_ObjectRef__Z = (function(currentToken$1) {
+  var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
+  matchEnd11: {
+    var jsx$1;
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACE(), x1)) {
+      var jsx$1 = true;
+      break matchEnd11
+    };
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$IF(), x1)) {
+      var jsx$1 = true;
+      break matchEnd11
+    };
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$WHILE(), x1)) {
+      var jsx$1 = true;
+      break matchEnd11
+    };
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$PRINTLN(), x1)) {
+      var jsx$1 = true;
+      break matchEnd11
+    };
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), x1)) {
+      var jsx$1 = true;
+      break matchEnd11
+    };
+    var jsx$1 = false;
+    break matchEnd11
+  };
+  if (jsx$1) {
+    return true
+  };
+  return false
 });
 ScalaJS.is.Ltoolc_ast_Parser$ = (function(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_ast_Parser$)))
@@ -41557,6 +41491,9 @@ ScalaJS.c.sci_List.prototype.companion__scg_GenericCompanion = (function() {
 ScalaJS.c.sci_List.prototype.$$colon$colon__O__sci_List = (function(x) {
   return new ScalaJS.c.sci_$colon$colon().init___O__sci_List(x, this)
 });
+ScalaJS.c.sci_List.prototype.$$colon$colon$colon__sci_List__sci_List = (function(prefix) {
+  return (this.isEmpty__Z() ? prefix : (prefix.isEmpty__Z() ? this : new ScalaJS.c.scm_ListBuffer().init___().$$plus$plus$eq__sc_TraversableOnce__scm_ListBuffer(prefix).prependToList__sci_List__sci_List(this)))
+});
 ScalaJS.c.sci_List.prototype.toList__sci_List = (function() {
   return this
 });
@@ -50483,6 +50420,17 @@ ScalaJS.c.scm_ListBuffer.prototype.result__sci_List = (function() {
 });
 ScalaJS.c.scm_ListBuffer.prototype.toList__sci_List = (function() {
   return (this.exported$und$eq__p6__Z__V((!this.isEmpty__Z())), this.scala$collection$mutable$ListBuffer$$start__sci_List())
+});
+ScalaJS.c.scm_ListBuffer.prototype.prependToList__sci_List__sci_List = (function(xs) {
+  if (this.isEmpty__Z()) {
+    return xs
+  } else {
+    if (this.exported__p6__Z()) {
+      this.copy__p6__V()
+    };
+    this.last0__p6__sci_$colon$colon().tl$und$eq__sci_List__V(xs);
+    return this.toList__sci_List()
+  }
 });
 ScalaJS.c.scm_ListBuffer.prototype.iterator__sc_Iterator = (function() {
   return new ScalaJS.c.scm_ListBuffer$$anon$1().init___scm_ListBuffer(this)

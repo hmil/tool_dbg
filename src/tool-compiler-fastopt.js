@@ -881,6 +881,35 @@ ScalaJS.d.O = new ScalaJS.ClassTypeData({
   O: 1
 }, ScalaJS.is.O, ScalaJS.isArrayOf.O);
 ScalaJS.c.O.prototype.$classData = ScalaJS.d.O;
+ScalaJS.i.jl_JSConsoleBasedPrintStream$class__print__jl_JSConsoleBasedPrintStream__T__V = (function($$this, s) {
+  var rest = ((s === null) ? "null" : s);
+  while ((!ScalaJS.i.sjsr_RuntimeString$class__isEmpty__sjsr_RuntimeString__Z(rest))) {
+    var nlPos = ScalaJS.i.sjsr_RuntimeString$class__indexOf__sjsr_RuntimeString__T__I(rest, "\n");
+    if ((nlPos < 0)) {
+      $$this.java$lang$JSConsoleBasedPrintStream$$buffer$und$eq__T__V((("" + $$this.java$lang$JSConsoleBasedPrintStream$$buffer__T()) + rest));
+      $$this.java$lang$JSConsoleBasedPrintStream$$flushed$und$eq__Z__V(false);
+      rest = ""
+    } else {
+      $$this.doWriteLine__T__V((("" + $$this.java$lang$JSConsoleBasedPrintStream$$buffer__T()) + ScalaJS.i.sjsr_RuntimeString$class__substring__sjsr_RuntimeString__I__I__T(rest, 0, nlPos)));
+      $$this.java$lang$JSConsoleBasedPrintStream$$buffer$und$eq__T__V("");
+      $$this.java$lang$JSConsoleBasedPrintStream$$flushed$und$eq__Z__V(true);
+      rest = ScalaJS.i.sjsr_RuntimeString$class__substring__sjsr_RuntimeString__I__T(rest, ((nlPos + 1) | 0))
+    }
+  }
+});
+ScalaJS.i.jl_JSConsoleBasedPrintStream$class__flush__jl_JSConsoleBasedPrintStream__V = (function($$this) {
+  if ((!$$this.java$lang$JSConsoleBasedPrintStream$$flushed__Z())) {
+    $$this.doWriteLine__T__V((("" + $$this.java$lang$JSConsoleBasedPrintStream$$buffer__T()) + $$this.java$lang$JSConsoleBasedPrintStream$$lineContEnd__T()));
+    $$this.java$lang$JSConsoleBasedPrintStream$$buffer$und$eq__T__V($$this.java$lang$JSConsoleBasedPrintStream$$lineContStart__T());
+    $$this.java$lang$JSConsoleBasedPrintStream$$flushed$und$eq__Z__V(true)
+  }
+});
+ScalaJS.i.jl_JSConsoleBasedPrintStream$class__$init$__jl_JSConsoleBasedPrintStream__V = (function($$this) {
+  $$this.java$lang$JSConsoleBasedPrintStream$$flushed$und$eq__Z__V(true);
+  $$this.java$lang$JSConsoleBasedPrintStream$$buffer$und$eq__T__V("");
+  $$this.java$lang$JSConsoleBasedPrintStream$$undsetter$und$java$lang$JSConsoleBasedPrintStream$$lineContEnd$und$eq__T__V("\u21a9");
+  $$this.java$lang$JSConsoleBasedPrintStream$$undsetter$und$java$lang$JSConsoleBasedPrintStream$$lineContStart$und$eq__T__V("\u21aa")
+});
 ScalaJS.i.s_DeprecatedPredef$class__$init$__s_Predef$__V = (function($$this) {
   /*<skip>*/
 });
@@ -1160,9 +1189,6 @@ ScalaJS.i.sc_GenMapLike$class__$init$__sc_GenMapLike__V = (function($$this) {
 ScalaJS.i.sc_GenSeq$class__$init$__sc_GenSeq__V = (function($$this) {
   /*<skip>*/
 });
-ScalaJS.i.sc_GenSeqLike$class__indexWhere__sc_GenSeqLike__F1__I = (function($$this, p) {
-  return $$this.indexWhere__F1__I__I(p, 0)
-});
 ScalaJS.i.sc_GenSeqLike$class__hashCode__sc_GenSeqLike__I = (function($$this) {
   return ScalaJS.m.s_util_hashing_MurmurHash3().seqHash__sc_Seq__I($$this.seq__sc_Seq())
 });
@@ -1310,6 +1336,9 @@ ScalaJS.i.sc_IndexedSeqOptimized$class__head__sc_IndexedSeqOptimized__O = (funct
 ScalaJS.i.sc_IndexedSeqOptimized$class__tail__sc_IndexedSeqOptimized__O = (function($$this) {
   return ($$this.isEmpty__Z() ? $$this.scala$collection$IndexedSeqOptimized$$super$tail__O() : $$this.slice__I__I__O(1, $$this.length__I()))
 });
+ScalaJS.i.sc_IndexedSeqOptimized$class__last__sc_IndexedSeqOptimized__O = (function($$this) {
+  return (($$this.length__I() > 0) ? $$this.apply__I__O((($$this.length__I() - 1) | 0)) : $$this.scala$collection$IndexedSeqOptimized$$super$last__O())
+});
 ScalaJS.i.sc_IndexedSeqOptimized$class__drop__sc_IndexedSeqOptimized__I__O = (function($$this, n) {
   return $$this.slice__I__I__O(n, $$this.length__I())
 });
@@ -1343,26 +1372,6 @@ ScalaJS.i.sc_IndexedSeqOptimized$class__copyToArray__sc_IndexedSeqOptimized__O__
 ScalaJS.i.sc_IndexedSeqOptimized$class__lengthCompare__sc_IndexedSeqOptimized__I__I = (function($$this, len) {
   return (($$this.length__I() - len) | 0)
 });
-ScalaJS.i.sc_IndexedSeqOptimized$class__segmentLength__sc_IndexedSeqOptimized__F1__I__I = (function($$this, p, from) {
-  var len = $$this.length__I();
-  var i = from;
-  while (((i < len) && ScalaJS.uZ(p.apply__O__O($$this.apply__I__O(i))))) {
-    i = ((i + 1) | 0)
-  };
-  return ((i - from) | 0)
-});
-ScalaJS.i.sc_IndexedSeqOptimized$class__negLength__sc_IndexedSeqOptimized__I__I = (function($$this, n) {
-  return ((n >= $$this.length__I()) ? (-1) : n)
-});
-ScalaJS.i.sc_IndexedSeqOptimized$class__indexWhere__sc_IndexedSeqOptimized__F1__I__I = (function($$this, p, from) {
-  var start = ScalaJS.m.sr_RichInt().max$extension__I__I__I(ScalaJS.m.s_Predef().intWrapper__I__I(from), 0);
-  return ScalaJS.i.sc_IndexedSeqOptimized$class__negLength__sc_IndexedSeqOptimized__I__I($$this, ((start + $$this.segmentLength__F1__I__I(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function($$this, p) {
-    return (function(x$2$2) {
-      var x$2 = ScalaJS.as.O(x$2$2);
-      return ScalaJS.i.sc_IndexedSeqOptimized$class__$anonfun$2__sc_IndexedSeqOptimized__O__F1__Z($$this, x$2, p)
-    })
-  })($$this, p)), start)) | 0))
-});
 ScalaJS.i.sc_IndexedSeqOptimized$class__reverse__sc_IndexedSeqOptimized__O = (function($$this) {
   var b = $$this.newBuilder__scm_Builder();
   b.sizeHint__I__V($$this.length__I());
@@ -1372,9 +1381,6 @@ ScalaJS.i.sc_IndexedSeqOptimized$class__reverse__sc_IndexedSeqOptimized__O = (fu
     b.$$plus$eq__O__scm_Builder($$this.apply__I__O(i))
   };
   return b.result__O()
-});
-ScalaJS.i.sc_IndexedSeqOptimized$class__$anonfun$2__sc_IndexedSeqOptimized__O__F1__Z = (function($$this, x$2, p$2) {
-  return (!ScalaJS.uZ(p$2.apply__O__O(x$2)))
 });
 ScalaJS.i.sc_IndexedSeqOptimized$class__$init$__sc_IndexedSeqOptimized__V = (function($$this) {
   /*<skip>*/
@@ -1469,18 +1475,6 @@ ScalaJS.i.sc_Iterator$class__isEmpty__sc_Iterator__Z = (function($$this) {
 });
 ScalaJS.i.sc_Iterator$class__isTraversableAgain__sc_Iterator__Z = (function($$this) {
   return false
-});
-ScalaJS.i.sc_Iterator$class__drop__sc_Iterator__I__sc_Iterator = (function($$this, n) {
-  return $$this.slice__I__I__sc_Iterator(n, 2147483647)
-});
-ScalaJS.i.sc_Iterator$class__slice__sc_Iterator__I__I__sc_Iterator = (function($$this, from, until) {
-  var lo = ScalaJS.m.sr_RichInt().max$extension__I__I__I(ScalaJS.m.s_Predef().intWrapper__I__I(from), 0);
-  var toDrop = lo;
-  while (((toDrop > 0) && $$this.hasNext__Z())) {
-    $$this.next__O();
-    toDrop = ((toDrop - 1) | 0)
-  };
-  return new ScalaJS.c.sc_Iterator$$anon$10().init___sc_Iterator__I__I($$this, lo, until)
 });
 ScalaJS.i.sc_Iterator$class__map__sc_Iterator__F1__sc_Iterator = (function($$this, f) {
   return new ScalaJS.c.sc_Iterator$$anon$11().init___sc_Iterator__F1($$this, f)
@@ -1634,18 +1628,6 @@ ScalaJS.i.sc_LinearSeqOptimized$class__sameElements__sc_LinearSeqOptimized__sc_G
 ScalaJS.i.sc_LinearSeqOptimized$class__lengthCompare__sc_LinearSeqOptimized__I__I = (function($$this, len) {
   return ((len < 0) ? 1 : ScalaJS.i.sc_LinearSeqOptimized$class__loop$1__sc_LinearSeqOptimized__I__sc_LinearSeqOptimized__I__I($$this, 0, $$this, len))
 });
-ScalaJS.i.sc_LinearSeqOptimized$class__indexWhere__sc_LinearSeqOptimized__F1__I__I = (function($$this, p, from) {
-  var i = from;
-  var these = $$this.drop__I__sc_LinearSeqOptimized(from);
-  while (these.nonEmpty__Z()) {
-    if (ScalaJS.uZ(p.apply__O__O(these.head__O()))) {
-      return i
-    };
-    i = ((i + 1) | 0);
-    these = ScalaJS.as.sc_LinearSeqOptimized(these.tail__O())
-  };
-  return (-1)
-});
 ScalaJS.i.sc_LinearSeqOptimized$class__loop$1__sc_LinearSeqOptimized__I__sc_LinearSeqOptimized__I__I = (function($$this, i, xs, len$1) {
   _loop: while (true) {
     if ((i === len$1)) {
@@ -1792,18 +1774,6 @@ ScalaJS.i.sc_SeqLike$class__isEmpty__sc_SeqLike__Z = (function($$this) {
 ScalaJS.i.sc_SeqLike$class__size__sc_SeqLike__I = (function($$this) {
   return $$this.length__I()
 });
-ScalaJS.i.sc_SeqLike$class__indexWhere__sc_SeqLike__F1__I__I = (function($$this, p, from) {
-  var i = from;
-  var it = $$this.iterator__sc_Iterator().drop__I__sc_Iterator(from);
-  while (it.hasNext__Z()) {
-    if (ScalaJS.uZ(p.apply__O__O(it.next__O()))) {
-      return i
-    } else {
-      i = ((i + 1) | 0)
-    }
-  };
-  return (-1)
-});
 ScalaJS.i.sc_SeqLike$class__reverse__sc_SeqLike__O = (function($$this) {
   var xs = ScalaJS.m.sr_ObjectRef().create__O__sr_ObjectRef(ScalaJS.m.sci_Nil());
   $$this.foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function($$this, xs) {
@@ -1946,6 +1916,16 @@ ScalaJS.i.sc_TraversableLike$class__tail__sc_TraversableLike__O = (function($$th
   };
   return $$this.drop__I__O(1)
 });
+ScalaJS.i.sc_TraversableLike$class__last__sc_TraversableLike__O = (function($$this) {
+  var lst = ScalaJS.m.sr_ObjectRef().create__O__sr_ObjectRef($$this.head__O());
+  $$this.foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function($$this, lst) {
+    return (function(x$2) {
+      var x = ScalaJS.as.O(x$2);
+      ScalaJS.i.sc_TraversableLike$class__$anonfun$25__sc_TraversableLike__O__sr_ObjectRef__V($$this, x, lst)
+    })
+  })($$this, lst)));
+  return lst.elem$1
+});
 ScalaJS.i.sc_TraversableLike$class__to__sc_TraversableLike__scg_CanBuildFrom__O = (function($$this, cbf) {
   var b = cbf.apply__scm_Builder();
   b.sizeHint__sc_TraversableLike__V($$this);
@@ -1984,6 +1964,9 @@ ScalaJS.i.sc_TraversableLike$class__$anonfun$4__sc_TraversableLike__O__scm_Build
 ScalaJS.i.sc_TraversableLike$class__$anonfun$5__sc_TraversableLike__O__F1__Z__scm_Builder__O = (function($$this, x, p$1, isFlipped$1, b$3) {
   return ((ScalaJS.uZ(p$1.apply__O__O(x)) !== isFlipped$1) ? b$3.$$plus$eq__O__scm_Builder(x) : (void 0))
 });
+ScalaJS.i.sc_TraversableLike$class__$anonfun$25__sc_TraversableLike__O__sr_ObjectRef__V = (function($$this, x, lst$1) {
+  lst$1.elem$1 = x
+});
 ScalaJS.i.sc_TraversableLike$class__$init$__sc_TraversableLike__V = (function($$this) {
   /*<skip>*/
 });
@@ -2018,6 +2001,9 @@ ScalaJS.i.sc_TraversableOnce$class__copyToBuffer__sc_TraversableOnce__scm_Buffer
 });
 ScalaJS.i.sc_TraversableOnce$class__copyToArray__sc_TraversableOnce__O__I__V = (function($$this, xs, start) {
   $$this.copyToArray__O__I__I__V(xs, start, ((ScalaJS.m.sr_ScalaRunTime().array$undlength__O__I(xs) - start) | 0))
+});
+ScalaJS.i.sc_TraversableOnce$class__copyToArray__sc_TraversableOnce__O__V = (function($$this, xs) {
+  $$this.copyToArray__O__I__I__V(xs, 0, ScalaJS.m.sr_ScalaRunTime().array$undlength__O__I(xs))
 });
 ScalaJS.i.sc_TraversableOnce$class__toArray__sc_TraversableOnce__s_reflect_ClassTag__O = (function($$this, evidence$1) {
   if ($$this.isTraversableAgain__Z()) {
@@ -2148,9 +2134,6 @@ ScalaJS.i.scg_SeqForwarder$class__apply__scg_SeqForwarder__I__O = (function($$th
 });
 ScalaJS.i.scg_SeqForwarder$class__lengthCompare__scg_SeqForwarder__I__I = (function($$this, len) {
   return $$this.underlying__sc_Seq().lengthCompare__I__I(len)
-});
-ScalaJS.i.scg_SeqForwarder$class__indexWhere__scg_SeqForwarder__F1__I__I = (function($$this, p, from) {
-  return $$this.underlying__sc_Seq().indexWhere__F1__I__I(p, from)
 });
 ScalaJS.i.scg_SeqForwarder$class__$init$__scg_SeqForwarder__V = (function($$this) {
   /*<skip>*/
@@ -3321,6 +3304,16 @@ ScalaJS.i.sjsr_RuntimeString$class__lastIndexOf__sjsr_RuntimeString__T__I = (fun
 ScalaJS.i.sjsr_RuntimeString$class__length__sjsr_RuntimeString__I = (function($$this) {
   return (ScalaJS.uD($$this["length"]) | 0)
 });
+ScalaJS.i.sjsr_RuntimeString$class__replace__sjsr_RuntimeString__jl_CharSequence__jl_CharSequence__T = (function($$this, target, replacement) {
+  return ScalaJS.as.T($$this["split"](ScalaJS.objectToString(target))["join"](ScalaJS.objectToString(replacement)))
+});
+ScalaJS.i.sjsr_RuntimeString$class__split__sjsr_RuntimeString__T__AT = (function($$this, regex) {
+  return ScalaJS.i.sjsr_RuntimeString$class__split__sjsr_RuntimeString__T__I__AT(ScalaJS.as.T($$this), regex, 0)
+});
+ScalaJS.i.sjsr_RuntimeString$class__split__sjsr_RuntimeString__T__I__AT = (function($$this, regex, limit) {
+  var pat = ScalaJS.m.ju_regex_Pattern().compile__T__ju_regex_Pattern(regex);
+  return pat.split__jl_CharSequence__I__AT(ScalaJS.as.T($$this), limit)
+});
 ScalaJS.i.sjsr_RuntimeString$class__substring__sjsr_RuntimeString__I__T = (function($$this, beginIndex) {
   return ScalaJS.as.T($$this["substring"](beginIndex))
 });
@@ -3342,99 +3335,6 @@ ScalaJS.i.sjsr_RuntimeString$class__toLowerCase__sjsr_RuntimeString__T = (functi
 });
 ScalaJS.i.sjsr_RuntimeString$class__toUpperCase__sjsr_RuntimeString__T = (function($$this) {
   return ScalaJS.as.T($$this["toUpperCase"]())
-});
-ScalaJS.h.Lcafebabe_AbstractByteCodes$ALoad$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_AbstractByteCodes$AStore$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_AbstractByteCodes$DefaultNew$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_AbstractByteCodes$GetField$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_AbstractByteCodes$GetStatic$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_AbstractByteCodes$Goto = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_AbstractByteCodes$If$undACmpEq = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_AbstractByteCodes$If$undICmpEq = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_AbstractByteCodes$If$undICmpLt = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_AbstractByteCodes$If$undICmpNe = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_AbstractByteCodes$IfEq = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_AbstractByteCodes$InvokeVirtual$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_AbstractByteCodes$Label = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_AbstractByteCodes$Ldc$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_AbstractByteCodes$NewArray$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_AbstractByteCodes$PutField$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_ByteCodes$AALOAD$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_ByteCodes$AASTORE$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_ByteCodes$ARRAYLENGTH$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_ByteCodes$DUP$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_ByteCodes$IADD$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_ByteCodes$ICONST$und0$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_ByteCodes$ICONST$und1$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_ByteCodes$IDIV$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_ByteCodes$ILOAD$und0$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_ByteCodes$IMUL$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_ByteCodes$ISUB$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_ByteCodes$IXOR$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_ByteCodes$POP$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_ByteCodes$RETURN$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lcafebabe_ClassFile = (function() {
-  /*<skip>*/
 });
 ScalaJS.is.Ljava_io_Closeable = (function(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ljava_io_Closeable)))
@@ -3471,6 +3371,25 @@ ScalaJS.c.Ljava_io_File.prototype.getAbsolutePath__T = (function() {
 });
 ScalaJS.c.Ljava_io_File.prototype.getPath__T = (function() {
   return this.path$1
+});
+ScalaJS.c.Ljava_io_File.prototype.exists__Z = (function() {
+  return ScalaJS.uZ(ScalaJS.g["fs"]["existsSync"](this.path$1))
+});
+ScalaJS.c.Ljava_io_File.prototype.mkdir__Z = (function() {
+  try {
+    return (ScalaJS.g["fs"]["mkdirSync"](this.path$1), true)
+  } catch (ex) {
+    ex = ScalaJS.wrapJavaScriptException(ex);
+    if (ScalaJS.is.jl_Exception(ex)) {
+      var e = ex;
+      return false
+    } else {
+      throw ScalaJS.unwrapJavaScriptException(ex)
+    }
+  }
+});
+ScalaJS.c.Ljava_io_File.prototype.getName__T = (function() {
+  return ScalaJS.as.T(ScalaJS.m.s_Predef().refArrayOps__AO__scm_ArrayOps(ScalaJS.asArrayOf.O(ScalaJS.i.sjsr_RuntimeString$class__split__sjsr_RuntimeString__T__AT(this.path$1, "/"), 1)).last__O())
 });
 ScalaJS.c.Ljava_io_File.prototype.init___T = (function(path) {
   this.path$1 = path;
@@ -4857,21 +4776,17 @@ ScalaJS.c.Ltoolc_Main$.prototype.processOptions__AT__Ltoolc_utils_Context = (fun
   return new ScalaJS.c.Ltoolc_utils_Context().init___Ltoolc_utils_Reporter__Ljava_io_File__s_Option(reporter, ScalaJS.as.Ljava_io_File(ScalaJS.as.sci_List(files.elem$1).head__O()), ScalaJS.as.s_Option(outDir.elem$1))
 });
 ScalaJS.c.Ltoolc_Main$.prototype.main__V = (function() {
-  var args = ScalaJS.newArrayObject(ScalaJS.d.T.getArrayOf(), [1]);
-  args.u[0] = "programs/Factorial.tool";
+  ScalaJS.m.s_Predef().$$qmark$qmark$qmark__sr_Nothing$()
+});
+ScalaJS.c.Ltoolc_Main$.prototype.entry__T__V = (function(prog) {
+  var args = ScalaJS.newArrayObject(ScalaJS.d.T.getArrayOf(), [3]);
+  args.u[0] = prog;
+  args.u[1] = "-d";
+  args.u[2] = "/out/";
   var ctx = this.processOptions__AT__Ltoolc_utils_Context(args);
   var pipeline = ScalaJS.m.Ltoolc_lexer_Lexer().andThen__Ltoolc_utils_Pipeline__Ltoolc_utils_Pipeline(ScalaJS.m.Ltoolc_ast_Parser()).andThen__Ltoolc_utils_Pipeline__Ltoolc_utils_Pipeline(ScalaJS.m.Ltoolc_analyzer_NameAnalysis()).andThen__Ltoolc_utils_Pipeline__Ltoolc_utils_Pipeline(ScalaJS.m.Ltoolc_analyzer_TypeChecking()).andThen__Ltoolc_utils_Pipeline__Ltoolc_utils_Pipeline(ScalaJS.m.Ltoolc_code_CodeGeneration());
   var result = ScalaJS.asUnit(pipeline.run__Ltoolc_utils_Context__O__O(ctx, ctx.file__Ljava_io_File()));
   ctx.reporter__Ltoolc_utils_Reporter().terminateIfErrors__V()
-});
-ScalaJS.c.Ltoolc_Main$.prototype.entry__T__V = (function(prog) {
-  var args = ScalaJS.newArrayObject(ScalaJS.d.T.getArrayOf(), [1]);
-  args.u[0] = prog;
-  var ctx = this.processOptions__AT__Ltoolc_utils_Context(args);
-  var pipeline = ScalaJS.m.Ltoolc_lexer_Lexer().andThen__Ltoolc_utils_Pipeline__Ltoolc_utils_Pipeline(ScalaJS.m.Ltoolc_ast_Parser()).andThen__Ltoolc_utils_Pipeline__Ltoolc_utils_Pipeline(ScalaJS.m.Ltoolc_analyzer_NameAnalysis()).andThen__Ltoolc_utils_Pipeline__Ltoolc_utils_Pipeline(ScalaJS.m.Ltoolc_analyzer_TypeChecking());
-  var result = ScalaJS.as.Ltoolc_ast_Trees$Program(pipeline.run__Ltoolc_utils_Context__O__O(ctx, ctx.file__Ljava_io_File()));
-  ctx.reporter__Ltoolc_utils_Reporter().terminateIfErrors__V();
-  ScalaJS.m.Ltoolc_ast_Printer().apply__Ltoolc_ast_Trees$Tree__T(result)
 });
 ScalaJS.c.Ltoolc_Main$.prototype.$$js$exported$meth$entry__T__O = (function(prog) {
   return (this.entry__T__V(prog), (void 0))
@@ -4955,6 +4870,7 @@ ScalaJS.m.Ltoolc_Main = (function() {
   };
   return ScalaJS.n.Ltoolc_Main
 });
+ScalaJS.e["Main"] = ScalaJS.m.Ltoolc_Main;
 ScalaJS.e["toolc"] = (ScalaJS.e["toolc"] || {});
 ScalaJS.e["toolc"]["Main"] = ScalaJS.m.Ltoolc_Main;
 /** @constructor */
@@ -5216,347 +5132,6 @@ ScalaJS.d.Ltoolc_analyzer_Types$Typed = new ScalaJS.ClassTypeData({
   O: 1
 });
 /** @constructor */
-ScalaJS.c.Ltoolc_ast_Printer$ = (function() {
-  ScalaJS.c.O.call(this)
-});
-ScalaJS.c.Ltoolc_ast_Printer$.prototype = new ScalaJS.h.O();
-ScalaJS.c.Ltoolc_ast_Printer$.prototype.constructor = ScalaJS.c.Ltoolc_ast_Printer$;
-/** @constructor */
-ScalaJS.h.Ltoolc_ast_Printer$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Ltoolc_ast_Printer$.prototype = ScalaJS.c.Ltoolc_ast_Printer$.prototype;
-ScalaJS.c.Ltoolc_ast_Printer$.prototype.apply__Ltoolc_ast_Trees$Tree__T = (function(t) {
-  var result = this.printProgram__Ltoolc_ast_Trees$Program__T(ScalaJS.as.Ltoolc_ast_Trees$Program(t));
-  ScalaJS.m.s_Predef().println__O__V(result);
-  return result
-});
-ScalaJS.c.Ltoolc_ast_Printer$.prototype.printProgram__Ltoolc_ast_Trees$Program__T = (function(g) {
-  return ((this.printMainObj__Ltoolc_ast_Trees$MainObject__T(g.main__Ltoolc_ast_Trees$MainObject()) + "\n") + ScalaJS.as.sc_TraversableOnce(g.classes__sci_List().reverse__sci_List().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$1$2) {
-    var x$1 = ScalaJS.as.Ltoolc_ast_Trees$ClassDecl(x$1$2);
-    return ScalaJS.m.Ltoolc_ast_Printer().printClassDecl__Ltoolc_ast_Trees$ClassDecl__T(x$1)
-  })), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())).mkString__T__T("\n"))
-});
-ScalaJS.c.Ltoolc_ast_Printer$.prototype.printMainObj__Ltoolc_ast_Trees$MainObject__T = (function(obj) {
-  var builder = new ScalaJS.c.scm_StringBuilder().init___();
-  builder.append__T__scm_StringBuilder("object ");
-  builder.append__T__scm_StringBuilder(obj.id__Ltoolc_ast_Trees$Identifier().value__T());
-  builder.append__T__scm_StringBuilder("#");
-  builder.append__I__scm_StringBuilder(obj.getSymbol__Ltoolc_analyzer_Symbols$Symbol().id__I());
-  builder.append__T__scm_StringBuilder(" {\n\tdef main(): Unit = {\n");
-  builder.append__T__scm_StringBuilder(ScalaJS.as.sc_TraversableOnce(obj.stats__sci_List().reverse__sci_List().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$2$2) {
-    var x$2 = ScalaJS.as.Ltoolc_ast_Trees$StatTree(x$2$2);
-    return ScalaJS.m.Ltoolc_ast_Printer().printStatement__Ltoolc_ast_Trees$StatTree__I__T(x$2, 2)
-  })), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())).mkString__T__T("\n"));
-  builder.append__T__scm_StringBuilder("\n\t}\n}");
-  return builder.toString__T()
-});
-ScalaJS.c.Ltoolc_ast_Printer$.prototype.printClassDecl__Ltoolc_ast_Trees$ClassDecl__T = (function(decl) {
-  var builder = new ScalaJS.c.scm_StringBuilder().init___();
-  builder.append__T__scm_StringBuilder("class ");
-  builder.append__T__scm_StringBuilder(decl.id__Ltoolc_ast_Trees$Identifier().value__T());
-  builder.append__T__scm_StringBuilder("#");
-  builder.append__I__scm_StringBuilder(decl.getSymbol__Ltoolc_analyzer_Symbols$Symbol().id__I());
-  builder.append__T__scm_StringBuilder(ScalaJS.as.T(decl.parent__s_Option().map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(p$2) {
-    var p = ScalaJS.as.Ltoolc_ast_Trees$Identifier(p$2);
-    return ((" extends " + p.value__T()) + p)
-  }))).getOrElse__F0__O(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
-    return ""
-  })))));
-  builder.append__T__scm_StringBuilder(" {\n");
-  builder.append__T__scm_StringBuilder(ScalaJS.as.sc_TraversableOnce(decl.vars__sci_List().reverse__sci_List().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$3$2) {
-    var x$3 = ScalaJS.as.Ltoolc_ast_Trees$VarDecl(x$3$2);
-    return ScalaJS.m.Ltoolc_ast_Printer().printVarDecl__Ltoolc_ast_Trees$VarDecl__I__T(x$3, 1)
-  })), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())).mkString__T__T("\n"));
-  if ((decl.vars__sci_List().length__I() > 0)) {
-    builder.append__T__scm_StringBuilder("\n")
-  } else {
-    (void 0)
-  };
-  builder.append__T__scm_StringBuilder(ScalaJS.as.sc_TraversableOnce(decl.methods__sci_List().reverse__sci_List().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$4$2) {
-    var x$4 = ScalaJS.as.Ltoolc_ast_Trees$MethodDecl(x$4$2);
-    return ("\t" + ScalaJS.m.Ltoolc_ast_Printer().printMethodDecl__Ltoolc_ast_Trees$MethodDecl__T(x$4))
-  })), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())).mkString__T__T("\n"));
-  builder.append__T__scm_StringBuilder("\n}");
-  return builder.toString__T()
-});
-ScalaJS.c.Ltoolc_ast_Printer$.prototype.printVarDecl__Ltoolc_ast_Trees$VarDecl__I__T = (function(decl, indent) {
-  return ((((((this.printIndent__I__T(indent) + "var ") + decl.id__Ltoolc_ast_Trees$Identifier().value__T()) + decl) + ": ") + this.printType__Ltoolc_ast_Trees$TypeTree__T(decl.tpe__Ltoolc_ast_Trees$TypeTree())) + ";")
-});
-ScalaJS.c.Ltoolc_ast_Printer$.prototype.printMethodDecl__Ltoolc_ast_Trees$MethodDecl__T = (function(decl) {
-  var builder = new ScalaJS.c.scm_StringBuilder().init___();
-  builder.append__T__scm_StringBuilder("def ");
-  builder.append__T__scm_StringBuilder(decl.id__Ltoolc_ast_Trees$Identifier().value__T());
-  builder.append__T__scm_StringBuilder("#");
-  builder.append__I__scm_StringBuilder(decl.getSymbol__Ltoolc_analyzer_Symbols$Symbol().id__I());
-  builder.append__T__scm_StringBuilder("(");
-  builder.append__T__scm_StringBuilder(ScalaJS.as.sc_TraversableOnce(decl.args__sci_List().reverse__sci_List().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$2) {
-    var arg = ScalaJS.as.Ltoolc_ast_Trees$Formal(arg$2);
-    return (((("" + arg.id__Ltoolc_ast_Trees$Identifier().value__T()) + arg.id__Ltoolc_ast_Trees$Identifier()) + ": ") + ScalaJS.m.Ltoolc_ast_Printer().printType__Ltoolc_ast_Trees$TypeTree__T(arg.tpe__Ltoolc_ast_Trees$TypeTree()))
-  })), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())).mkString__T__T(", "));
-  builder.append__T__scm_StringBuilder("): ");
-  builder.append__T__scm_StringBuilder(this.printType__Ltoolc_ast_Trees$TypeTree__T(decl.retType__Ltoolc_ast_Trees$TypeTree()));
-  builder.append__T__scm_StringBuilder(" = {\n");
-  builder.append__T__scm_StringBuilder(ScalaJS.as.sc_TraversableOnce(decl.vars__sci_List().reverse__sci_List().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$5$2) {
-    var x$5 = ScalaJS.as.Ltoolc_ast_Trees$VarDecl(x$5$2);
-    return ScalaJS.m.Ltoolc_ast_Printer().printVarDecl__Ltoolc_ast_Trees$VarDecl__I__T(x$5, 2)
-  })), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())).mkString__T__T("\n"));
-  if ((decl.vars__sci_List().length__I() > 0)) {
-    builder.append__T__scm_StringBuilder("\n\n")
-  } else {
-    (void 0)
-  };
-  builder.append__T__scm_StringBuilder(ScalaJS.as.sc_TraversableOnce(decl.stats__sci_List().reverse__sci_List().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$6$2) {
-    var x$6 = ScalaJS.as.Ltoolc_ast_Trees$StatTree(x$6$2);
-    return ScalaJS.m.Ltoolc_ast_Printer().printStatement__Ltoolc_ast_Trees$StatTree__I__T(x$6, 2)
-  })), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())).mkString__T__T("\n"));
-  if ((decl.stats__sci_List().length__I() > 0)) {
-    builder.append__T__scm_StringBuilder("\n\n")
-  } else {
-    (void 0)
-  };
-  builder.append__T__scm_StringBuilder("\t\treturn ");
-  builder.append__T__scm_StringBuilder(this.printExpr__Ltoolc_ast_Trees$ExprTree__T(decl.retExpr__Ltoolc_ast_Trees$ExprTree()));
-  builder.append__T__scm_StringBuilder(";\n\t}");
-  return builder.toString__T()
-});
-ScalaJS.c.Ltoolc_ast_Printer$.prototype.printType__Ltoolc_ast_Trees$TypeTree__T = (function(tpe) {
-  var x1 = tpe;
-  if (ScalaJS.is.Ltoolc_ast_Trees$IntType(x1)) {
-    return "Int"
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$IntArrayType(x1)) {
-    return "Int[]"
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$BooleanType(x1)) {
-    return "Bool"
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$StringType(x1)) {
-    return "String"
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$Identifier(x1)) {
-    var x6 = ScalaJS.as.Ltoolc_ast_Trees$Identifier(x1);
-    var value = x6.value__T();
-    return (("" + value) + x6)
-  };
-  throw new ScalaJS.c.s_MatchError().init___O(x1)
-});
-ScalaJS.c.Ltoolc_ast_Printer$.prototype.printStatement__Ltoolc_ast_Trees$StatTree__I__T = (function(stat, indent) {
-  var x1 = stat;
-  if (ScalaJS.is.Ltoolc_ast_Trees$Block(x1)) {
-    var x2 = ScalaJS.as.Ltoolc_ast_Trees$Block(x1);
-    var sts = x2.stats__sci_List();
-    return this.printBlock__sci_List__I__T(sts, indent)
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$If(x1)) {
-    var x3 = ScalaJS.as.Ltoolc_ast_Trees$If(x1);
-    var expr = x3.expr__Ltoolc_ast_Trees$ExprTree();
-    var thn = x3.thn__Ltoolc_ast_Trees$StatTree();
-    var els = x3.els__s_Option();
-    return this.printIf__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$StatTree__s_Option__I__T(expr, thn, els, indent)
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$While(x1)) {
-    var x4 = ScalaJS.as.Ltoolc_ast_Trees$While(x1);
-    var expr$2 = x4.expr__Ltoolc_ast_Trees$ExprTree();
-    var stat$2 = x4.stat__Ltoolc_ast_Trees$StatTree();
-    return this.printWhile__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$StatTree__I__T(expr$2, stat$2, indent)
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$Println(x1)) {
-    var x5 = ScalaJS.as.Ltoolc_ast_Trees$Println(x1);
-    var expr$3 = x5.expr__Ltoolc_ast_Trees$ExprTree();
-    return this.printPrintLn__Ltoolc_ast_Trees$ExprTree__I__T(expr$3, indent)
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$Assign(x1)) {
-    var x6 = ScalaJS.as.Ltoolc_ast_Trees$Assign(x1);
-    var id = x6.id__Ltoolc_ast_Trees$Identifier();
-    var expr$4 = x6.expr__Ltoolc_ast_Trees$ExprTree();
-    return this.printAssign__Ltoolc_ast_Trees$Identifier__Ltoolc_ast_Trees$ExprTree__I__T(id, expr$4, indent)
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$ArrayAssign(x1)) {
-    var x7 = ScalaJS.as.Ltoolc_ast_Trees$ArrayAssign(x1);
-    var id$2 = x7.id__Ltoolc_ast_Trees$Identifier();
-    var index = x7.index__Ltoolc_ast_Trees$ExprTree();
-    var expr$5 = x7.expr__Ltoolc_ast_Trees$ExprTree();
-    return this.printArrayAssign__Ltoolc_ast_Trees$Identifier__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree__I__T(id$2, index, expr$5, indent)
-  };
-  throw new ScalaJS.c.s_MatchError().init___O(x1)
-});
-ScalaJS.c.Ltoolc_ast_Printer$.prototype.printBlock__sci_List__I__T = (function(sts, indent) {
-  return (((("{\n" + ScalaJS.as.sc_TraversableOnce(sts.reverse__sci_List().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(indent$1) {
-    return (function(x$7$2) {
-      var x$7 = ScalaJS.as.Ltoolc_ast_Trees$StatTree(x$7$2);
-      return ScalaJS.m.Ltoolc_ast_Printer().printStatement__Ltoolc_ast_Trees$StatTree__I__T(x$7, indent$1)
-    })
-  })(indent)), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())).mkString__T__T("\n")) + "\n") + this.printIndent__I__T(((indent - 1) | 0))) + "}")
-});
-ScalaJS.c.Ltoolc_ast_Printer$.prototype.printIf__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$StatTree__s_Option__I__T = (function(expr, thn, els, indent) {
-  return (((((this.printIndent__I__T(indent) + "if (") + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(expr)) + ") ") + this.printStatement__Ltoolc_ast_Trees$StatTree__I__T(thn, ((indent + 1) | 0))) + els.map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(indent$2) {
-    return (function(e$2) {
-      var e = ScalaJS.as.Ltoolc_ast_Trees$StatTree(e$2);
-      return ((("\n" + ScalaJS.m.Ltoolc_ast_Printer().printIndent__I__T(indent$2)) + "else ") + ScalaJS.m.Ltoolc_ast_Printer().printStatement__Ltoolc_ast_Trees$StatTree__I__T(e, ((indent$2 + 1) | 0)))
-    })
-  })(indent))).getOrElse__F0__O(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
-    return ""
-  }))))
-});
-ScalaJS.c.Ltoolc_ast_Printer$.prototype.printWhile__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$StatTree__I__T = (function(expr, stat, indent) {
-  return ((((this.printIndent__I__T(indent) + "while (") + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(expr)) + ") ") + this.printStatement__Ltoolc_ast_Trees$StatTree__I__T(stat, ((indent + 1) | 0)))
-});
-ScalaJS.c.Ltoolc_ast_Printer$.prototype.printPrintLn__Ltoolc_ast_Trees$ExprTree__I__T = (function(expr, indent) {
-  return (((this.printIndent__I__T(indent) + "println(") + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(expr)) + ");")
-});
-ScalaJS.c.Ltoolc_ast_Printer$.prototype.printAssign__Ltoolc_ast_Trees$Identifier__Ltoolc_ast_Trees$ExprTree__I__T = (function(id, expr, indent) {
-  return ((((("" + this.printIndent__I__T(indent)) + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(id)) + " = ") + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(expr)) + ";")
-});
-ScalaJS.c.Ltoolc_ast_Printer$.prototype.printArrayAssign__Ltoolc_ast_Trees$Identifier__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree__I__T = (function(id, index, expr, indent) {
-  return ((((((("" + this.printIndent__I__T(indent)) + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(id)) + "[") + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(index)) + "] = ") + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(expr)) + ";")
-});
-ScalaJS.c.Ltoolc_ast_Printer$.prototype.printExpr__Ltoolc_ast_Trees$ExprTree__T = (function(expr) {
-  var x1 = expr;
-  if (ScalaJS.is.Ltoolc_ast_Trees$And(x1)) {
-    var x2 = ScalaJS.as.Ltoolc_ast_Trees$And(x1);
-    var lhs = x2.lhs__Ltoolc_ast_Trees$ExprTree();
-    var rhs = x2.rhs__Ltoolc_ast_Trees$ExprTree();
-    return (((("(" + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(lhs)) + "&&") + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(rhs)) + ")")
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$Or(x1)) {
-    var x3 = ScalaJS.as.Ltoolc_ast_Trees$Or(x1);
-    var lhs$2 = x3.lhs__Ltoolc_ast_Trees$ExprTree();
-    var rhs$2 = x3.rhs__Ltoolc_ast_Trees$ExprTree();
-    return (((("(" + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(lhs$2)) + "||") + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(rhs$2)) + ")")
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$Plus(x1)) {
-    var x4 = ScalaJS.as.Ltoolc_ast_Trees$Plus(x1);
-    var lhs$3 = x4.lhs__Ltoolc_ast_Trees$ExprTree();
-    var rhs$3 = x4.rhs__Ltoolc_ast_Trees$ExprTree();
-    return (((("( " + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(lhs$3)) + " + ") + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(rhs$3)) + ")")
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$Minus(x1)) {
-    var x5 = ScalaJS.as.Ltoolc_ast_Trees$Minus(x1);
-    var lhs$4 = x5.lhs__Ltoolc_ast_Trees$ExprTree();
-    var rhs$4 = x5.rhs__Ltoolc_ast_Trees$ExprTree();
-    return (((("(" + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(lhs$4)) + " - ") + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(rhs$4)) + ")")
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$Times(x1)) {
-    var x6 = ScalaJS.as.Ltoolc_ast_Trees$Times(x1);
-    var lhs$5 = x6.lhs__Ltoolc_ast_Trees$ExprTree();
-    var rhs$5 = x6.rhs__Ltoolc_ast_Trees$ExprTree();
-    return (((("(" + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(lhs$5)) + " * ") + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(rhs$5)) + ")")
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$Div(x1)) {
-    var x7 = ScalaJS.as.Ltoolc_ast_Trees$Div(x1);
-    var lhs$6 = x7.lhs__Ltoolc_ast_Trees$ExprTree();
-    var rhs$6 = x7.rhs__Ltoolc_ast_Trees$ExprTree();
-    return (((("(" + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(lhs$6)) + " / ") + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(rhs$6)) + ")")
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$LessThan(x1)) {
-    var x8 = ScalaJS.as.Ltoolc_ast_Trees$LessThan(x1);
-    var lhs$7 = x8.lhs__Ltoolc_ast_Trees$ExprTree();
-    var rhs$7 = x8.rhs__Ltoolc_ast_Trees$ExprTree();
-    return (((("(" + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(lhs$7)) + " < ") + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(rhs$7)) + ")")
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$Equals(x1)) {
-    var x9 = ScalaJS.as.Ltoolc_ast_Trees$Equals(x1);
-    var lhs$8 = x9.lhs__Ltoolc_ast_Trees$ExprTree();
-    var rhs$8 = x9.rhs__Ltoolc_ast_Trees$ExprTree();
-    return (((("(" + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(lhs$8)) + " == ") + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(rhs$8)) + ")")
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$ArrayRead(x1)) {
-    var x10 = ScalaJS.as.Ltoolc_ast_Trees$ArrayRead(x1);
-    var arr = x10.arr__Ltoolc_ast_Trees$ExprTree();
-    var index = x10.index__Ltoolc_ast_Trees$ExprTree();
-    return (((this.printExpr__Ltoolc_ast_Trees$ExprTree__T(arr) + "[") + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(index)) + "]")
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$ArrayLength(x1)) {
-    var x11 = ScalaJS.as.Ltoolc_ast_Trees$ArrayLength(x1);
-    var arr$2 = x11.arr__Ltoolc_ast_Trees$ExprTree();
-    return (this.printExpr__Ltoolc_ast_Trees$ExprTree__T(arr$2) + ".length")
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$MethodCall(x1)) {
-    var x12 = ScalaJS.as.Ltoolc_ast_Trees$MethodCall(x1);
-    var obj = x12.obj__Ltoolc_ast_Trees$ExprTree();
-    var meth = x12.meth__Ltoolc_ast_Trees$Identifier();
-    var args = x12.args__sci_List();
-    return this.printMethodCall__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$Identifier__sci_List__T(obj, meth, args)
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$IntLit(x1)) {
-    var x13 = ScalaJS.as.Ltoolc_ast_Trees$IntLit(x1);
-    var value = x13.value__I();
-    return ("" + value)
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$StringLit(x1)) {
-    var x14 = ScalaJS.as.Ltoolc_ast_Trees$StringLit(x1);
-    var value$2 = x14.value__T();
-    return ((("" + ScalaJS.bC(34)) + value$2) + ScalaJS.bC(34))
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$True(x1)) {
-    return "true"
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$False(x1)) {
-    return "false"
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$Identifier(x1)) {
-    var x17 = ScalaJS.as.Ltoolc_ast_Trees$Identifier(x1);
-    var value$3 = x17.value__T();
-    return (("" + value$3) + x17)
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$This(x1)) {
-    var x18 = ScalaJS.as.Ltoolc_ast_Trees$This(x1);
-    return ("this" + x18)
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$NewIntArray(x1)) {
-    var x19 = ScalaJS.as.Ltoolc_ast_Trees$NewIntArray(x1);
-    var size = x19.size__Ltoolc_ast_Trees$ExprTree();
-    return (("new Int[" + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(size)) + "]")
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$New(x1)) {
-    var x20 = ScalaJS.as.Ltoolc_ast_Trees$New(x1);
-    var tpe = x20.tpe__Ltoolc_ast_Trees$Identifier();
-    return (("new " + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(tpe)) + "()")
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$Not(x1)) {
-    var x21 = ScalaJS.as.Ltoolc_ast_Trees$Not(x1);
-    var expr$2 = x21.expr__Ltoolc_ast_Trees$ExprTree();
-    return ("!" + this.printExpr__Ltoolc_ast_Trees$ExprTree__T(expr$2))
-  };
-  throw new ScalaJS.c.s_MatchError().init___O(x1)
-});
-ScalaJS.c.Ltoolc_ast_Printer$.prototype.printMethodCall__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$Identifier__sci_List__T = (function(obj, meth, args) {
-  return ((((((this.printExpr__Ltoolc_ast_Trees$ExprTree__T(obj) + ".") + meth.value__T()) + meth) + "(") + ScalaJS.as.sc_TraversableOnce(args.reverse__sci_List().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$2) {
-    var arg = ScalaJS.as.Ltoolc_ast_Trees$ExprTree(arg$2);
-    return ScalaJS.m.Ltoolc_ast_Printer().printExpr__Ltoolc_ast_Trees$ExprTree__T(arg)
-  })), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())).mkString__T__T(", ")) + ")")
-});
-ScalaJS.c.Ltoolc_ast_Printer$.prototype.printIndent__I__T = (function(indent) {
-  return new ScalaJS.c.sci_StringOps().init___T(ScalaJS.m.s_Predef().augmentString__T__T("\t")).$$times__I__T(indent)
-});
-ScalaJS.is.Ltoolc_ast_Printer$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_ast_Printer$)))
-});
-ScalaJS.as.Ltoolc_ast_Printer$ = (function(obj) {
-  return ((ScalaJS.is.Ltoolc_ast_Printer$(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.ast.Printer$"))
-});
-ScalaJS.isArrayOf.Ltoolc_ast_Printer$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_ast_Printer$)))
-});
-ScalaJS.asArrayOf.Ltoolc_ast_Printer$ = (function(obj, depth) {
-  return ((ScalaJS.isArrayOf.Ltoolc_ast_Printer$(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.ast.Printer$;", depth))
-});
-ScalaJS.d.Ltoolc_ast_Printer$ = new ScalaJS.ClassTypeData({
-  Ltoolc_ast_Printer$: 0
-}, false, "toolc.ast.Printer$", ScalaJS.d.O, {
-  Ltoolc_ast_Printer$: 1,
-  O: 1
-});
-ScalaJS.c.Ltoolc_ast_Printer$.prototype.$classData = ScalaJS.d.Ltoolc_ast_Printer$;
-ScalaJS.n.Ltoolc_ast_Printer = (void 0);
-ScalaJS.m.Ltoolc_ast_Printer = (function() {
-  if ((!ScalaJS.n.Ltoolc_ast_Printer)) {
-    ScalaJS.n.Ltoolc_ast_Printer = new ScalaJS.c.Ltoolc_ast_Printer$().init___()
-  };
-  return ScalaJS.n.Ltoolc_ast_Printer
-});
-/** @constructor */
 ScalaJS.c.Ltoolc_ast_Trees$And = (function() {
   ScalaJS.c.O.call(this);
   this.lhs$1 = null;
@@ -5754,6 +5329,9 @@ ScalaJS.c.Ltoolc_ast_Trees$ArrayAssign.prototype.toolc$utils$Positioned$$$undcol
 });
 ScalaJS.c.Ltoolc_ast_Trees$ArrayAssign.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$ArrayAssign.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$ArrayAssign.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -6222,6 +5800,9 @@ ScalaJS.c.Ltoolc_ast_Trees$Assign.prototype.toolc$utils$Positioned$$$undcol__I =
 ScalaJS.c.Ltoolc_ast_Trees$Assign.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
 });
+ScalaJS.c.Ltoolc_ast_Trees$Assign.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
+});
 ScalaJS.c.Ltoolc_ast_Trees$Assign.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
 });
@@ -6366,6 +5947,9 @@ ScalaJS.c.Ltoolc_ast_Trees$Block.prototype.toolc$utils$Positioned$$$undcol__I = 
 });
 ScalaJS.c.Ltoolc_ast_Trees$Block.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$Block.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$Block.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -6623,9 +6207,6 @@ ScalaJS.c.Ltoolc_ast_Trees$ClassDecl.prototype.toolc$analyzer$Symbols$Symbolic$$
 });
 ScalaJS.c.Ltoolc_ast_Trees$ClassDecl.prototype.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic = (function(sym) {
   return ScalaJS.i.Ltoolc_analyzer_Symbols$Symbolic$class__setSymbol__Ltoolc_analyzer_Symbols$Symbolic__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(this, sym)
-});
-ScalaJS.c.Ltoolc_ast_Trees$ClassDecl.prototype.getSymbol__Ltoolc_analyzer_Symbols$Symbol = (function() {
-  return ScalaJS.i.Ltoolc_analyzer_Symbols$Symbolic$class__getSymbol__Ltoolc_analyzer_Symbols$Symbolic__Ltoolc_analyzer_Symbols$Symbol(this)
 });
 ScalaJS.c.Ltoolc_ast_Trees$ClassDecl.prototype.toString__T = (function() {
   return ScalaJS.i.Ltoolc_analyzer_Symbols$Symbolic$class__toString__Ltoolc_analyzer_Symbols$Symbolic__T(this)
@@ -7613,6 +7194,9 @@ ScalaJS.c.Ltoolc_ast_Trees$If.prototype.toolc$utils$Positioned$$$undcol__I = (fu
 ScalaJS.c.Ltoolc_ast_Trees$If.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
 });
+ScalaJS.c.Ltoolc_ast_Trees$If.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
+});
 ScalaJS.c.Ltoolc_ast_Trees$If.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
 });
@@ -8329,9 +7913,6 @@ ScalaJS.c.Ltoolc_ast_Trees$MainObject.prototype.toolc$analyzer$Symbols$Symbolic$
 ScalaJS.c.Ltoolc_ast_Trees$MainObject.prototype.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic = (function(sym) {
   return ScalaJS.i.Ltoolc_analyzer_Symbols$Symbolic$class__setSymbol__Ltoolc_analyzer_Symbols$Symbolic__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(this, sym)
 });
-ScalaJS.c.Ltoolc_ast_Trees$MainObject.prototype.getSymbol__Ltoolc_analyzer_Symbols$Symbol = (function() {
-  return ScalaJS.i.Ltoolc_analyzer_Symbols$Symbolic$class__getSymbol__Ltoolc_analyzer_Symbols$Symbolic__Ltoolc_analyzer_Symbols$Symbol(this)
-});
 ScalaJS.c.Ltoolc_ast_Trees$MainObject.prototype.toString__T = (function() {
   return ScalaJS.i.Ltoolc_analyzer_Symbols$Symbolic$class__toString__Ltoolc_analyzer_Symbols$Symbolic__T(this)
 });
@@ -8663,9 +8244,6 @@ ScalaJS.c.Ltoolc_ast_Trees$MethodDecl.prototype.toolc$analyzer$Symbols$Symbolic$
 });
 ScalaJS.c.Ltoolc_ast_Trees$MethodDecl.prototype.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic = (function(sym) {
   return ScalaJS.i.Ltoolc_analyzer_Symbols$Symbolic$class__setSymbol__Ltoolc_analyzer_Symbols$Symbolic__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(this, sym)
-});
-ScalaJS.c.Ltoolc_ast_Trees$MethodDecl.prototype.getSymbol__Ltoolc_analyzer_Symbols$Symbol = (function() {
-  return ScalaJS.i.Ltoolc_analyzer_Symbols$Symbolic$class__getSymbol__Ltoolc_analyzer_Symbols$Symbolic__Ltoolc_analyzer_Symbols$Symbol(this)
 });
 ScalaJS.c.Ltoolc_ast_Trees$MethodDecl.prototype.toString__T = (function() {
   return ScalaJS.i.Ltoolc_analyzer_Symbols$Symbolic$class__toString__Ltoolc_analyzer_Symbols$Symbolic__T(this)
@@ -9805,6 +9383,9 @@ ScalaJS.c.Ltoolc_ast_Trees$Println.prototype.toolc$utils$Positioned$$$undcol__I 
 });
 ScalaJS.c.Ltoolc_ast_Trees$Println.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$Println.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
 });
 ScalaJS.c.Ltoolc_ast_Trees$Println.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
@@ -10981,6 +10562,9 @@ ScalaJS.c.Ltoolc_ast_Trees$While.prototype.toolc$utils$Positioned$$$undcol__I = 
 ScalaJS.c.Ltoolc_ast_Trees$While.prototype.hasPosition__Z = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__hasPosition__Ltoolc_utils_Positioned__Z(this)
 });
+ScalaJS.c.Ltoolc_ast_Trees$While.prototype.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned = (function(other) {
+  return ScalaJS.i.Ltoolc_utils_Positioned$class__setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(this, other)
+});
 ScalaJS.c.Ltoolc_ast_Trees$While.prototype.file__Ljava_io_File = (function() {
   return ScalaJS.i.Ltoolc_utils_Positioned$class__file__Ltoolc_utils_Positioned__Ljava_io_File(this)
 });
@@ -11091,6 +10675,322 @@ ScalaJS.d.Ltoolc_ast_Trees$While = new ScalaJS.ClassTypeData({
 });
 ScalaJS.c.Ltoolc_ast_Trees$While.prototype.$classData = ScalaJS.d.Ltoolc_ast_Trees$While;
 /** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Ltoolc_code_CodeGenerator$.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$.prototype.createProgram__Ltoolc_code_CodeGenerator$ProgramGen = (function() {
+  return new ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen().init___()
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$.prototype.toolc$code$CodeGenerator$$escape__T__T = (function(str) {
+  return ScalaJS.i.sjsr_RuntimeString$class__replace__sjsr_RuntimeString__jl_CharSequence__jl_CharSequence__T(ScalaJS.i.sjsr_RuntimeString$class__replace__sjsr_RuntimeString__jl_CharSequence__jl_CharSequence__T(str, "\\", "\\\\"), "\"", "\\\"")
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$.prototype.toolc$code$CodeGenerator$$serializeCode__sci_List__T = (function(code) {
+  return ScalaJS.as.sc_TraversableOnce(code.map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(c$2) {
+    var c = ScalaJS.as.Ltoolc_code_CodeGenerator$Opcode(c$2);
+    return (("\"" + ScalaJS.m.Ltoolc_code_CodeGenerator().toolc$code$CodeGenerator$$escape__T__T(c.toString__T())) + "\"")
+  })), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())).mkString__T__T(",")
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$.prototype.toolc$code$CodeGenerator$$serializeVars__sci_List__T = (function(vars) {
+  return ScalaJS.as.sc_TraversableOnce(vars.map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(v$2) {
+    var v = ScalaJS.as.T2(v$2);
+    return (((("\"" + ScalaJS.m.Ltoolc_code_CodeGenerator().toolc$code$CodeGenerator$$escape__T__T(ScalaJS.as.T(v.$$und1__O()))) + "\":\"") + ScalaJS.m.Ltoolc_code_CodeGenerator().toolc$code$CodeGenerator$$escape__T__T(ScalaJS.as.T(v.$$und2__O()))) + "\"")
+  })), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())).mkString__T__T(",")
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$.prototype.toolc$code$CodeGenerator$$serializeParams__sci_List__T = (function(params) {
+  return ScalaJS.as.sc_TraversableOnce(params.map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(p$2) {
+    var p = ScalaJS.as.T2(p$2);
+    return (((("{\"name\":\"" + ScalaJS.m.Ltoolc_code_CodeGenerator().toolc$code$CodeGenerator$$escape__T__T(ScalaJS.as.T(p.$$und1__O()))) + "\",\"type\":\"") + ScalaJS.m.Ltoolc_code_CodeGenerator().toolc$code$CodeGenerator$$escape__T__T(ScalaJS.as.T(p.$$und2__O()))) + "\"}")
+  })), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())).mkString__T__T(",")
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$ = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$ = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$ = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$: 0
+}, false, "toolc.code.CodeGenerator$", ScalaJS.d.O, {
+  Ltoolc_code_CodeGenerator$: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$;
+ScalaJS.n.Ltoolc_code_CodeGenerator = (void 0);
+ScalaJS.m.Ltoolc_code_CodeGenerator = (function() {
+  if ((!ScalaJS.n.Ltoolc_code_CodeGenerator)) {
+    ScalaJS.n.Ltoolc_code_CodeGenerator = new ScalaJS.c.Ltoolc_code_CodeGenerator$().init___()
+  };
+  return ScalaJS.n.Ltoolc_code_CodeGenerator
+});
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$ClassGen = (function() {
+  ScalaJS.c.O.call(this);
+  this.name$1 = null;
+  this.methods$1 = null;
+  this.fields$1 = null
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ClassGen.prototype = new ScalaJS.h.O();
+ScalaJS.c.Ltoolc_code_CodeGenerator$ClassGen.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$ClassGen;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$ClassGen = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$ClassGen.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$ClassGen.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$ClassGen.prototype.methods__sci_List = (function() {
+  return this.methods$1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ClassGen.prototype.methods$und$eq__sci_List__V = (function(x$1) {
+  this.methods$1 = x$1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ClassGen.prototype.fields__sci_List = (function() {
+  return this.fields$1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ClassGen.prototype.fields$und$eq__sci_List__V = (function(x$1) {
+  this.fields$1 = x$1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ClassGen.prototype.createMethod__T__Ltoolc_code_CodeGenerator$Method = (function(mname) {
+  var meth = new ScalaJS.c.Ltoolc_code_CodeGenerator$Method().init___T(mname);
+  this.methods$und$eq__sci_List__V(ScalaJS.as.sci_List(this.methods__sci_List().$$colon$plus__O__scg_CanBuildFrom__O(meth, ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())));
+  return meth
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ClassGen.prototype.addField__T2__Ltoolc_code_CodeGenerator$ClassGen = (function(field) {
+  this.fields$und$eq__sci_List__V(ScalaJS.as.sci_List(this.fields__sci_List().$$colon$plus__O__scg_CanBuildFrom__O(field, ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())));
+  return this
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ClassGen.prototype.serialize__T = (function() {
+  return ((((((((("\"" + ScalaJS.m.Ltoolc_code_CodeGenerator().toolc$code$CodeGenerator$$escape__T__T(this.name$1)) + "\":{") + "\"fields\":{") + ScalaJS.m.Ltoolc_code_CodeGenerator().toolc$code$CodeGenerator$$serializeVars__sci_List__T(this.fields__sci_List())) + "},") + "\"methods\":{") + ScalaJS.as.sc_TraversableOnce(this.methods__sci_List().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(m$2) {
+    var m = ScalaJS.as.Ltoolc_code_CodeGenerator$Method(m$2);
+    return m.serialize__T()
+  })), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())).mkString__T__T(",")) + "}") + "}")
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ClassGen.prototype.init___T = (function(name) {
+  this.name$1 = name;
+  ScalaJS.c.O.prototype.init___.call(this);
+  this.methods$1 = ScalaJS.m.sci_Nil();
+  this.fields$1 = ScalaJS.m.sci_Nil();
+  return this
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$ClassGen = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$ClassGen)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$ClassGen = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$ClassGen(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$ClassGen"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$ClassGen = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$ClassGen)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$ClassGen = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$ClassGen(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$ClassGen;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$ClassGen = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$ClassGen: 0
+}, false, "toolc.code.CodeGenerator$ClassGen", ScalaJS.d.O, {
+  Ltoolc_code_CodeGenerator$ClassGen: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ClassGen.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$ClassGen;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$Method = (function() {
+  ScalaJS.c.O.call(this);
+  this.name$1 = null;
+  this.opcodes$1 = null;
+  this.params$1 = null;
+  this.locals$1 = null
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$Method.prototype = new ScalaJS.h.O();
+ScalaJS.c.Ltoolc_code_CodeGenerator$Method.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$Method;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$Method = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$Method.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$Method.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$Method.prototype.opcodes__sci_List = (function() {
+  return this.opcodes$1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$Method.prototype.opcodes$und$eq__sci_List__V = (function(x$1) {
+  this.opcodes$1 = x$1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$Method.prototype.params__sci_List = (function() {
+  return this.params$1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$Method.prototype.params$und$eq__sci_List__V = (function(x$1) {
+  this.params$1 = x$1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$Method.prototype.locals__sci_List = (function() {
+  return this.locals$1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$Method.prototype.locals$und$eq__sci_List__V = (function(x$1) {
+  this.locals$1 = x$1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$Method.prototype.addParam__T2__Ltoolc_code_CodeGenerator$Method = (function(param) {
+  this.params$und$eq__sci_List__V(ScalaJS.as.sci_List(this.params__sci_List().$$colon$plus__O__scg_CanBuildFrom__O(param, ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())));
+  return this
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$Method.prototype.addLocal__T2__Ltoolc_code_CodeGenerator$Method = (function(local) {
+  this.locals$und$eq__sci_List__V(ScalaJS.as.sci_List(this.locals__sci_List().$$colon$plus__O__scg_CanBuildFrom__O(local, ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())));
+  return this
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$Method.prototype.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method = (function(op) {
+  this.opcodes$und$eq__sci_List__V(ScalaJS.as.sci_List(this.opcodes__sci_List().$$colon$plus__O__scg_CanBuildFrom__O(op, ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())));
+  return this
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$Method.prototype.serialize__T = (function() {
+  return (((((((((((("\"" + ScalaJS.m.Ltoolc_code_CodeGenerator().toolc$code$CodeGenerator$$escape__T__T(this.name$1)) + "\":{") + "\"args\":[") + ScalaJS.m.Ltoolc_code_CodeGenerator().toolc$code$CodeGenerator$$serializeParams__sci_List__T(this.params__sci_List())) + "],") + "\"vars\":{") + ScalaJS.m.Ltoolc_code_CodeGenerator().toolc$code$CodeGenerator$$serializeVars__sci_List__T(this.locals__sci_List())) + "},") + "\"code\":[") + ScalaJS.m.Ltoolc_code_CodeGenerator().toolc$code$CodeGenerator$$serializeCode__sci_List__T(this.opcodes__sci_List())) + "]") + "}")
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$Method.prototype.init___T = (function(name) {
+  this.name$1 = name;
+  ScalaJS.c.O.prototype.init___.call(this);
+  this.opcodes$1 = ScalaJS.m.sci_Nil();
+  this.params$1 = ScalaJS.m.sci_Nil();
+  this.locals$1 = ScalaJS.m.sci_Nil();
+  return this
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$Method = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$Method)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$Method = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$Method(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$Method"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$Method = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$Method)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$Method = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$Method(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$Method;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$Method = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$Method: 0
+}, false, "toolc.code.CodeGenerator$Method", ScalaJS.d.O, {
+  Ltoolc_code_CodeGenerator$Method: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$Method.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$Method;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode = (function() {
+  ScalaJS.c.O.call(this);
+  this.str$1 = null
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype = new ScalaJS.h.O();
+ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.toString__T = (function() {
+  return this.str$1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T = (function(str) {
+  this.str$1 = str;
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$Opcode = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$Opcode)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$Opcode = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$Opcode(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$Opcode"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$Opcode = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$Opcode)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$Opcode = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$Opcode(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$Opcode;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$Opcode: 0
+}, false, "toolc.code.CodeGenerator$Opcode", ScalaJS.d.O, {
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen = (function() {
+  ScalaJS.c.O.call(this);
+  this.classes$1 = null;
+  this.labelCounter$1 = 0;
+  this.Main$module$1 = null
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen.prototype = new ScalaJS.h.O();
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$ProgramGen = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$ProgramGen.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen.prototype.Main$lzycompute__p1__Ltoolc_code_CodeGenerator$ProgramGen$Main$ = (function() {
+  if ((this.Main$module$1 === null)) {
+    this.Main$module$1 = new ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen$Main$().init___Ltoolc_code_CodeGenerator$ProgramGen(this)
+  };
+  return this.Main$module$1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen.prototype.classes__sci_List = (function() {
+  return this.classes$1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen.prototype.classes$und$eq__sci_List__V = (function(x$1) {
+  this.classes$1 = x$1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen.prototype.labelCounter__I = (function() {
+  return this.labelCounter$1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen.prototype.labelCounter$und$eq__I__V = (function(x$1) {
+  this.labelCounter$1 = x$1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen.prototype.getFreshLabel__T__T = (function(prefix) {
+  return (this.labelCounter$und$eq__I__V(((this.labelCounter__I() + 1) | 0)), (("" + prefix) + this.labelCounter__I()))
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen.prototype.createClass__T__Ltoolc_code_CodeGenerator$ClassGen = (function(name) {
+  var cl = new ScalaJS.c.Ltoolc_code_CodeGenerator$ClassGen().init___T(name);
+  this.classes$und$eq__sci_List__V(ScalaJS.as.sci_List(this.classes__sci_List().$$colon$plus__O__scg_CanBuildFrom__O(cl, ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())));
+  return cl
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen.prototype.writeToString__T = (function() {
+  return ((((((("{\"main\":{\"code\":[" + ScalaJS.m.Ltoolc_code_CodeGenerator().toolc$code$CodeGenerator$$serializeCode__sci_List__T(this.Main__Ltoolc_code_CodeGenerator$ProgramGen$Main$().opcodes__sci_List())) + "]") + "},") + "\"classes\":{") + ScalaJS.as.sc_TraversableOnce(this.classes__sci_List().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(cd$2) {
+    var cd = ScalaJS.as.Ltoolc_code_CodeGenerator$ClassGen(cd$2);
+    return cd.serialize__T()
+  })), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())).mkString__T__T(",")) + "}") + "}")
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen.prototype.Main__Ltoolc_code_CodeGenerator$ProgramGen$Main$ = (function() {
+  return ((this.Main$module$1 === null) ? this.Main$lzycompute__p1__Ltoolc_code_CodeGenerator$ProgramGen$Main$() : this.Main$module$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen.prototype.init___ = (function() {
+  ScalaJS.c.O.prototype.init___.call(this);
+  this.classes$1 = ScalaJS.m.sci_Nil();
+  this.labelCounter$1 = 0;
+  return this
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$ProgramGen = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$ProgramGen)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$ProgramGen = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$ProgramGen(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$ProgramGen"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$ProgramGen = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$ProgramGen)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$ProgramGen = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$ProgramGen(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$ProgramGen;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$ProgramGen = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$ProgramGen: 0
+}, false, "toolc.code.CodeGenerator$ProgramGen", ScalaJS.d.O, {
+  Ltoolc_code_CodeGenerator$ProgramGen: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$ProgramGen;
+/** @constructor */
 ScalaJS.c.Ltoolc_lexer_Lexer$$anon$1 = (function() {
   ScalaJS.c.O.call(this);
   this.nextToken$1 = null;
@@ -11115,12 +11015,6 @@ ScalaJS.c.Ltoolc_lexer_Lexer$$anon$1.prototype.isEmpty__Z = (function() {
 });
 ScalaJS.c.Ltoolc_lexer_Lexer$$anon$1.prototype.isTraversableAgain__Z = (function() {
   return ScalaJS.i.sc_Iterator$class__isTraversableAgain__sc_Iterator__Z(this)
-});
-ScalaJS.c.Ltoolc_lexer_Lexer$$anon$1.prototype.drop__I__sc_Iterator = (function(n) {
-  return ScalaJS.i.sc_Iterator$class__drop__sc_Iterator__I__sc_Iterator(this, n)
-});
-ScalaJS.c.Ltoolc_lexer_Lexer$$anon$1.prototype.slice__I__I__sc_Iterator = (function(from, until) {
-  return ScalaJS.i.sc_Iterator$class__slice__sc_Iterator__I__I__sc_Iterator(this, from, until)
 });
 ScalaJS.c.Ltoolc_lexer_Lexer$$anon$1.prototype.map__F1__sc_Iterator = (function(f) {
   return ScalaJS.i.sc_Iterator$class__map__sc_Iterator__F1__sc_Iterator(this, f)
@@ -14632,12 +14526,6 @@ ScalaJS.c.Ltoolc_utils_CustomIterator.prototype.isEmpty__Z = (function() {
 ScalaJS.c.Ltoolc_utils_CustomIterator.prototype.isTraversableAgain__Z = (function() {
   return ScalaJS.i.sc_Iterator$class__isTraversableAgain__sc_Iterator__Z(this)
 });
-ScalaJS.c.Ltoolc_utils_CustomIterator.prototype.drop__I__sc_Iterator = (function(n) {
-  return ScalaJS.i.sc_Iterator$class__drop__sc_Iterator__I__sc_Iterator(this, n)
-});
-ScalaJS.c.Ltoolc_utils_CustomIterator.prototype.slice__I__I__sc_Iterator = (function(from, until) {
-  return ScalaJS.i.sc_Iterator$class__slice__sc_Iterator__I__I__sc_Iterator(this, from, until)
-});
 ScalaJS.c.Ltoolc_utils_CustomIterator.prototype.map__F1__sc_Iterator = (function(f) {
   return ScalaJS.i.sc_Iterator$class__map__sc_Iterator__F1__sc_Iterator(this, f)
 });
@@ -15101,6 +14989,9 @@ ScalaJS.c.T2.prototype.equals__O__Z = (function(x$1) {
       return false
     }
   }
+});
+ScalaJS.c.T2.prototype.$$und2$mcI$sp__I = (function() {
+  return ScalaJS.uI(this.$$und2__O())
 });
 ScalaJS.c.T2.prototype.init___O__O = (function(_1, _2) {
   this.$$und1$f = _1;
@@ -16228,9 +16119,6 @@ ScalaJS.c.jl_StringBuilder.prototype.append__AC__I__I__jl_StringBuilder = (funct
   };
   return this
 });
-ScalaJS.c.jl_StringBuilder.prototype.append__I__jl_StringBuilder = (function(i) {
-  return this.append__T__jl_StringBuilder(ScalaJS.objectToString(i))
-});
 ScalaJS.c.jl_StringBuilder.prototype.append__O__jl_StringBuilder = (function(obj) {
   return ((obj === null) ? this.append__T__jl_StringBuilder(null) : this.append__T__jl_StringBuilder(ScalaJS.objectToString(obj)))
 });
@@ -16342,65 +16230,46 @@ ScalaJS.c.jl_System$.prototype.err__Ljava_io_PrintStream = (function() {
   return this.err$1
 });
 ScalaJS.c.jl_System$.prototype.identityHashCode__O__I = (function(x) {
-  var x1 = x;
-  if ((null === x1)) {
-    return 0
-  };
-  matchEnd12: {
-    var jsx$1;
-    if ((typeof(x1) === "boolean")) {
-      var jsx$1 = true;
-      break matchEnd12
-    };
-    if ((typeof(x1) === "number")) {
-      var jsx$1 = true;
-      break matchEnd12
-    };
-    if ((typeof(x1) === "string")) {
-      var jsx$1 = true;
-      break matchEnd12
-    };
-    if ((typeof(x1) === "undefined")) {
-      var jsx$1 = true;
-      break matchEnd12
-    };
-    var jsx$1 = false;
-    break matchEnd12
-  };
-  if (jsx$1) {
-    return ScalaJS.objectHashCode(x)
-  };
-  if ((ScalaJS.objectGetClass(x) === null)) {
-    return 42
-  } else {
-    var hash = x["$idHashCode$0"];
-    if ((!(hash === (void 0)))) {
-      return ScalaJS.uI(hash)
-    } else {
-      var newHash = ScalaJS.m.jl_System$IDHashCode().nextIDHashCode__I();
-      x["$idHashCode$0"] = newHash;
-      return newHash
-    }
-  }
+  return ScalaJS.systemIdentityHashCode(x)
 });
 ScalaJS.c.jl_System$.prototype.exit__I__V = (function(status) {
   ScalaJS.m.jl_Runtime().getRuntime__jl_Runtime().exit__I__V(status)
 });
+ScalaJS.c.jl_System$.prototype.$$anonfun$1__p1__D = (function() {
+  return ScalaJS.uD(ScalaJS.g["performance"]["now"]())
+});
+ScalaJS.c.jl_System$.prototype.$$anonfun$2__p1__D = (function() {
+  return ScalaJS.uD(ScalaJS.g["performance"]["webkitNow"]())
+});
+ScalaJS.c.jl_System$.prototype.$$anonfun$3__p1__D = (function() {
+  return ScalaJS.uD(new ScalaJS.g["Date"]()["getTime"]())
+});
+ScalaJS.c.jl_System$.prototype.$$anonfun$4__p1__D = (function() {
+  return ScalaJS.uD(new ScalaJS.g["Date"]()["getTime"]())
+});
 ScalaJS.c.jl_System$.prototype.init___ = (function() {
   ScalaJS.c.O.prototype.init___.call(this);
   ScalaJS.n.jl_System = this;
-  this.out$1 = new ScalaJS.c.jl_JSConsoleBasedPrintStream().init___jl_Boolean(ScalaJS.m.s_Predef().boolean2Boolean__Z__jl_Boolean(false));
-  this.err$1 = new ScalaJS.c.jl_JSConsoleBasedPrintStream().init___jl_Boolean(ScalaJS.m.s_Predef().boolean2Boolean__Z__jl_Boolean(true));
+  this.out$1 = ScalaJS.m.jl_StandardOutPrintStream();
+  this.err$1 = ScalaJS.m.jl_StandardErrPrintStream();
   this.in$1 = null;
-  this.getHighPrecisionTime$1 = ((!ScalaJS.uZ((!ScalaJS.g["performance"]))) ? ((!ScalaJS.uZ((!ScalaJS.g["performance"]["now"]))) ? (function() {
-    return ScalaJS.uD(ScalaJS.g["performance"]["now"]())
-  }) : ((!ScalaJS.uZ((!ScalaJS.g["performance"]["webkitNow"]))) ? (function() {
-    return ScalaJS.uD(ScalaJS.g["performance"]["webkitNow"]())
-  }) : (function() {
-    return ScalaJS.uD(new ScalaJS.g["Date"]()["getTime"]())
-  }))) : (function() {
-    return ScalaJS.uD(new ScalaJS.g["Date"]()["getTime"]())
-  }));
+  this.getHighPrecisionTime$1 = ((!ScalaJS.uZ((!ScalaJS.g["performance"]))) ? ((!ScalaJS.uZ((!ScalaJS.g["performance"]["now"]))) ? (function(this$2) {
+    return (function() {
+      return this$2.$$anonfun$1__p1__D()
+    })
+  })(this) : ((!ScalaJS.uZ((!ScalaJS.g["performance"]["webkitNow"]))) ? (function(this$3) {
+    return (function() {
+      return this$3.$$anonfun$2__p1__D()
+    })
+  })(this) : (function(this$4) {
+    return (function() {
+      return this$4.$$anonfun$3__p1__D()
+    })
+  })(this))) : (function(this$5) {
+    return (function() {
+      return this$5.$$anonfun$4__p1__D()
+    })
+  })(this));
   return this
 });
 ScalaJS.is.jl_System$ = (function(obj) {
@@ -16428,61 +16297,6 @@ ScalaJS.m.jl_System = (function() {
     ScalaJS.n.jl_System = new ScalaJS.c.jl_System$().init___()
   };
   return ScalaJS.n.jl_System
-});
-/** @constructor */
-ScalaJS.c.jl_System$IDHashCode$ = (function() {
-  ScalaJS.c.O.call(this);
-  this.lastIDHashCode$1 = 0
-});
-ScalaJS.c.jl_System$IDHashCode$.prototype = new ScalaJS.h.O();
-ScalaJS.c.jl_System$IDHashCode$.prototype.constructor = ScalaJS.c.jl_System$IDHashCode$;
-/** @constructor */
-ScalaJS.h.jl_System$IDHashCode$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.jl_System$IDHashCode$.prototype = ScalaJS.c.jl_System$IDHashCode$.prototype;
-ScalaJS.c.jl_System$IDHashCode$.prototype.lastIDHashCode__p1__I = (function() {
-  return this.lastIDHashCode$1
-});
-ScalaJS.c.jl_System$IDHashCode$.prototype.lastIDHashCode$und$eq__p1__I__V = (function(x$1) {
-  this.lastIDHashCode$1 = x$1
-});
-ScalaJS.c.jl_System$IDHashCode$.prototype.nextIDHashCode__I = (function() {
-  var r = ((this.lastIDHashCode__p1__I() + 1) | 0);
-  this.lastIDHashCode$und$eq__p1__I__V(r);
-  return r
-});
-ScalaJS.c.jl_System$IDHashCode$.prototype.init___ = (function() {
-  ScalaJS.c.O.prototype.init___.call(this);
-  ScalaJS.n.jl_System$IDHashCode = this;
-  this.lastIDHashCode$1 = 0;
-  return this
-});
-ScalaJS.is.jl_System$IDHashCode$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.jl_System$IDHashCode$)))
-});
-ScalaJS.as.jl_System$IDHashCode$ = (function(obj) {
-  return ((ScalaJS.is.jl_System$IDHashCode$(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "java.lang.System$IDHashCode$"))
-});
-ScalaJS.isArrayOf.jl_System$IDHashCode$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.jl_System$IDHashCode$)))
-});
-ScalaJS.asArrayOf.jl_System$IDHashCode$ = (function(obj, depth) {
-  return ((ScalaJS.isArrayOf.jl_System$IDHashCode$(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ljava.lang.System$IDHashCode$;", depth))
-});
-ScalaJS.d.jl_System$IDHashCode$ = new ScalaJS.ClassTypeData({
-  jl_System$IDHashCode$: 0
-}, false, "java.lang.System$IDHashCode$", ScalaJS.d.O, {
-  jl_System$IDHashCode$: 1,
-  O: 1
-});
-ScalaJS.c.jl_System$IDHashCode$.prototype.$classData = ScalaJS.d.jl_System$IDHashCode$;
-ScalaJS.n.jl_System$IDHashCode = (void 0);
-ScalaJS.m.jl_System$IDHashCode = (function() {
-  if ((!ScalaJS.n.jl_System$IDHashCode)) {
-    ScalaJS.n.jl_System$IDHashCode = new ScalaJS.c.jl_System$IDHashCode$().init___()
-  };
-  return ScalaJS.n.jl_System$IDHashCode
 });
 /** @constructor */
 ScalaJS.c.jl_ThreadLocal = (function() {
@@ -17282,6 +17096,462 @@ ScalaJS.d.ju_Formatter$RegExpExtractor = new ScalaJS.ClassTypeData({
 });
 ScalaJS.c.ju_Formatter$RegExpExtractor.prototype.$classData = ScalaJS.d.ju_Formatter$RegExpExtractor;
 /** @constructor */
+ScalaJS.c.ju_regex_Matcher = (function() {
+  ScalaJS.c.O.call(this);
+  this.pattern0$1 = null;
+  this.input0$1 = null;
+  this.regionStart0$1 = 0;
+  this.regionEnd0$1 = 0;
+  this.regexp$1 = null;
+  this.inputstr$1 = null;
+  this.lastMatch$1 = null;
+  this.lastMatchIsValid$1 = false;
+  this.canStillFind$1 = false;
+  this.appendPos$1 = 0
+});
+ScalaJS.c.ju_regex_Matcher.prototype = new ScalaJS.h.O();
+ScalaJS.c.ju_regex_Matcher.prototype.constructor = ScalaJS.c.ju_regex_Matcher;
+/** @constructor */
+ScalaJS.h.ju_regex_Matcher = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.ju_regex_Matcher.prototype = ScalaJS.c.ju_regex_Matcher.prototype;
+ScalaJS.c.ju_regex_Matcher.prototype.pattern0__p1__ju_regex_Pattern = (function() {
+  return this.pattern0$1
+});
+ScalaJS.c.ju_regex_Matcher.prototype.input0__p1__jl_CharSequence = (function() {
+  return this.input0$1
+});
+ScalaJS.c.ju_regex_Matcher.prototype.regionStart0__p1__I = (function() {
+  return this.regionStart0$1
+});
+ScalaJS.c.ju_regex_Matcher.prototype.regionEnd0__p1__I = (function() {
+  return this.regionEnd0$1
+});
+ScalaJS.c.ju_regex_Matcher.prototype.regexp__p1__sjs_js_RegExp = (function() {
+  return this.regexp$1
+});
+ScalaJS.c.ju_regex_Matcher.prototype.inputstr__p1__T = (function() {
+  return this.inputstr$1
+});
+ScalaJS.c.ju_regex_Matcher.prototype.lastMatch__p1__sjs_js_RegExp$ExecResult = (function() {
+  return this.lastMatch$1
+});
+ScalaJS.c.ju_regex_Matcher.prototype.lastMatch$und$eq__p1__sjs_js_RegExp$ExecResult__V = (function(x$1) {
+  this.lastMatch$1 = x$1
+});
+ScalaJS.c.ju_regex_Matcher.prototype.lastMatchIsValid$und$eq__p1__Z__V = (function(x$1) {
+  this.lastMatchIsValid$1 = x$1
+});
+ScalaJS.c.ju_regex_Matcher.prototype.canStillFind__p1__Z = (function() {
+  return this.canStillFind$1
+});
+ScalaJS.c.ju_regex_Matcher.prototype.canStillFind$und$eq__p1__Z__V = (function(x$1) {
+  this.canStillFind$1 = x$1
+});
+ScalaJS.c.ju_regex_Matcher.prototype.find__Z = (function() {
+  if (this.canStillFind__p1__Z()) {
+    this.lastMatchIsValid$und$eq__p1__Z__V(true);
+    this.lastMatch$und$eq__p1__sjs_js_RegExp$ExecResult__V(this.regexp__p1__sjs_js_RegExp()["exec"](this.inputstr__p1__T()));
+    if ((this.lastMatch__p1__sjs_js_RegExp$ExecResult() !== null)) {
+      if (ScalaJS.i.sjsr_RuntimeString$class__isEmpty__sjsr_RuntimeString__Z(ScalaJS.as.T(ScalaJS.m.sjs_js_UndefOrOps().get$extension__sjs_js_UndefOr__O(ScalaJS.m.sjs_js_UndefOr().undefOr2ops__sjs_js_UndefOr__sjs_js_UndefOr(ScalaJS.as.O(this.lastMatch__p1__sjs_js_RegExp$ExecResult()[0])))))) {
+        var ev$1 = this.regexp__p1__sjs_js_RegExp();
+        ev$1["lastIndex"] = ((ScalaJS.uI(ev$1["lastIndex"]) + 1) | 0)
+      }
+    } else {
+      this.canStillFind$und$eq__p1__Z__V(false)
+    };
+    return (this.lastMatch__p1__sjs_js_RegExp$ExecResult() !== null)
+  } else {
+    return false
+  }
+});
+ScalaJS.c.ju_regex_Matcher.prototype.ensureLastMatch__p1__sjs_js_RegExp$ExecResult = (function() {
+  if ((this.lastMatch__p1__sjs_js_RegExp$ExecResult() === null)) {
+    throw new ScalaJS.c.jl_IllegalStateException().init___T("No match available")
+  };
+  return this.lastMatch__p1__sjs_js_RegExp$ExecResult()
+});
+ScalaJS.c.ju_regex_Matcher.prototype.start__I = (function() {
+  return ScalaJS.uI(this.ensureLastMatch__p1__sjs_js_RegExp$ExecResult()["index"])
+});
+ScalaJS.c.ju_regex_Matcher.prototype.end__I = (function() {
+  return ((this.start__I() + ScalaJS.i.sjsr_RuntimeString$class__length__sjsr_RuntimeString__I(this.group__T())) | 0)
+});
+ScalaJS.c.ju_regex_Matcher.prototype.group__T = (function() {
+  return ScalaJS.as.T(ScalaJS.m.sjs_js_UndefOrOps().get$extension__sjs_js_UndefOr__O(ScalaJS.m.sjs_js_UndefOr().undefOr2ops__sjs_js_UndefOr__sjs_js_UndefOr(ScalaJS.as.O(this.ensureLastMatch__p1__sjs_js_RegExp$ExecResult()[0]))))
+});
+ScalaJS.c.ju_regex_Matcher.prototype.init___ju_regex_Pattern__jl_CharSequence__I__I = (function(pattern0, input0, regionStart0, regionEnd0) {
+  this.pattern0$1 = pattern0;
+  this.input0$1 = input0;
+  this.regionStart0$1 = regionStart0;
+  this.regionEnd0$1 = regionEnd0;
+  ScalaJS.c.O.prototype.init___.call(this);
+  this.regexp$1 = new ScalaJS.g["RegExp"](this.pattern0__p1__ju_regex_Pattern().jspattern__T(), this.pattern0__p1__ju_regex_Pattern().jsflags__T());
+  this.inputstr$1 = ScalaJS.objectToString(ScalaJS.charSequenceSubSequence(this.input0__p1__jl_CharSequence(), this.regionStart0__p1__I(), this.regionEnd0__p1__I()));
+  this.lastMatch$1 = null;
+  this.lastMatchIsValid$1 = false;
+  this.canStillFind$1 = true;
+  this.appendPos$1 = 0;
+  return this
+});
+ScalaJS.is.ju_regex_Matcher = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.ju_regex_Matcher)))
+});
+ScalaJS.as.ju_regex_Matcher = (function(obj) {
+  return ((ScalaJS.is.ju_regex_Matcher(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "java.util.regex.Matcher"))
+});
+ScalaJS.isArrayOf.ju_regex_Matcher = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.ju_regex_Matcher)))
+});
+ScalaJS.asArrayOf.ju_regex_Matcher = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.ju_regex_Matcher(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ljava.util.regex.Matcher;", depth))
+});
+ScalaJS.d.ju_regex_Matcher = new ScalaJS.ClassTypeData({
+  ju_regex_Matcher: 0
+}, false, "java.util.regex.Matcher", ScalaJS.d.O, {
+  ju_regex_Matcher: 1,
+  O: 1
+});
+ScalaJS.c.ju_regex_Matcher.prototype.$classData = ScalaJS.d.ju_regex_Matcher;
+/** @constructor */
+ScalaJS.c.ju_regex_Pattern = (function() {
+  ScalaJS.c.O.call(this);
+  this.pattern0$1 = null;
+  this.flags0$1 = 0;
+  this.x$1$1 = null;
+  this.jspattern$1 = null;
+  this.flags1$1 = 0;
+  this.jsflags$1 = null
+});
+ScalaJS.c.ju_regex_Pattern.prototype = new ScalaJS.h.O();
+ScalaJS.c.ju_regex_Pattern.prototype.constructor = ScalaJS.c.ju_regex_Pattern;
+/** @constructor */
+ScalaJS.h.ju_regex_Pattern = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.ju_regex_Pattern.prototype = ScalaJS.c.ju_regex_Pattern.prototype;
+ScalaJS.c.ju_regex_Pattern.prototype.flags__I = (function() {
+  return this.flags1__I()
+});
+ScalaJS.c.ju_regex_Pattern.prototype.jspattern__T = (function() {
+  return this.jspattern$1
+});
+ScalaJS.c.ju_regex_Pattern.prototype.flags1__I = (function() {
+  return this.flags1$1
+});
+ScalaJS.c.ju_regex_Pattern.prototype.jsflags__T = (function() {
+  return this.jsflags$1
+});
+ScalaJS.c.ju_regex_Pattern.prototype.toString__T = (function() {
+  return this.pattern0$1
+});
+ScalaJS.c.ju_regex_Pattern.prototype.matcher__jl_CharSequence__ju_regex_Matcher = (function(input) {
+  return new ScalaJS.c.ju_regex_Matcher().init___ju_regex_Pattern__jl_CharSequence__I__I(this, input, 0, ScalaJS.charSequenceLength(input))
+});
+ScalaJS.c.ju_regex_Pattern.prototype.split__jl_CharSequence__I__AT = (function(input, limit) {
+  var lim = ((limit > 0) ? limit : 2147483647);
+  var result = [];
+  var inputStr = ScalaJS.objectToString(input);
+  var matcher = this.matcher__jl_CharSequence__ju_regex_Matcher(inputStr);
+  var prevEnd = 0;
+  while (((ScalaJS.uI(result["length"]) < ((lim - 1) | 0)) && matcher.find__Z())) {
+    result["push"](ScalaJS.i.sjsr_RuntimeString$class__substring__sjsr_RuntimeString__I__I__T(inputStr, prevEnd, matcher.start__I()));
+    prevEnd = matcher.end__I()
+  };
+  result["push"](ScalaJS.i.sjsr_RuntimeString$class__substring__sjsr_RuntimeString__I__T(inputStr, prevEnd));
+  if ((((prevEnd === 0) && (ScalaJS.uI(result["length"]) === 2)) && ((lim > 2) || (!matcher.find__Z())))) {
+    return ScalaJS.asArrayOf.T(ScalaJS.m.s_Array().apply__sc_Seq__s_reflect_ClassTag__O(new ScalaJS.c.sjs_js_WrappedArray().init___sjs_js_Array([inputStr]), ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.T.getClassOf())), 1)
+  } else {
+    var len = ScalaJS.uI(result["length"]);
+    if ((limit === 0)) {
+      while (((len > 1) && ScalaJS.i.sjsr_RuntimeString$class__isEmpty__sjsr_RuntimeString__Z(ScalaJS.as.T(ScalaJS.as.O(result[((len - 1) | 0)]))))) {
+        len = ((len - 1) | 0)
+      }
+    };
+    var actualResult = ScalaJS.newArrayObject(ScalaJS.d.T.getArrayOf(), [len]);
+    ScalaJS.m.sjs_js_Any().jsArrayOps__sjs_js_Array__sjs_js_ArrayOps(result).copyToArray__O__V(actualResult);
+    return actualResult
+  }
+});
+ScalaJS.c.ju_regex_Pattern.prototype.$$anonfun$1__p1__s_Option = (function() {
+  return ScalaJS.m.ju_regex_Pattern().java$util$regex$Pattern$$tryFlagHack__T__I__s_Option(this.pattern0$1, this.flags0$1)
+});
+ScalaJS.c.ju_regex_Pattern.prototype.$$anonfun$2__p1__T2 = (function() {
+  return new ScalaJS.c.T2().init___O__O(this.pattern0$1, this.flags0$1)
+});
+ScalaJS.c.ju_regex_Pattern.prototype.init___T__I = (function(pattern0, flags0) {
+  this.pattern0$1 = pattern0;
+  this.flags0$1 = flags0;
+  ScalaJS.c.O.prototype.init___.call(this);
+  var x1 = (((flags0 & 16) !== 0) ? new ScalaJS.c.T2().init___O__O(ScalaJS.m.ju_regex_Pattern().quote__T__T(pattern0), flags0) : ScalaJS.as.T2(ScalaJS.m.ju_regex_Pattern().java$util$regex$Pattern$$trySplitHack__T__I__s_Option(pattern0, flags0).orElse__F0__s_Option(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function(this$2) {
+    return (function() {
+      return this$2.$$anonfun$1__p1__s_Option()
+    })
+  })(this))).getOrElse__F0__O(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function(this$3) {
+    return (function() {
+      return this$3.$$anonfun$2__p1__T2()
+    })
+  })(this)))));
+  matchEnd3: {
+    var jsx$1;
+    if ((x1 !== null)) {
+      var jspattern = ScalaJS.as.T(x1.$$und1__O());
+      var flags1 = x1.$$und2$mcI$sp__I();
+      var jsx$1 = new ScalaJS.c.T2().init___O__O(jspattern, flags1);
+      break matchEnd3
+    };
+    throw new ScalaJS.c.s_MatchError().init___O(x1)
+  };
+  this.x$1$1 = jsx$1;
+  this.jspattern$1 = ScalaJS.as.T(this.x$1$1.$$und1__O());
+  this.flags1$1 = this.x$1$1.$$und2$mcI$sp__I();
+  var f = "g";
+  if (((this.flags__I() & 2) !== 0)) {
+    f = (f + "i")
+  };
+  if (((this.flags__I() & 8) !== 0)) {
+    f = (f + "m")
+  };
+  this.jsflags$1 = f;
+  return this
+});
+ScalaJS.is.ju_regex_Pattern = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.ju_regex_Pattern)))
+});
+ScalaJS.as.ju_regex_Pattern = (function(obj) {
+  return ((ScalaJS.is.ju_regex_Pattern(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "java.util.regex.Pattern"))
+});
+ScalaJS.isArrayOf.ju_regex_Pattern = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.ju_regex_Pattern)))
+});
+ScalaJS.asArrayOf.ju_regex_Pattern = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.ju_regex_Pattern(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ljava.util.regex.Pattern;", depth))
+});
+ScalaJS.d.ju_regex_Pattern = new ScalaJS.ClassTypeData({
+  ju_regex_Pattern: 0
+}, false, "java.util.regex.Pattern", ScalaJS.d.O, {
+  ju_regex_Pattern: 1,
+  O: 1
+});
+ScalaJS.c.ju_regex_Pattern.prototype.$classData = ScalaJS.d.ju_regex_Pattern;
+/** @constructor */
+ScalaJS.c.ju_regex_Pattern$ = (function() {
+  ScalaJS.c.O.call(this);
+  this.UNIX$undLINES$1 = 0;
+  this.CASE$undINSENSITIVE$1 = 0;
+  this.COMMENTS$1 = 0;
+  this.MULTILINE$1 = 0;
+  this.LITERAL$1 = 0;
+  this.DOTALL$1 = 0;
+  this.UNICODE$undCASE$1 = 0;
+  this.CANON$undEQ$1 = 0;
+  this.UNICODE$undCHARACTER$undCLASS$1 = 0;
+  this.java$util$regex$Pattern$$splitHackPat$1 = null;
+  this.java$util$regex$Pattern$$flagHackPat$1 = null
+});
+ScalaJS.c.ju_regex_Pattern$.prototype = new ScalaJS.h.O();
+ScalaJS.c.ju_regex_Pattern$.prototype.constructor = ScalaJS.c.ju_regex_Pattern$;
+/** @constructor */
+ScalaJS.h.ju_regex_Pattern$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.ju_regex_Pattern$.prototype = ScalaJS.c.ju_regex_Pattern$.prototype;
+ScalaJS.c.ju_regex_Pattern$.prototype.compile__T__ju_regex_Pattern = (function(regex) {
+  return new ScalaJS.c.ju_regex_Pattern().init___T__I(regex, 0)
+});
+ScalaJS.c.ju_regex_Pattern$.prototype.quote__T__T = (function(s) {
+  var result = "";
+  var i = 0;
+  while ((i < ScalaJS.i.sjsr_RuntimeString$class__length__sjsr_RuntimeString__I(s))) {
+    var c = ScalaJS.i.sjsr_RuntimeString$class__charAt__sjsr_RuntimeString__I__C(s, i);
+    var jsx$2 = result;
+    var x1 = c;
+    switch (x1) {
+      case 92:
+        /*<skip>*/;
+      case 46:
+        /*<skip>*/;
+      case 40:
+        /*<skip>*/;
+      case 41:
+        /*<skip>*/;
+      case 91:
+        /*<skip>*/;
+      case 93:
+        /*<skip>*/;
+      case 123:
+        /*<skip>*/;
+      case 125:
+        /*<skip>*/;
+      case 124:
+        /*<skip>*/;
+      case 63:
+        /*<skip>*/;
+      case 42:
+        /*<skip>*/;
+      case 43:
+        /*<skip>*/;
+      case 94:
+        /*<skip>*/;
+      case 36:
+        {
+          var jsx$1 = ("\\" + ScalaJS.bC(c));
+          break
+        };
+      default:
+        var jsx$1 = ScalaJS.bC(c);
+    };
+    result = (("" + jsx$2) + jsx$1);
+    i = ((i + 1) | 0)
+  };
+  return result
+});
+ScalaJS.c.ju_regex_Pattern$.prototype.java$util$regex$Pattern$$trySplitHack__T__I__s_Option = (function(pat, flags) {
+  var m = this.java$util$regex$Pattern$$splitHackPat__sjs_js_RegExp()["exec"](pat);
+  return ((m !== null) ? new ScalaJS.c.s_Some().init___O(new ScalaJS.c.T2().init___O__O(this.quote__T__T(ScalaJS.as.T(ScalaJS.m.sjs_js_UndefOrOps().get$extension__sjs_js_UndefOr__O(ScalaJS.m.sjs_js_UndefOr().undefOr2ops__sjs_js_UndefOr__sjs_js_UndefOr(ScalaJS.as.O(m[1]))))), flags)) : ScalaJS.m.s_None())
+});
+ScalaJS.c.ju_regex_Pattern$.prototype.java$util$regex$Pattern$$tryFlagHack__T__I__s_Option = (function(pat, flags0) {
+  var m = this.java$util$regex$Pattern$$flagHackPat__sjs_js_RegExp()["exec"](pat);
+  if ((m !== null)) {
+    var newPat = ScalaJS.i.sjsr_RuntimeString$class__substring__sjsr_RuntimeString__I__T(pat, ScalaJS.i.sjsr_RuntimeString$class__length__sjsr_RuntimeString__I(ScalaJS.as.T(ScalaJS.m.sjs_js_UndefOrOps().get$extension__sjs_js_UndefOr__O(ScalaJS.m.sjs_js_UndefOr().undefOr2ops__sjs_js_UndefOr__sjs_js_UndefOr(ScalaJS.as.O(m[0]))))));
+    var flags1 = ScalaJS.uI(ScalaJS.m.sjs_js_UndefOrOps().fold$extension__sjs_js_UndefOr__F0__F1__O(ScalaJS.m.sjs_js_UndefOr().undefOr2ops__sjs_js_UndefOr__sjs_js_UndefOr(ScalaJS.as.O(m[1])), new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function(this$2, flags0) {
+      return (function() {
+        return this$2.$$anonfun$3__p1__I__I(flags0)
+      })
+    })(this, flags0)), new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(this$3, flags0) {
+      return (function(chars$2) {
+        var chars = ScalaJS.as.T(chars$2);
+        return this$3.$$anonfun$4__p1__T__I__I(chars, flags0)
+      })
+    })(this, flags0))));
+    var flags2 = ScalaJS.uI(ScalaJS.m.sjs_js_UndefOrOps().fold$extension__sjs_js_UndefOr__F0__F1__O(ScalaJS.m.sjs_js_UndefOr().undefOr2ops__sjs_js_UndefOr__sjs_js_UndefOr(ScalaJS.as.O(m[2])), new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function(this$4, flags1) {
+      return (function() {
+        return this$4.$$anonfun$6__p1__I__I(flags1)
+      })
+    })(this, flags1)), new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(this$5, flags1) {
+      return (function(chars$4) {
+        var chars$3 = ScalaJS.as.T(chars$4);
+        return this$5.$$anonfun$7__p1__T__I__I(chars$3, flags1)
+      })
+    })(this, flags1))));
+    return new ScalaJS.c.s_Some().init___O(new ScalaJS.c.T2().init___O__O(newPat, flags2))
+  } else {
+    return ScalaJS.m.s_None()
+  }
+});
+ScalaJS.c.ju_regex_Pattern$.prototype.java$util$regex$Pattern$$charToFlag__C__I = (function(c) {
+  var x1 = c;
+  switch (x1) {
+    case 105:
+      {
+        return 2;
+        break
+      };
+    case 100:
+      {
+        return 1;
+        break
+      };
+    case 109:
+      {
+        return 8;
+        break
+      };
+    case 115:
+      {
+        return 32;
+        break
+      };
+    case 117:
+      {
+        return 64;
+        break
+      };
+    case 120:
+      {
+        return 4;
+        break
+      };
+    case 85:
+      {
+        return 256;
+        break
+      };
+    default:
+      ScalaJS.m.s_sys_package().error__T__sr_Nothing$("bad in-pattern flag");
+  }
+});
+ScalaJS.c.ju_regex_Pattern$.prototype.java$util$regex$Pattern$$splitHackPat__sjs_js_RegExp = (function() {
+  return this.java$util$regex$Pattern$$splitHackPat$1
+});
+ScalaJS.c.ju_regex_Pattern$.prototype.java$util$regex$Pattern$$flagHackPat__sjs_js_RegExp = (function() {
+  return this.java$util$regex$Pattern$$flagHackPat$1
+});
+ScalaJS.c.ju_regex_Pattern$.prototype.$$anonfun$3__p1__I__I = (function(flags0$1) {
+  return flags0$1
+});
+ScalaJS.c.ju_regex_Pattern$.prototype.$$anonfun$5__p1__I__C__I = (function(f, c) {
+  return (f | this.java$util$regex$Pattern$$charToFlag__C__I(c))
+});
+ScalaJS.c.ju_regex_Pattern$.prototype.$$anonfun$4__p1__T__I__I = (function(chars, flags0$1) {
+  return ScalaJS.uI(new ScalaJS.c.sci_StringOps().init___T(ScalaJS.m.s_Predef().augmentString__T__T(chars)).foldLeft__O__F2__O(flags0$1, new ScalaJS.c.sjsr_AnonFunction2().init___sjs_js_Function2((function(this$2) {
+    return (function(f$2, c$2) {
+      var f = ScalaJS.uI(f$2);
+      var c = ScalaJS.uC(c$2);
+      return this$2.$$anonfun$5__p1__I__C__I(f, c)
+    })
+  })(this))))
+});
+ScalaJS.c.ju_regex_Pattern$.prototype.$$anonfun$6__p1__I__I = (function(flags1$1) {
+  return flags1$1
+});
+ScalaJS.c.ju_regex_Pattern$.prototype.$$anonfun$8__p1__I__C__I = (function(f, c) {
+  return (f & (~this.java$util$regex$Pattern$$charToFlag__C__I(c)))
+});
+ScalaJS.c.ju_regex_Pattern$.prototype.$$anonfun$7__p1__T__I__I = (function(chars, flags1$1) {
+  return ScalaJS.uI(new ScalaJS.c.sci_StringOps().init___T(ScalaJS.m.s_Predef().augmentString__T__T(chars)).foldLeft__O__F2__O(flags1$1, new ScalaJS.c.sjsr_AnonFunction2().init___sjs_js_Function2((function(this$2) {
+    return (function(f$2, c$2) {
+      var f = ScalaJS.uI(f$2);
+      var c = ScalaJS.uC(c$2);
+      return this$2.$$anonfun$8__p1__I__C__I(f, c)
+    })
+  })(this))))
+});
+ScalaJS.c.ju_regex_Pattern$.prototype.init___ = (function() {
+  ScalaJS.c.O.prototype.init___.call(this);
+  ScalaJS.n.ju_regex_Pattern = this;
+  this.java$util$regex$Pattern$$splitHackPat$1 = new ScalaJS.g["RegExp"]("^\\\\Q(.|\\n|\\r)\\\\E$");
+  this.java$util$regex$Pattern$$flagHackPat$1 = new ScalaJS.g["RegExp"]("^\\(\\?([idmsuxU]*)(?:-([idmsuxU]*))?\\)");
+  return this
+});
+ScalaJS.is.ju_regex_Pattern$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.ju_regex_Pattern$)))
+});
+ScalaJS.as.ju_regex_Pattern$ = (function(obj) {
+  return ((ScalaJS.is.ju_regex_Pattern$(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "java.util.regex.Pattern$"))
+});
+ScalaJS.isArrayOf.ju_regex_Pattern$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.ju_regex_Pattern$)))
+});
+ScalaJS.asArrayOf.ju_regex_Pattern$ = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.ju_regex_Pattern$(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ljava.util.regex.Pattern$;", depth))
+});
+ScalaJS.d.ju_regex_Pattern$ = new ScalaJS.ClassTypeData({
+  ju_regex_Pattern$: 0
+}, false, "java.util.regex.Pattern$", ScalaJS.d.O, {
+  ju_regex_Pattern$: 1,
+  O: 1
+});
+ScalaJS.c.ju_regex_Pattern$.prototype.$classData = ScalaJS.d.ju_regex_Pattern$;
+ScalaJS.n.ju_regex_Pattern = (void 0);
+ScalaJS.m.ju_regex_Pattern = (function() {
+  if ((!ScalaJS.n.ju_regex_Pattern)) {
+    ScalaJS.n.ju_regex_Pattern = new ScalaJS.c.ju_regex_Pattern$().init___()
+  };
+  return ScalaJS.n.ju_regex_Pattern
+});
+/** @constructor */
 ScalaJS.c.s_DeprecatedConsole = (function() {
   ScalaJS.c.O.call(this)
 });
@@ -17445,6 +17715,9 @@ ScalaJS.c.s_Option.prototype.getOrElse__F0__O = (function(default$2) {
 });
 ScalaJS.c.s_Option.prototype.map__F1__s_Option = (function(f) {
   return (this.isEmpty__Z() ? ScalaJS.m.s_None() : new ScalaJS.c.s_Some().init___O(f.apply__O__O(this.get__O())))
+});
+ScalaJS.c.s_Option.prototype.orElse__F0__s_Option = (function(alternative) {
+  return (this.isEmpty__Z() ? ScalaJS.as.s_Option(alternative.apply__O()) : this)
 });
 ScalaJS.c.s_Option.prototype.init___ = (function() {
   return (ScalaJS.c.O.prototype.init___.call(this), ScalaJS.i.s_Product$class__$init$__s_Product__V(this), this)
@@ -18283,12 +18556,6 @@ ScalaJS.c.s_io_Source.prototype.isEmpty__Z = (function() {
 });
 ScalaJS.c.s_io_Source.prototype.isTraversableAgain__Z = (function() {
   return ScalaJS.i.sc_Iterator$class__isTraversableAgain__sc_Iterator__Z(this)
-});
-ScalaJS.c.s_io_Source.prototype.drop__I__sc_Iterator = (function(n) {
-  return ScalaJS.i.sc_Iterator$class__drop__sc_Iterator__I__sc_Iterator(this, n)
-});
-ScalaJS.c.s_io_Source.prototype.slice__I__I__sc_Iterator = (function(from, until) {
-  return ScalaJS.i.sc_Iterator$class__slice__sc_Iterator__I__I__sc_Iterator(this, from, until)
 });
 ScalaJS.c.s_io_Source.prototype.map__F1__sc_Iterator = (function(f) {
   return ScalaJS.i.sc_Iterator$class__map__sc_Iterator__F1__sc_Iterator(this, f)
@@ -20247,12 +20514,6 @@ ScalaJS.c.sc_AbstractIterator.prototype.isEmpty__Z = (function() {
 ScalaJS.c.sc_AbstractIterator.prototype.isTraversableAgain__Z = (function() {
   return ScalaJS.i.sc_Iterator$class__isTraversableAgain__sc_Iterator__Z(this)
 });
-ScalaJS.c.sc_AbstractIterator.prototype.drop__I__sc_Iterator = (function(n) {
-  return ScalaJS.i.sc_Iterator$class__drop__sc_Iterator__I__sc_Iterator(this, n)
-});
-ScalaJS.c.sc_AbstractIterator.prototype.slice__I__I__sc_Iterator = (function(from, until) {
-  return ScalaJS.i.sc_Iterator$class__slice__sc_Iterator__I__I__sc_Iterator(this, from, until)
-});
 ScalaJS.c.sc_AbstractIterator.prototype.map__F1__sc_Iterator = (function(f) {
   return ScalaJS.i.sc_Iterator$class__map__sc_Iterator__F1__sc_Iterator(this, f)
 });
@@ -21962,6 +22223,9 @@ ScalaJS.c.sci_StringOps.prototype.scala$collection$IndexedSeqOptimized$$super$he
 ScalaJS.c.sci_StringOps.prototype.scala$collection$IndexedSeqOptimized$$super$tail__O = (function() {
   return ScalaJS.i.sc_TraversableLike$class__tail__sc_TraversableLike__O(this)
 });
+ScalaJS.c.sci_StringOps.prototype.scala$collection$IndexedSeqOptimized$$super$last__O = (function() {
+  return ScalaJS.i.sc_TraversableLike$class__last__sc_TraversableLike__O(this)
+});
 ScalaJS.c.sci_StringOps.prototype.scala$collection$IndexedSeqOptimized$$super$sameElements__sc_GenIterable__Z = (function(that) {
   return ScalaJS.i.sc_IterableLike$class__sameElements__sc_IterableLike__sc_GenIterable__Z(this, that)
 });
@@ -21977,6 +22241,9 @@ ScalaJS.c.sci_StringOps.prototype.foldLeft__O__F2__O = (function(z, op) {
 ScalaJS.c.sci_StringOps.prototype.zip__sc_GenIterable__scg_CanBuildFrom__O = (function(that, bf) {
   return ScalaJS.i.sc_IndexedSeqOptimized$class__zip__sc_IndexedSeqOptimized__sc_GenIterable__scg_CanBuildFrom__O(this, that, bf)
 });
+ScalaJS.c.sci_StringOps.prototype.head__O = (function() {
+  return ScalaJS.i.sc_IndexedSeqOptimized$class__head__sc_IndexedSeqOptimized__O(this)
+});
 ScalaJS.c.sci_StringOps.prototype.drop__I__O = (function(n) {
   return ScalaJS.i.sc_IndexedSeqOptimized$class__drop__sc_IndexedSeqOptimized__I__O(this, n)
 });
@@ -21988,12 +22255,6 @@ ScalaJS.c.sci_StringOps.prototype.copyToArray__O__I__I__V = (function(xs, start,
 });
 ScalaJS.c.sci_StringOps.prototype.lengthCompare__I__I = (function(len) {
   return ScalaJS.i.sc_IndexedSeqOptimized$class__lengthCompare__sc_IndexedSeqOptimized__I__I(this, len)
-});
-ScalaJS.c.sci_StringOps.prototype.segmentLength__F1__I__I = (function(p, from) {
-  return ScalaJS.i.sc_IndexedSeqOptimized$class__segmentLength__sc_IndexedSeqOptimized__F1__I__I(this, p, from)
-});
-ScalaJS.c.sci_StringOps.prototype.indexWhere__F1__I__I = (function(p, from) {
-  return ScalaJS.i.sc_IndexedSeqOptimized$class__indexWhere__sc_IndexedSeqOptimized__F1__I__I(this, p, from)
 });
 ScalaJS.c.sci_StringOps.prototype.reverse__O = (function() {
   return ScalaJS.i.sc_IndexedSeqOptimized$class__reverse__sc_IndexedSeqOptimized__O(this)
@@ -22521,6 +22782,9 @@ ScalaJS.c.scm_ArrayOps$ofRef.prototype.scala$collection$IndexedSeqOptimized$$sup
 ScalaJS.c.scm_ArrayOps$ofRef.prototype.scala$collection$IndexedSeqOptimized$$super$tail__O = (function() {
   return ScalaJS.i.sc_TraversableLike$class__tail__sc_TraversableLike__O(this)
 });
+ScalaJS.c.scm_ArrayOps$ofRef.prototype.scala$collection$IndexedSeqOptimized$$super$last__O = (function() {
+  return ScalaJS.i.sc_TraversableLike$class__last__sc_TraversableLike__O(this)
+});
 ScalaJS.c.scm_ArrayOps$ofRef.prototype.scala$collection$IndexedSeqOptimized$$super$sameElements__sc_GenIterable__Z = (function(that) {
   return ScalaJS.i.sc_IterableLike$class__sameElements__sc_IterableLike__sc_GenIterable__Z(this, that)
 });
@@ -22539,6 +22803,12 @@ ScalaJS.c.scm_ArrayOps$ofRef.prototype.zip__sc_GenIterable__scg_CanBuildFrom__O 
 ScalaJS.c.scm_ArrayOps$ofRef.prototype.slice__I__I__O = (function(from, until) {
   return ScalaJS.i.sc_IndexedSeqOptimized$class__slice__sc_IndexedSeqOptimized__I__I__O(this, from, until)
 });
+ScalaJS.c.scm_ArrayOps$ofRef.prototype.head__O = (function() {
+  return ScalaJS.i.sc_IndexedSeqOptimized$class__head__sc_IndexedSeqOptimized__O(this)
+});
+ScalaJS.c.scm_ArrayOps$ofRef.prototype.last__O = (function() {
+  return ScalaJS.i.sc_IndexedSeqOptimized$class__last__sc_IndexedSeqOptimized__O(this)
+});
 ScalaJS.c.scm_ArrayOps$ofRef.prototype.drop__I__O = (function(n) {
   return ScalaJS.i.sc_IndexedSeqOptimized$class__drop__sc_IndexedSeqOptimized__I__O(this, n)
 });
@@ -22547,12 +22817,6 @@ ScalaJS.c.scm_ArrayOps$ofRef.prototype.sameElements__sc_GenIterable__Z = (functi
 });
 ScalaJS.c.scm_ArrayOps$ofRef.prototype.lengthCompare__I__I = (function(len) {
   return ScalaJS.i.sc_IndexedSeqOptimized$class__lengthCompare__sc_IndexedSeqOptimized__I__I(this, len)
-});
-ScalaJS.c.scm_ArrayOps$ofRef.prototype.segmentLength__F1__I__I = (function(p, from) {
-  return ScalaJS.i.sc_IndexedSeqOptimized$class__segmentLength__sc_IndexedSeqOptimized__F1__I__I(this, p, from)
-});
-ScalaJS.c.scm_ArrayOps$ofRef.prototype.indexWhere__F1__I__I = (function(p, from) {
-  return ScalaJS.i.sc_IndexedSeqOptimized$class__indexWhere__sc_IndexedSeqOptimized__F1__I__I(this, p, from)
 });
 ScalaJS.c.scm_ArrayOps$ofRef.prototype.reverse__O = (function() {
   return ScalaJS.i.sc_IndexedSeqOptimized$class__reverse__sc_IndexedSeqOptimized__O(this)
@@ -23856,6 +24120,9 @@ ScalaJS.c.sjs_js_Any$.prototype.wrapArray__sjs_js_Array__sjs_js_WrappedArray = (
 ScalaJS.c.sjs_js_Any$.prototype.wrapDictionary__sjs_js_Dictionary__sjs_js_WrappedDictionary = (function(dict) {
   return ScalaJS.i.sjs_js_LowPrioAnyImplicits$class__wrapDictionary__sjs_js_LowPrioAnyImplicits__sjs_js_Dictionary__sjs_js_WrappedDictionary(this, dict)
 });
+ScalaJS.c.sjs_js_Any$.prototype.jsArrayOps__sjs_js_Array__sjs_js_ArrayOps = (function(array) {
+  return new ScalaJS.c.sjs_js_ArrayOps().init___sjs_js_Array(array)
+});
 ScalaJS.c.sjs_js_Any$.prototype.init___ = (function() {
   ScalaJS.c.O.prototype.init___.call(this);
   ScalaJS.n.sjs_js_Any = this;
@@ -23889,6 +24156,284 @@ ScalaJS.m.sjs_js_Any = (function() {
   };
   return ScalaJS.n.sjs_js_Any
 });
+/** @constructor */
+ScalaJS.c.sjs_js_ArrayOps = (function() {
+  ScalaJS.c.O.call(this);
+  this.scala$scalajs$js$ArrayOps$$array$f = null
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype = new ScalaJS.h.O();
+ScalaJS.c.sjs_js_ArrayOps.prototype.constructor = ScalaJS.c.sjs_js_ArrayOps;
+/** @constructor */
+ScalaJS.h.sjs_js_ArrayOps = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.sjs_js_ArrayOps.prototype = ScalaJS.c.sjs_js_ArrayOps.prototype;
+ScalaJS.c.sjs_js_ArrayOps.prototype.scala$collection$IndexedSeqOptimized$$super$zip__sc_GenIterable__scg_CanBuildFrom__O = (function(that, bf) {
+  return ScalaJS.i.sc_IterableLike$class__zip__sc_IterableLike__sc_GenIterable__scg_CanBuildFrom__O(this, that, bf)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.scala$collection$IndexedSeqOptimized$$super$head__O = (function() {
+  return ScalaJS.i.sc_IterableLike$class__head__sc_IterableLike__O(this)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.scala$collection$IndexedSeqOptimized$$super$tail__O = (function() {
+  return ScalaJS.i.sc_TraversableLike$class__tail__sc_TraversableLike__O(this)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.scala$collection$IndexedSeqOptimized$$super$last__O = (function() {
+  return ScalaJS.i.sc_TraversableLike$class__last__sc_TraversableLike__O(this)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.scala$collection$IndexedSeqOptimized$$super$sameElements__sc_GenIterable__Z = (function(that) {
+  return ScalaJS.i.sc_IterableLike$class__sameElements__sc_IterableLike__sc_GenIterable__Z(this, that)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.isEmpty__Z = (function() {
+  return ScalaJS.i.sc_IndexedSeqOptimized$class__isEmpty__sc_IndexedSeqOptimized__Z(this)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.foreach__F1__V = (function(f) {
+  ScalaJS.i.sc_IndexedSeqOptimized$class__foreach__sc_IndexedSeqOptimized__F1__V(this, f)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.foldLeft__O__F2__O = (function(z, op) {
+  return ScalaJS.i.sc_IndexedSeqOptimized$class__foldLeft__sc_IndexedSeqOptimized__O__F2__O(this, z, op)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.zip__sc_GenIterable__scg_CanBuildFrom__O = (function(that, bf) {
+  return ScalaJS.i.sc_IndexedSeqOptimized$class__zip__sc_IndexedSeqOptimized__sc_GenIterable__scg_CanBuildFrom__O(this, that, bf)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.slice__I__I__O = (function(from, until) {
+  return ScalaJS.i.sc_IndexedSeqOptimized$class__slice__sc_IndexedSeqOptimized__I__I__O(this, from, until)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.head__O = (function() {
+  return ScalaJS.i.sc_IndexedSeqOptimized$class__head__sc_IndexedSeqOptimized__O(this)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.drop__I__O = (function(n) {
+  return ScalaJS.i.sc_IndexedSeqOptimized$class__drop__sc_IndexedSeqOptimized__I__O(this, n)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.sameElements__sc_GenIterable__Z = (function(that) {
+  return ScalaJS.i.sc_IndexedSeqOptimized$class__sameElements__sc_IndexedSeqOptimized__sc_GenIterable__Z(this, that)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.copyToArray__O__I__I__V = (function(xs, start, len) {
+  ScalaJS.i.sc_IndexedSeqOptimized$class__copyToArray__sc_IndexedSeqOptimized__O__I__I__V(this, xs, start, len)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.lengthCompare__I__I = (function(len) {
+  return ScalaJS.i.sc_IndexedSeqOptimized$class__lengthCompare__sc_IndexedSeqOptimized__I__I(this, len)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.reverse__O = (function() {
+  return ScalaJS.i.sc_IndexedSeqOptimized$class__reverse__sc_IndexedSeqOptimized__O(this)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.hashCode__I = (function() {
+  return ScalaJS.i.sc_IndexedSeqLike$class__hashCode__sc_IndexedSeqLike__I(this)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.iterator__sc_Iterator = (function() {
+  return ScalaJS.i.sc_IndexedSeqLike$class__iterator__sc_IndexedSeqLike__sc_Iterator(this)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.toBuffer__scm_Buffer = (function() {
+  return ScalaJS.i.sc_IndexedSeqLike$class__toBuffer__sc_IndexedSeqLike__scm_Buffer(this)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.size__I = (function() {
+  return ScalaJS.i.sc_SeqLike$class__size__sc_SeqLike__I(this)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.toString__T = (function() {
+  return ScalaJS.i.sc_SeqLike$class__toString__sc_SeqLike__T(this)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.equals__O__Z = (function(that) {
+  return ScalaJS.i.sc_GenSeqLike$class__equals__sc_GenSeqLike__O__Z(this, that)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.toStream__sci_Stream = (function() {
+  return ScalaJS.i.sc_IterableLike$class__toStream__sc_IterableLike__sci_Stream(this)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.isTraversableAgain__Z = (function() {
+  return ScalaJS.i.sc_TraversableLike$class__isTraversableAgain__sc_TraversableLike__Z(this)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.filterNot__F1__O = (function(p) {
+  return ScalaJS.i.sc_TraversableLike$class__filterNot__sc_TraversableLike__F1__O(this, p)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.to__scg_CanBuildFrom__O = (function(cbf) {
+  return ScalaJS.i.sc_TraversableLike$class__to__sc_TraversableLike__scg_CanBuildFrom__O(this, cbf)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.stringPrefix__T = (function() {
+  return ScalaJS.i.sc_TraversableLike$class__stringPrefix__sc_TraversableLike__T(this)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.$$div$colon__O__F2__O = (function(z, op) {
+  return ScalaJS.i.sc_TraversableOnce$class__$div$colon__sc_TraversableOnce__O__F2__O(this, z, op)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.copyToBuffer__scm_Buffer__V = (function(dest) {
+  ScalaJS.i.sc_TraversableOnce$class__copyToBuffer__sc_TraversableOnce__scm_Buffer__V(this, dest)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.copyToArray__O__I__V = (function(xs, start) {
+  ScalaJS.i.sc_TraversableOnce$class__copyToArray__sc_TraversableOnce__O__I__V(this, xs, start)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.copyToArray__O__V = (function(xs) {
+  ScalaJS.i.sc_TraversableOnce$class__copyToArray__sc_TraversableOnce__O__V(this, xs)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.toArray__s_reflect_ClassTag__O = (function(evidence$1) {
+  return ScalaJS.i.sc_TraversableOnce$class__toArray__sc_TraversableOnce__s_reflect_ClassTag__O(this, evidence$1)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.mkString__T__T__T__T = (function(start, sep, end) {
+  return ScalaJS.i.sc_TraversableOnce$class__mkString__sc_TraversableOnce__T__T__T__T(this, start, sep, end)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.mkString__T__T = (function(sep) {
+  return ScalaJS.i.sc_TraversableOnce$class__mkString__sc_TraversableOnce__T__T(this, sep)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.addString__scm_StringBuilder__T__T__T__scm_StringBuilder = (function(b, start, sep, end) {
+  return ScalaJS.i.sc_TraversableOnce$class__addString__sc_TraversableOnce__scm_StringBuilder__T__T__T__scm_StringBuilder(this, b, start, sep, end)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.apply__I__O = (function(index) {
+  return ScalaJS.as.O(this.scala$scalajs$js$ArrayOps$$array$f[index])
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.length__I = (function() {
+  return ScalaJS.uI(this.scala$scalajs$js$ArrayOps$$array$f["length"])
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.seq__sc_IndexedSeq = (function() {
+  return new ScalaJS.c.sjs_js_WrappedArray().init___sjs_js_Array(this.scala$scalajs$js$ArrayOps$$array$f)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.repr__sjs_js_Array = (function() {
+  return this.scala$scalajs$js$ArrayOps$$array$f
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.thisCollection__scm_IndexedSeq = (function() {
+  return this.toCollection__sjs_js_Array__scm_IndexedSeq(this.scala$scalajs$js$ArrayOps$$array$f)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.toCollection__sjs_js_Array__scm_IndexedSeq = (function(repr) {
+  return new ScalaJS.c.sjs_js_WrappedArray().init___sjs_js_Array(repr)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.newBuilder__scm_Builder = (function() {
+  return new ScalaJS.c.sjs_js_ArrayOps$ArrayBuilder().init___()
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.toCollection__O__sc_Seq = (function(repr) {
+  return this.toCollection__sjs_js_Array__scm_IndexedSeq(repr)
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.thisCollection__sc_Traversable = (function() {
+  return this.thisCollection__scm_IndexedSeq()
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.thisCollection__sc_Seq = (function() {
+  return this.thisCollection__scm_IndexedSeq()
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.repr__O = (function() {
+  return this.repr__sjs_js_Array()
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.seq__sc_TraversableOnce = (function() {
+  return this.seq__sc_IndexedSeq()
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.seq__sc_Seq = (function() {
+  return this.seq__sc_IndexedSeq()
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.init___sjs_js_Array = (function(array) {
+  this.scala$scalajs$js$ArrayOps$$array$f = array;
+  ScalaJS.c.O.prototype.init___.call(this);
+  ScalaJS.i.sc_TraversableOnce$class__$init$__sc_TraversableOnce__V(this);
+  ScalaJS.i.sc_Parallelizable$class__$init$__sc_Parallelizable__V(this);
+  ScalaJS.i.sc_TraversableLike$class__$init$__sc_TraversableLike__V(this);
+  ScalaJS.i.sc_IterableLike$class__$init$__sc_IterableLike__V(this);
+  ScalaJS.i.sc_GenSeqLike$class__$init$__sc_GenSeqLike__V(this);
+  ScalaJS.i.sc_SeqLike$class__$init$__sc_SeqLike__V(this);
+  ScalaJS.i.sc_IndexedSeqLike$class__$init$__sc_IndexedSeqLike__V(this);
+  ScalaJS.i.scm_IndexedSeqLike$class__$init$__scm_IndexedSeqLike__V(this);
+  ScalaJS.i.sc_IndexedSeqOptimized$class__$init$__sc_IndexedSeqOptimized__V(this);
+  ScalaJS.i.scm_ArrayLike$class__$init$__scm_ArrayLike__V(this);
+  return this
+});
+ScalaJS.is.sjs_js_ArrayOps = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.sjs_js_ArrayOps)))
+});
+ScalaJS.as.sjs_js_ArrayOps = (function(obj) {
+  return ((ScalaJS.is.sjs_js_ArrayOps(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "scala.scalajs.js.ArrayOps"))
+});
+ScalaJS.isArrayOf.sjs_js_ArrayOps = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.sjs_js_ArrayOps)))
+});
+ScalaJS.asArrayOf.sjs_js_ArrayOps = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.sjs_js_ArrayOps(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Lscala.scalajs.js.ArrayOps;", depth))
+});
+ScalaJS.d.sjs_js_ArrayOps = new ScalaJS.ClassTypeData({
+  sjs_js_ArrayOps: 0
+}, false, "scala.scalajs.js.ArrayOps", ScalaJS.d.O, {
+  sjs_js_ArrayOps: 1,
+  scm_ArrayLike: 1,
+  scm_IndexedSeqOptimized: 1,
+  sc_IndexedSeqOptimized: 1,
+  scm_IndexedSeqLike: 1,
+  sc_IndexedSeqLike: 1,
+  sc_SeqLike: 1,
+  sc_GenSeqLike: 1,
+  sc_IterableLike: 1,
+  sc_GenIterableLike: 1,
+  sc_TraversableLike: 1,
+  sc_GenTraversableLike: 1,
+  sc_Parallelizable: 1,
+  sc_TraversableOnce: 1,
+  sc_GenTraversableOnce: 1,
+  scg_FilterMonadic: 1,
+  scg_HasNewBuilder: 1,
+  s_Equals: 1,
+  O: 1
+});
+ScalaJS.c.sjs_js_ArrayOps.prototype.$classData = ScalaJS.d.sjs_js_ArrayOps;
+/** @constructor */
+ScalaJS.c.sjs_js_ArrayOps$ArrayBuilder = (function() {
+  ScalaJS.c.O.call(this);
+  this.array$1 = null
+});
+ScalaJS.c.sjs_js_ArrayOps$ArrayBuilder.prototype = new ScalaJS.h.O();
+ScalaJS.c.sjs_js_ArrayOps$ArrayBuilder.prototype.constructor = ScalaJS.c.sjs_js_ArrayOps$ArrayBuilder;
+/** @constructor */
+ScalaJS.h.sjs_js_ArrayOps$ArrayBuilder = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.sjs_js_ArrayOps$ArrayBuilder.prototype = ScalaJS.c.sjs_js_ArrayOps$ArrayBuilder.prototype;
+ScalaJS.c.sjs_js_ArrayOps$ArrayBuilder.prototype.sizeHint__I__V = (function(size) {
+  ScalaJS.i.scm_Builder$class__sizeHint__scm_Builder__I__V(this, size)
+});
+ScalaJS.c.sjs_js_ArrayOps$ArrayBuilder.prototype.sizeHint__sc_TraversableLike__V = (function(coll) {
+  ScalaJS.i.scm_Builder$class__sizeHint__scm_Builder__sc_TraversableLike__V(this, coll)
+});
+ScalaJS.c.sjs_js_ArrayOps$ArrayBuilder.prototype.sizeHint__sc_TraversableLike__I__V = (function(coll, delta) {
+  ScalaJS.i.scm_Builder$class__sizeHint__scm_Builder__sc_TraversableLike__I__V(this, coll, delta)
+});
+ScalaJS.c.sjs_js_ArrayOps$ArrayBuilder.prototype.sizeHintBounded__I__sc_TraversableLike__V = (function(size, boundingColl) {
+  ScalaJS.i.scm_Builder$class__sizeHintBounded__scm_Builder__I__sc_TraversableLike__V(this, size, boundingColl)
+});
+ScalaJS.c.sjs_js_ArrayOps$ArrayBuilder.prototype.$$plus$plus$eq__sc_TraversableOnce__scg_Growable = (function(xs) {
+  return ScalaJS.i.scg_Growable$class__$plus$plus$eq__scg_Growable__sc_TraversableOnce__scg_Growable(this, xs)
+});
+ScalaJS.c.sjs_js_ArrayOps$ArrayBuilder.prototype.$$plus$eq__O__sjs_js_ArrayOps$ArrayBuilder = (function(elem) {
+  return (this.array$1["push"](elem), this)
+});
+ScalaJS.c.sjs_js_ArrayOps$ArrayBuilder.prototype.result__sjs_js_Array = (function() {
+  return this.array$1
+});
+ScalaJS.c.sjs_js_ArrayOps$ArrayBuilder.prototype.result__O = (function() {
+  return this.result__sjs_js_Array()
+});
+ScalaJS.c.sjs_js_ArrayOps$ArrayBuilder.prototype.$$plus$eq__O__scg_Growable = (function(elem) {
+  return this.$$plus$eq__O__sjs_js_ArrayOps$ArrayBuilder(elem)
+});
+ScalaJS.c.sjs_js_ArrayOps$ArrayBuilder.prototype.$$plus$eq__O__scm_Builder = (function(elem) {
+  return this.$$plus$eq__O__sjs_js_ArrayOps$ArrayBuilder(elem)
+});
+ScalaJS.c.sjs_js_ArrayOps$ArrayBuilder.prototype.init___ = (function() {
+  ScalaJS.c.O.prototype.init___.call(this);
+  ScalaJS.i.scg_Growable$class__$init$__scg_Growable__V(this);
+  ScalaJS.i.scm_Builder$class__$init$__scm_Builder__V(this);
+  this.array$1 = [];
+  return this
+});
+ScalaJS.is.sjs_js_ArrayOps$ArrayBuilder = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.sjs_js_ArrayOps$ArrayBuilder)))
+});
+ScalaJS.as.sjs_js_ArrayOps$ArrayBuilder = (function(obj) {
+  return ((ScalaJS.is.sjs_js_ArrayOps$ArrayBuilder(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "scala.scalajs.js.ArrayOps$ArrayBuilder"))
+});
+ScalaJS.isArrayOf.sjs_js_ArrayOps$ArrayBuilder = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.sjs_js_ArrayOps$ArrayBuilder)))
+});
+ScalaJS.asArrayOf.sjs_js_ArrayOps$ArrayBuilder = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.sjs_js_ArrayOps$ArrayBuilder(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Lscala.scalajs.js.ArrayOps$ArrayBuilder;", depth))
+});
+ScalaJS.d.sjs_js_ArrayOps$ArrayBuilder = new ScalaJS.ClassTypeData({
+  sjs_js_ArrayOps$ArrayBuilder: 0
+}, false, "scala.scalajs.js.ArrayOps$ArrayBuilder", ScalaJS.d.O, {
+  sjs_js_ArrayOps$ArrayBuilder: 1,
+  scm_Builder: 1,
+  scg_Growable: 1,
+  scg_Clearable: 1,
+  O: 1
+});
+ScalaJS.c.sjs_js_ArrayOps$ArrayBuilder.prototype.$classData = ScalaJS.d.sjs_js_ArrayOps$ArrayBuilder;
 /** @constructor */
 ScalaJS.c.sjs_js_Dictionary$ = (function() {
   ScalaJS.c.O.call(this)
@@ -23995,6 +24540,9 @@ ScalaJS.c.sjs_js_UndefOrOps$.prototype.scala$scalajs$js$UndefOrOps$$forceGet$ext
 });
 ScalaJS.c.sjs_js_UndefOrOps$.prototype.getOrElse$extension__sjs_js_UndefOr__F0__O = (function($$this, default$2) {
   return (this.isEmpty$extension__sjs_js_UndefOr__Z($$this) ? default$2.apply__O() : this.scala$scalajs$js$UndefOrOps$$forceGet$extension__sjs_js_UndefOr__O($$this))
+});
+ScalaJS.c.sjs_js_UndefOrOps$.prototype.fold$extension__sjs_js_UndefOr__F0__F1__O = (function($$this, ifEmpty, f) {
+  return (this.isEmpty$extension__sjs_js_UndefOr__Z($$this) ? ifEmpty.apply__O() : f.apply__O__O(this.scala$scalajs$js$UndefOrOps$$forceGet$extension__sjs_js_UndefOr__O($$this)))
 });
 ScalaJS.is.sjs_js_UndefOrOps$ = (function(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.sjs_js_UndefOrOps$)))
@@ -24115,12 +24663,6 @@ ScalaJS.c.sjs_js_WrappedDictionary$$anon$1.prototype.isEmpty__Z = (function() {
 });
 ScalaJS.c.sjs_js_WrappedDictionary$$anon$1.prototype.isTraversableAgain__Z = (function() {
   return ScalaJS.i.sc_Iterator$class__isTraversableAgain__sc_Iterator__Z(this)
-});
-ScalaJS.c.sjs_js_WrappedDictionary$$anon$1.prototype.drop__I__sc_Iterator = (function(n) {
-  return ScalaJS.i.sc_Iterator$class__drop__sc_Iterator__I__sc_Iterator(this, n)
-});
-ScalaJS.c.sjs_js_WrappedDictionary$$anon$1.prototype.slice__I__I__sc_Iterator = (function(from, until) {
-  return ScalaJS.i.sc_Iterator$class__slice__sc_Iterator__I__I__sc_Iterator(this, from, until)
 });
 ScalaJS.c.sjs_js_WrappedDictionary$$anon$1.prototype.map__F1__sc_Iterator = (function(f) {
   return ScalaJS.i.sc_Iterator$class__map__sc_Iterator__F1__sc_Iterator(this, f)
@@ -25882,6 +26424,12 @@ ScalaJS.h.Ljava_io_FilterOutputStream = (function() {
   /*<skip>*/
 });
 ScalaJS.h.Ljava_io_FilterOutputStream.prototype = ScalaJS.c.Ljava_io_FilterOutputStream.prototype;
+ScalaJS.c.Ljava_io_FilterOutputStream.prototype.out__Ljava_io_OutputStream = (function() {
+  return this.out$2
+});
+ScalaJS.c.Ljava_io_FilterOutputStream.prototype.close__V = (function() {
+  this.out__Ljava_io_OutputStream().close__V()
+});
 ScalaJS.c.Ljava_io_FilterOutputStream.prototype.init___Ljava_io_OutputStream = (function(out) {
   this.out$2 = out;
   ScalaJS.c.Ljava_io_OutputStream.prototype.init___.call(this);
@@ -26428,7 +26976,17 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.typeFor__Ltoolc_ast_Trees$Type
   if (ScalaJS.is.Ltoolc_ast_Trees$Identifier(x1)) {
     var x6 = ScalaJS.as.Ltoolc_ast_Trees$Identifier(x1);
     var value = x6.value__T();
-    var classSymbol = ScalaJS.as.Ltoolc_analyzer_Symbols$ClassSymbol(this.globalScope__Ltoolc_analyzer_Symbols$GlobalScope().lookupClass__T__s_Option(value).get__O());
+    var x1$2 = this.globalScope__Ltoolc_analyzer_Symbols$GlobalScope().lookupClass__T__s_Option(value);
+    matchEnd4: {
+      var classSymbol;
+      if (ScalaJS.is.s_Some(x1$2)) {
+        var x2 = ScalaJS.as.s_Some(x1$2);
+        var s = ScalaJS.as.Ltoolc_analyzer_Symbols$ClassSymbol(x2.x__O());
+        var classSymbol = s;
+        break matchEnd4
+      };
+      ScalaJS.m.s_Predef().error__T__sr_Nothing$(("class not found: " + value))
+    };
     x6.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(classSymbol);
     return new ScalaJS.c.Ltoolc_analyzer_Types$TObject().init___Ltoolc_analyzer_Symbols$ClassSymbol(classSymbol)
   };
@@ -27669,9 +28227,6 @@ ScalaJS.h.Ltoolc_analyzer_Symbols$VariableSymbol = (function() {
   /*<skip>*/
 });
 ScalaJS.h.Ltoolc_analyzer_Symbols$VariableSymbol.prototype = ScalaJS.c.Ltoolc_analyzer_Symbols$VariableSymbol.prototype;
-ScalaJS.c.Ltoolc_analyzer_Symbols$VariableSymbol.prototype.name__T = (function() {
-  return this.name$2
-});
 ScalaJS.c.Ltoolc_analyzer_Symbols$VariableSymbol.prototype.init___T = (function(name) {
   this.name$2 = name;
   ScalaJS.c.Ltoolc_analyzer_Symbols$Symbol.prototype.init___.call(this);
@@ -27886,6 +28441,7 @@ ScalaJS.c.Ltoolc_analyzer_TypeChecking$.prototype.toolc$analyzer$TypeChecking$$t
     };
     throw new ScalaJS.c.s_MatchError().init___O(x1)
   };
+  expr.setType__Ltoolc_analyzer_Types$Type__Ltoolc_analyzer_Types$Typed(tpe$2);
   return (expected.isEmpty__Z() ? tpe$2 : ((!expected.exists__F1__Z(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(tpe$1) {
     return (function(e$2) {
       var e = ScalaJS.as.Ltoolc_analyzer_Types$Type(e$2);
@@ -28700,8 +29256,7 @@ ScalaJS.c.Ltoolc_ast_Parser$.prototype.inner$1__p2__sci_List__Ltoolc_utils_Conte
     if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$EOF(), x1)) {
       return acc
     };
-    var x$2 = _$this.parseClassDecl$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ClassDecl(ctx$1, tokens$1, currentToken$1);
-    acc = acc.$$colon$colon__O__sci_List(x$2);
+    acc = ScalaJS.as.sci_List(acc.$$colon$plus__O__scg_CanBuildFrom__O(_$this.parseClassDecl$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ClassDecl(ctx$1, tokens$1, currentToken$1), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom()));
     continue _inner
   }
 });
@@ -28732,8 +29287,7 @@ ScalaJS.c.Ltoolc_ast_Parser$.prototype.inner$2__p2__sci_List__Ltoolc_utils_Conte
   _inner: while (true) {
     var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
     if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$VAR(), x1)) {
-      var x$3 = _$this.parseVarDecl$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$VarDecl(ctx$1, tokens$1, currentToken$1);
-      acc = acc.$$colon$colon__O__sci_List(x$3);
+      acc = ScalaJS.as.sci_List(acc.$$colon$plus__O__scg_CanBuildFrom__O(_$this.parseVarDecl$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$VarDecl(ctx$1, tokens$1, currentToken$1), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom()));
       continue _inner
     };
     return acc
@@ -28776,8 +29330,7 @@ ScalaJS.c.Ltoolc_ast_Parser$.prototype.inner$3__p2__sci_List__Ltoolc_utils_Conte
   _inner: while (true) {
     var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
     if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$DEF(), x1)) {
-      var x$4 = _$this.parseMethodDecl$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$MethodDecl(ctx$1, tokens$1, currentToken$1);
-      acc = acc.$$colon$colon__O__sci_List(x$4);
+      acc = ScalaJS.as.sci_List(acc.$$colon$plus__O__scg_CanBuildFrom__O(_$this.parseMethodDecl$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$MethodDecl(ctx$1, tokens$1, currentToken$1), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom()));
       continue _inner
     };
     return acc
@@ -28825,16 +29378,14 @@ ScalaJS.c.Ltoolc_ast_Parser$.prototype.inner$4__p2__sci_List__Ltoolc_utils_Conte
     var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
     if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$COMMA(), x1)) {
       _$this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-      var x$5 = _$this.parseFormal$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Formal(ctx$1, tokens$1, currentToken$1);
-      acc = acc.$$colon$colon__O__sci_List(x$5);
+      acc = ScalaJS.as.sci_List(acc.$$colon$plus__O__scg_CanBuildFrom__O(_$this.parseFormal$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Formal(ctx$1, tokens$1, currentToken$1), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom()));
       continue _inner
     };
     return acc
   }
 });
 ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseFormals$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(ctx$1, tokens$1, currentToken$1) {
-  var x$6 = this.parseFormal$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Formal(ctx$1, tokens$1, currentToken$1);
-  return this.inner$4__p2__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ScalaJS.m.sci_Nil().$$colon$colon__O__sci_List(x$6), ctx$1, tokens$1, currentToken$1)
+  return this.inner$4__p2__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ScalaJS.as.sci_List(ScalaJS.m.sci_Nil().$$colon$plus__O__scg_CanBuildFrom__O(this.parseFormal$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Formal(ctx$1, tokens$1, currentToken$1), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())), ctx$1, tokens$1, currentToken$1)
 });
 ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseMainObject$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$MainObject = (function(ctx$1, tokens$1, currentToken$1) {
   this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$OBJECT(), ctx$1, tokens$1, currentToken$1);
@@ -28860,64 +29411,75 @@ ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseIdentifier$1__p2__Ltoolc_utils_Conte
 });
 ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree = (function(ctx$1, tokens$1, currentToken$1) {
   var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACE(), x1)) {
-    this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-    var stats = this.parseStatements$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1);
-    this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACE(), ctx$1, tokens$1, currentToken$1);
-    return new ScalaJS.c.Ltoolc_ast_Trees$Block().init___sci_List(stats)
-  };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$IF(), x1)) {
-    this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-    this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
-    var expr = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
-    this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
-    var leThen = this.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree(ctx$1, tokens$1, currentToken$1);
-    var x1$2 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-    matchEnd4: {
-      var leElse;
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$ELSE(), x1$2)) {
-        var leElse = (this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1), new ScalaJS.c.s_Some().init___O(this.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree(ctx$1, tokens$1, currentToken$1)));
+  matchEnd8: {
+    var leStat$2;
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACE(), x1)) {
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      var stats = this.parseStatements$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ctx$1, tokens$1, currentToken$1);
+      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACE(), ctx$1, tokens$1, currentToken$1);
+      var leStat$2 = new ScalaJS.c.Ltoolc_ast_Trees$Block().init___sci_List(stats);
+      break matchEnd8
+    };
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$IF(), x1)) {
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
+      var expr = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
+      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
+      var leThen = this.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree(ctx$1, tokens$1, currentToken$1);
+      var x1$2 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
+      matchEnd4: {
+        var leElse;
+        if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$ELSE(), x1$2)) {
+          var leElse = (this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1), new ScalaJS.c.s_Some().init___O(this.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree(ctx$1, tokens$1, currentToken$1)));
+          break matchEnd4
+        };
+        var leElse = ScalaJS.m.s_None();
         break matchEnd4
       };
-      var leElse = ScalaJS.m.s_None();
-      break matchEnd4
+      var leStat$2 = new ScalaJS.c.Ltoolc_ast_Trees$If().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$StatTree__s_Option(expr, leThen, leElse);
+      break matchEnd8
     };
-    return new ScalaJS.c.Ltoolc_ast_Trees$If().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$StatTree__s_Option(expr, leThen, leElse)
-  };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$WHILE(), x1)) {
-    this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-    this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
-    var expr$2 = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
-    this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
-    var leStat = this.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree(ctx$1, tokens$1, currentToken$1);
-    return new ScalaJS.c.Ltoolc_ast_Trees$While().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$StatTree(expr$2, leStat)
-  };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$PRINTLN(), x1)) {
-    this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-    this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
-    var leString = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
-    this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
-    this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$SEMICOLON(), ctx$1, tokens$1, currentToken$1);
-    return new ScalaJS.c.Ltoolc_ast_Trees$Println().init___Ltoolc_ast_Trees$ExprTree(leString)
-  };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), x1)) {
-    var id = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
-    var x1$3 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
-    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACKET(), x1$3)) {
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$WHILE(), x1)) {
       this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-      var index = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
-      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACKET(), ctx$1, tokens$1, currentToken$1);
-      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$EQSIGN(), ctx$1, tokens$1, currentToken$1);
-      var value = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
-      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$SEMICOLON(), ctx$1, tokens$1, currentToken$1);
-      return new ScalaJS.c.Ltoolc_ast_Trees$ArrayAssign().init___Ltoolc_ast_Trees$Identifier__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(id, index, value)
+      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
+      var expr$2 = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
+      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
+      var leStat = this.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree(ctx$1, tokens$1, currentToken$1);
+      var leStat$2 = new ScalaJS.c.Ltoolc_ast_Trees$While().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$StatTree(expr$2, leStat);
+      break matchEnd8
     };
-    this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$EQSIGN(), ctx$1, tokens$1, currentToken$1);
-    var value$2 = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
-    this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$SEMICOLON(), ctx$1, tokens$1, currentToken$1);
-    return new ScalaJS.c.Ltoolc_ast_Trees$Assign().init___Ltoolc_ast_Trees$Identifier__Ltoolc_ast_Trees$ExprTree(id, value$2)
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$PRINTLN(), x1)) {
+      this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$LPAREN(), ctx$1, tokens$1, currentToken$1);
+      var leString = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
+      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RPAREN(), ctx$1, tokens$1, currentToken$1);
+      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$SEMICOLON(), ctx$1, tokens$1, currentToken$1);
+      var leStat$2 = new ScalaJS.c.Ltoolc_ast_Trees$Println().init___Ltoolc_ast_Trees$ExprTree(leString);
+      break matchEnd8
+    };
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), x1)) {
+      var id = this.parseIdentifier$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$Identifier(ctx$1, tokens$1, currentToken$1);
+      var x1$3 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
+      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$LBRACKET(), x1$3)) {
+        this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
+        var index = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
+        this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$RBRACKET(), ctx$1, tokens$1, currentToken$1);
+        this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$EQSIGN(), ctx$1, tokens$1, currentToken$1);
+        var value = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
+        this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$SEMICOLON(), ctx$1, tokens$1, currentToken$1);
+        var leStat$2 = new ScalaJS.c.Ltoolc_ast_Trees$ArrayAssign().init___Ltoolc_ast_Trees$Identifier__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(id, index, value);
+        break matchEnd8
+      };
+      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$EQSIGN(), ctx$1, tokens$1, currentToken$1);
+      var value$2 = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
+      this.eat$1__p2__Ltoolc_lexer_TokenKind__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__V(ScalaJS.m.Ltoolc_lexer_Tokens$SEMICOLON(), ctx$1, tokens$1, currentToken$1);
+      var leStat$2 = new ScalaJS.c.Ltoolc_ast_Trees$Assign().init___Ltoolc_ast_Trees$Identifier__Ltoolc_ast_Trees$ExprTree(id, value$2);
+      break matchEnd8
+    };
+    this.expected$1__p2__Ltoolc_lexer_TokenKind__sc_Seq__Ltoolc_utils_Context__sr_ObjectRef__sr_Nothing$(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), new ScalaJS.c.sjs_js_WrappedArray().init___sjs_js_Array([ScalaJS.m.Ltoolc_lexer_Tokens$PRINTLN(), ScalaJS.m.Ltoolc_lexer_Tokens$WHILE(), ScalaJS.m.Ltoolc_lexer_Tokens$IF(), ScalaJS.m.Ltoolc_lexer_Tokens$LBRACE()]), ctx$1, currentToken$1)
   };
-  this.expected$1__p2__Ltoolc_lexer_TokenKind__sc_Seq__Ltoolc_utils_Context__sr_ObjectRef__sr_Nothing$(ScalaJS.m.Ltoolc_lexer_Tokens$IDKIND(), new ScalaJS.c.sjs_js_WrappedArray().init___sjs_js_Array([ScalaJS.m.Ltoolc_lexer_Tokens$PRINTLN(), ScalaJS.m.Ltoolc_lexer_Tokens$WHILE(), ScalaJS.m.Ltoolc_lexer_Tokens$IF(), ScalaJS.m.Ltoolc_lexer_Tokens$LBRACE()]), ctx$1, currentToken$1)
+  leStat$2.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1));
+  return leStat$2
 });
 ScalaJS.c.Ltoolc_ast_Parser$.prototype.inner$5__p2__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(acc, ctx$1, tokens$1, currentToken$1) {
   var _$this = this;
@@ -28949,8 +29511,7 @@ ScalaJS.c.Ltoolc_ast_Parser$.prototype.inner$5__p2__sci_List__Ltoolc_utils_Conte
       break matchEnd11
     };
     if (jsx$1) {
-      var x$7 = _$this.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree(ctx$1, tokens$1, currentToken$1);
-      acc = acc.$$colon$colon__O__sci_List(x$7);
+      acc = ScalaJS.as.sci_List(acc.$$colon$plus__O__scg_CanBuildFrom__O(_$this.parseStatement$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$StatTree(ctx$1, tokens$1, currentToken$1), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom()));
       continue _inner
     };
     return acc
@@ -28965,16 +29526,14 @@ ScalaJS.c.Ltoolc_ast_Parser$.prototype.inner$6__p2__sci_List__Ltoolc_utils_Conte
     var x1 = ScalaJS.as.Ltoolc_lexer_Token(currentToken$1.elem$1).kind__Ltoolc_lexer_TokenKind();
     if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_lexer_Tokens$COMMA(), x1)) {
       _$this.readToken$1__p2__sc_Iterator__sr_ObjectRef__V(tokens$1, currentToken$1);
-      var x$8 = _$this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(_$this.parseExpr$default$1$1__p2__sci_List(), _$this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
-      acc = acc.$$colon$colon__O__sci_List(x$8);
+      acc = ScalaJS.as.sci_List(acc.$$colon$plus__O__scg_CanBuildFrom__O(_$this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(_$this.parseExpr$default$1$1__p2__sci_List(), _$this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom()));
       continue _inner
     };
     return acc
   }
 });
 ScalaJS.c.Ltoolc_ast_Parser$.prototype.parseArgs$1__p2__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List = (function(ctx$1, tokens$1, currentToken$1) {
-  var x$9 = this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1);
-  return this.inner$6__p2__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ScalaJS.m.sci_Nil().$$colon$colon__O__sci_List(x$9), ctx$1, tokens$1, currentToken$1)
+  return this.inner$6__p2__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__sci_List(ScalaJS.as.sci_List(ScalaJS.m.sci_Nil().$$colon$plus__O__scg_CanBuildFrom__O(this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(this.parseExpr$default$1$1__p2__sci_List(), this.parseExpr$default$2$1__p2__sci_List(), ctx$1, tokens$1, currentToken$1), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())), ctx$1, tokens$1, currentToken$1)
 });
 ScalaJS.c.Ltoolc_ast_Parser$.prototype.getOperatorPriority$1__p2__Ltoolc_lexer_TokenKind__I = (function(op) {
   var x1 = op;
@@ -29186,10 +29745,10 @@ ScalaJS.c.Ltoolc_ast_Parser$.prototype.consumeHigherPriority$1__p2__Ltoolc_ast_T
       operators = temp$operators;
       continue _consumeHigherPriority
     } else {
-      var x$10 = rightOperand;
-      var jsx$1 = operands.$$colon$colon__O__sci_List(x$10);
-      var x$11 = operator$1;
-      return _$this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(jsx$1, operators.$$colon$colon__O__sci_List(x$11), ctx$1, tokens$1, currentToken$1)
+      var x$2 = rightOperand;
+      var jsx$1 = operands.$$colon$colon__O__sci_List(x$2);
+      var x$3 = operator$1;
+      return _$this.parseExpr$1__p2__sci_List__sci_List__Ltoolc_utils_Context__sc_Iterator__sr_ObjectRef__Ltoolc_ast_Trees$ExprTree(jsx$1, operators.$$colon$colon__O__sci_List(x$3), ctx$1, tokens$1, currentToken$1)
     }
   }
 });
@@ -29486,6 +30045,56 @@ ScalaJS.m.Ltoolc_ast_Trees$IntType = (function() {
   return ScalaJS.n.Ltoolc_ast_Trees$IntType
 });
 /** @constructor */
+ScalaJS.c.Ltoolc_ast_Trees$Plus$ = (function() {
+  ScalaJS.c.sr_AbstractFunction2.call(this)
+});
+ScalaJS.c.Ltoolc_ast_Trees$Plus$.prototype = new ScalaJS.h.sr_AbstractFunction2();
+ScalaJS.c.Ltoolc_ast_Trees$Plus$.prototype.constructor = ScalaJS.c.Ltoolc_ast_Trees$Plus$;
+/** @constructor */
+ScalaJS.h.Ltoolc_ast_Trees$Plus$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_ast_Trees$Plus$.prototype = ScalaJS.c.Ltoolc_ast_Trees$Plus$.prototype;
+ScalaJS.c.Ltoolc_ast_Trees$Plus$.prototype.toString__T = (function() {
+  return "Plus"
+});
+ScalaJS.c.Ltoolc_ast_Trees$Plus$.prototype.apply__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$Plus = (function(lhs, rhs) {
+  return new ScalaJS.c.Ltoolc_ast_Trees$Plus().init___Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree(lhs, rhs)
+});
+ScalaJS.c.Ltoolc_ast_Trees$Plus$.prototype.apply__O__O__O = (function(v1, v2) {
+  return this.apply__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$Plus(ScalaJS.as.Ltoolc_ast_Trees$ExprTree(v1), ScalaJS.as.Ltoolc_ast_Trees$ExprTree(v2))
+});
+ScalaJS.is.Ltoolc_ast_Trees$Plus$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_ast_Trees$Plus$)))
+});
+ScalaJS.as.Ltoolc_ast_Trees$Plus$ = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_ast_Trees$Plus$(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.ast.Trees$Plus$"))
+});
+ScalaJS.isArrayOf.Ltoolc_ast_Trees$Plus$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_ast_Trees$Plus$)))
+});
+ScalaJS.asArrayOf.Ltoolc_ast_Trees$Plus$ = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_ast_Trees$Plus$(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.ast.Trees$Plus$;", depth))
+});
+ScalaJS.d.Ltoolc_ast_Trees$Plus$ = new ScalaJS.ClassTypeData({
+  Ltoolc_ast_Trees$Plus$: 0
+}, false, "toolc.ast.Trees$Plus$", ScalaJS.d.sr_AbstractFunction2, {
+  Ltoolc_ast_Trees$Plus$: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  sr_AbstractFunction2: 1,
+  F2: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_ast_Trees$Plus$.prototype.$classData = ScalaJS.d.Ltoolc_ast_Trees$Plus$;
+ScalaJS.n.Ltoolc_ast_Trees$Plus = (void 0);
+ScalaJS.m.Ltoolc_ast_Trees$Plus = (function() {
+  if ((!ScalaJS.n.Ltoolc_ast_Trees$Plus)) {
+    ScalaJS.n.Ltoolc_ast_Trees$Plus = new ScalaJS.c.Ltoolc_ast_Trees$Plus$().init___()
+  };
+  return ScalaJS.n.Ltoolc_ast_Trees$Plus
+});
+/** @constructor */
 ScalaJS.c.Ltoolc_ast_Trees$StringType$ = (function() {
   ScalaJS.c.sr_AbstractFunction0.call(this)
 });
@@ -29547,12 +30156,13 @@ ScalaJS.h.Ltoolc_code_CodeGeneration$ = (function() {
 });
 ScalaJS.h.Ltoolc_code_CodeGeneration$.prototype = ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype;
 ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.run__Ltoolc_utils_Context__Ltoolc_ast_Trees$Program__V = (function(ctx, prog) {
-  var outDir = ScalaJS.as.T(ctx.outDir__s_Option().map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$10$2) {
-    var x$10 = ScalaJS.as.Ljava_io_File(x$10$2);
-    return (x$10.getPath__T() + "/")
+  var outDir = ScalaJS.as.T(ctx.outDir__s_Option().map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$1$2) {
+    var x$1 = ScalaJS.as.Ljava_io_File(x$1$2);
+    return (x$1.getPath__T() + "/")
   }))).getOrElse__F0__O(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
     return "./"
   }))));
+  var outProg = ScalaJS.m.Ltoolc_code_CodeGenerator().createProgram__Ltoolc_code_CodeGenerator$ProgramGen();
   var f = new ScalaJS.c.Ljava_io_File().init___T(outDir);
   if ((!f.exists__Z())) {
     f.mkdir__Z()
@@ -29560,83 +30170,93 @@ ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.run__Ltoolc_utils_Context__Ltool
     (void 0)
   };
   var sourceName = ctx.file__Ljava_io_File().getName__T();
-  prog.classes__sci_List().foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(outDir$1, sourceName$1) {
-    return (function(ct$2) {
-      var ct = ScalaJS.as.Ltoolc_ast_Trees$ClassDecl(ct$2);
-      ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$generateClassFile$1__T__Ltoolc_ast_Trees$ClassDecl__T__V(sourceName$1, ct, outDir$1)
+  prog.classes__sci_List().foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(outProg$1) {
+    return (function(cd$2) {
+      var cd = ScalaJS.as.Ltoolc_ast_Trees$ClassDecl(cd$2);
+      ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$generateClass$1__Ltoolc_code_CodeGenerator$ClassGen__Ltoolc_ast_Trees$ClassDecl__Ltoolc_code_CodeGenerator$ProgramGen__V(outProg$1.createClass__T__Ltoolc_code_CodeGenerator$ClassGen(cd.id__Ltoolc_ast_Trees$Identifier().value__T()), cd, outProg$1)
     })
-  })(outDir, sourceName)));
-  var mainCl = new ScalaJS.c.Lcafebabe_ClassFile().init___T__s_Option(prog.main__Ltoolc_ast_Trees$MainObject().id__Ltoolc_ast_Trees$Identifier().value__T(), ScalaJS.m.s_None());
-  mainCl.setSourceFile__T__V(sourceName);
-  var mainMe = mainCl.addMainMethod__Lcafebabe_MethodHandler();
-  var ch = mainMe.codeHandler__Lcafebabe_CodeHandler();
-  this.generateMainMethodCode$1__p2__Lcafebabe_CodeHandler__sci_List__T__Ltoolc_ast_Trees$Program__V(ch, prog.main__Ltoolc_ast_Trees$MainObject().stats__sci_List(), prog.main__Ltoolc_ast_Trees$MainObject().id__Ltoolc_ast_Trees$Identifier().value__T(), prog);
-  mainCl.writeToFile__T__V(((("" + outDir) + prog.main__Ltoolc_ast_Trees$MainObject().id__Ltoolc_ast_Trees$Identifier().value__T()) + ".class"))
+  })(outProg)));
+  this.generateMainMethodCode$1__p2__Ltoolc_code_CodeGenerator$Method__sci_List__T__Ltoolc_code_CodeGenerator$ProgramGen__V(outProg.Main__Ltoolc_code_CodeGenerator$ProgramGen$Main$(), prog.main__Ltoolc_ast_Trees$MainObject().stats__sci_List(), prog.main__Ltoolc_ast_Trees$MainObject().id__Ltoolc_ast_Trees$Identifier().value__T(), outProg);
+  ScalaJS.g["jsOutput"]["collectCompileOutput"](outProg.writeToString__T())
 });
 ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.run__Ltoolc_utils_Context__O__O = (function(ctx, v) {
   return (this.run__Ltoolc_utils_Context__Ltoolc_ast_Trees$Program__V(ctx, ScalaJS.as.Ltoolc_ast_Trees$Program(v)), (void 0))
 });
-ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.toolc$code$CodeGeneration$$bytecodeTypeFor$1__Ltoolc_analyzer_Types$Type__T = (function(tpe) {
-  var x1 = tpe;
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_analyzer_Types$TBoolean(), x1)) {
-    return "Z"
+ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.typeFor$1__p2__Ltoolc_ast_Trees$TypeTree__T = (function(tpe) {
+  var x1 = tpe.getType__Ltoolc_analyzer_Types$Type();
+  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_analyzer_Types$TInt(), x1)) {
+    return "I"
   };
   if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_analyzer_Types$TString(), x1)) {
-    return "Ljava/lang/String;"
+    return "S"
   };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_analyzer_Types$TIntArray(), x1)) {
-    return "[I"
+  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_analyzer_Types$TBoolean(), x1)) {
+    return "B"
   };
   if (ScalaJS.is.Ltoolc_analyzer_Types$TObject(x1)) {
     var x2 = ScalaJS.as.Ltoolc_analyzer_Types$TObject(x1);
     var cs = x2.classSymbol__Ltoolc_analyzer_Symbols$ClassSymbol();
-    return (("L" + cs.id__I()) + ";")
+    return ("L" + cs.name__T())
   };
-  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_analyzer_Types$TInt(), x1)) {
-    return "I"
+  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_analyzer_Types$TAnyObject(), x1)) {
+    return "L"
   };
-  throw new ScalaJS.c.jl_IllegalStateException().init___T(("No suitable bytecode translation for type " + tpe))
+  if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_analyzer_Types$TIntArray(), x1)) {
+    return "[I"
+  };
+  throw new ScalaJS.c.jl_IllegalArgumentException().init___T(("Cannot compile type : " + tpe.getType__Ltoolc_analyzer_Types$Type()))
 });
-ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.toolc$code$CodeGeneration$$generateClassFile$1__T__Ltoolc_ast_Trees$ClassDecl__T__V = (function(sourceName, cl, dir) {
-  var className = cl.id__Ltoolc_ast_Trees$Identifier().value__T();
-  var classFile = new ScalaJS.c.Lcafebabe_ClassFile().init___T__s_Option(className, cl.parent__s_Option().map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$1$2) {
-    var x$1 = ScalaJS.as.Ltoolc_ast_Trees$Identifier(x$1$2);
-    return x$1.value__T()
-  }))));
-  classFile.setSourceFile__T__V(sourceName);
-  cl.vars__sci_List().foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(classFile$1) {
-    return (function(field$2) {
-      var field = ScalaJS.as.Ltoolc_ast_Trees$VarDecl(field$2);
-      return classFile$1.addField__T__T__Lcafebabe_FieldHandler(ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$bytecodeTypeFor$1__Ltoolc_analyzer_Types$Type__T(field.tpe__Ltoolc_ast_Trees$TypeTree().getType__Ltoolc_analyzer_Types$Type()), field.id__Ltoolc_ast_Trees$Identifier().value__T())
+ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.toolc$code$CodeGeneration$$makeVar$1__Ltoolc_ast_Trees$VarDecl__T2 = (function(v) {
+  return new ScalaJS.c.T2().init___O__O(v.id__Ltoolc_ast_Trees$Identifier().value__T(), this.typeFor$1__p2__Ltoolc_ast_Trees$TypeTree__T(v.tpe__Ltoolc_ast_Trees$TypeTree()))
+});
+ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.toolc$code$CodeGeneration$$generateClass$1__Ltoolc_code_CodeGenerator$ClassGen__Ltoolc_ast_Trees$ClassDecl__Ltoolc_code_CodeGenerator$ProgramGen__V = (function(cl, cd, outProg$1) {
+  cd.vars__sci_List().foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(cl$1) {
+    return (function(v$2) {
+      var v = ScalaJS.as.Ltoolc_ast_Trees$VarDecl(v$2);
+      return cl$1.addField__T2__Ltoolc_code_CodeGenerator$ClassGen(ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$makeVar$1__Ltoolc_ast_Trees$VarDecl__T2(v))
     })
-  })(classFile)));
-  cl.methods__sci_List().foreach__F1__V(new ScalaJS.c.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2().init___Lcafebabe_ClassFile(classFile));
-  classFile.writeToFile__T__V(((("" + dir) + className) + ".class"))
-});
-ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.toolc$code$CodeGeneration$$generateMethodCode$1__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$MethodDecl__V = (function(ch, mt) {
-  var methSym = ScalaJS.as.Ltoolc_analyzer_Symbols$MethodSymbol(mt.getSymbol__Ltoolc_analyzer_Symbols$Symbol());
-  mt.stats__sci_List().foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(ch$1, methSym$1) {
-    return (function(stat$2) {
-      var stat = ScalaJS.as.Ltoolc_ast_Trees$StatTree(stat$2);
-      ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$generateStatement$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$StatTree__V(methSym$1, ch$1, stat)
+  })(cl)));
+  cd.methods__sci_List().foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(outProg$1, cl$1) {
+    return (function(md$2) {
+      var md = ScalaJS.as.Ltoolc_ast_Trees$MethodDecl(md$2);
+      return ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$generateMethod$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$MethodDecl__Ltoolc_code_CodeGenerator$ProgramGen__Ltoolc_code_CodeGenerator$Method(cl$1.createMethod__T__Ltoolc_code_CodeGenerator$Method(md.id__Ltoolc_ast_Trees$Identifier().value__T()), md, outProg$1)
     })
-  })(ch, methSym)));
-  this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(methSym, ch, mt.retExpr__Ltoolc_ast_Trees$ExprTree());
-  ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$RETURN());
-  ch.freeze__V()
+  })(outProg$1, cl)))
 });
-ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.toolc$code$CodeGeneration$$generateStatement$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$StatTree__V = (function(method, ch, stat) {
-  var x1 = stat;
+ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.toolc$code$CodeGeneration$$generateMethod$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$MethodDecl__Ltoolc_code_CodeGenerator$ProgramGen__Ltoolc_code_CodeGenerator$Method = (function(meth, md, outProg$1) {
+  return (ScalaJS.as.sci_List(md.args__sci_List().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(a$2) {
+    var a = ScalaJS.as.Ltoolc_ast_Trees$Formal(a$2);
+    return new ScalaJS.c.Ltoolc_ast_Trees$VarDecl().init___Ltoolc_ast_Trees$TypeTree__Ltoolc_ast_Trees$Identifier(a.tpe__Ltoolc_ast_Trees$TypeTree(), a.id__Ltoolc_ast_Trees$Identifier())
+  })), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())).foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(meth$1) {
+    return (function(a$2) {
+      var a = ScalaJS.as.Ltoolc_ast_Trees$VarDecl(a$2);
+      return meth$1.addParam__T2__Ltoolc_code_CodeGenerator$Method(ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$makeVar$1__Ltoolc_ast_Trees$VarDecl__T2(a))
+    })
+  })(meth))), md.vars__sci_List().foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(meth$1) {
+    return (function(v$2) {
+      var v = ScalaJS.as.Ltoolc_ast_Trees$VarDecl(v$2);
+      return meth$1.addLocal__T2__Ltoolc_code_CodeGenerator$Method(ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$makeVar$1__Ltoolc_ast_Trees$VarDecl__T2(v))
+    })
+  })(meth))), md.stats__sci_List().foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(outProg$1, meth$1) {
+    return (function(s$2) {
+      var s = ScalaJS.as.Ltoolc_ast_Trees$StatTree(s$2);
+      ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$generateStatement$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$StatTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth$1, s, outProg$1)
+    })
+  })(outProg$1, meth))), this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, md.retExpr__Ltoolc_ast_Trees$ExprTree(), outProg$1), meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undRet().init___()))
+});
+ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.toolc$code$CodeGeneration$$generateStatement$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$StatTree__Ltoolc_code_CodeGenerator$ProgramGen__V = (function(meth, s, outProg$1) {
+  meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStat().init___I(s.line__I()));
+  var x1 = s;
   matchEnd9: {
     if (ScalaJS.is.Ltoolc_ast_Trees$Block(x1)) {
       var x2 = ScalaJS.as.Ltoolc_ast_Trees$Block(x1);
       var stats = x2.stats__sci_List();
-      stats.map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(method$1, ch$2) {
-        return (function(x$2$2) {
-          var x$2 = ScalaJS.as.Ltoolc_ast_Trees$StatTree(x$2$2);
-          ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$generateStatement$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$StatTree__V(method$1, ch$2, x$2)
+      stats.foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(outProg$1, meth$2) {
+        return (function(stat$2) {
+          var stat = ScalaJS.as.Ltoolc_ast_Trees$StatTree(stat$2);
+          ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$generateStatement$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$StatTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth$2, stat, outProg$1)
         })
-      })(method, ch)), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom());
+      })(outProg$1, meth)));
       (void 0);
       break matchEnd9
     };
@@ -29645,42 +30265,41 @@ ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.toolc$code$CodeGeneration$$gener
       var cond = x3.expr__Ltoolc_ast_Trees$ExprTree();
       var thn = x3.thn__Ltoolc_ast_Trees$StatTree();
       var els = x3.els__s_Option();
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, cond);
-      var leElse = ch.getFreshLabel__T__T("much_else");
-      var leAfter = ch.getFreshLabel__T__T("very_after");
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$IfEq().init___T(leElse));
-      this.toolc$code$CodeGeneration$$generateStatement$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$StatTree__V(method, ch, thn);
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$Goto().init___T(leAfter));
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$Label().init___T(leElse));
-      els.map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(method$1, ch$2) {
-        return (function(x$3$2) {
-          var x$3 = ScalaJS.as.Ltoolc_ast_Trees$StatTree(x$3$2);
-          ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$generateStatement$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$StatTree__V(method$1, ch$2, x$3)
+      this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, cond, outProg$1);
+      var leElse = outProg$1.getFreshLabel__T__T("much_else");
+      var leAfter = outProg$1.getFreshLabel__T__T("very_after");
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJz().init___T(leElse));
+      this.toolc$code$CodeGeneration$$generateStatement$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$StatTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, thn, outProg$1);
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undGoto().init___T(leAfter));
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel().init___T(leElse));
+      els.map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(outProg$1, meth$2) {
+        return (function(x$2$2) {
+          var x$2 = ScalaJS.as.Ltoolc_ast_Trees$StatTree(x$2$2);
+          ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$generateStatement$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$StatTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth$2, x$2, outProg$1)
         })
-      })(method, ch)));
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$Label().init___T(leAfter));
+      })(outProg$1, meth)));
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel().init___T(leAfter));
       break matchEnd9
     };
     if (ScalaJS.is.Ltoolc_ast_Trees$While(x1)) {
       var x4 = ScalaJS.as.Ltoolc_ast_Trees$While(x1);
       var expr = x4.expr__Ltoolc_ast_Trees$ExprTree();
       var stats$2 = x4.stat__Ltoolc_ast_Trees$StatTree();
-      var leBegin = ch.getFreshLabel__T__T("can_i_haz");
-      var leAfter$2 = ch.getFreshLabel__T__T("nope");
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$Label().init___T(leBegin));
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, expr);
-      new ScalaJS.c.Lcafebabe_AbstractByteCodes$IfEq().init___T(leAfter$2);
-      this.toolc$code$CodeGeneration$$generateStatement$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$StatTree__V(method, ch, stats$2);
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$Goto().init___T(leBegin));
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$Label().init___T(leAfter$2));
+      var leBegin = outProg$1.getFreshLabel__T__T("can_i_haz");
+      var leAfter$2 = outProg$1.getFreshLabel__T__T("nope");
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel().init___T(leBegin));
+      this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, expr, outProg$1);
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJz().init___T(leAfter$2));
+      this.toolc$code$CodeGeneration$$generateStatement$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$StatTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, stats$2, outProg$1);
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undGoto().init___T(leBegin));
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel().init___T(leAfter$2));
       break matchEnd9
     };
     if (ScalaJS.is.Ltoolc_ast_Trees$Println(x1)) {
       var x5 = ScalaJS.as.Ltoolc_ast_Trees$Println(x1);
       var expr$2 = x5.expr__Ltoolc_ast_Trees$ExprTree();
-      ch.$$less$less__F1__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_AbstractByteCodes$GetStatic().apply__T__T__T__F1("java/lang/System", "out", "Ljava/io/PrintStream;"));
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, expr$2);
-      ch.$$less$less__F1__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_AbstractByteCodes$InvokeVirtual().apply__T__T__T__F1("java/io/PrintStream", "println", "(Ljava/lang/String;)V"));
+      this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, expr$2, outProg$1);
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPrint().init___());
       (void 0);
       break matchEnd9
     };
@@ -29688,168 +30307,117 @@ ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.toolc$code$CodeGeneration$$gener
       var x6 = ScalaJS.as.Ltoolc_ast_Trees$Assign(x1);
       var id = x6.id__Ltoolc_ast_Trees$Identifier();
       var expr$3 = x6.expr__Ltoolc_ast_Trees$ExprTree();
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, expr$3);
-      var name = id.value__T();
-      if (method.members__sci_Map().contains__O__Z(name)) {
-        var pos = ((((1 + method.params__sci_Map().size__I()) | 0) + method.members__sci_Map().toList__sci_List().indexWhere__F1__I(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(name$1) {
-          return (function(x$4$2) {
-            var x$4 = ScalaJS.as.T2(x$4$2);
-            return ScalaJS.anyRefEqEq(x$4.$$und1__O(), name$1)
-          })
-        })(name)))) | 0);
-        ch.$$less$less__F1__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_AbstractByteCodes$AStore().apply__I__F1(pos));
-        break matchEnd9
-      } else if (method.params__sci_Map().contains__O__Z(name)) {
-        var pos$2 = ((1 + method.argList__sci_List().indexWhere__F1__I(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(name$1) {
-          return (function(x$5$2) {
-            var x$5 = ScalaJS.as.Ltoolc_analyzer_Symbols$VariableSymbol(x$5$2);
-            return ScalaJS.anyRefEqEq(x$5.name__T(), name$1)
-          })
-        })(name)))) | 0);
-        ch.$$less$less__F1__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_AbstractByteCodes$AStore().apply__I__F1(pos$2));
-        break matchEnd9
+      this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, expr$3, outProg$1);
+      if ((meth.locals__sci_List().exists__F1__Z(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(id$1) {
+        return (function(p$2) {
+          var p = ScalaJS.as.T2(p$2);
+          return ScalaJS.anyRefEqEq(p.$$und1__O(), id$1.value__T())
+        })
+      })(id))) || meth.params__sci_List().exists__F1__Z(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(id$1) {
+        return (function(p$2) {
+          var p = ScalaJS.as.T2(p$2);
+          return ScalaJS.anyRefEqEq(p.$$und1__O(), id$1.value__T())
+        })
+      })(id))))) {
+        meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLStore().init___T(id.value__T()));
+        (void 0)
       } else {
-        ch.$$less$less__F1__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_AbstractByteCodes$PutField().apply__T__T__T__F1(method.classSymbol__Ltoolc_analyzer_Symbols$ClassSymbol().name__T(), name, this.toolc$code$CodeGeneration$$bytecodeTypeFor$1__Ltoolc_analyzer_Types$Type__T(id.getType__Ltoolc_analyzer_Types$Type())));
-        (void 0);
-        break matchEnd9
-      }
+        meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFStore().init___T(id.value__T()));
+        (void 0)
+      };
+      break matchEnd9
     };
     if (ScalaJS.is.Ltoolc_ast_Trees$ArrayAssign(x1)) {
       var x7 = ScalaJS.as.Ltoolc_ast_Trees$ArrayAssign(x1);
       var id$2 = x7.id__Ltoolc_ast_Trees$Identifier();
       var index = x7.index__Ltoolc_ast_Trees$ExprTree();
       var expr$4 = x7.expr__Ltoolc_ast_Trees$ExprTree();
-      var name$2 = id$2.value__T();
-      if (method.members__sci_Map().contains__O__Z(name$2)) {
-        var pos$3 = ((((1 + method.params__sci_Map().size__I()) | 0) + method.members__sci_Map().toList__sci_List().indexWhere__F1__I(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(name$2) {
-          return (function(x$6$2) {
-            var x$6 = ScalaJS.as.T2(x$6$2);
-            return ScalaJS.anyRefEqEq(x$6.$$und1__O(), name$2)
-          })
-        })(name$2)))) | 0);
-        ch.$$less$less__F1__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_AbstractByteCodes$ALoad().apply__I__F1(pos$3))
-      } else if (method.params__sci_Map().contains__O__Z(id$2.value__T())) {
-        var pos$4 = ((1 + method.argList__sci_List().indexWhere__F1__I(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(id$1) {
-          return (function(x$7$2) {
-            var x$7 = ScalaJS.as.Ltoolc_analyzer_Symbols$VariableSymbol(x$7$2);
-            return ScalaJS.anyRefEqEq(x$7.name__T(), id$1.value__T())
-          })
-        })(id$2)))) | 0);
-        ch.$$less$less__F1__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_AbstractByteCodes$ALoad().apply__I__F1(pos$4))
+      if ((meth.locals__sci_List().exists__F1__Z(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(id$2) {
+        return (function(p$2) {
+          var p = ScalaJS.as.T2(p$2);
+          return ScalaJS.anyRefEqEq(p.$$und1__O(), id$2.value__T())
+        })
+      })(id$2))) || meth.params__sci_List().exists__F1__Z(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(id$2) {
+        return (function(p$2) {
+          var p = ScalaJS.as.T2(p$2);
+          return ScalaJS.anyRefEqEq(p.$$und1__O(), id$2.value__T())
+        })
+      })(id$2))))) {
+        meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLLoad().init___T(id$2.value__T()))
       } else {
-        ch.$$less$less__F1__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_AbstractByteCodes$GetField().apply__T__T__T__F1(method.classSymbol__Ltoolc_analyzer_Symbols$ClassSymbol().name__T(), name$2, this.toolc$code$CodeGeneration$$bytecodeTypeFor$1__Ltoolc_analyzer_Types$Type__T(id$2.getType__Ltoolc_analyzer_Types$Type())))
+        meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFLoad().init___T(id$2.value__T()))
       };
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, index);
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, expr$4);
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$AASTORE());
+      this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, index, outProg$1);
+      this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, expr$4, outProg$1);
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayPut().init___());
+      (void 0);
       break matchEnd9
     };
     throw new ScalaJS.c.s_MatchError().init___O(x1)
   }
 });
-ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V = (function(method, ch, expr) {
+ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.binaryOperation$1__p2__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method__Ltoolc_code_CodeGenerator$ProgramGen__Ltoolc_code_CodeGenerator$Method = (function(lhs, rhs, op, meth, outProg$1) {
+  return (this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, lhs, outProg$1), this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, rhs, outProg$1), meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(op))
+});
+ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V = (function(meth, expr, outProg$1) {
   var x1 = expr;
   matchEnd23: {
     if (ScalaJS.is.Ltoolc_ast_Trees$And(x1)) {
       var x2 = ScalaJS.as.Ltoolc_ast_Trees$And(x1);
       var lhs = x2.lhs__Ltoolc_ast_Trees$ExprTree();
       var rhs = x2.rhs__Ltoolc_ast_Trees$ExprTree();
-      var leAfter = ch.getFreshLabel__T__T("much_nope");
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, lhs);
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$DUP());
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$If$undICmpEq().init___T(leAfter));
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$POP());
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, rhs);
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$Label().init___T(leAfter));
+      var leAfter = outProg$1.getFreshLabel__T__T("much_nope");
+      this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, lhs, outProg$1);
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDup().init___());
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJz().init___T(leAfter));
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPop().init___());
+      this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, rhs, outProg$1);
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel().init___T(leAfter));
       break matchEnd23
     };
     if (ScalaJS.is.Ltoolc_ast_Trees$Or(x1)) {
       var x3 = ScalaJS.as.Ltoolc_ast_Trees$Or(x1);
       var lhs$2 = x3.lhs__Ltoolc_ast_Trees$ExprTree();
       var rhs$2 = x3.rhs__Ltoolc_ast_Trees$ExprTree();
-      var leAfter$2 = ch.getFreshLabel__T__T("very_bool");
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, lhs$2);
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$DUP());
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$If$undICmpNe().init___T(leAfter$2));
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$POP());
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, rhs$2);
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$Label().init___T(leAfter$2));
+      ScalaJS.m.Ltoolc_ast_Trees$Plus();
+      var leAfter$2 = outProg$1.getFreshLabel__T__T("very_bool");
+      this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, lhs$2, outProg$1);
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDup().init___());
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJnz().init___T(leAfter$2));
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPop().init___());
+      this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, rhs$2, outProg$1);
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel().init___T(leAfter$2));
       break matchEnd23
     };
     if (ScalaJS.is.Ltoolc_ast_Trees$Plus(x1)) {
       var x4 = ScalaJS.as.Ltoolc_ast_Trees$Plus(x1);
       var lhs$3 = x4.lhs__Ltoolc_ast_Trees$ExprTree();
       var rhs$3 = x4.rhs__Ltoolc_ast_Trees$ExprTree();
-      var x1$2 = expr.getType__Ltoolc_analyzer_Types$Type();
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_analyzer_Types$TInt(), x1$2)) {
-        this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, lhs$3);
-        this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, rhs$3);
-        ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$IADD());
-        (void 0);
-        break matchEnd23
-      };
-      if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_analyzer_Types$TString(), x1$2)) {
-        ch.$$less$less__F1__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_AbstractByteCodes$DefaultNew().apply__T__F1("java/lang/StringBuilder"));
-        this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, lhs$3);
-        var x1$3 = lhs$3.getType__Ltoolc_analyzer_Types$Type();
-        matchEnd5$2: {
-          var signature;
-          if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_analyzer_Types$TInt(), x1$3)) {
-            var signature = "(I)Ljava/lang/StringBuilder;";
-            break matchEnd5$2
-          };
-          if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_analyzer_Types$TString(), x1$3)) {
-            var signature = "(Ljava/lang/String;)Ljava/lang/StringBuilder;";
-            break matchEnd5$2
-          };
-          throw new ScalaJS.c.jl_IllegalStateException().init___()
-        };
-        ScalaJS.m.Lcafebabe_AbstractByteCodes$InvokeVirtual().apply__T__T__T__F1("java/lang/StringBuilder;", "append", signature);
-        var x1$4 = rhs$3.getType__Ltoolc_analyzer_Types$Type();
-        matchEnd5$3: {
-          if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_analyzer_Types$TInt(), x1$4)) {
-            signature = "(I)Ljava/lang/StringBuilder;";
-            break matchEnd5$3
-          };
-          if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_analyzer_Types$TString(), x1$4)) {
-            signature = "(Ljava/lang/String;)Ljava/lang/StringBuilder;";
-            break matchEnd5$3
-          };
-          throw new ScalaJS.c.jl_IllegalStateException().init___()
-        };
-        ScalaJS.m.Lcafebabe_AbstractByteCodes$InvokeVirtual().apply__T__T__T__F1("java/lang/StringBuilder;", "append", signature);
-        ScalaJS.m.Lcafebabe_AbstractByteCodes$InvokeVirtual().apply__T__T__T__F1("java/lang/StringBuilder;", "toString", "()Ljava/lang/StringBuilder;");
-        break matchEnd23
-      };
-      throw new ScalaJS.c.jl_IllegalStateException().init___()
+      this.binaryOperation$1__p2__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method__Ltoolc_code_CodeGenerator$ProgramGen__Ltoolc_code_CodeGenerator$Method(lhs$3, rhs$3, new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undAdd().init___(), meth, outProg$1);
+      (void 0);
+      break matchEnd23
     };
     if (ScalaJS.is.Ltoolc_ast_Trees$Minus(x1)) {
       var x5 = ScalaJS.as.Ltoolc_ast_Trees$Minus(x1);
       var lhs$4 = x5.lhs__Ltoolc_ast_Trees$ExprTree();
       var rhs$4 = x5.rhs__Ltoolc_ast_Trees$ExprTree();
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, lhs$4);
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, rhs$4);
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$ISUB());
-      (void 0);
-      break matchEnd23
-    };
-    if (ScalaJS.is.Ltoolc_ast_Trees$Times(x1)) {
-      var x6 = ScalaJS.as.Ltoolc_ast_Trees$Times(x1);
-      var lhs$5 = x6.lhs__Ltoolc_ast_Trees$ExprTree();
-      var rhs$5 = x6.rhs__Ltoolc_ast_Trees$ExprTree();
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, lhs$5);
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, rhs$5);
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$IMUL());
+      this.binaryOperation$1__p2__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method__Ltoolc_code_CodeGenerator$ProgramGen__Ltoolc_code_CodeGenerator$Method(lhs$4, rhs$4, new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undSub().init___(), meth, outProg$1);
       (void 0);
       break matchEnd23
     };
     if (ScalaJS.is.Ltoolc_ast_Trees$Div(x1)) {
-      var x7 = ScalaJS.as.Ltoolc_ast_Trees$Div(x1);
+      var x6 = ScalaJS.as.Ltoolc_ast_Trees$Div(x1);
+      var lhs$5 = x6.lhs__Ltoolc_ast_Trees$ExprTree();
+      var rhs$5 = x6.rhs__Ltoolc_ast_Trees$ExprTree();
+      this.binaryOperation$1__p2__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method__Ltoolc_code_CodeGenerator$ProgramGen__Ltoolc_code_CodeGenerator$Method(lhs$5, rhs$5, new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDiv().init___(), meth, outProg$1);
+      (void 0);
+      break matchEnd23
+    };
+    if (ScalaJS.is.Ltoolc_ast_Trees$Times(x1)) {
+      var x7 = ScalaJS.as.Ltoolc_ast_Trees$Times(x1);
       var lhs$6 = x7.lhs__Ltoolc_ast_Trees$ExprTree();
       var rhs$6 = x7.rhs__Ltoolc_ast_Trees$ExprTree();
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, lhs$6);
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, rhs$6);
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$IDIV());
+      this.binaryOperation$1__p2__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method__Ltoolc_code_CodeGenerator$ProgramGen__Ltoolc_code_CodeGenerator$Method(lhs$6, rhs$6, new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undMul().init___(), meth, outProg$1);
       (void 0);
       break matchEnd23
     };
@@ -29857,216 +30425,134 @@ ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.toolc$code$CodeGeneration$$evalE
       var x8 = ScalaJS.as.Ltoolc_ast_Trees$LessThan(x1);
       var lhs$7 = x8.lhs__Ltoolc_ast_Trees$ExprTree();
       var rhs$7 = x8.rhs__Ltoolc_ast_Trees$ExprTree();
-      var leLessThan = ch.getFreshLabel__T__T("much_less");
-      var leAfter$3 = ch.getFreshLabel__T__T("such_done");
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, lhs$7);
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, rhs$7);
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$If$undICmpLt().init___T(leLessThan));
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$ICONST$und0());
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$Goto().init___T(leAfter$3));
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$Label().init___T(leLessThan));
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$ICONST$und1());
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$Label().init___T(leAfter$3));
+      this.binaryOperation$1__p2__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method__Ltoolc_code_CodeGenerator$ProgramGen__Ltoolc_code_CodeGenerator$Method(lhs$7, rhs$7, new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLt().init___(), meth, outProg$1);
+      (void 0);
       break matchEnd23
     };
     if (ScalaJS.is.Ltoolc_ast_Trees$Equals(x1)) {
       var x9 = ScalaJS.as.Ltoolc_ast_Trees$Equals(x1);
       var lhs$8 = x9.lhs__Ltoolc_ast_Trees$ExprTree();
       var rhs$8 = x9.rhs__Ltoolc_ast_Trees$ExprTree();
-      var x1$5 = new ScalaJS.c.T2().init___O__O(lhs$8.getType__Ltoolc_analyzer_Types$Type(), rhs$8.getType__Ltoolc_analyzer_Types$Type());
-      matchEnd14: {
-        var jsx$1;
-        if ((x1$5 !== null)) {
-          var p2 = ScalaJS.as.Ltoolc_analyzer_Types$Type(x1$5.$$und1__O());
-          var p3 = ScalaJS.as.Ltoolc_analyzer_Types$Type(x1$5.$$und2__O());
-          if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_analyzer_Types$TInt(), p2)) {
-            if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_analyzer_Types$TInt(), p3)) {
-              var jsx$1 = true;
-              break matchEnd14
-            }
-          }
-        };
-        if ((x1$5 !== null)) {
-          var p4 = ScalaJS.as.Ltoolc_analyzer_Types$Type(x1$5.$$und1__O());
-          var p5 = ScalaJS.as.Ltoolc_analyzer_Types$Type(x1$5.$$und2__O());
-          if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_analyzer_Types$TBoolean(), p4)) {
-            if (ScalaJS.anyRefEqEq(ScalaJS.m.Ltoolc_analyzer_Types$TBoolean(), p5)) {
-              var jsx$1 = true;
-              break matchEnd14
-            }
-          }
-        };
-        var jsx$1 = false;
-        break matchEnd14
-      };
-      if (jsx$1) {
-        var leEq = ch.getFreshLabel__T__T("very_same");
-        var leAfter$4 = ch.getFreshLabel__T__T("such_done");
-        this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, lhs$8);
-        this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, rhs$8);
-        ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$If$undICmpEq().init___T(leEq));
-        ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$ICONST$und0());
-        ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$Goto().init___T(leAfter$4));
-        ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$Label().init___T(leEq));
-        ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$ICONST$und1());
-        ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$Label().init___T(leAfter$4));
-        break matchEnd23
-      };
-      var leEq$2 = ch.getFreshLabel__T__T("such_same");
-      var leAfter$5 = ch.getFreshLabel__T__T("very_done");
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, lhs$8);
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, rhs$8);
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$If$undACmpEq().init___T(leEq$2));
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$ICONST$und0());
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$Goto().init___T(leAfter$5));
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$Label().init___T(leEq$2));
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$ICONST$und1());
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(new ScalaJS.c.Lcafebabe_AbstractByteCodes$Label().init___T(leAfter$5));
+      this.binaryOperation$1__p2__Ltoolc_ast_Trees$ExprTree__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method__Ltoolc_code_CodeGenerator$ProgramGen__Ltoolc_code_CodeGenerator$Method(lhs$8, rhs$8, new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undEq().init___(), meth, outProg$1);
+      (void 0);
       break matchEnd23
     };
-    if (ScalaJS.is.Ltoolc_ast_Trees$ArrayRead(x1)) {
-      var x10 = ScalaJS.as.Ltoolc_ast_Trees$ArrayRead(x1);
-      var arr = x10.arr__Ltoolc_ast_Trees$ExprTree();
-      var index = x10.index__Ltoolc_ast_Trees$ExprTree();
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, arr);
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, index);
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$AALOAD());
+    if (ScalaJS.is.Ltoolc_ast_Trees$Not(x1)) {
+      var x10 = ScalaJS.as.Ltoolc_ast_Trees$Not(x1);
+      var exp = x10.expr__Ltoolc_ast_Trees$ExprTree();
+      this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, exp, outProg$1);
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNot().init___());
       (void 0);
       break matchEnd23
     };
     if (ScalaJS.is.Ltoolc_ast_Trees$ArrayLength(x1)) {
       var x11 = ScalaJS.as.Ltoolc_ast_Trees$ArrayLength(x1);
-      var arr$2 = x11.arr__Ltoolc_ast_Trees$ExprTree();
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, arr$2);
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$ARRAYLENGTH());
+      var arr = x11.arr__Ltoolc_ast_Trees$ExprTree();
+      this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, arr, outProg$1);
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLength().init___());
       (void 0);
       break matchEnd23
     };
-    if (ScalaJS.is.Ltoolc_ast_Trees$MethodCall(x1)) {
-      var x12 = ScalaJS.as.Ltoolc_ast_Trees$MethodCall(x1);
-      var obj = x12.obj__Ltoolc_ast_Trees$ExprTree();
-      var meth = x12.meth__Ltoolc_ast_Trees$Identifier();
-      var args = x12.args__sci_List();
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, obj);
-      args.foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(method$2, ch$3) {
-        return (function(arg$2) {
-          var arg = ScalaJS.as.Ltoolc_ast_Trees$ExprTree(arg$2);
-          ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method$2, ch$3, arg)
-        })
-      })(method, ch)));
-      var x1$6 = obj.getType__Ltoolc_analyzer_Types$Type();
-      if (ScalaJS.is.Ltoolc_analyzer_Types$TObject(x1$6)) {
-        var x2$2 = ScalaJS.as.Ltoolc_analyzer_Types$TObject(x1$6);
-        var cs = x2$2.classSymbol__Ltoolc_analyzer_Symbols$ClassSymbol();
-        ch.$$less$less__F1__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_AbstractByteCodes$InvokeVirtual().apply__T__T__T__F1(cs.name__T(), meth.value__T(), this.getSignature$1__p2__Ltoolc_analyzer_Symbols$MethodSymbol__T(ScalaJS.as.Ltoolc_analyzer_Symbols$MethodSymbol(meth.getSymbol__Ltoolc_analyzer_Symbols$Symbol()))));
-        (void 0);
-        break matchEnd23
-      };
-      throw new ScalaJS.c.jl_IllegalStateException().init___T(("Cannot invoke method on " + obj.getType__Ltoolc_analyzer_Types$Type()))
+    if (ScalaJS.is.Ltoolc_ast_Trees$ArrayRead(x1)) {
+      var x12 = ScalaJS.as.Ltoolc_ast_Trees$ArrayRead(x1);
+      var arr$2 = x12.arr__Ltoolc_ast_Trees$ExprTree();
+      var index = x12.index__Ltoolc_ast_Trees$ExprTree();
+      this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, arr$2, outProg$1);
+      this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, index, outProg$1);
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayGet().init___());
+      (void 0);
+      break matchEnd23
     };
     if (ScalaJS.is.Ltoolc_ast_Trees$True(x1)) {
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$ICONST$und1());
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undIntConst().init___I(1));
       (void 0);
       break matchEnd23
     };
     if (ScalaJS.is.Ltoolc_ast_Trees$False(x1)) {
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$ICONST$und0());
-      (void 0);
-      break matchEnd23
-    };
-    if (ScalaJS.is.Ltoolc_ast_Trees$Not(x1)) {
-      var x15 = ScalaJS.as.Ltoolc_ast_Trees$Not(x1);
-      var expr$2 = x15.expr__Ltoolc_ast_Trees$ExprTree();
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, expr$2);
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$ICONST$und1());
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$IXOR());
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undIntConst().init___I(0));
       (void 0);
       break matchEnd23
     };
     if (ScalaJS.is.Ltoolc_ast_Trees$IntLit(x1)) {
-      var x16 = ScalaJS.as.Ltoolc_ast_Trees$IntLit(x1);
-      var value = x16.value__I();
-      ch.$$less$less__F1__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_AbstractByteCodes$Ldc().apply__I__F1(value));
+      var x15 = ScalaJS.as.Ltoolc_ast_Trees$IntLit(x1);
+      var x = x15.value__I();
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undIntConst().init___I(x));
       (void 0);
       break matchEnd23
     };
-    if (ScalaJS.is.Ltoolc_ast_Trees$NewIntArray(x1)) {
-      var x17 = ScalaJS.as.Ltoolc_ast_Trees$NewIntArray(x1);
-      var size = x17.size__Ltoolc_ast_Trees$ExprTree();
-      this.toolc$code$CodeGeneration$$evalExprAndPushResult$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$ExprTree__V(method, ch, size);
-      ch.$$less$less__F1__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_AbstractByteCodes$NewArray().apply__T__F1("I"));
+    if (ScalaJS.is.Ltoolc_ast_Trees$StringLit(x1)) {
+      var x16 = ScalaJS.as.Ltoolc_ast_Trees$StringLit(x1);
+      var x$2 = x16.value__T();
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStrConst().init___T(x$2));
+      (void 0);
+      break matchEnd23
+    };
+    if (ScalaJS.is.Ltoolc_ast_Trees$This(x1)) {
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undThis().init___());
       (void 0);
       break matchEnd23
     };
     if (ScalaJS.is.Ltoolc_ast_Trees$New(x1)) {
       var x18 = ScalaJS.as.Ltoolc_ast_Trees$New(x1);
       var tpe = x18.tpe__Ltoolc_ast_Trees$Identifier();
-      ch.$$less$less__F1__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_AbstractByteCodes$DefaultNew().apply__T__F1(tpe.value__T()));
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNew().init___T(tpe.value__T()));
       (void 0);
       break matchEnd23
     };
-    if (ScalaJS.is.Ltoolc_ast_Trees$This(x1)) {
-      ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$ILOAD$und0());
-      (void 0);
-      break matchEnd23
-    };
-    if (ScalaJS.is.Ltoolc_ast_Trees$StringLit(x1)) {
-      var x20 = ScalaJS.as.Ltoolc_ast_Trees$StringLit(x1);
-      var str = x20.value__T();
-      ch.$$less$less__F1__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_AbstractByteCodes$Ldc().apply__T__F1(str));
+    if (ScalaJS.is.Ltoolc_ast_Trees$NewIntArray(x1)) {
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNew().init___T("[]"));
       (void 0);
       break matchEnd23
     };
     if (ScalaJS.is.Ltoolc_ast_Trees$Identifier(x1)) {
-      var x21 = ScalaJS.as.Ltoolc_ast_Trees$Identifier(x1);
-      var name = x21.value__T();
-      if (method.members__sci_Map().contains__O__Z(name)) {
-        var pos = ((((1 + method.params__sci_Map().size__I()) | 0) + method.members__sci_Map().toList__sci_List().indexWhere__F1__I(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(name$3) {
-          return (function(x$8$2) {
-            var x$8 = ScalaJS.as.T2(x$8$2);
-            return ScalaJS.anyRefEqEq(x$8.$$und1__O(), name$3)
-          })
-        })(name)))) | 0);
-        ch.$$less$less__F1__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_AbstractByteCodes$AStore().apply__I__F1(pos));
-        break matchEnd23
-      } else if (method.params__sci_Map().contains__O__Z(name)) {
-        var pos$2 = ((1 + method.argList__sci_List().indexWhere__F1__I(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(name$3) {
-          return (function(x$9$2) {
-            var x$9 = ScalaJS.as.Ltoolc_analyzer_Symbols$VariableSymbol(x$9$2);
-            return ScalaJS.anyRefEqEq(x$9.name__T(), name$3)
-          })
-        })(name)))) | 0);
-        ch.$$less$less__F1__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_AbstractByteCodes$AStore().apply__I__F1(pos$2));
-        break matchEnd23
+      var x20 = ScalaJS.as.Ltoolc_ast_Trees$Identifier(x1);
+      var value = x20.value__T();
+      if ((meth.locals__sci_List().exists__F1__Z(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(value$1) {
+        return (function(p$2) {
+          var p = ScalaJS.as.T2(p$2);
+          return ScalaJS.anyRefEqEq(p.$$und1__O(), value$1)
+        })
+      })(value))) || meth.params__sci_List().exists__F1__Z(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(value$1) {
+        return (function(p$2) {
+          var p = ScalaJS.as.T2(p$2);
+          return ScalaJS.anyRefEqEq(p.$$und1__O(), value$1)
+        })
+      })(value))))) {
+        meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLLoad().init___T(value));
+        (void 0)
       } else {
-        ch.$$less$less__F1__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_AbstractByteCodes$PutField().apply__T__T__T__F1(method.classSymbol__Ltoolc_analyzer_Symbols$ClassSymbol().name__T(), name, this.toolc$code$CodeGeneration$$bytecodeTypeFor$1__Ltoolc_analyzer_Types$Type__T(x21.getType__Ltoolc_analyzer_Types$Type())));
-        (void 0);
-        break matchEnd23
-      }
+        meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFLoad().init___T(value));
+        (void 0)
+      };
+      break matchEnd23
+    };
+    if (ScalaJS.is.Ltoolc_ast_Trees$MethodCall(x1)) {
+      var x21 = ScalaJS.as.Ltoolc_ast_Trees$MethodCall(x1);
+      var obj = x21.obj__Ltoolc_ast_Trees$ExprTree();
+      var method = x21.meth__Ltoolc_ast_Trees$Identifier();
+      var args = x21.args__sci_List();
+      args.foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(outProg$1, meth$3) {
+        return (function(a$2) {
+          var a = ScalaJS.as.Ltoolc_ast_Trees$ExprTree(a$2);
+          ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth$3, a, outProg$1)
+        })
+      })(outProg$1, meth)));
+      this.toolc$code$CodeGeneration$$generateExpr$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$ExprTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth, obj, outProg$1);
+      meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undInvoke().init___T(method.value__T()));
+      (void 0);
+      break matchEnd23
     };
     throw new ScalaJS.c.s_MatchError().init___O(x1)
   }
 });
-ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.getSignature$1__p2__Ltoolc_analyzer_Symbols$MethodSymbol__T = (function(meth) {
-  var b = new ScalaJS.c.scm_StringBuilder().init___();
-  b.append__T__scm_StringBuilder("(");
-  b.append__O__scm_StringBuilder(meth.params__sci_Map().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(p$2) {
-    var p = ScalaJS.as.T2(p$2);
-    return ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$bytecodeTypeFor$1__Ltoolc_analyzer_Types$Type__T(ScalaJS.as.Ltoolc_analyzer_Types$Typed(p.$$und2__O()).getType__Ltoolc_analyzer_Types$Type())
-  })), ScalaJS.m.sci_Iterable().canBuildFrom__scg_CanBuildFrom())).mkString__T__T("");
-  b.append__T__scm_StringBuilder(")");
-  b.append__T__scm_StringBuilder(this.toolc$code$CodeGeneration$$bytecodeTypeFor$1__Ltoolc_analyzer_Types$Type__T(meth.getType__Ltoolc_analyzer_Types$Type()));
-  return b.toString__T()
-});
-ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.generateMainMethodCode$1__p2__Lcafebabe_CodeHandler__sci_List__T__Ltoolc_ast_Trees$Program__V = (function(ch, stmts, cname, prog$1) {
-  stmts.foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(prog$1, ch$4) {
-    return (function(stat$2) {
-      var stat = ScalaJS.as.Ltoolc_ast_Trees$StatTree(stat$2);
-      ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$generateStatement$1__Ltoolc_analyzer_Symbols$MethodSymbol__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$StatTree__V(ScalaJS.as.Ltoolc_analyzer_Symbols$MethodSymbol(ScalaJS.as.Ltoolc_analyzer_Symbols$ClassSymbol(prog$1.main__Ltoolc_ast_Trees$MainObject().getSymbol__Ltoolc_analyzer_Symbols$Symbol()).lookupMethod__T__s_Option("main").get__O()), ch$4, stat)
+ScalaJS.c.Ltoolc_code_CodeGeneration$.prototype.generateMainMethodCode$1__p2__Ltoolc_code_CodeGenerator$Method__sci_List__T__Ltoolc_code_CodeGenerator$ProgramGen__V = (function(meth, stmts, cname, outProg$1) {
+  stmts.foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(outProg$1, meth$4) {
+    return (function(x$3$2) {
+      var x$3 = ScalaJS.as.Ltoolc_ast_Trees$StatTree(x$3$2);
+      ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$generateStatement$1__Ltoolc_code_CodeGenerator$Method__Ltoolc_ast_Trees$StatTree__Ltoolc_code_CodeGenerator$ProgramGen__V(meth$4, x$3, outProg$1)
     })
-  })(prog$1, ch)));
-  ch.$$less$less__Lcafebabe_AbstractByteCodes$AbstractByteCode__Lcafebabe_CodeHandler(ScalaJS.m.Lcafebabe_ByteCodes$RETURN());
-  ch.freeze__V()
+  })(outProg$1, meth)));
+  meth.$$less$less__Ltoolc_code_CodeGenerator$Opcode__Ltoolc_code_CodeGenerator$Method(new ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undRet().init___())
 });
 ScalaJS.is.Ltoolc_code_CodeGeneration$ = (function(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGeneration$)))
@@ -30096,55 +30582,2387 @@ ScalaJS.m.Ltoolc_code_CodeGeneration = (function() {
   return ScalaJS.n.Ltoolc_code_CodeGeneration
 });
 /** @constructor */
-ScalaJS.c.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2 = (function() {
-  ScalaJS.c.sr_AbstractFunction1.call(this);
-  this.classFile$1$2 = null
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undAdd = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this)
 });
-ScalaJS.c.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2.prototype = new ScalaJS.h.sr_AbstractFunction1();
-ScalaJS.c.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undAdd.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undAdd.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undAdd;
 /** @constructor */
-ScalaJS.h.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2 = (function() {
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undAdd = (function() {
   /*<skip>*/
 });
-ScalaJS.h.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2.prototype = ScalaJS.c.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2.prototype;
-ScalaJS.c.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2.prototype.apply__Ltoolc_ast_Trees$MethodDecl__V = (function(method) {
-  var mh = this.classFile$1$2.addMethod__T__T__sci_List__Lcafebabe_MethodHandler(ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$bytecodeTypeFor$1__Ltoolc_analyzer_Types$Type__T(method.getSymbol__Ltoolc_analyzer_Symbols$Symbol().getType__Ltoolc_analyzer_Types$Type()), method.id__Ltoolc_ast_Trees$Identifier().value__T(), ScalaJS.as.sci_List(method.args__sci_List().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$2) {
-    var arg = ScalaJS.as.Ltoolc_ast_Trees$Formal(arg$2);
-    return ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$bytecodeTypeFor$1__Ltoolc_analyzer_Types$Type__T(arg.id__Ltoolc_ast_Trees$Identifier().getType__Ltoolc_analyzer_Types$Type())
-  })), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())));
-  ScalaJS.m.Ltoolc_code_CodeGeneration().toolc$code$CodeGeneration$$generateMethodCode$1__Lcafebabe_CodeHandler__Ltoolc_ast_Trees$MethodDecl__V(mh.codeHandler__Lcafebabe_CodeHandler(), method)
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undAdd.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undAdd.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undAdd.prototype.productPrefix__T = (function() {
+  return "OP_Add"
 });
-ScalaJS.c.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2.prototype.apply__O__O = (function(v1) {
-  return (this.apply__Ltoolc_ast_Trees$MethodDecl__V(ScalaJS.as.Ltoolc_ast_Trees$MethodDecl(v1)), (void 0))
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undAdd.prototype.productArity__I = (function() {
+  return 0
 });
-ScalaJS.c.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2.prototype.init___Lcafebabe_ClassFile = (function(classFile$1) {
-  this.classFile$1$2 = classFile$1;
-  ScalaJS.c.sr_AbstractFunction1.prototype.init___.call(this);
-  return this
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undAdd.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1))
 });
-ScalaJS.is.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2)))
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undAdd.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
 });
-ScalaJS.as.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2 = (function(obj) {
-  return ((ScalaJS.is.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2"))
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undAdd.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undAdd(x$1)
 });
-ScalaJS.isArrayOf.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2)))
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undAdd.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
 });
-ScalaJS.asArrayOf.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2 = (function(obj, depth) {
-  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2;", depth))
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undAdd.prototype.equals__O__Z = (function(x$1) {
+  var x1 = x$1;
+  matchEnd4: {
+    var jsx$1;
+    if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undAdd(x1)) {
+      var jsx$1 = true;
+      break matchEnd4
+    };
+    var jsx$1 = false;
+    break matchEnd4
+  };
+  if (jsx$1) {
+    return ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undAdd(x$1).canEqual__O__Z(this)
+  } else {
+    return false
+  }
 });
-ScalaJS.d.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2 = new ScalaJS.ClassTypeData({
-  Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2: 0
-}, false, "toolc.code.CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2", ScalaJS.d.sr_AbstractFunction1, {
-  Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2: 1,
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undAdd.prototype.init___ = (function() {
+  return (ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, "add"), ScalaJS.i.s_Product$class__$init$__s_Product__V(this), this)
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undAdd = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undAdd)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undAdd = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undAdd(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_Add"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undAdd = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undAdd)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undAdd = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undAdd(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_Add;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undAdd = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undAdd: 0
+}, false, "toolc.code.CodeGenerator$OP_Add", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undAdd: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1,
-  sr_AbstractFunction1: 1,
-  F1: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
   O: 1
 });
-ScalaJS.c.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGeneration$$anonfun$toolc$code$CodeGeneration$$generateClassFile$1$2;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undAdd.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undAdd;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayGet = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayGet.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayGet.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayGet;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undArrayGet = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undArrayGet.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayGet.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayGet.prototype.productPrefix__T = (function() {
+  return "OP_ArrayGet"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayGet.prototype.productArity__I = (function() {
+  return 0
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayGet.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1))
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayGet.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayGet.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undArrayGet(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayGet.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayGet.prototype.equals__O__Z = (function(x$1) {
+  var x1 = x$1;
+  matchEnd4: {
+    var jsx$1;
+    if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undArrayGet(x1)) {
+      var jsx$1 = true;
+      break matchEnd4
+    };
+    var jsx$1 = false;
+    break matchEnd4
+  };
+  if (jsx$1) {
+    return ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undArrayGet(x$1).canEqual__O__Z(this)
+  } else {
+    return false
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayGet.prototype.init___ = (function() {
+  return (ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, "aget"), ScalaJS.i.s_Product$class__$init$__s_Product__V(this), this)
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undArrayGet = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undArrayGet)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undArrayGet = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undArrayGet(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_ArrayGet"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undArrayGet = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undArrayGet)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undArrayGet = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undArrayGet(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_ArrayGet;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undArrayGet = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undArrayGet: 0
+}, false, "toolc.code.CodeGenerator$OP_ArrayGet", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undArrayGet: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayGet.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undArrayGet;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayPut = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayPut.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayPut.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayPut;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undArrayPut = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undArrayPut.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayPut.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayPut.prototype.productPrefix__T = (function() {
+  return "OP_ArrayPut"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayPut.prototype.productArity__I = (function() {
+  return 0
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayPut.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1))
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayPut.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayPut.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undArrayPut(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayPut.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayPut.prototype.equals__O__Z = (function(x$1) {
+  var x1 = x$1;
+  matchEnd4: {
+    var jsx$1;
+    if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undArrayPut(x1)) {
+      var jsx$1 = true;
+      break matchEnd4
+    };
+    var jsx$1 = false;
+    break matchEnd4
+  };
+  if (jsx$1) {
+    return ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undArrayPut(x$1).canEqual__O__Z(this)
+  } else {
+    return false
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayPut.prototype.init___ = (function() {
+  return (ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, "aput"), ScalaJS.i.s_Product$class__$init$__s_Product__V(this), this)
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undArrayPut = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undArrayPut)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undArrayPut = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undArrayPut(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_ArrayPut"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undArrayPut = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undArrayPut)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undArrayPut = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undArrayPut(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_ArrayPut;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undArrayPut = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undArrayPut: 0
+}, false, "toolc.code.CodeGenerator$OP_ArrayPut", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undArrayPut: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undArrayPut.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undArrayPut;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDiv = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDiv.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDiv.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDiv;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undDiv = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undDiv.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDiv.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDiv.prototype.productPrefix__T = (function() {
+  return "OP_Div"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDiv.prototype.productArity__I = (function() {
+  return 0
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDiv.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1))
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDiv.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDiv.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undDiv(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDiv.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDiv.prototype.equals__O__Z = (function(x$1) {
+  var x1 = x$1;
+  matchEnd4: {
+    var jsx$1;
+    if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undDiv(x1)) {
+      var jsx$1 = true;
+      break matchEnd4
+    };
+    var jsx$1 = false;
+    break matchEnd4
+  };
+  if (jsx$1) {
+    return ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undDiv(x$1).canEqual__O__Z(this)
+  } else {
+    return false
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDiv.prototype.init___ = (function() {
+  return (ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, "div"), ScalaJS.i.s_Product$class__$init$__s_Product__V(this), this)
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undDiv = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undDiv)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undDiv = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undDiv(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_Div"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undDiv = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undDiv)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undDiv = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undDiv(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_Div;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undDiv = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undDiv: 0
+}, false, "toolc.code.CodeGenerator$OP_Div", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undDiv: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDiv.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undDiv;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDup = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDup.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDup.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDup;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undDup = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undDup.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDup.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDup.prototype.productPrefix__T = (function() {
+  return "OP_Dup"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDup.prototype.productArity__I = (function() {
+  return 0
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDup.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1))
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDup.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDup.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undDup(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDup.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDup.prototype.equals__O__Z = (function(x$1) {
+  var x1 = x$1;
+  matchEnd4: {
+    var jsx$1;
+    if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undDup(x1)) {
+      var jsx$1 = true;
+      break matchEnd4
+    };
+    var jsx$1 = false;
+    break matchEnd4
+  };
+  if (jsx$1) {
+    return ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undDup(x$1).canEqual__O__Z(this)
+  } else {
+    return false
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDup.prototype.init___ = (function() {
+  return (ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, "dup"), ScalaJS.i.s_Product$class__$init$__s_Product__V(this), this)
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undDup = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undDup)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undDup = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undDup(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_Dup"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undDup = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undDup)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undDup = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undDup(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_Dup;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undDup = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undDup: 0
+}, false, "toolc.code.CodeGenerator$OP_Dup", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undDup: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undDup.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undDup;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undEq = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undEq.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undEq.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undEq;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undEq = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undEq.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undEq.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undEq.prototype.productPrefix__T = (function() {
+  return "OP_Eq"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undEq.prototype.productArity__I = (function() {
+  return 0
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undEq.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1))
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undEq.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undEq.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undEq(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undEq.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undEq.prototype.equals__O__Z = (function(x$1) {
+  var x1 = x$1;
+  matchEnd4: {
+    var jsx$1;
+    if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undEq(x1)) {
+      var jsx$1 = true;
+      break matchEnd4
+    };
+    var jsx$1 = false;
+    break matchEnd4
+  };
+  if (jsx$1) {
+    return ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undEq(x$1).canEqual__O__Z(this)
+  } else {
+    return false
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undEq.prototype.init___ = (function() {
+  return (ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, "eq"), ScalaJS.i.s_Product$class__$init$__s_Product__V(this), this)
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undEq = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undEq)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undEq = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undEq(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_Eq"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undEq = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undEq)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undEq = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undEq(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_Eq;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undEq = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undEq: 0
+}, false, "toolc.code.CodeGenerator$OP_Eq", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undEq: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undEq.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undEq;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFLoad = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this);
+  this.id$2 = null
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFLoad.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFLoad.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFLoad;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undFLoad = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undFLoad.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFLoad.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFLoad.prototype.id__T = (function() {
+  return this.id$2
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFLoad.prototype.productPrefix__T = (function() {
+  return "OP_FLoad"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFLoad.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFLoad.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.id__T();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFLoad.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFLoad.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undFLoad(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFLoad.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFLoad.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      var jsx$1;
+      if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undFLoad(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var OP_FLoad$1 = ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undFLoad(x$1);
+      return (ScalaJS.anyRefEqEq(this.id__T(), OP_FLoad$1.id__T()) && OP_FLoad$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFLoad.prototype.init___T = (function(id) {
+  this.id$2 = id;
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, ("fload " + id));
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undFLoad = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undFLoad)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undFLoad = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undFLoad(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_FLoad"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undFLoad = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undFLoad)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undFLoad = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undFLoad(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_FLoad;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undFLoad = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undFLoad: 0
+}, false, "toolc.code.CodeGenerator$OP_FLoad", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undFLoad: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFLoad.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undFLoad;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFStore = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this);
+  this.id$2 = null
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFStore.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFStore.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFStore;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undFStore = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undFStore.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFStore.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFStore.prototype.id__T = (function() {
+  return this.id$2
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFStore.prototype.productPrefix__T = (function() {
+  return "OP_FStore"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFStore.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFStore.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.id__T();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFStore.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFStore.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undFStore(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFStore.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFStore.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      var jsx$1;
+      if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undFStore(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var OP_FStore$1 = ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undFStore(x$1);
+      return (ScalaJS.anyRefEqEq(this.id__T(), OP_FStore$1.id__T()) && OP_FStore$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFStore.prototype.init___T = (function(id) {
+  this.id$2 = id;
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, ("fstore " + id));
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undFStore = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undFStore)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undFStore = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undFStore(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_FStore"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undFStore = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undFStore)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undFStore = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undFStore(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_FStore;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undFStore = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undFStore: 0
+}, false, "toolc.code.CodeGenerator$OP_FStore", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undFStore: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undFStore.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undFStore;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undGoto = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this);
+  this.label$2 = null
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undGoto.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undGoto.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undGoto;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undGoto = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undGoto.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undGoto.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undGoto.prototype.label__T = (function() {
+  return this.label$2
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undGoto.prototype.productPrefix__T = (function() {
+  return "OP_Goto"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undGoto.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undGoto.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.label__T();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undGoto.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undGoto.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undGoto(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undGoto.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undGoto.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      var jsx$1;
+      if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undGoto(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var OP_Goto$1 = ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undGoto(x$1);
+      return (ScalaJS.anyRefEqEq(this.label__T(), OP_Goto$1.label__T()) && OP_Goto$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undGoto.prototype.init___T = (function(label) {
+  this.label$2 = label;
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, ("goto " + label));
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undGoto = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undGoto)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undGoto = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undGoto(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_Goto"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undGoto = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undGoto)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undGoto = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undGoto(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_Goto;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undGoto = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undGoto: 0
+}, false, "toolc.code.CodeGenerator$OP_Goto", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undGoto: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undGoto.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undGoto;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undIntConst = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this);
+  this.const$2 = 0
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undIntConst.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undIntConst.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undIntConst;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undIntConst = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undIntConst.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undIntConst.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undIntConst.prototype.$const__I = (function() {
+  return this.const$2
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undIntConst.prototype.productPrefix__T = (function() {
+  return "OP_IntConst"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undIntConst.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undIntConst.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.$const__I();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undIntConst.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undIntConst.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undIntConst(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undIntConst.prototype.hashCode__I = (function() {
+  var acc = (-889275714);
+  acc = ScalaJS.m.sr_Statics().mix__I__I__I(acc, this.$const__I());
+  return ScalaJS.m.sr_Statics().finalizeHash__I__I__I(acc, 1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undIntConst.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      var jsx$1;
+      if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undIntConst(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var OP_IntConst$1 = ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undIntConst(x$1);
+      return ((this.$const__I() === OP_IntConst$1.$const__I()) && OP_IntConst$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undIntConst.prototype.init___I = (function(const$2) {
+  this.const$2 = const$2;
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, ("const " + const$2));
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undIntConst = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undIntConst)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undIntConst = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undIntConst(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_IntConst"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undIntConst = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undIntConst)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undIntConst = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undIntConst(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_IntConst;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undIntConst = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undIntConst: 0
+}, false, "toolc.code.CodeGenerator$OP_IntConst", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undIntConst: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undIntConst.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undIntConst;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undInvoke = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this);
+  this.id$2 = null
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undInvoke.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undInvoke.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undInvoke;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undInvoke = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undInvoke.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undInvoke.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undInvoke.prototype.id__T = (function() {
+  return this.id$2
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undInvoke.prototype.productPrefix__T = (function() {
+  return "OP_Invoke"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undInvoke.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undInvoke.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.id__T();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undInvoke.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undInvoke.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undInvoke(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undInvoke.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undInvoke.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      var jsx$1;
+      if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undInvoke(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var OP_Invoke$1 = ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undInvoke(x$1);
+      return (ScalaJS.anyRefEqEq(this.id__T(), OP_Invoke$1.id__T()) && OP_Invoke$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undInvoke.prototype.init___T = (function(id) {
+  this.id$2 = id;
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, ("invoke " + id));
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undInvoke = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undInvoke)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undInvoke = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undInvoke(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_Invoke"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undInvoke = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undInvoke)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undInvoke = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undInvoke(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_Invoke;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undInvoke = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undInvoke: 0
+}, false, "toolc.code.CodeGenerator$OP_Invoke", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undInvoke: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undInvoke.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undInvoke;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJnz = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this);
+  this.label$2 = null
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJnz.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJnz.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJnz;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undJnz = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undJnz.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJnz.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJnz.prototype.label__T = (function() {
+  return this.label$2
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJnz.prototype.productPrefix__T = (function() {
+  return "OP_Jnz"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJnz.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJnz.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.label__T();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJnz.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJnz.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undJnz(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJnz.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJnz.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      var jsx$1;
+      if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undJnz(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var OP_Jnz$1 = ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undJnz(x$1);
+      return (ScalaJS.anyRefEqEq(this.label__T(), OP_Jnz$1.label__T()) && OP_Jnz$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJnz.prototype.init___T = (function(label) {
+  this.label$2 = label;
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, ("jnz " + label));
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undJnz = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undJnz)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undJnz = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undJnz(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_Jnz"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undJnz = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undJnz)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undJnz = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undJnz(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_Jnz;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undJnz = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undJnz: 0
+}, false, "toolc.code.CodeGenerator$OP_Jnz", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undJnz: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJnz.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undJnz;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJz = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this);
+  this.label$2 = null
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJz.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJz.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJz;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undJz = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undJz.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJz.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJz.prototype.label__T = (function() {
+  return this.label$2
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJz.prototype.productPrefix__T = (function() {
+  return "OP_Jz"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJz.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJz.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.label__T();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJz.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJz.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undJz(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJz.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJz.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      var jsx$1;
+      if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undJz(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var OP_Jz$1 = ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undJz(x$1);
+      return (ScalaJS.anyRefEqEq(this.label__T(), OP_Jz$1.label__T()) && OP_Jz$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJz.prototype.init___T = (function(label) {
+  this.label$2 = label;
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, ("jz " + label));
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undJz = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undJz)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undJz = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undJz(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_Jz"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undJz = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undJz)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undJz = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undJz(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_Jz;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undJz = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undJz: 0
+}, false, "toolc.code.CodeGenerator$OP_Jz", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undJz: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undJz.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undJz;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLLoad = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this);
+  this.id$2 = null
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLLoad.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLLoad.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLLoad;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undLLoad = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undLLoad.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLLoad.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLLoad.prototype.id__T = (function() {
+  return this.id$2
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLLoad.prototype.productPrefix__T = (function() {
+  return "OP_LLoad"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLLoad.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLLoad.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.id__T();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLLoad.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLLoad.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLLoad(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLLoad.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLLoad.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      var jsx$1;
+      if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLLoad(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var OP_LLoad$1 = ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undLLoad(x$1);
+      return (ScalaJS.anyRefEqEq(this.id__T(), OP_LLoad$1.id__T()) && OP_LLoad$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLLoad.prototype.init___T = (function(id) {
+  this.id$2 = id;
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, ("lload " + id));
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLLoad = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undLLoad)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undLLoad = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLLoad(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_LLoad"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undLLoad = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undLLoad)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undLLoad = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undLLoad(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_LLoad;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undLLoad = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undLLoad: 0
+}, false, "toolc.code.CodeGenerator$OP_LLoad", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undLLoad: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLLoad.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undLLoad;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLStore = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this);
+  this.id$2 = null
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLStore.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLStore.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLStore;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undLStore = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undLStore.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLStore.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLStore.prototype.id__T = (function() {
+  return this.id$2
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLStore.prototype.productPrefix__T = (function() {
+  return "OP_LStore"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLStore.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLStore.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.id__T();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLStore.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLStore.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLStore(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLStore.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLStore.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      var jsx$1;
+      if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLStore(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var OP_LStore$1 = ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undLStore(x$1);
+      return (ScalaJS.anyRefEqEq(this.id__T(), OP_LStore$1.id__T()) && OP_LStore$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLStore.prototype.init___T = (function(id) {
+  this.id$2 = id;
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, ("lstore " + id));
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLStore = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undLStore)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undLStore = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLStore(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_LStore"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undLStore = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undLStore)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undLStore = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undLStore(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_LStore;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undLStore = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undLStore: 0
+}, false, "toolc.code.CodeGenerator$OP_LStore", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undLStore: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLStore.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undLStore;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this);
+  this.label$2 = null
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undLabel = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undLabel.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel.prototype.label__T = (function() {
+  return this.label$2
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel.prototype.productPrefix__T = (function() {
+  return "OP_Label"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.label__T();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLabel(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      var jsx$1;
+      if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLabel(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var OP_Label$1 = ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undLabel(x$1);
+      return (ScalaJS.anyRefEqEq(this.label__T(), OP_Label$1.label__T()) && OP_Label$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel.prototype.init___T = (function(label) {
+  this.label$2 = label;
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, ("label " + label));
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLabel = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undLabel)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undLabel = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLabel(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_Label"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undLabel = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undLabel)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undLabel = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undLabel(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_Label;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undLabel = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undLabel: 0
+}, false, "toolc.code.CodeGenerator$OP_Label", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undLabel: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLabel.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undLabel;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLength = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLength.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLength.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLength;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undLength = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undLength.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLength.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLength.prototype.productPrefix__T = (function() {
+  return "OP_Length"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLength.prototype.productArity__I = (function() {
+  return 0
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLength.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1))
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLength.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLength.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLength(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLength.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLength.prototype.equals__O__Z = (function(x$1) {
+  var x1 = x$1;
+  matchEnd4: {
+    var jsx$1;
+    if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLength(x1)) {
+      var jsx$1 = true;
+      break matchEnd4
+    };
+    var jsx$1 = false;
+    break matchEnd4
+  };
+  if (jsx$1) {
+    return ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undLength(x$1).canEqual__O__Z(this)
+  } else {
+    return false
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLength.prototype.init___ = (function() {
+  return (ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, "length"), ScalaJS.i.s_Product$class__$init$__s_Product__V(this), this)
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLength = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undLength)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undLength = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLength(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_Length"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undLength = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undLength)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undLength = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undLength(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_Length;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undLength = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undLength: 0
+}, false, "toolc.code.CodeGenerator$OP_Length", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undLength: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLength.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undLength;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLt = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLt.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLt.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLt;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undLt = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undLt.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLt.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLt.prototype.productPrefix__T = (function() {
+  return "OP_Lt"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLt.prototype.productArity__I = (function() {
+  return 0
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLt.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1))
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLt.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLt.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLt(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLt.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLt.prototype.equals__O__Z = (function(x$1) {
+  var x1 = x$1;
+  matchEnd4: {
+    var jsx$1;
+    if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLt(x1)) {
+      var jsx$1 = true;
+      break matchEnd4
+    };
+    var jsx$1 = false;
+    break matchEnd4
+  };
+  if (jsx$1) {
+    return ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undLt(x$1).canEqual__O__Z(this)
+  } else {
+    return false
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLt.prototype.init___ = (function() {
+  return (ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, "lt"), ScalaJS.i.s_Product$class__$init$__s_Product__V(this), this)
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLt = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undLt)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undLt = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undLt(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_Lt"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undLt = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undLt)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undLt = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undLt(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_Lt;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undLt = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undLt: 0
+}, false, "toolc.code.CodeGenerator$OP_Lt", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undLt: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undLt.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undLt;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undMul = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undMul.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undMul.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undMul;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undMul = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undMul.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undMul.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undMul.prototype.productPrefix__T = (function() {
+  return "OP_Mul"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undMul.prototype.productArity__I = (function() {
+  return 0
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undMul.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1))
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undMul.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undMul.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undMul(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undMul.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undMul.prototype.equals__O__Z = (function(x$1) {
+  var x1 = x$1;
+  matchEnd4: {
+    var jsx$1;
+    if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undMul(x1)) {
+      var jsx$1 = true;
+      break matchEnd4
+    };
+    var jsx$1 = false;
+    break matchEnd4
+  };
+  if (jsx$1) {
+    return ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undMul(x$1).canEqual__O__Z(this)
+  } else {
+    return false
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undMul.prototype.init___ = (function() {
+  return (ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, "mul"), ScalaJS.i.s_Product$class__$init$__s_Product__V(this), this)
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undMul = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undMul)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undMul = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undMul(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_Mul"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undMul = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undMul)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undMul = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undMul(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_Mul;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undMul = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undMul: 0
+}, false, "toolc.code.CodeGenerator$OP_Mul", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undMul: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undMul.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undMul;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNew = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this);
+  this.className$2 = null
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNew.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNew.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNew;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undNew = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undNew.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNew.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNew.prototype.className__T = (function() {
+  return this.className$2
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNew.prototype.productPrefix__T = (function() {
+  return "OP_New"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNew.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNew.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.className__T();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNew.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNew.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undNew(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNew.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNew.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      var jsx$1;
+      if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undNew(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var OP_New$1 = ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undNew(x$1);
+      return (ScalaJS.anyRefEqEq(this.className__T(), OP_New$1.className__T()) && OP_New$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNew.prototype.init___T = (function(className) {
+  this.className$2 = className;
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, ("new " + className));
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undNew = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undNew)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undNew = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undNew(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_New"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undNew = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undNew)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undNew = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undNew(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_New;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undNew = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undNew: 0
+}, false, "toolc.code.CodeGenerator$OP_New", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undNew: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNew.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undNew;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNot = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNot.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNot.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNot;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undNot = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undNot.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNot.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNot.prototype.productPrefix__T = (function() {
+  return "OP_Not"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNot.prototype.productArity__I = (function() {
+  return 0
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNot.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1))
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNot.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNot.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undNot(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNot.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNot.prototype.equals__O__Z = (function(x$1) {
+  var x1 = x$1;
+  matchEnd4: {
+    var jsx$1;
+    if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undNot(x1)) {
+      var jsx$1 = true;
+      break matchEnd4
+    };
+    var jsx$1 = false;
+    break matchEnd4
+  };
+  if (jsx$1) {
+    return ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undNot(x$1).canEqual__O__Z(this)
+  } else {
+    return false
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNot.prototype.init___ = (function() {
+  return (ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, "not"), ScalaJS.i.s_Product$class__$init$__s_Product__V(this), this)
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undNot = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undNot)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undNot = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undNot(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_Not"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undNot = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undNot)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undNot = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undNot(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_Not;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undNot = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undNot: 0
+}, false, "toolc.code.CodeGenerator$OP_Not", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undNot: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undNot.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undNot;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPop = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPop.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPop.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPop;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undPop = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undPop.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPop.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPop.prototype.productPrefix__T = (function() {
+  return "OP_Pop"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPop.prototype.productArity__I = (function() {
+  return 0
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPop.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1))
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPop.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPop.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undPop(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPop.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPop.prototype.equals__O__Z = (function(x$1) {
+  var x1 = x$1;
+  matchEnd4: {
+    var jsx$1;
+    if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undPop(x1)) {
+      var jsx$1 = true;
+      break matchEnd4
+    };
+    var jsx$1 = false;
+    break matchEnd4
+  };
+  if (jsx$1) {
+    return ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undPop(x$1).canEqual__O__Z(this)
+  } else {
+    return false
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPop.prototype.init___ = (function() {
+  return (ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, "pop"), ScalaJS.i.s_Product$class__$init$__s_Product__V(this), this)
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undPop = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undPop)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undPop = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undPop(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_Pop"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undPop = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undPop)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undPop = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undPop(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_Pop;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undPop = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undPop: 0
+}, false, "toolc.code.CodeGenerator$OP_Pop", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undPop: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPop.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undPop;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPrint = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPrint.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPrint.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPrint;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undPrint = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undPrint.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPrint.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPrint.prototype.productPrefix__T = (function() {
+  return "OP_Print"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPrint.prototype.productArity__I = (function() {
+  return 0
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPrint.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1))
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPrint.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPrint.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undPrint(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPrint.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPrint.prototype.equals__O__Z = (function(x$1) {
+  var x1 = x$1;
+  matchEnd4: {
+    var jsx$1;
+    if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undPrint(x1)) {
+      var jsx$1 = true;
+      break matchEnd4
+    };
+    var jsx$1 = false;
+    break matchEnd4
+  };
+  if (jsx$1) {
+    return ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undPrint(x$1).canEqual__O__Z(this)
+  } else {
+    return false
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPrint.prototype.init___ = (function() {
+  return (ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, "println"), ScalaJS.i.s_Product$class__$init$__s_Product__V(this), this)
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undPrint = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undPrint)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undPrint = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undPrint(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_Print"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undPrint = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undPrint)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undPrint = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undPrint(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_Print;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undPrint = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undPrint: 0
+}, false, "toolc.code.CodeGenerator$OP_Print", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undPrint: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undPrint.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undPrint;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undRet = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undRet.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undRet.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undRet;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undRet = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undRet.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undRet.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undRet.prototype.productPrefix__T = (function() {
+  return "OP_Ret"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undRet.prototype.productArity__I = (function() {
+  return 0
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undRet.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1))
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undRet.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undRet.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undRet(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undRet.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undRet.prototype.equals__O__Z = (function(x$1) {
+  var x1 = x$1;
+  matchEnd4: {
+    var jsx$1;
+    if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undRet(x1)) {
+      var jsx$1 = true;
+      break matchEnd4
+    };
+    var jsx$1 = false;
+    break matchEnd4
+  };
+  if (jsx$1) {
+    return ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undRet(x$1).canEqual__O__Z(this)
+  } else {
+    return false
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undRet.prototype.init___ = (function() {
+  return (ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, "ret"), ScalaJS.i.s_Product$class__$init$__s_Product__V(this), this)
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undRet = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undRet)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undRet = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undRet(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_Ret"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undRet = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undRet)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undRet = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undRet(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_Ret;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undRet = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undRet: 0
+}, false, "toolc.code.CodeGenerator$OP_Ret", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undRet: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undRet.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undRet;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStat = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this);
+  this.line$2 = 0
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStat.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStat.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStat;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undStat = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undStat.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStat.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStat.prototype.line__I = (function() {
+  return this.line$2
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStat.prototype.productPrefix__T = (function() {
+  return "OP_Stat"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStat.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStat.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.line__I();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStat.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStat.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undStat(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStat.prototype.hashCode__I = (function() {
+  var acc = (-889275714);
+  acc = ScalaJS.m.sr_Statics().mix__I__I__I(acc, this.line__I());
+  return ScalaJS.m.sr_Statics().finalizeHash__I__I__I(acc, 1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStat.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      var jsx$1;
+      if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undStat(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var OP_Stat$1 = ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undStat(x$1);
+      return ((this.line__I() === OP_Stat$1.line__I()) && OP_Stat$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStat.prototype.init___I = (function(line) {
+  this.line$2 = line;
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, ("stat " + line));
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undStat = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undStat)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undStat = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undStat(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_Stat"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undStat = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undStat)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undStat = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undStat(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_Stat;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undStat = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undStat: 0
+}, false, "toolc.code.CodeGenerator$OP_Stat", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undStat: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStat.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undStat;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStrConst = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this);
+  this.const$2 = null
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStrConst.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStrConst.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStrConst;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undStrConst = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undStrConst.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStrConst.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStrConst.prototype.$const__T = (function() {
+  return this.const$2
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStrConst.prototype.productPrefix__T = (function() {
+  return "OP_StrConst"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStrConst.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStrConst.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.$const__T();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStrConst.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStrConst.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undStrConst(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStrConst.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStrConst.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      var jsx$1;
+      if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undStrConst(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var OP_StrConst$1 = ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undStrConst(x$1);
+      return (ScalaJS.anyRefEqEq(this.$const__T(), OP_StrConst$1.$const__T()) && OP_StrConst$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStrConst.prototype.init___T = (function(const$2) {
+  this.const$2 = const$2;
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, (("const \"" + ScalaJS.m.Ltoolc_code_CodeGenerator().toolc$code$CodeGenerator$$escape__T__T(const$2)) + "\""));
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undStrConst = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undStrConst)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undStrConst = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undStrConst(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_StrConst"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undStrConst = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undStrConst)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undStrConst = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undStrConst(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_StrConst;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undStrConst = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undStrConst: 0
+}, false, "toolc.code.CodeGenerator$OP_StrConst", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undStrConst: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undStrConst.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undStrConst;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undSub = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undSub.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undSub.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undSub;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undSub = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undSub.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undSub.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undSub.prototype.productPrefix__T = (function() {
+  return "OP_Sub"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undSub.prototype.productArity__I = (function() {
+  return 0
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undSub.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1))
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undSub.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undSub.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undSub(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undSub.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undSub.prototype.equals__O__Z = (function(x$1) {
+  var x1 = x$1;
+  matchEnd4: {
+    var jsx$1;
+    if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undSub(x1)) {
+      var jsx$1 = true;
+      break matchEnd4
+    };
+    var jsx$1 = false;
+    break matchEnd4
+  };
+  if (jsx$1) {
+    return ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undSub(x$1).canEqual__O__Z(this)
+  } else {
+    return false
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undSub.prototype.init___ = (function() {
+  return (ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, "sub"), ScalaJS.i.s_Product$class__$init$__s_Product__V(this), this)
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undSub = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undSub)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undSub = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undSub(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_Sub"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undSub = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undSub)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undSub = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undSub(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_Sub;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undSub = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undSub: 0
+}, false, "toolc.code.CodeGenerator$OP_Sub", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undSub: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undSub.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undSub;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undThis = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.call(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undThis.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Opcode();
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undThis.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undThis;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undThis = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$OP$undThis.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undThis.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undThis.prototype.productPrefix__T = (function() {
+  return "OP_This"
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undThis.prototype.productArity__I = (function() {
+  return 0
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undThis.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1))
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undThis.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undThis.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undThis(x$1)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undThis.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undThis.prototype.equals__O__Z = (function(x$1) {
+  var x1 = x$1;
+  matchEnd4: {
+    var jsx$1;
+    if (ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undThis(x1)) {
+      var jsx$1 = true;
+      break matchEnd4
+    };
+    var jsx$1 = false;
+    break matchEnd4
+  };
+  if (jsx$1) {
+    return ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undThis(x$1).canEqual__O__Z(this)
+  } else {
+    return false
+  }
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undThis.prototype.init___ = (function() {
+  return (ScalaJS.c.Ltoolc_code_CodeGenerator$Opcode.prototype.init___T.call(this, "this"), ScalaJS.i.s_Product$class__$init$__s_Product__V(this), this)
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undThis = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$OP$undThis)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$OP$undThis = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$OP$undThis(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$OP_This"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undThis = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$OP$undThis)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$OP$undThis = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$OP$undThis(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$OP_This;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undThis = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$OP$undThis: 0
+}, false, "toolc.code.CodeGenerator$OP_This", ScalaJS.d.Ltoolc_code_CodeGenerator$Opcode, {
+  Ltoolc_code_CodeGenerator$OP$undThis: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ltoolc_code_CodeGenerator$Opcode: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$OP$undThis.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$OP$undThis;
+/** @constructor */
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen$Main$ = (function() {
+  ScalaJS.c.Ltoolc_code_CodeGenerator$Method.call(this)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen$Main$.prototype = new ScalaJS.h.Ltoolc_code_CodeGenerator$Method();
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen$Main$.prototype.constructor = ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen$Main$;
+/** @constructor */
+ScalaJS.h.Ltoolc_code_CodeGenerator$ProgramGen$Main$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Ltoolc_code_CodeGenerator$ProgramGen$Main$.prototype = ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen$Main$.prototype;
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen$Main$.prototype.addParam__T2__sr_Nothing$ = (function(param) {
+  throw new ScalaJS.c.jl_UnsupportedOperationException().init___T("Cannot add params on main method")
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen$Main$.prototype.addLocal__T2__sr_Nothing$ = (function(local) {
+  throw new ScalaJS.c.jl_UnsupportedOperationException().init___T("Cannot add locals on main method")
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen$Main$.prototype.addLocal__T2__Ltoolc_code_CodeGenerator$Method = (function(local) {
+  this.addLocal__T2__sr_Nothing$(local)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen$Main$.prototype.addParam__T2__Ltoolc_code_CodeGenerator$Method = (function(param) {
+  this.addParam__T2__sr_Nothing$(param)
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen$Main$.prototype.init___Ltoolc_code_CodeGenerator$ProgramGen = (function($$outer) {
+  return (ScalaJS.c.Ltoolc_code_CodeGenerator$Method.prototype.init___T.call(this, "main"), this)
+});
+ScalaJS.is.Ltoolc_code_CodeGenerator$ProgramGen$Main$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_code_CodeGenerator$ProgramGen$Main$)))
+});
+ScalaJS.as.Ltoolc_code_CodeGenerator$ProgramGen$Main$ = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_code_CodeGenerator$ProgramGen$Main$(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.code.CodeGenerator$ProgramGen$Main$"))
+});
+ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$ProgramGen$Main$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_code_CodeGenerator$ProgramGen$Main$)))
+});
+ScalaJS.asArrayOf.Ltoolc_code_CodeGenerator$ProgramGen$Main$ = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_code_CodeGenerator$ProgramGen$Main$(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.code.CodeGenerator$ProgramGen$Main$;", depth))
+});
+ScalaJS.d.Ltoolc_code_CodeGenerator$ProgramGen$Main$ = new ScalaJS.ClassTypeData({
+  Ltoolc_code_CodeGenerator$ProgramGen$Main$: 0
+}, false, "toolc.code.CodeGenerator$ProgramGen$Main$", ScalaJS.d.Ltoolc_code_CodeGenerator$Method, {
+  Ltoolc_code_CodeGenerator$ProgramGen$Main$: 1,
+  Ltoolc_code_CodeGenerator$Method: 1,
+  O: 1
+});
+ScalaJS.c.Ltoolc_code_CodeGenerator$ProgramGen$Main$.prototype.$classData = ScalaJS.d.Ltoolc_code_CodeGenerator$ProgramGen$Main$;
 /** @constructor */
 ScalaJS.c.Ltoolc_lexer_Lexer$ = (function() {
   ScalaJS.c.Ltoolc_utils_Pipeline.call(this)
@@ -30199,7 +33017,7 @@ ScalaJS.c.Ltoolc_lexer_Lexer$.prototype.toolc$lexer$Lexer$$readNextToken$1__Ltoo
       return ScalaJS.as.Ltoolc_lexer_Token(new ScalaJS.c.Ltoolc_lexer_Tokens$INTLIT().init___I(value).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))
     } else if ((c === 48)) {
       if ((charIterator$1.hasNext__Z() && _$this.toolc$lexer$Lexer$$isDigit$1__C__Z(ScalaJS.uC(charIterator$1.seeNext__O())))) {
-        ctx$1.reporter__Ltoolc_utils_Reporter().fatal__O__Ltoolc_utils_Positioned__sr_Nothing$("No leading zeros allowed", ctx$1.reporter__Ltoolc_utils_Reporter().fatal$default$2__Ltoolc_utils_Positioned());
+        ctx$1.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V("No leading zeros allowed", ctx$1.reporter__Ltoolc_utils_Reporter().error$default$2__Ltoolc_utils_Positioned());
         return ScalaJS.as.Ltoolc_lexer_Token(new ScalaJS.c.Ltoolc_lexer_Token().init___Ltoolc_lexer_TokenKind(ScalaJS.m.Ltoolc_lexer_Tokens$BAD()).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))
       } else {
         return ScalaJS.as.Ltoolc_lexer_Token(new ScalaJS.c.Ltoolc_lexer_Tokens$INTLIT().init___I(0).setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(pos))
@@ -30733,40 +33551,6 @@ ScalaJS.d.jl_Integer = new ScalaJS.ClassTypeData({
 }, (function(x) {
   return ScalaJS.isInt(x)
 }));
-/** @constructor */
-ScalaJS.c.jl_JSConsoleBasedPrintStream$DummyOutputStream = (function() {
-  ScalaJS.c.Ljava_io_OutputStream.call(this)
-});
-ScalaJS.c.jl_JSConsoleBasedPrintStream$DummyOutputStream.prototype = new ScalaJS.h.Ljava_io_OutputStream();
-ScalaJS.c.jl_JSConsoleBasedPrintStream$DummyOutputStream.prototype.constructor = ScalaJS.c.jl_JSConsoleBasedPrintStream$DummyOutputStream;
-/** @constructor */
-ScalaJS.h.jl_JSConsoleBasedPrintStream$DummyOutputStream = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.jl_JSConsoleBasedPrintStream$DummyOutputStream.prototype = ScalaJS.c.jl_JSConsoleBasedPrintStream$DummyOutputStream.prototype;
-ScalaJS.is.jl_JSConsoleBasedPrintStream$DummyOutputStream = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.jl_JSConsoleBasedPrintStream$DummyOutputStream)))
-});
-ScalaJS.as.jl_JSConsoleBasedPrintStream$DummyOutputStream = (function(obj) {
-  return ((ScalaJS.is.jl_JSConsoleBasedPrintStream$DummyOutputStream(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "java.lang.JSConsoleBasedPrintStream$DummyOutputStream"))
-});
-ScalaJS.isArrayOf.jl_JSConsoleBasedPrintStream$DummyOutputStream = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.jl_JSConsoleBasedPrintStream$DummyOutputStream)))
-});
-ScalaJS.asArrayOf.jl_JSConsoleBasedPrintStream$DummyOutputStream = (function(obj, depth) {
-  return ((ScalaJS.isArrayOf.jl_JSConsoleBasedPrintStream$DummyOutputStream(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ljava.lang.JSConsoleBasedPrintStream$DummyOutputStream;", depth))
-});
-ScalaJS.d.jl_JSConsoleBasedPrintStream$DummyOutputStream = new ScalaJS.ClassTypeData({
-  jl_JSConsoleBasedPrintStream$DummyOutputStream: 0
-}, false, "java.lang.JSConsoleBasedPrintStream$DummyOutputStream", ScalaJS.d.Ljava_io_OutputStream, {
-  jl_JSConsoleBasedPrintStream$DummyOutputStream: 1,
-  Ljava_io_OutputStream: 1,
-  Ljava_io_Flushable: 1,
-  Ljava_io_Closeable: 1,
-  jl_AutoCloseable: 1,
-  O: 1
-});
-ScalaJS.c.jl_JSConsoleBasedPrintStream$DummyOutputStream.prototype.$classData = ScalaJS.d.jl_JSConsoleBasedPrintStream$DummyOutputStream;
 ScalaJS.isArrayOf.jl_Long = (function(obj, depth) {
   return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.jl_Long)))
 });
@@ -30799,6 +33583,94 @@ ScalaJS.d.jl_Short = new ScalaJS.ClassTypeData({
 }, (function(x) {
   return ScalaJS.isShort(x)
 }));
+/** @constructor */
+ScalaJS.c.jl_StandardErr$ = (function() {
+  ScalaJS.c.Ljava_io_OutputStream.call(this)
+});
+ScalaJS.c.jl_StandardErr$.prototype = new ScalaJS.h.Ljava_io_OutputStream();
+ScalaJS.c.jl_StandardErr$.prototype.constructor = ScalaJS.c.jl_StandardErr$;
+/** @constructor */
+ScalaJS.h.jl_StandardErr$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.jl_StandardErr$.prototype = ScalaJS.c.jl_StandardErr$.prototype;
+ScalaJS.c.jl_StandardErr$.prototype.write__I__V = (function(b) {
+  ScalaJS.m.jl_StandardErrPrintStream().print__T__V(ScalaJS.objectToString(ScalaJS.bC((b & 65535))))
+});
+ScalaJS.is.jl_StandardErr$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.jl_StandardErr$)))
+});
+ScalaJS.as.jl_StandardErr$ = (function(obj) {
+  return ((ScalaJS.is.jl_StandardErr$(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "java.lang.StandardErr$"))
+});
+ScalaJS.isArrayOf.jl_StandardErr$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.jl_StandardErr$)))
+});
+ScalaJS.asArrayOf.jl_StandardErr$ = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.jl_StandardErr$(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ljava.lang.StandardErr$;", depth))
+});
+ScalaJS.d.jl_StandardErr$ = new ScalaJS.ClassTypeData({
+  jl_StandardErr$: 0
+}, false, "java.lang.StandardErr$", ScalaJS.d.Ljava_io_OutputStream, {
+  jl_StandardErr$: 1,
+  Ljava_io_OutputStream: 1,
+  Ljava_io_Flushable: 1,
+  Ljava_io_Closeable: 1,
+  jl_AutoCloseable: 1,
+  O: 1
+});
+ScalaJS.c.jl_StandardErr$.prototype.$classData = ScalaJS.d.jl_StandardErr$;
+ScalaJS.n.jl_StandardErr = (void 0);
+ScalaJS.m.jl_StandardErr = (function() {
+  if ((!ScalaJS.n.jl_StandardErr)) {
+    ScalaJS.n.jl_StandardErr = new ScalaJS.c.jl_StandardErr$().init___()
+  };
+  return ScalaJS.n.jl_StandardErr
+});
+/** @constructor */
+ScalaJS.c.jl_StandardOut$ = (function() {
+  ScalaJS.c.Ljava_io_OutputStream.call(this)
+});
+ScalaJS.c.jl_StandardOut$.prototype = new ScalaJS.h.Ljava_io_OutputStream();
+ScalaJS.c.jl_StandardOut$.prototype.constructor = ScalaJS.c.jl_StandardOut$;
+/** @constructor */
+ScalaJS.h.jl_StandardOut$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.jl_StandardOut$.prototype = ScalaJS.c.jl_StandardOut$.prototype;
+ScalaJS.c.jl_StandardOut$.prototype.write__I__V = (function(b) {
+  ScalaJS.m.jl_StandardOutPrintStream().print__T__V(ScalaJS.objectToString(ScalaJS.bC((b & 65535))))
+});
+ScalaJS.is.jl_StandardOut$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.jl_StandardOut$)))
+});
+ScalaJS.as.jl_StandardOut$ = (function(obj) {
+  return ((ScalaJS.is.jl_StandardOut$(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "java.lang.StandardOut$"))
+});
+ScalaJS.isArrayOf.jl_StandardOut$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.jl_StandardOut$)))
+});
+ScalaJS.asArrayOf.jl_StandardOut$ = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.jl_StandardOut$(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ljava.lang.StandardOut$;", depth))
+});
+ScalaJS.d.jl_StandardOut$ = new ScalaJS.ClassTypeData({
+  jl_StandardOut$: 0
+}, false, "java.lang.StandardOut$", ScalaJS.d.Ljava_io_OutputStream, {
+  jl_StandardOut$: 1,
+  Ljava_io_OutputStream: 1,
+  Ljava_io_Flushable: 1,
+  Ljava_io_Closeable: 1,
+  jl_AutoCloseable: 1,
+  O: 1
+});
+ScalaJS.c.jl_StandardOut$.prototype.$classData = ScalaJS.d.jl_StandardOut$;
+ScalaJS.n.jl_StandardOut = (void 0);
+ScalaJS.m.jl_StandardOut = (function() {
+  if ((!ScalaJS.n.jl_StandardOut)) {
+    ScalaJS.n.jl_StandardOut = new ScalaJS.c.jl_StandardOut$().init___()
+  };
+  return ScalaJS.n.jl_StandardOut
+});
 /** @constructor */
 ScalaJS.c.s_Array$ = (function() {
   ScalaJS.c.s_FallbackArrayBuilding.call(this);
@@ -31066,6 +33938,9 @@ ScalaJS.c.s_Predef$.prototype.Map__sci_Map$ = (function() {
 ScalaJS.c.s_Predef$.prototype.implicitly__O__O = (function(e) {
   return e
 });
+ScalaJS.c.s_Predef$.prototype.error__T__sr_Nothing$ = (function(message) {
+  ScalaJS.m.s_sys_package().error__T__sr_Nothing$(message)
+});
 ScalaJS.c.s_Predef$.prototype.assert__Z__V = (function(assertion) {
   if ((!assertion)) {
     throw new ScalaJS.c.jl_AssertionError().init___O("assertion failed")
@@ -31080,6 +33955,9 @@ ScalaJS.c.s_Predef$.prototype.require__Z__F0__V = (function(requirement, message
   if ((!requirement)) {
     throw new ScalaJS.c.jl_IllegalArgumentException().init___T(("requirement failed: " + message.apply__O()))
   }
+});
+ScalaJS.c.s_Predef$.prototype.$$qmark$qmark$qmark__sr_Nothing$ = (function() {
+  throw new ScalaJS.c.s_NotImplementedError().init___()
 });
 ScalaJS.c.s_Predef$.prototype.ArrowAssoc__O__O = (function(self) {
   return self
@@ -32504,9 +35382,6 @@ ScalaJS.c.sc_IndexedSeqLike$Elements.prototype.index__p2__I = (function() {
 ScalaJS.c.sc_IndexedSeqLike$Elements.prototype.index$und$eq__p2__I__V = (function(x$1) {
   this.index$2 = x$1
 });
-ScalaJS.c.sc_IndexedSeqLike$Elements.prototype.available__p2__I = (function() {
-  return ScalaJS.m.sr_RichInt().max$extension__I__I__I(ScalaJS.m.s_Predef().intWrapper__I__I(((this.end$2 - this.index__p2__I()) | 0)), 0)
-});
 ScalaJS.c.sc_IndexedSeqLike$Elements.prototype.hasNext__Z = (function() {
   return (this.index__p2__I() < this.end$2)
 });
@@ -32519,15 +35394,6 @@ ScalaJS.c.sc_IndexedSeqLike$Elements.prototype.next__O = (function() {
   var x = this.scala$collection$IndexedSeqLike$Elements$$$outer__sc_IndexedSeqLike().apply__I__O(this.index__p2__I());
   this.index$und$eq__p2__I__V(((this.index__p2__I() + 1) | 0));
   return x
-});
-ScalaJS.c.sc_IndexedSeqLike$Elements.prototype.drop__I__sc_Iterator = (function(n) {
-  return ((n <= 0) ? new ScalaJS.c.sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(this.scala$collection$IndexedSeqLike$Elements$$$outer__sc_IndexedSeqLike(), this.index__p2__I(), this.end$2) : ((((this.index__p2__I() + n) | 0) >= this.end$2) ? new ScalaJS.c.sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(this.scala$collection$IndexedSeqLike$Elements$$$outer__sc_IndexedSeqLike(), this.end$2, this.end$2) : new ScalaJS.c.sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(this.scala$collection$IndexedSeqLike$Elements$$$outer__sc_IndexedSeqLike(), ((this.index__p2__I() + n) | 0), this.end$2)))
-});
-ScalaJS.c.sc_IndexedSeqLike$Elements.prototype.take__I__sc_Iterator = (function(n) {
-  return ((n <= 0) ? ScalaJS.m.sc_Iterator().empty__sc_Iterator() : ((n <= this.available__p2__I()) ? new ScalaJS.c.sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(this.scala$collection$IndexedSeqLike$Elements$$$outer__sc_IndexedSeqLike(), this.index__p2__I(), ((this.index__p2__I() + n) | 0)) : new ScalaJS.c.sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(this.scala$collection$IndexedSeqLike$Elements$$$outer__sc_IndexedSeqLike(), this.index__p2__I(), this.end$2)))
-});
-ScalaJS.c.sc_IndexedSeqLike$Elements.prototype.slice__I__I__sc_Iterator = (function(from, until) {
-  return this.take__I__sc_Iterator(until).drop__I__sc_Iterator(from)
 });
 ScalaJS.c.sc_IndexedSeqLike$Elements.prototype.scala$collection$IndexedSeqLike$Elements$$$outer__sc_IndexedSeqLike = (function() {
   return this.$$outer$f
@@ -32634,64 +35500,6 @@ ScalaJS.d.sc_Iterator$$anon$1 = new ScalaJS.ClassTypeData({
   O: 1
 });
 ScalaJS.c.sc_Iterator$$anon$1.prototype.$classData = ScalaJS.d.sc_Iterator$$anon$1;
-/** @constructor */
-ScalaJS.c.sc_Iterator$$anon$10 = (function() {
-  ScalaJS.c.sc_AbstractIterator.call(this);
-  this.remaining$2 = 0;
-  this.$$outer$2 = null
-});
-ScalaJS.c.sc_Iterator$$anon$10.prototype = new ScalaJS.h.sc_AbstractIterator();
-ScalaJS.c.sc_Iterator$$anon$10.prototype.constructor = ScalaJS.c.sc_Iterator$$anon$10;
-/** @constructor */
-ScalaJS.h.sc_Iterator$$anon$10 = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.sc_Iterator$$anon$10.prototype = ScalaJS.c.sc_Iterator$$anon$10.prototype;
-ScalaJS.c.sc_Iterator$$anon$10.prototype.remaining__p2__I = (function() {
-  return this.remaining$2
-});
-ScalaJS.c.sc_Iterator$$anon$10.prototype.remaining$und$eq__p2__I__V = (function(x$1) {
-  this.remaining$2 = x$1
-});
-ScalaJS.c.sc_Iterator$$anon$10.prototype.hasNext__Z = (function() {
-  return ((this.remaining__p2__I() > 0) && this.$$outer$2.hasNext__Z())
-});
-ScalaJS.c.sc_Iterator$$anon$10.prototype.next__O = (function() {
-  return ((this.remaining__p2__I() > 0) ? (this.remaining$und$eq__p2__I__V(((this.remaining__p2__I() - 1) | 0)), this.$$outer$2.next__O()) : ScalaJS.m.sc_Iterator().empty__sc_Iterator().next__O())
-});
-ScalaJS.c.sc_Iterator$$anon$10.prototype.init___sc_Iterator__I__I = (function($$outer, lo$1, until$1) {
-  if (($$outer === null)) {
-    throw ScalaJS.unwrapJavaScriptException(null)
-  } else {
-    this.$$outer$2 = $$outer
-  };
-  ScalaJS.c.sc_AbstractIterator.prototype.init___.call(this);
-  this.remaining$2 = ((until$1 - lo$1) | 0);
-  return this
-});
-ScalaJS.is.sc_Iterator$$anon$10 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.sc_Iterator$$anon$10)))
-});
-ScalaJS.as.sc_Iterator$$anon$10 = (function(obj) {
-  return ((ScalaJS.is.sc_Iterator$$anon$10(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "scala.collection.Iterator$$anon$10"))
-});
-ScalaJS.isArrayOf.sc_Iterator$$anon$10 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.sc_Iterator$$anon$10)))
-});
-ScalaJS.asArrayOf.sc_Iterator$$anon$10 = (function(obj, depth) {
-  return ((ScalaJS.isArrayOf.sc_Iterator$$anon$10(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Lscala.collection.Iterator$$anon$10;", depth))
-});
-ScalaJS.d.sc_Iterator$$anon$10 = new ScalaJS.ClassTypeData({
-  sc_Iterator$$anon$10: 0
-}, false, "scala.collection.Iterator$$anon$10", ScalaJS.d.sc_AbstractIterator, {
-  sc_Iterator$$anon$10: 1,
-  sc_AbstractIterator: 1,
-  sc_Iterator: 1,
-  sc_TraversableOnce: 1,
-  sc_GenTraversableOnce: 1,
-  O: 1
-});
-ScalaJS.c.sc_Iterator$$anon$10.prototype.$classData = ScalaJS.d.sc_Iterator$$anon$10;
 /** @constructor */
 ScalaJS.c.sc_Iterator$$anon$11 = (function() {
   ScalaJS.c.sc_AbstractIterator.call(this);
@@ -35428,11 +38236,27 @@ ScalaJS.h.Ljava_io_PrintStream = (function() {
   /*<skip>*/
 });
 ScalaJS.h.Ljava_io_PrintStream.prototype = ScalaJS.c.Ljava_io_PrintStream.prototype;
+ScalaJS.c.Ljava_io_PrintStream.prototype.write__I__V = (function(b) {
+  ScalaJS.c.Ljava_io_FilterOutputStream.prototype.out__Ljava_io_OutputStream.call(this).write__I__V(b);
+  if ((this.autoFlush$3 && (b === 10))) {
+    this.flush__V()
+  }
+});
 ScalaJS.c.Ljava_io_PrintStream.prototype.append__C__Ljava_io_PrintStream = (function(c) {
   return this
 });
 ScalaJS.c.Ljava_io_PrintStream.prototype.append__jl_CharSequence__Ljava_io_PrintStream = (function(csq) {
   return this
+});
+ScalaJS.c.Ljava_io_PrintStream.prototype.print__O__V = (function(o) {
+  if ((o === null)) {
+    this.print__T__V("null")
+  } else {
+    this.print__T__V(ScalaJS.objectToString(o))
+  }
+});
+ScalaJS.c.Ljava_io_PrintStream.prototype.println__V = (function() {
+  this.write__I__V(10)
 });
 ScalaJS.c.Ljava_io_PrintStream.prototype.println__T__V = (function(x) {
   this.print__T__V(x);
@@ -35454,8 +38278,8 @@ ScalaJS.c.Ljava_io_PrintStream.prototype.init___Ljava_io_OutputStream__Z__T = (f
   this.hasError$3 = false;
   return this
 });
-ScalaJS.c.Ljava_io_PrintStream.prototype.init___Ljava_io_OutputStream = (function(out) {
-  return (ScalaJS.c.Ljava_io_PrintStream.prototype.init___Ljava_io_OutputStream__Z__T.call(this, out, false, ""), this)
+ScalaJS.c.Ljava_io_PrintStream.prototype.init___Ljava_io_OutputStream__Z = (function(out, autoFlush) {
+  return (ScalaJS.c.Ljava_io_PrintStream.prototype.init___Ljava_io_OutputStream__Z__T.call(this, out, autoFlush, ""), this)
 });
 ScalaJS.is.Ljava_io_PrintStream = (function(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ljava_io_PrintStream)))
@@ -35875,6 +38699,42 @@ ScalaJS.d.jl_RuntimeException = new ScalaJS.ClassTypeData({
 });
 ScalaJS.c.jl_RuntimeException.prototype.$classData = ScalaJS.d.jl_RuntimeException;
 /** @constructor */
+ScalaJS.c.s_NotImplementedError = (function() {
+  ScalaJS.c.jl_Error.call(this)
+});
+ScalaJS.c.s_NotImplementedError.prototype = new ScalaJS.h.jl_Error();
+ScalaJS.c.s_NotImplementedError.prototype.constructor = ScalaJS.c.s_NotImplementedError;
+/** @constructor */
+ScalaJS.h.s_NotImplementedError = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.s_NotImplementedError.prototype = ScalaJS.c.s_NotImplementedError.prototype;
+ScalaJS.c.s_NotImplementedError.prototype.init___ = (function() {
+  return (ScalaJS.c.s_NotImplementedError.prototype.init___T.call(this, "an implementation is missing"), this)
+});
+ScalaJS.is.s_NotImplementedError = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.s_NotImplementedError)))
+});
+ScalaJS.as.s_NotImplementedError = (function(obj) {
+  return ((ScalaJS.is.s_NotImplementedError(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "scala.NotImplementedError"))
+});
+ScalaJS.isArrayOf.s_NotImplementedError = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.s_NotImplementedError)))
+});
+ScalaJS.asArrayOf.s_NotImplementedError = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.s_NotImplementedError(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Lscala.NotImplementedError;", depth))
+});
+ScalaJS.d.s_NotImplementedError = new ScalaJS.ClassTypeData({
+  s_NotImplementedError: 0
+}, false, "scala.NotImplementedError", ScalaJS.d.jl_Error, {
+  s_NotImplementedError: 1,
+  jl_Error: 1,
+  jl_Throwable: 1,
+  Ljava_io_Serializable: 1,
+  O: 1
+});
+ScalaJS.c.s_NotImplementedError.prototype.$classData = ScalaJS.d.s_NotImplementedError;
+/** @constructor */
 ScalaJS.c.s_reflect_ManifestFactory$$anon$1 = (function() {
   ScalaJS.c.s_reflect_ManifestFactory$PhantomManifest.call(this)
 });
@@ -36293,9 +39153,6 @@ ScalaJS.c.sc_AbstractSeq.prototype.isEmpty__Z = (function() {
 ScalaJS.c.sc_AbstractSeq.prototype.size__I = (function() {
   return ScalaJS.i.sc_SeqLike$class__size__sc_SeqLike__I(this)
 });
-ScalaJS.c.sc_AbstractSeq.prototype.indexWhere__F1__I__I = (function(p, from) {
-  return ScalaJS.i.sc_SeqLike$class__indexWhere__sc_SeqLike__F1__I__I(this, p, from)
-});
 ScalaJS.c.sc_AbstractSeq.prototype.reverse__O = (function() {
   return ScalaJS.i.sc_SeqLike$class__reverse__sc_SeqLike__O(this)
 });
@@ -36307,9 +39164,6 @@ ScalaJS.c.sc_AbstractSeq.prototype.$$colon$plus__O__scg_CanBuildFrom__O = (funct
 });
 ScalaJS.c.sc_AbstractSeq.prototype.toString__T = (function() {
   return ScalaJS.i.sc_SeqLike$class__toString__sc_SeqLike__T(this)
-});
-ScalaJS.c.sc_AbstractSeq.prototype.indexWhere__F1__I = (function(p) {
-  return ScalaJS.i.sc_GenSeqLike$class__indexWhere__sc_GenSeqLike__F1__I(this, p)
 });
 ScalaJS.c.sc_AbstractSeq.prototype.hashCode__I = (function() {
   return ScalaJS.i.sc_GenSeqLike$class__hashCode__sc_GenSeqLike__I(this)
@@ -36799,9 +39653,6 @@ ScalaJS.h.sci_Iterable$ = (function() {
   /*<skip>*/
 });
 ScalaJS.h.sci_Iterable$.prototype = ScalaJS.c.sci_Iterable$.prototype;
-ScalaJS.c.sci_Iterable$.prototype.canBuildFrom__scg_CanBuildFrom = (function() {
-  return this.ReusableCBF__scg_GenTraversableFactory$GenericCanBuildFrom()
-});
 ScalaJS.c.sci_Iterable$.prototype.newBuilder__scm_Builder = (function() {
   return new ScalaJS.c.scm_ListBuffer().init___()
 });
@@ -37489,99 +40340,6 @@ ScalaJS.d.jl_IndexOutOfBoundsException = new ScalaJS.ClassTypeData({
 });
 ScalaJS.c.jl_IndexOutOfBoundsException.prototype.$classData = ScalaJS.d.jl_IndexOutOfBoundsException;
 /** @constructor */
-ScalaJS.c.jl_JSConsoleBasedPrintStream = (function() {
-  ScalaJS.c.Ljava_io_PrintStream.call(this);
-  this.isErr$4 = null;
-  this.flushed$4 = false;
-  this.buffer$4 = null
-});
-ScalaJS.c.jl_JSConsoleBasedPrintStream.prototype = new ScalaJS.h.Ljava_io_PrintStream();
-ScalaJS.c.jl_JSConsoleBasedPrintStream.prototype.constructor = ScalaJS.c.jl_JSConsoleBasedPrintStream;
-/** @constructor */
-ScalaJS.h.jl_JSConsoleBasedPrintStream = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.jl_JSConsoleBasedPrintStream.prototype = ScalaJS.c.jl_JSConsoleBasedPrintStream.prototype;
-ScalaJS.c.jl_JSConsoleBasedPrintStream.prototype.flushed$und$eq__p4__Z__V = (function(x$1) {
-  this.flushed$4 = x$1
-});
-ScalaJS.c.jl_JSConsoleBasedPrintStream.prototype.buffer__p4__T = (function() {
-  return this.buffer$4
-});
-ScalaJS.c.jl_JSConsoleBasedPrintStream.prototype.buffer$und$eq__p4__T__V = (function(x$1) {
-  this.buffer$4 = x$1
-});
-ScalaJS.c.jl_JSConsoleBasedPrintStream.prototype.print__T__V = (function(s) {
-  this.printString__p4__T__V(((s === null) ? "null" : s))
-});
-ScalaJS.c.jl_JSConsoleBasedPrintStream.prototype.print__O__V = (function(obj) {
-  this.printString__p4__T__V(ScalaJS.m.sjsr_RuntimeString().valueOf__O__T(obj))
-});
-ScalaJS.c.jl_JSConsoleBasedPrintStream.prototype.println__V = (function() {
-  this.printString__p4__T__V("\n")
-});
-ScalaJS.c.jl_JSConsoleBasedPrintStream.prototype.printString__p4__T__V = (function(s) {
-  var rest = s;
-  while ((!ScalaJS.anyRefEqEq(rest, ""))) {
-    var nlPos = ScalaJS.i.sjsr_RuntimeString$class__indexOf__sjsr_RuntimeString__T__I(rest, "\n");
-    if ((nlPos < 0)) {
-      this.buffer$und$eq__p4__T__V((("" + this.buffer__p4__T()) + rest));
-      this.flushed$und$eq__p4__Z__V(false);
-      rest = ""
-    } else {
-      this.doWriteLine__p4__T__V((("" + this.buffer__p4__T()) + ScalaJS.i.sjsr_RuntimeString$class__substring__sjsr_RuntimeString__I__I__T(rest, 0, nlPos)));
-      this.buffer$und$eq__p4__T__V("");
-      this.flushed$und$eq__p4__Z__V(true);
-      rest = ScalaJS.i.sjsr_RuntimeString$class__substring__sjsr_RuntimeString__I__T(rest, ((nlPos + 1) | 0))
-    }
-  }
-});
-ScalaJS.c.jl_JSConsoleBasedPrintStream.prototype.close__V = (function() {
-  /*<skip>*/
-});
-ScalaJS.c.jl_JSConsoleBasedPrintStream.prototype.doWriteLine__p4__T__V = (function(line) {
-  if ((!ScalaJS.uZ((!ScalaJS.g["console"])))) {
-    if ((ScalaJS.m.s_Predef().Boolean2boolean__jl_Boolean__Z(this.isErr$4) && (!ScalaJS.uZ((!ScalaJS.g["console"]["error"]))))) {
-      ScalaJS.g["console"]["error"](line)
-    } else {
-      ScalaJS.g["console"]["log"](line)
-    }
-  }
-});
-ScalaJS.c.jl_JSConsoleBasedPrintStream.prototype.init___jl_Boolean = (function(isErr) {
-  this.isErr$4 = isErr;
-  ScalaJS.c.Ljava_io_PrintStream.prototype.init___Ljava_io_OutputStream.call(this, new ScalaJS.c.jl_JSConsoleBasedPrintStream$DummyOutputStream().init___());
-  this.flushed$4 = true;
-  this.buffer$4 = "";
-  return this
-});
-ScalaJS.is.jl_JSConsoleBasedPrintStream = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.jl_JSConsoleBasedPrintStream)))
-});
-ScalaJS.as.jl_JSConsoleBasedPrintStream = (function(obj) {
-  return ((ScalaJS.is.jl_JSConsoleBasedPrintStream(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "java.lang.JSConsoleBasedPrintStream"))
-});
-ScalaJS.isArrayOf.jl_JSConsoleBasedPrintStream = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.jl_JSConsoleBasedPrintStream)))
-});
-ScalaJS.asArrayOf.jl_JSConsoleBasedPrintStream = (function(obj, depth) {
-  return ((ScalaJS.isArrayOf.jl_JSConsoleBasedPrintStream(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ljava.lang.JSConsoleBasedPrintStream;", depth))
-});
-ScalaJS.d.jl_JSConsoleBasedPrintStream = new ScalaJS.ClassTypeData({
-  jl_JSConsoleBasedPrintStream: 0
-}, false, "java.lang.JSConsoleBasedPrintStream", ScalaJS.d.Ljava_io_PrintStream, {
-  jl_JSConsoleBasedPrintStream: 1,
-  Ljava_io_PrintStream: 1,
-  jl_Appendable: 1,
-  Ljava_io_FilterOutputStream: 1,
-  Ljava_io_OutputStream: 1,
-  Ljava_io_Flushable: 1,
-  Ljava_io_Closeable: 1,
-  jl_AutoCloseable: 1,
-  O: 1
-});
-ScalaJS.c.jl_JSConsoleBasedPrintStream.prototype.$classData = ScalaJS.d.jl_JSConsoleBasedPrintStream;
-/** @constructor */
 ScalaJS.c.jl_NullPointerException = (function() {
   ScalaJS.c.jl_RuntimeException.call(this)
 });
@@ -37655,6 +40413,190 @@ ScalaJS.d.jl_SecurityException = new ScalaJS.ClassTypeData({
   O: 1
 });
 ScalaJS.c.jl_SecurityException.prototype.$classData = ScalaJS.d.jl_SecurityException;
+/** @constructor */
+ScalaJS.c.jl_StandardErrPrintStream$ = (function() {
+  ScalaJS.c.Ljava_io_PrintStream.call(this);
+  this.java$lang$JSConsoleBasedPrintStream$$flushed$4 = false;
+  this.java$lang$JSConsoleBasedPrintStream$$buffer$4 = null;
+  this.java$lang$JSConsoleBasedPrintStream$$lineContEnd$4 = null;
+  this.java$lang$JSConsoleBasedPrintStream$$lineContStart$4 = null
+});
+ScalaJS.c.jl_StandardErrPrintStream$.prototype = new ScalaJS.h.Ljava_io_PrintStream();
+ScalaJS.c.jl_StandardErrPrintStream$.prototype.constructor = ScalaJS.c.jl_StandardErrPrintStream$;
+/** @constructor */
+ScalaJS.h.jl_StandardErrPrintStream$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.jl_StandardErrPrintStream$.prototype = ScalaJS.c.jl_StandardErrPrintStream$.prototype;
+ScalaJS.c.jl_StandardErrPrintStream$.prototype.java$lang$JSConsoleBasedPrintStream$$flushed__Z = (function() {
+  return this.java$lang$JSConsoleBasedPrintStream$$flushed$4
+});
+ScalaJS.c.jl_StandardErrPrintStream$.prototype.java$lang$JSConsoleBasedPrintStream$$flushed$und$eq__Z__V = (function(x$1) {
+  this.java$lang$JSConsoleBasedPrintStream$$flushed$4 = x$1
+});
+ScalaJS.c.jl_StandardErrPrintStream$.prototype.java$lang$JSConsoleBasedPrintStream$$buffer__T = (function() {
+  return this.java$lang$JSConsoleBasedPrintStream$$buffer$4
+});
+ScalaJS.c.jl_StandardErrPrintStream$.prototype.java$lang$JSConsoleBasedPrintStream$$buffer$und$eq__T__V = (function(x$1) {
+  this.java$lang$JSConsoleBasedPrintStream$$buffer$4 = x$1
+});
+ScalaJS.c.jl_StandardErrPrintStream$.prototype.java$lang$JSConsoleBasedPrintStream$$lineContEnd__T = (function() {
+  return this.java$lang$JSConsoleBasedPrintStream$$lineContEnd$4
+});
+ScalaJS.c.jl_StandardErrPrintStream$.prototype.java$lang$JSConsoleBasedPrintStream$$lineContStart__T = (function() {
+  return this.java$lang$JSConsoleBasedPrintStream$$lineContStart$4
+});
+ScalaJS.c.jl_StandardErrPrintStream$.prototype.java$lang$JSConsoleBasedPrintStream$$undsetter$und$java$lang$JSConsoleBasedPrintStream$$lineContEnd$und$eq__T__V = (function(x$1) {
+  this.java$lang$JSConsoleBasedPrintStream$$lineContEnd$4 = x$1
+});
+ScalaJS.c.jl_StandardErrPrintStream$.prototype.java$lang$JSConsoleBasedPrintStream$$undsetter$und$java$lang$JSConsoleBasedPrintStream$$lineContStart$und$eq__T__V = (function(x$1) {
+  this.java$lang$JSConsoleBasedPrintStream$$lineContStart$4 = x$1
+});
+ScalaJS.c.jl_StandardErrPrintStream$.prototype.print__T__V = (function(s) {
+  ScalaJS.i.jl_JSConsoleBasedPrintStream$class__print__jl_JSConsoleBasedPrintStream__T__V(this, s)
+});
+ScalaJS.c.jl_StandardErrPrintStream$.prototype.flush__V = (function() {
+  ScalaJS.i.jl_JSConsoleBasedPrintStream$class__flush__jl_JSConsoleBasedPrintStream__V(this)
+});
+ScalaJS.c.jl_StandardErrPrintStream$.prototype.doWriteLine__T__V = (function(line) {
+  if ((!ScalaJS.uZ((!ScalaJS.g["console"])))) {
+    if ((!ScalaJS.uZ((!ScalaJS.g["console"]["error"])))) {
+      ScalaJS.g["console"]["error"](line)
+    } else {
+      ScalaJS.g["console"]["log"](line)
+    }
+  }
+});
+ScalaJS.c.jl_StandardErrPrintStream$.prototype.init___ = (function() {
+  ScalaJS.c.Ljava_io_PrintStream.prototype.init___Ljava_io_OutputStream__Z.call(this, ScalaJS.m.jl_StandardErr(), true);
+  ScalaJS.n.jl_StandardErrPrintStream = this;
+  ScalaJS.i.jl_JSConsoleBasedPrintStream$class__$init$__jl_JSConsoleBasedPrintStream__V(this);
+  return this
+});
+ScalaJS.is.jl_StandardErrPrintStream$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.jl_StandardErrPrintStream$)))
+});
+ScalaJS.as.jl_StandardErrPrintStream$ = (function(obj) {
+  return ((ScalaJS.is.jl_StandardErrPrintStream$(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "java.lang.StandardErrPrintStream$"))
+});
+ScalaJS.isArrayOf.jl_StandardErrPrintStream$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.jl_StandardErrPrintStream$)))
+});
+ScalaJS.asArrayOf.jl_StandardErrPrintStream$ = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.jl_StandardErrPrintStream$(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ljava.lang.StandardErrPrintStream$;", depth))
+});
+ScalaJS.d.jl_StandardErrPrintStream$ = new ScalaJS.ClassTypeData({
+  jl_StandardErrPrintStream$: 0
+}, false, "java.lang.StandardErrPrintStream$", ScalaJS.d.Ljava_io_PrintStream, {
+  jl_StandardErrPrintStream$: 1,
+  jl_JSConsoleBasedPrintStream: 1,
+  Ljava_io_PrintStream: 1,
+  jl_Appendable: 1,
+  Ljava_io_FilterOutputStream: 1,
+  Ljava_io_OutputStream: 1,
+  Ljava_io_Flushable: 1,
+  Ljava_io_Closeable: 1,
+  jl_AutoCloseable: 1,
+  O: 1
+});
+ScalaJS.c.jl_StandardErrPrintStream$.prototype.$classData = ScalaJS.d.jl_StandardErrPrintStream$;
+ScalaJS.n.jl_StandardErrPrintStream = (void 0);
+ScalaJS.m.jl_StandardErrPrintStream = (function() {
+  if ((!ScalaJS.n.jl_StandardErrPrintStream)) {
+    ScalaJS.n.jl_StandardErrPrintStream = new ScalaJS.c.jl_StandardErrPrintStream$().init___()
+  };
+  return ScalaJS.n.jl_StandardErrPrintStream
+});
+/** @constructor */
+ScalaJS.c.jl_StandardOutPrintStream$ = (function() {
+  ScalaJS.c.Ljava_io_PrintStream.call(this);
+  this.java$lang$JSConsoleBasedPrintStream$$flushed$4 = false;
+  this.java$lang$JSConsoleBasedPrintStream$$buffer$4 = null;
+  this.java$lang$JSConsoleBasedPrintStream$$lineContEnd$4 = null;
+  this.java$lang$JSConsoleBasedPrintStream$$lineContStart$4 = null
+});
+ScalaJS.c.jl_StandardOutPrintStream$.prototype = new ScalaJS.h.Ljava_io_PrintStream();
+ScalaJS.c.jl_StandardOutPrintStream$.prototype.constructor = ScalaJS.c.jl_StandardOutPrintStream$;
+/** @constructor */
+ScalaJS.h.jl_StandardOutPrintStream$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.jl_StandardOutPrintStream$.prototype = ScalaJS.c.jl_StandardOutPrintStream$.prototype;
+ScalaJS.c.jl_StandardOutPrintStream$.prototype.java$lang$JSConsoleBasedPrintStream$$flushed__Z = (function() {
+  return this.java$lang$JSConsoleBasedPrintStream$$flushed$4
+});
+ScalaJS.c.jl_StandardOutPrintStream$.prototype.java$lang$JSConsoleBasedPrintStream$$flushed$und$eq__Z__V = (function(x$1) {
+  this.java$lang$JSConsoleBasedPrintStream$$flushed$4 = x$1
+});
+ScalaJS.c.jl_StandardOutPrintStream$.prototype.java$lang$JSConsoleBasedPrintStream$$buffer__T = (function() {
+  return this.java$lang$JSConsoleBasedPrintStream$$buffer$4
+});
+ScalaJS.c.jl_StandardOutPrintStream$.prototype.java$lang$JSConsoleBasedPrintStream$$buffer$und$eq__T__V = (function(x$1) {
+  this.java$lang$JSConsoleBasedPrintStream$$buffer$4 = x$1
+});
+ScalaJS.c.jl_StandardOutPrintStream$.prototype.java$lang$JSConsoleBasedPrintStream$$lineContEnd__T = (function() {
+  return this.java$lang$JSConsoleBasedPrintStream$$lineContEnd$4
+});
+ScalaJS.c.jl_StandardOutPrintStream$.prototype.java$lang$JSConsoleBasedPrintStream$$lineContStart__T = (function() {
+  return this.java$lang$JSConsoleBasedPrintStream$$lineContStart$4
+});
+ScalaJS.c.jl_StandardOutPrintStream$.prototype.java$lang$JSConsoleBasedPrintStream$$undsetter$und$java$lang$JSConsoleBasedPrintStream$$lineContEnd$und$eq__T__V = (function(x$1) {
+  this.java$lang$JSConsoleBasedPrintStream$$lineContEnd$4 = x$1
+});
+ScalaJS.c.jl_StandardOutPrintStream$.prototype.java$lang$JSConsoleBasedPrintStream$$undsetter$und$java$lang$JSConsoleBasedPrintStream$$lineContStart$und$eq__T__V = (function(x$1) {
+  this.java$lang$JSConsoleBasedPrintStream$$lineContStart$4 = x$1
+});
+ScalaJS.c.jl_StandardOutPrintStream$.prototype.print__T__V = (function(s) {
+  ScalaJS.i.jl_JSConsoleBasedPrintStream$class__print__jl_JSConsoleBasedPrintStream__T__V(this, s)
+});
+ScalaJS.c.jl_StandardOutPrintStream$.prototype.flush__V = (function() {
+  ScalaJS.i.jl_JSConsoleBasedPrintStream$class__flush__jl_JSConsoleBasedPrintStream__V(this)
+});
+ScalaJS.c.jl_StandardOutPrintStream$.prototype.doWriteLine__T__V = (function(line) {
+  if ((!ScalaJS.uZ((!ScalaJS.g["console"])))) {
+    ScalaJS.g["console"]["log"](line)
+  }
+});
+ScalaJS.c.jl_StandardOutPrintStream$.prototype.init___ = (function() {
+  ScalaJS.c.Ljava_io_PrintStream.prototype.init___Ljava_io_OutputStream__Z.call(this, ScalaJS.m.jl_StandardOut(), true);
+  ScalaJS.n.jl_StandardOutPrintStream = this;
+  ScalaJS.i.jl_JSConsoleBasedPrintStream$class__$init$__jl_JSConsoleBasedPrintStream__V(this);
+  return this
+});
+ScalaJS.is.jl_StandardOutPrintStream$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.jl_StandardOutPrintStream$)))
+});
+ScalaJS.as.jl_StandardOutPrintStream$ = (function(obj) {
+  return ((ScalaJS.is.jl_StandardOutPrintStream$(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "java.lang.StandardOutPrintStream$"))
+});
+ScalaJS.isArrayOf.jl_StandardOutPrintStream$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.jl_StandardOutPrintStream$)))
+});
+ScalaJS.asArrayOf.jl_StandardOutPrintStream$ = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.jl_StandardOutPrintStream$(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ljava.lang.StandardOutPrintStream$;", depth))
+});
+ScalaJS.d.jl_StandardOutPrintStream$ = new ScalaJS.ClassTypeData({
+  jl_StandardOutPrintStream$: 0
+}, false, "java.lang.StandardOutPrintStream$", ScalaJS.d.Ljava_io_PrintStream, {
+  jl_StandardOutPrintStream$: 1,
+  jl_JSConsoleBasedPrintStream: 1,
+  Ljava_io_PrintStream: 1,
+  jl_Appendable: 1,
+  Ljava_io_FilterOutputStream: 1,
+  Ljava_io_OutputStream: 1,
+  Ljava_io_Flushable: 1,
+  Ljava_io_Closeable: 1,
+  jl_AutoCloseable: 1,
+  O: 1
+});
+ScalaJS.c.jl_StandardOutPrintStream$.prototype.$classData = ScalaJS.d.jl_StandardOutPrintStream$;
+ScalaJS.n.jl_StandardOutPrintStream = (void 0);
+ScalaJS.m.jl_StandardOutPrintStream = (function() {
+  if ((!ScalaJS.n.jl_StandardOutPrintStream)) {
+    ScalaJS.n.jl_StandardOutPrintStream = new ScalaJS.c.jl_StandardOutPrintStream$().init___()
+  };
+  return ScalaJS.n.jl_StandardOutPrintStream
+});
 /** @constructor */
 ScalaJS.c.jl_UnsupportedOperationException = (function() {
   ScalaJS.c.jl_RuntimeException.call(this)
@@ -38454,9 +41396,6 @@ ScalaJS.c.sci_List.prototype.sameElements__sc_GenIterable__Z = (function(that) {
 });
 ScalaJS.c.sci_List.prototype.lengthCompare__I__I = (function(len) {
   return ScalaJS.i.sc_LinearSeqOptimized$class__lengthCompare__sc_LinearSeqOptimized__I__I(this, len)
-});
-ScalaJS.c.sci_List.prototype.indexWhere__F1__I__I = (function(p, from) {
-  return ScalaJS.i.sc_LinearSeqOptimized$class__indexWhere__sc_LinearSeqOptimized__F1__I__I(this, p, from)
 });
 ScalaJS.c.sci_List.prototype.seq__sci_LinearSeq = (function() {
   return ScalaJS.i.sci_LinearSeq$class__seq__sci_LinearSeq__sci_LinearSeq(this)
@@ -39784,9 +42723,6 @@ ScalaJS.c.sci_Stream.prototype.sameElements__sc_GenIterable__Z = (function(that)
 ScalaJS.c.sci_Stream.prototype.lengthCompare__I__I = (function(len) {
   return ScalaJS.i.sc_LinearSeqOptimized$class__lengthCompare__sc_LinearSeqOptimized__I__I(this, len)
 });
-ScalaJS.c.sci_Stream.prototype.indexWhere__F1__I__I = (function(p, from) {
-  return ScalaJS.i.sc_LinearSeqOptimized$class__indexWhere__sc_LinearSeqOptimized__F1__I__I(this, p, from)
-});
 ScalaJS.c.sci_Stream.prototype.seq__sci_LinearSeq = (function() {
   return ScalaJS.i.sci_LinearSeq$class__seq__sci_LinearSeq__sci_LinearSeq(this)
 });
@@ -40503,6 +43439,9 @@ ScalaJS.c.sci_WrappedString.prototype.scala$collection$IndexedSeqOptimized$$supe
 ScalaJS.c.sci_WrappedString.prototype.scala$collection$IndexedSeqOptimized$$super$tail__O = (function() {
   return ScalaJS.i.sc_TraversableLike$class__tail__sc_TraversableLike__O(this)
 });
+ScalaJS.c.sci_WrappedString.prototype.scala$collection$IndexedSeqOptimized$$super$last__O = (function() {
+  return ScalaJS.i.sc_TraversableLike$class__last__sc_TraversableLike__O(this)
+});
 ScalaJS.c.sci_WrappedString.prototype.scala$collection$IndexedSeqOptimized$$super$sameElements__sc_GenIterable__Z = (function(that) {
   return ScalaJS.i.sc_IterableLike$class__sameElements__sc_IterableLike__sc_GenIterable__Z(this, that)
 });
@@ -40538,12 +43477,6 @@ ScalaJS.c.sci_WrappedString.prototype.copyToArray__O__I__I__V = (function(xs, st
 });
 ScalaJS.c.sci_WrappedString.prototype.lengthCompare__I__I = (function(len) {
   return ScalaJS.i.sc_IndexedSeqOptimized$class__lengthCompare__sc_IndexedSeqOptimized__I__I(this, len)
-});
-ScalaJS.c.sci_WrappedString.prototype.segmentLength__F1__I__I = (function(p, from) {
-  return ScalaJS.i.sc_IndexedSeqOptimized$class__segmentLength__sc_IndexedSeqOptimized__F1__I__I(this, p, from)
-});
-ScalaJS.c.sci_WrappedString.prototype.indexWhere__F1__I__I = (function(p, from) {
-  return ScalaJS.i.sc_IndexedSeqOptimized$class__indexWhere__sc_IndexedSeqOptimized__F1__I__I(this, p, from)
 });
 ScalaJS.c.sci_WrappedString.prototype.reverse__O = (function() {
   return ScalaJS.i.sc_IndexedSeqOptimized$class__reverse__sc_IndexedSeqOptimized__O(this)
@@ -44856,6 +47789,9 @@ ScalaJS.c.scm_StringBuilder.prototype.scala$collection$IndexedSeqOptimized$$supe
 ScalaJS.c.scm_StringBuilder.prototype.scala$collection$IndexedSeqOptimized$$super$tail__O = (function() {
   return ScalaJS.i.sc_TraversableLike$class__tail__sc_TraversableLike__O(this)
 });
+ScalaJS.c.scm_StringBuilder.prototype.scala$collection$IndexedSeqOptimized$$super$last__O = (function() {
+  return ScalaJS.i.sc_TraversableLike$class__last__sc_TraversableLike__O(this)
+});
 ScalaJS.c.scm_StringBuilder.prototype.scala$collection$IndexedSeqOptimized$$super$sameElements__sc_GenIterable__Z = (function(that) {
   return ScalaJS.i.sc_IterableLike$class__sameElements__sc_IterableLike__sc_GenIterable__Z(this, that)
 });
@@ -44891,12 +47827,6 @@ ScalaJS.c.scm_StringBuilder.prototype.copyToArray__O__I__I__V = (function(xs, st
 });
 ScalaJS.c.scm_StringBuilder.prototype.lengthCompare__I__I = (function(len) {
   return ScalaJS.i.sc_IndexedSeqOptimized$class__lengthCompare__sc_IndexedSeqOptimized__I__I(this, len)
-});
-ScalaJS.c.scm_StringBuilder.prototype.segmentLength__F1__I__I = (function(p, from) {
-  return ScalaJS.i.sc_IndexedSeqOptimized$class__segmentLength__sc_IndexedSeqOptimized__F1__I__I(this, p, from)
-});
-ScalaJS.c.scm_StringBuilder.prototype.indexWhere__F1__I__I = (function(p, from) {
-  return ScalaJS.i.sc_IndexedSeqOptimized$class__indexWhere__sc_IndexedSeqOptimized__F1__I__I(this, p, from)
 });
 ScalaJS.c.scm_StringBuilder.prototype.companion__scg_GenericCompanion = (function() {
   return ScalaJS.i.scm_IndexedSeq$class__companion__scm_IndexedSeq__scg_GenericCompanion(this)
@@ -44951,9 +47881,6 @@ ScalaJS.c.scm_StringBuilder.prototype.append__T__scm_StringBuilder = (function(s
 });
 ScalaJS.c.scm_StringBuilder.prototype.appendAll__AC__I__I__scm_StringBuilder = (function(xs, offset, len) {
   return (this.underlying__p5__jl_StringBuilder().append__AC__I__I__jl_StringBuilder(xs, offset, len), this)
-});
-ScalaJS.c.scm_StringBuilder.prototype.append__I__scm_StringBuilder = (function(x) {
-  return (this.underlying__p5__jl_StringBuilder().append__I__jl_StringBuilder(x), this)
 });
 ScalaJS.c.scm_StringBuilder.prototype.append__C__scm_StringBuilder = (function(x) {
   return (this.underlying__p5__jl_StringBuilder().append__C__jl_StringBuilder(x), this)
@@ -45115,6 +48042,9 @@ ScalaJS.c.scm_WrappedArray.prototype.scala$collection$IndexedSeqOptimized$$super
 ScalaJS.c.scm_WrappedArray.prototype.scala$collection$IndexedSeqOptimized$$super$tail__O = (function() {
   return ScalaJS.i.sc_TraversableLike$class__tail__sc_TraversableLike__O(this)
 });
+ScalaJS.c.scm_WrappedArray.prototype.scala$collection$IndexedSeqOptimized$$super$last__O = (function() {
+  return ScalaJS.i.sc_TraversableLike$class__last__sc_TraversableLike__O(this)
+});
 ScalaJS.c.scm_WrappedArray.prototype.scala$collection$IndexedSeqOptimized$$super$sameElements__sc_GenIterable__Z = (function(that) {
   return ScalaJS.i.sc_IterableLike$class__sameElements__sc_IterableLike__sc_GenIterable__Z(this, that)
 });
@@ -45153,12 +48083,6 @@ ScalaJS.c.scm_WrappedArray.prototype.copyToArray__O__I__I__V = (function(xs, sta
 });
 ScalaJS.c.scm_WrappedArray.prototype.lengthCompare__I__I = (function(len) {
   return ScalaJS.i.sc_IndexedSeqOptimized$class__lengthCompare__sc_IndexedSeqOptimized__I__I(this, len)
-});
-ScalaJS.c.scm_WrappedArray.prototype.segmentLength__F1__I__I = (function(p, from) {
-  return ScalaJS.i.sc_IndexedSeqOptimized$class__segmentLength__sc_IndexedSeqOptimized__F1__I__I(this, p, from)
-});
-ScalaJS.c.scm_WrappedArray.prototype.indexWhere__F1__I__I = (function(p, from) {
-  return ScalaJS.i.sc_IndexedSeqOptimized$class__indexWhere__sc_IndexedSeqOptimized__F1__I__I(this, p, from)
 });
 ScalaJS.c.scm_WrappedArray.prototype.reverse__O = (function() {
   return ScalaJS.i.sc_IndexedSeqOptimized$class__reverse__sc_IndexedSeqOptimized__O(this)
@@ -45302,6 +48226,9 @@ ScalaJS.c.sjs_js_WrappedArray.prototype.scala$collection$IndexedSeqOptimized$$su
 ScalaJS.c.sjs_js_WrappedArray.prototype.scala$collection$IndexedSeqOptimized$$super$tail__O = (function() {
   return ScalaJS.i.sc_TraversableLike$class__tail__sc_TraversableLike__O(this)
 });
+ScalaJS.c.sjs_js_WrappedArray.prototype.scala$collection$IndexedSeqOptimized$$super$last__O = (function() {
+  return ScalaJS.i.sc_TraversableLike$class__last__sc_TraversableLike__O(this)
+});
 ScalaJS.c.sjs_js_WrappedArray.prototype.scala$collection$IndexedSeqOptimized$$super$sameElements__sc_GenIterable__Z = (function(that) {
   return ScalaJS.i.sc_IterableLike$class__sameElements__sc_IterableLike__sc_GenIterable__Z(this, that)
 });
@@ -45340,12 +48267,6 @@ ScalaJS.c.sjs_js_WrappedArray.prototype.copyToArray__O__I__I__V = (function(xs, 
 });
 ScalaJS.c.sjs_js_WrappedArray.prototype.lengthCompare__I__I = (function(len) {
   return ScalaJS.i.sc_IndexedSeqOptimized$class__lengthCompare__sc_IndexedSeqOptimized__I__I(this, len)
-});
-ScalaJS.c.sjs_js_WrappedArray.prototype.segmentLength__F1__I__I = (function(p, from) {
-  return ScalaJS.i.sc_IndexedSeqOptimized$class__segmentLength__sc_IndexedSeqOptimized__F1__I__I(this, p, from)
-});
-ScalaJS.c.sjs_js_WrappedArray.prototype.indexWhere__F1__I__I = (function(p, from) {
-  return ScalaJS.i.sc_IndexedSeqOptimized$class__indexWhere__sc_IndexedSeqOptimized__F1__I__I(this, p, from)
 });
 ScalaJS.c.sjs_js_WrappedArray.prototype.reverse__O = (function() {
   return ScalaJS.i.sc_IndexedSeqOptimized$class__reverse__sc_IndexedSeqOptimized__O(this)
@@ -47051,6 +49972,9 @@ ScalaJS.c.scm_ArrayBuffer.prototype.scala$collection$IndexedSeqOptimized$$super$
 ScalaJS.c.scm_ArrayBuffer.prototype.scala$collection$IndexedSeqOptimized$$super$tail__O = (function() {
   return ScalaJS.i.sc_TraversableLike$class__tail__sc_TraversableLike__O(this)
 });
+ScalaJS.c.scm_ArrayBuffer.prototype.scala$collection$IndexedSeqOptimized$$super$last__O = (function() {
+  return ScalaJS.i.sc_TraversableLike$class__last__sc_TraversableLike__O(this)
+});
 ScalaJS.c.scm_ArrayBuffer.prototype.scala$collection$IndexedSeqOptimized$$super$sameElements__sc_GenIterable__Z = (function(that) {
   return ScalaJS.i.sc_IterableLike$class__sameElements__sc_IterableLike__sc_GenIterable__Z(this, that)
 });
@@ -47083,12 +50007,6 @@ ScalaJS.c.scm_ArrayBuffer.prototype.sameElements__sc_GenIterable__Z = (function(
 });
 ScalaJS.c.scm_ArrayBuffer.prototype.lengthCompare__I__I = (function(len) {
   return ScalaJS.i.sc_IndexedSeqOptimized$class__lengthCompare__sc_IndexedSeqOptimized__I__I(this, len)
-});
-ScalaJS.c.scm_ArrayBuffer.prototype.segmentLength__F1__I__I = (function(p, from) {
-  return ScalaJS.i.sc_IndexedSeqOptimized$class__segmentLength__sc_IndexedSeqOptimized__F1__I__I(this, p, from)
-});
-ScalaJS.c.scm_ArrayBuffer.prototype.indexWhere__F1__I__I = (function(p, from) {
-  return ScalaJS.i.sc_IndexedSeqOptimized$class__indexWhere__sc_IndexedSeqOptimized__F1__I__I(this, p, from)
 });
 ScalaJS.c.scm_ArrayBuffer.prototype.reverse__O = (function() {
   return ScalaJS.i.sc_IndexedSeqOptimized$class__reverse__sc_IndexedSeqOptimized__O(this)
@@ -47285,9 +50203,6 @@ ScalaJS.h.scm_ListBuffer = (function() {
 ScalaJS.h.scm_ListBuffer.prototype = ScalaJS.c.scm_ListBuffer.prototype;
 ScalaJS.c.scm_ListBuffer.prototype.lengthCompare__I__I = (function(len) {
   return ScalaJS.i.scg_SeqForwarder$class__lengthCompare__scg_SeqForwarder__I__I(this, len)
-});
-ScalaJS.c.scm_ListBuffer.prototype.indexWhere__F1__I__I = (function(p, from) {
-  return ScalaJS.i.scg_SeqForwarder$class__indexWhere__scg_SeqForwarder__F1__I__I(this, p, from)
 });
 ScalaJS.c.scm_ListBuffer.prototype.sameElements__sc_GenIterable__Z = (function(that) {
   return ScalaJS.i.scg_IterableForwarder$class__sameElements__scg_IterableForwarder__sc_GenIterable__Z(this, that)

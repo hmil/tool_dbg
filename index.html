@@ -200,24 +200,41 @@
             };
           })();
 
+          window.jsOutput = {
+            collectCompileOutput: function(out) {
+              try {
+                json = JSON.parse(out);
+                engine.load(json);
+                console.log("Program loaded");
+                asmEdit.setValue(engine.getProgramAsText());
+                asmEdit.addLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
+              }
+              catch (e) {
+                console.error(e);
+                console.error(e.stack);
+              }
+            }
+          };
+
           // engrenages
           window.compile = function() {
             clearMarkers();
-            /*fs.writeFile('/test.tool', editor.getValue(), function(err) {
-              /*log.info('compiling test.tool');
-
-              overrideConsole();
+            localStorage['prog'] = editor.getValue();
+            fs.writeFile('/test.tool', editor.getValue(), function(err) {
               if (err) throw err;
+
+              log.info('compiling test.tool');
+              overrideConsole();
               try {
                 toolc.Main().entry('/test.tool');
                 log.success('done without errors');
               } catch (e) {
                 console.error(e);
-                // console.error(e.stack);
+                console.error(e.stack);
               }
               restoreConsole();
-            });*/
-            var json;
+            });
+            /*var json;
             localStorage['prog'] = editor.getValue();
             overrideConsole();
             try {
@@ -231,7 +248,7 @@
               console.error(e);
               console.error(e.stack);
             }
-            restoreConsole();
+            restoreConsole();*/
           };
 
           window.initTabs = function() {
@@ -272,6 +289,7 @@
 
           window.stepOver = wrapEngineOp(function () {
             engine.tick();
+            console.log(engine._sm.stack);
           });
 
           window.resetCode = function() {

@@ -34,8 +34,8 @@ type: ("S"|"I"|"B"|"LclassName;"|"[type")
 - `length`    *consumes an array on top of the stack and leaves its length instead*
 - `dup`       *duplicates the element on top of the stack*
 - `new x`     *puts a new instance of class x on top of the stack*
-- `astore x`  *stores val in array x at index id. x = identifier, stack = {id, val -> }*
-- `aload x`   *puts value at index id of array x on top of the stack. x = identifier, stack = {id -> val}*
+- `aput`      *stores val in array x at index id. x = identifier, stack = {ref, id, val -> }*
+- `aget`      *puts value at index id of array x on top of the stack. x = identifier, stack = {ref, id -> val}*
 - `invoke x`  *calls method x on obj obj and leaves result on stack. stack = {argn, ..., arg1, obj ->}*
 - `ret`       *returns from subroutine*
 - `sub/add/mul/div/lt/le/gt/ge/and/or`  *binary operations on top two operands. stack = {op1, op2 -> result}*

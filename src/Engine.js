@@ -20,6 +20,7 @@ var Engine = (function() {
 
   function StateMachine() {
     this.pc = 2; // Skips the initial comments. First instr executed is 2
+    this.curLine = 0;
     this.stack = [];
     this.scopes = [{}];
     this.hasEnded = false;
@@ -45,18 +46,19 @@ var Engine = (function() {
   };
 
   StateMachine.prototype.setNextLine = function(line) {
-    // TODO
+    this.curLine = line;
   };
 
   StateMachine.prototype.getNextLine = function() {
-    return 0; // TODO
+    return this.curLine;
   };
 
   StateMachine.prototype.newScope = function(instance) {
     this.scopes.push({
       this: instance,
       locals: {},
-      ret_addr: this.pc
+      ret_addr: this.pc,
+      ret_line: this.curLine
     });
   };
 
@@ -85,6 +87,7 @@ var Engine = (function() {
   }
   function fn_ret(sm) {
     sm.pc = sm.currentScope().ret_addr;
+    sm.curLine = sm.currentScope().ret_line;
     sm.popScope();
   }
   function fn_sub(sm) {
@@ -211,7 +214,7 @@ var Engine = (function() {
 
   function Instr_Stat(line) {
     Instruction.call(this, 'l:'+line, function(sm) {
-      sm.setNextLine(line);
+      sm.setNextLine(line - 1);
     });
   }
   _.extend(Instr_Stat.prototype, Instruction.prototype);
@@ -345,7 +348,7 @@ var Engine = (function() {
         case 'fstore':
           return new Instr_Fstore(text.substr(split + 1));
         default:
-          return new Instruction('\t#' + text, fn_nop);
+          return new Instruction('\t#' + text, fn_invalid);
       }
     }
 
@@ -446,15 +449,40 @@ var Engine = (function() {
     };
 
     Engine.prototype.stepOver = function() {
-      
+      var ln = 0, ln2 = 0;
+      var slength = sm.scopes.length;
+
+      ln = sm.getNextLine();
+      while(this.isRunning() && ln === sm.getNextLine() && sm.scopes.length === slength) {
+        this.tick();
+      }
+
+      // if we have function invocation
+      while (sm.scopes.length > slength) {
+        while (this.isRunning() && sm.scopes.length > slength) {
+          this.tick();
+        }
+        // Finished the function invokation
+        ln2 = sm.getNextLine(); // Next line is the last return instruction
+        // Continue until a statement or a function invokation
+        while(this.isRunning() && ln2 === sm.getNextLine() && sm.scopes.length === slength) {
+          this.tick();
+        }
+      }
     };
 
     Engine.prototype.stepInto = function() {
-      
+      var ln = sm.getNextLine();
+      while(this.isRunning() && ln == sm.getNextLine()) {
+        this.tick();
+      }
     };
 
     Engine.prototype.stepOut = function() {
-      
+      var slength = sm.scopes.length;
+      while(this.isRunning() && sm.scopes.length >= slength) {
+        this.tick();
+      }
     };
 
     Engine.prototype.stop = function() {

@@ -29,12 +29,16 @@ ScopeStore.prototype.query = function(query, options) {
 ScopeStore.prototype.getChildren = function(parent, options){
   var that = this;
   if (parent.name === 'root') {
-    var ret = [{
-      name: "this", 
-      hasChildren: true, 
-      id: this._uniqId(), 
-      children: this._scope.this
-    }];
+    var ret = [];
+
+    if (this._scope.this != null) {
+        ret.push({
+        name: "this", 
+        hasChildren: true, 
+        id: this._uniqId(), 
+        children: this._scope.this
+      });
+    }
 
     _.each(this._scope.locals, function(val, key) {
       ret.push({name: key+'\t'+val, id: that._uniqId(), children: val, hasChildren: _.keys(val).length != 0});

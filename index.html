@@ -180,8 +180,15 @@
             });
             markers.length = 0;
             editor.clearGutter('breakpoints');
-            editor.removeLineClass(engine.getNextLine(), 'background', 'line-highlight');
-            asmEdit.removeLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
+            console.log(editor.lineCount());
+            var codeLine = engine.getNextLine();
+            if (codeLine < editor.lineCount()) {
+              editor.removeLineClass(codeLine, 'background', 'line-highlight');
+            }
+            var asmLine = engine.getNextASMLine();
+            if (asmLine < asmEdit.lineCount()) {
+              asmEdit.removeLineClass(asmLine, 'background', 'line-highlight');
+            }
           }
 
           (function() {
@@ -297,9 +304,8 @@
           });
 
           window.resetCode = function() {
-            asmEdit.removeLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
+            clearMarkers();
             engine.reset();
-            asmEdit.addLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
             log.info("Program reinitialized");
           };
 

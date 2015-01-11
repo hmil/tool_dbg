@@ -465,29 +465,34 @@ var Engine = (function() {
     // Execution control
 
     Engine.prototype.run = function() {
-      while (this.isRunning() && !breakpoints[this.getNextLine()]) {
+      // Carry on while we are not on a breakpoint that is different from the current one if any
+      var curLine = sm.getNextLine();
+      while (this.isRunning() && (!breakpoints[this.getNextLine()] || sm.getNextLine() === curLine)) {
         this.tick();
       }
     };
 
     Engine.prototype.stepOver = function() {
-      var ln = 0, ln2 = 0;
+      var ln = 0;
       var slength = sm.scopes.length;
 
+      // Run until we change line or we change scope depth
       ln = sm.getNextLine();
       while(this.isRunning() && ln === sm.getNextLine() && sm.scopes.length === slength) {
         this.tick();
       }
 
-      // if we have function invocation
+      // if we have function invocation (deeper scope)
       while (sm.scopes.length > slength) {
+        // Run until we reach a higher scope depth (exit function)
         while (this.isRunning() && sm.scopes.length > slength) {
           this.tick();
+          if (breakpoints[this.getNextLine()]) return; // In case of bp, we exit everything
         }
         // Finished the function invokation
-        ln2 = sm.getNextLine(); // Next line is the last return instruction
+        ln = sm.getNextLine(); // Next line is the last return instruction
         // Continue until a statement or a function invokation
-        while(this.isRunning() && ln2 === sm.getNextLine() && sm.scopes.length === slength) {
+        while(this.isRunning() && ln === sm.getNextLine() && sm.scopes.length === slength) {
           this.tick();
         }
       }
@@ -495,15 +500,17 @@ var Engine = (function() {
 
     Engine.prototype.stepInto = function() {
       var ln = sm.getNextLine();
-      while(this.isRunning() && ln == sm.getNextLine()) {
+      while(this.isRunning() && ln === sm.getNextLine()) {
         this.tick();
       }
     };
 
     Engine.prototype.stepOut = function() {
       var slength = sm.scopes.length;
+      var ln = this.getNextLine();
       while(this.isRunning() && sm.scopes.length >= slength) {
         this.tick();
+        if (breakpoints[this.getNextLine()] && ln !== this.getNextLine()) return; // In case of bp, we exit everything
       }
     };
 

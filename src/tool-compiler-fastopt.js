@@ -5083,6 +5083,24 @@ ScalaJS.d.Ltoolc_analyzer_Symbols$Symbol = new ScalaJS.ClassTypeData({
   O: 1
 });
 ScalaJS.c.Ltoolc_analyzer_Symbols$Symbol.prototype.$classData = ScalaJS.d.Ltoolc_analyzer_Symbols$Symbol;
+ScalaJS.is.Ltoolc_analyzer_Symbols$Symbolic = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_analyzer_Symbols$Symbolic)))
+});
+ScalaJS.as.Ltoolc_analyzer_Symbols$Symbolic = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_analyzer_Symbols$Symbolic(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.analyzer.Symbols$Symbolic"))
+});
+ScalaJS.isArrayOf.Ltoolc_analyzer_Symbols$Symbolic = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_analyzer_Symbols$Symbolic)))
+});
+ScalaJS.asArrayOf.Ltoolc_analyzer_Symbols$Symbolic = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_analyzer_Symbols$Symbolic(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.analyzer.Symbols$Symbolic;", depth))
+});
+ScalaJS.d.Ltoolc_analyzer_Symbols$Symbolic = new ScalaJS.ClassTypeData({
+  Ltoolc_analyzer_Symbols$Symbolic: 0
+}, true, "toolc.analyzer.Symbols$Symbolic", (void 0), {
+  Ltoolc_analyzer_Symbols$Symbolic: 1,
+  O: 1
+});
 /** @constructor */
 ScalaJS.c.Ltoolc_analyzer_Types$Type = (function() {
   ScalaJS.c.O.call(this)
@@ -6219,6 +6237,9 @@ ScalaJS.c.Ltoolc_ast_Trees$ClassDecl.prototype.toolc$analyzer$Symbols$Symbolic$$
 });
 ScalaJS.c.Ltoolc_ast_Trees$ClassDecl.prototype.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic = (function(sym) {
   return ScalaJS.i.Ltoolc_analyzer_Symbols$Symbolic$class__setSymbol__Ltoolc_analyzer_Symbols$Symbolic__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(this, sym)
+});
+ScalaJS.c.Ltoolc_ast_Trees$ClassDecl.prototype.getSymbol__Ltoolc_analyzer_Symbols$Symbol = (function() {
+  return ScalaJS.i.Ltoolc_analyzer_Symbols$Symbolic$class__getSymbol__Ltoolc_analyzer_Symbols$Symbolic__Ltoolc_analyzer_Symbols$Symbol(this)
 });
 ScalaJS.c.Ltoolc_ast_Trees$ClassDecl.prototype.toString__T = (function() {
   return ScalaJS.i.Ltoolc_analyzer_Symbols$Symbolic$class__toString__Ltoolc_analyzer_Symbols$Symbolic__T(this)
@@ -7952,6 +7973,9 @@ ScalaJS.c.Ltoolc_ast_Trees$MainObject.prototype.toolc$analyzer$Symbols$Symbolic$
 ScalaJS.c.Ltoolc_ast_Trees$MainObject.prototype.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic = (function(sym) {
   return ScalaJS.i.Ltoolc_analyzer_Symbols$Symbolic$class__setSymbol__Ltoolc_analyzer_Symbols$Symbolic__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(this, sym)
 });
+ScalaJS.c.Ltoolc_ast_Trees$MainObject.prototype.getSymbol__Ltoolc_analyzer_Symbols$Symbol = (function() {
+  return ScalaJS.i.Ltoolc_analyzer_Symbols$Symbolic$class__getSymbol__Ltoolc_analyzer_Symbols$Symbolic__Ltoolc_analyzer_Symbols$Symbol(this)
+});
 ScalaJS.c.Ltoolc_ast_Trees$MainObject.prototype.toString__T = (function() {
   return ScalaJS.i.Ltoolc_analyzer_Symbols$Symbolic$class__toString__Ltoolc_analyzer_Symbols$Symbolic__T(this)
 });
@@ -8289,6 +8313,9 @@ ScalaJS.c.Ltoolc_ast_Trees$MethodDecl.prototype.toolc$analyzer$Symbols$Symbolic$
 });
 ScalaJS.c.Ltoolc_ast_Trees$MethodDecl.prototype.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic = (function(sym) {
   return ScalaJS.i.Ltoolc_analyzer_Symbols$Symbolic$class__setSymbol__Ltoolc_analyzer_Symbols$Symbolic__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(this, sym)
+});
+ScalaJS.c.Ltoolc_ast_Trees$MethodDecl.prototype.getSymbol__Ltoolc_analyzer_Symbols$Symbol = (function() {
+  return ScalaJS.i.Ltoolc_analyzer_Symbols$Symbolic$class__getSymbol__Ltoolc_analyzer_Symbols$Symbolic__Ltoolc_analyzer_Symbols$Symbol(this)
 });
 ScalaJS.c.Ltoolc_ast_Trees$MethodDecl.prototype.toString__T = (function() {
   return ScalaJS.i.Ltoolc_analyzer_Symbols$Symbolic$class__toString__Ltoolc_analyzer_Symbols$Symbolic__T(this)
@@ -27101,132 +27128,8 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.run__Ltoolc_utils_Context__Lto
   prog.classes__sci_List().reverse__sci_List().foreach__F1__V(new ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3().init___Ltoolc_utils_Context__Ltoolc_ast_Trees$Program(ctx, prog));
   var mainMethodSymbol = new ScalaJS.c.Ltoolc_analyzer_Symbols$MethodSymbol().init___T__Ltoolc_analyzer_Symbols$ClassSymbol("main", this.globalScope__Ltoolc_analyzer_Symbols$GlobalScope().mainClass__Ltoolc_analyzer_Symbols$ClassSymbol());
   this.globalScope__Ltoolc_analyzer_Symbols$GlobalScope().mainClass__Ltoolc_analyzer_Symbols$ClassSymbol().methods$und$eq__sci_Map__V(this.globalScope__Ltoolc_analyzer_Symbols$GlobalScope().mainClass__Ltoolc_analyzer_Symbols$ClassSymbol().methods__sci_Map().$$plus__T2__sci_Map(ScalaJS.m.s_Predef$ArrowAssoc().$$minus$greater$extension__O__O__T2(ScalaJS.m.s_Predef().ArrowAssoc__O__O("main"), mainMethodSymbol)));
-  this.assignStatementsSymbols__sci_List__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(prog.main__Ltoolc_ast_Trees$MainObject().stats__sci_List(), this.globalScope__Ltoolc_analyzer_Symbols$GlobalScope().mainClass__Ltoolc_analyzer_Symbols$ClassSymbol(), mainMethodSymbol);
+  this.toolc$analyzer$NameAnalysis$$assignStatementsSymbols$1__sci_List__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__Ltoolc_utils_Context__V(prog.main__Ltoolc_ast_Trees$MainObject().stats__sci_List(), this.globalScope__Ltoolc_analyzer_Symbols$GlobalScope().mainClass__Ltoolc_analyzer_Symbols$ClassSymbol(), mainMethodSymbol, ctx);
   return prog
-});
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.assignTypeSymbol__Ltoolc_ast_Trees$TypeTree__V = (function(tpe) {
-  tpe.setType__Ltoolc_analyzer_Types$Type__Ltoolc_analyzer_Types$Typed(this.typeFor__Ltoolc_ast_Trees$TypeTree__Ltoolc_analyzer_Types$Type(tpe))
-});
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.typeFor__Ltoolc_ast_Trees$TypeTree__Ltoolc_analyzer_Types$Type = (function(tpe) {
-  var x1 = tpe;
-  if (ScalaJS.is.Ltoolc_ast_Trees$IntArrayType(x1)) {
-    return ScalaJS.m.Ltoolc_analyzer_Types$TIntArray()
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$IntType(x1)) {
-    return ScalaJS.m.Ltoolc_analyzer_Types$TInt()
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$BooleanType(x1)) {
-    return ScalaJS.m.Ltoolc_analyzer_Types$TBoolean()
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$StringType(x1)) {
-    return ScalaJS.m.Ltoolc_analyzer_Types$TString()
-  };
-  if (ScalaJS.is.Ltoolc_ast_Trees$Identifier(x1)) {
-    var x6 = ScalaJS.as.Ltoolc_ast_Trees$Identifier(x1);
-    var value = x6.value__T();
-    var x1$2 = this.globalScope__Ltoolc_analyzer_Symbols$GlobalScope().lookupClass__T__s_Option(value);
-    matchEnd4: {
-      var classSymbol;
-      if (ScalaJS.is.s_Some(x1$2)) {
-        var x2 = ScalaJS.as.s_Some(x1$2);
-        var s = ScalaJS.as.Ltoolc_analyzer_Symbols$ClassSymbol(x2.x__O());
-        var classSymbol = s;
-        break matchEnd4
-      };
-      ScalaJS.m.s_Predef().error__T__sr_Nothing$(("class not found: " + value))
-    };
-    x6.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(classSymbol);
-    return new ScalaJS.c.Ltoolc_analyzer_Types$TObject().init___Ltoolc_analyzer_Symbols$ClassSymbol(classSymbol)
-  };
-  throw new ScalaJS.c.s_MatchError().init___O(x1)
-});
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.assignStatementsSymbols__sci_List__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V = (function(stats, cl, methodSymbol) {
-  stats.foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(cl$3, methodSymbol$2) {
-    return (function(stat$2) {
-      var stat = ScalaJS.as.Ltoolc_ast_Trees$StatTree(stat$2);
-      ScalaJS.m.Ltoolc_analyzer_NameAnalysis().assignStatSymbols__Ltoolc_ast_Trees$StatTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(stat, cl$3, methodSymbol$2)
-    })
-  })(cl, methodSymbol)))
-});
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.assignStatSymbols__Ltoolc_ast_Trees$StatTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V = (function(stat, cl, methodSymbol) {
-  var _$this = this;
-  x: {
-    _assignStatSymbols: while (true) {
-      var x1 = stat;
-      matchEnd9: {
-        if (ScalaJS.is.Ltoolc_ast_Trees$Block(x1)) {
-          var x2 = ScalaJS.as.Ltoolc_ast_Trees$Block(x1);
-          var sts = x2.stats__sci_List();
-          _$this.assignStatementsSymbols__sci_List__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(sts, cl, methodSymbol);
-          (void 0);
-          break matchEnd9
-        };
-        if (ScalaJS.is.Ltoolc_ast_Trees$If(x1)) {
-          var x3 = ScalaJS.as.Ltoolc_ast_Trees$If(x1);
-          var expr = x3.expr__Ltoolc_ast_Trees$ExprTree();
-          var thn = x3.thn__Ltoolc_ast_Trees$StatTree();
-          var els = x3.els__s_Option();
-          _$this.assignExprSymbols__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(expr, cl, methodSymbol);
-          _$this.assignStatSymbols__Ltoolc_ast_Trees$StatTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(thn, cl, methodSymbol);
-          els.map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(cl$5, methodSymbol$4) {
-            return (function(stat$2) {
-              var stat = ScalaJS.as.Ltoolc_ast_Trees$StatTree(stat$2);
-              ScalaJS.m.Ltoolc_analyzer_NameAnalysis().assignStatSymbols__Ltoolc_ast_Trees$StatTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(stat, cl$5, methodSymbol$4)
-            })
-          })(cl, methodSymbol)));
-          (void 0);
-          break matchEnd9
-        };
-        if (ScalaJS.is.Ltoolc_ast_Trees$While(x1)) {
-          var x4 = ScalaJS.as.Ltoolc_ast_Trees$While(x1);
-          var expr$2 = x4.expr__Ltoolc_ast_Trees$ExprTree();
-          var stat$2 = x4.stat__Ltoolc_ast_Trees$StatTree();
-          _$this.assignExprSymbols__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(expr$2, cl, methodSymbol);
-          stat = stat$2;
-          continue _assignStatSymbols;
-          break matchEnd9
-        };
-        if (ScalaJS.is.Ltoolc_ast_Trees$Println(x1)) {
-          var x5 = ScalaJS.as.Ltoolc_ast_Trees$Println(x1);
-          var expr$3 = x5.expr__Ltoolc_ast_Trees$ExprTree();
-          _$this.assignExprSymbols__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(expr$3, cl, methodSymbol);
-          (void 0);
-          break matchEnd9
-        };
-        if (ScalaJS.is.Ltoolc_ast_Trees$Assign(x1)) {
-          var x6 = ScalaJS.as.Ltoolc_ast_Trees$Assign(x1);
-          var id = x6.id__Ltoolc_ast_Trees$Identifier();
-          var expr$4 = x6.expr__Ltoolc_ast_Trees$ExprTree();
-          if ((id !== null)) {
-            var name = id.value__T();
-            _$this.assignExprSymbols__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(expr$4, cl, methodSymbol);
-            id.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(ScalaJS.as.Ltoolc_analyzer_Symbols$Symbol(methodSymbol.lookupVar__T__s_Option(name).get__O()));
-            (void 0);
-            break matchEnd9
-          }
-        };
-        if (ScalaJS.is.Ltoolc_ast_Trees$ArrayAssign(x1)) {
-          var x7 = ScalaJS.as.Ltoolc_ast_Trees$ArrayAssign(x1);
-          var id$2 = x7.id__Ltoolc_ast_Trees$Identifier();
-          var index = x7.index__Ltoolc_ast_Trees$ExprTree();
-          var expr$5 = x7.expr__Ltoolc_ast_Trees$ExprTree();
-          if ((id$2 !== null)) {
-            var name$2 = id$2.value__T();
-            _$this.assignExprSymbols__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(expr$5, cl, methodSymbol);
-            _$this.assignExprSymbols__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(index, cl, methodSymbol);
-            id$2.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(ScalaJS.as.Ltoolc_analyzer_Symbols$Symbol(methodSymbol.lookupVar__T__s_Option(name$2).get__O()));
-            (void 0);
-            break matchEnd9
-          }
-        };
-        throw new ScalaJS.c.s_MatchError().init___O(x1)
-      };
-      break x
-    }
-  }
-});
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.assignExprSymbols__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V = (function(expr, cl, methodSymbol) {
-  this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(expr, cl, methodSymbol)
 });
 ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.run__Ltoolc_utils_Context__O__O = (function(ctx, v) {
   return this.run__Ltoolc_utils_Context__Ltoolc_ast_Trees$Program__Ltoolc_ast_Trees$Program(ctx, ScalaJS.as.Ltoolc_ast_Trees$Program(v))
@@ -27235,20 +27138,14 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$a
   var name = classDecl.id__Ltoolc_ast_Trees$Identifier().value__T();
   var parent = classDecl.parent__s_Option();
   if (((!parent.isEmpty__Z()) && (!prog$1.classes__sci_List().exists__F1__Z(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(parent$1) {
-    return (function(x$3$2) {
-      var x$3 = ScalaJS.as.Ltoolc_ast_Trees$ClassDecl(x$3$2);
-      return ScalaJS.anyRefEqEq(x$3.id__Ltoolc_ast_Trees$Identifier(), parent$1.get__O())
+    return (function(x$2$2) {
+      var x$2 = ScalaJS.as.Ltoolc_ast_Trees$ClassDecl(x$2$2);
+      return ScalaJS.anyRefEqEq(x$2.id__Ltoolc_ast_Trees$Identifier(), parent$1.get__O())
     })
   })(parent)))))) {
-    ctx$1.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V((((((("Class '" + name) + "' extends '") + ScalaJS.as.Ltoolc_ast_Trees$Identifier(parent.get__O()).value__T()) + "' which was not defined (at ") + classes$1.get__O__s_Option(name).map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$4$2) {
-      var x$4 = ScalaJS.as.Ltoolc_analyzer_Symbols$ClassSymbol(x$4$2);
-      return x$4.position__T()
-    })))) + ")"), ctx$1.reporter__Ltoolc_utils_Reporter().error$default$2__Ltoolc_utils_Positioned())
+    ctx$1.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V((((("Class '" + name) + "' extends '") + ScalaJS.as.Ltoolc_ast_Trees$Identifier(parent.get__O()).value__T()) + "' which was not defined"), ScalaJS.as.Ltoolc_analyzer_Symbols$Symbolic(parent.get__O()).getSymbol__Ltoolc_analyzer_Symbols$Symbol())
   } else if (((!classDecl.parent__s_Option().isEmpty__Z()) && ScalaJS.as.Ltoolc_analyzer_Symbols$ClassSymbol(classes$1.get__O__s_Option(ScalaJS.as.Ltoolc_ast_Trees$Identifier(parent.get__O()).value__T()).get__O()).$$undextends__T__Z(name))) {
-    ctx$1.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V((((((("Cyclic inheritance relationship between classes '" + name) + "' and '") + ScalaJS.as.Ltoolc_ast_Trees$Identifier(parent.get__O()).value__T()) + "' (at ") + classes$1.get__O__s_Option(name).map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$5$2) {
-      var x$5 = ScalaJS.as.Ltoolc_analyzer_Symbols$ClassSymbol(x$5$2);
-      return x$5.position__T()
-    })))) + ")"), ctx$1.reporter__Ltoolc_utils_Reporter().error$default$2__Ltoolc_utils_Positioned())
+    ctx$1.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V((((("Cyclic inheritance relationship between classes '" + name) + "' and '") + ScalaJS.as.Ltoolc_ast_Trees$Identifier(parent.get__O()).value__T()) + "' "), classDecl.getSymbol__Ltoolc_analyzer_Symbols$Symbol())
   } else {
     this.toolc$analyzer$NameAnalysis$$analyseClassDecl$1__Ltoolc_ast_Trees$ClassDecl__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_utils_Context__Ltoolc_ast_Trees$Program__Ltoolc_analyzer_Symbols$ClassSymbol(classDecl, ScalaJS.as.Ltoolc_analyzer_Symbols$ClassSymbol(classes$1.get__O__s_Option(classDecl.id__Ltoolc_ast_Trees$Identifier().value__T()).get__O()), ctx$1, prog$1)
   }
@@ -27265,19 +27162,21 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$a
       var newVar = ScalaJS.as.Ltoolc_ast_Trees$VarDecl(newVar$2);
       var varName = newVar.id__Ltoolc_ast_Trees$Identifier().value__T();
       if (((!symbol$1.lookupVar__T__s_Option(varName).isEmpty__Z()) || acc.contains__O__Z(varName))) {
-        return (ctx$1.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V((((((("Field '" + varName) + "' in class '") + symbol$1.name__T()) + "' overrides a field (at ") + newVar.position__T()) + ")"), ctx$1.reporter__Ltoolc_utils_Reporter().error$default$2__Ltoolc_utils_Positioned()), acc)
+        return (ctx$1.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V((((("Field '" + varName) + "' in class '") + symbol$1.name__T()) + "' overrides a field "), newVar), acc)
       } else {
         var fieldSymbol = new ScalaJS.c.Ltoolc_analyzer_Symbols$VariableSymbol().init___T(varName);
         newVar.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(fieldSymbol);
-        ScalaJS.m.Ltoolc_analyzer_NameAnalysis().assignTypeSymbol__Ltoolc_ast_Trees$TypeTree__V(newVar.tpe__Ltoolc_ast_Trees$TypeTree());
+        ScalaJS.m.Ltoolc_analyzer_NameAnalysis().toolc$analyzer$NameAnalysis$$assignTypeSymbol$1__Ltoolc_ast_Trees$TypeTree__Ltoolc_utils_Context__V(newVar.tpe__Ltoolc_ast_Trees$TypeTree(), ctx$1);
         return acc.$$plus__T2__sci_Map(ScalaJS.m.s_Predef$ArrowAssoc().$$minus$greater$extension__O__O__T2(ScalaJS.m.s_Predef().ArrowAssoc__O__O(varName), fieldSymbol))
       }
     })
   })(ctx$1, symbol)))));
-  cl.vars__sci_List().foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(field$2) {
-    var field = ScalaJS.as.Ltoolc_ast_Trees$VarDecl(field$2);
-    return ScalaJS.as.Ltoolc_analyzer_Symbols$VariableSymbol(field.getSymbol__Ltoolc_analyzer_Symbols$Symbol().setType__Ltoolc_analyzer_Types$Type__Ltoolc_analyzer_Types$Typed(ScalaJS.m.Ltoolc_analyzer_NameAnalysis().typeFor__Ltoolc_ast_Trees$TypeTree__Ltoolc_analyzer_Types$Type(field.tpe__Ltoolc_ast_Trees$TypeTree())))
-  })));
+  cl.vars__sci_List().foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(ctx$1) {
+    return (function(field$2) {
+      var field = ScalaJS.as.Ltoolc_ast_Trees$VarDecl(field$2);
+      return ScalaJS.as.Ltoolc_analyzer_Symbols$VariableSymbol(field.getSymbol__Ltoolc_analyzer_Symbols$Symbol().setType__Ltoolc_analyzer_Types$Type__Ltoolc_analyzer_Types$Typed(ScalaJS.m.Ltoolc_analyzer_NameAnalysis().toolc$analyzer$NameAnalysis$$typeFor$1__Ltoolc_ast_Trees$TypeTree__Ltoolc_utils_Context__Ltoolc_analyzer_Types$Type(field.tpe__Ltoolc_ast_Trees$TypeTree(), ctx$1)))
+    })
+  })(ctx$1)));
   cl.parent__s_Option().map__F1__s_Option(new ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseClassDecl$1$4().init___Ltoolc_analyzer_Symbols$ClassSymbol(symbol));
   symbol.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(cl);
   symbol.setType__Ltoolc_analyzer_Types$Type__Ltoolc_analyzer_Types$Typed(new ScalaJS.c.Ltoolc_analyzer_Types$TObject().init___Ltoolc_analyzer_Symbols$ClassSymbol(symbol));
@@ -27296,23 +27195,186 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$a
 ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$createMethodSymbol$1__Ltoolc_ast_Trees$MethodDecl__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_utils_Context__Ltoolc_analyzer_Symbols$MethodSymbol = (function(method, cl, ctx$1) {
   var symbol = new ScalaJS.c.Ltoolc_analyzer_Symbols$MethodSymbol().init___T__Ltoolc_analyzer_Symbols$ClassSymbol(method.id__Ltoolc_ast_Trees$Identifier().value__T(), cl);
   symbol.setPos__Ltoolc_utils_Positioned__Ltoolc_utils_Positioned(method);
-  symbol.params$und$eq__sci_Map__V(ScalaJS.as.sci_Map(method.args__sci_List().foldLeft__O__F2__O(ScalaJS.m.s_Predef().Map__sci_Map$().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()), new ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1().init___Ltoolc_utils_Context(ctx$1))));
-  symbol.argList$und$eq__sci_List__V(ScalaJS.as.sci_List(method.args__sci_List().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$2) {
-    var arg = ScalaJS.as.Ltoolc_ast_Trees$Formal(arg$2);
-    return ScalaJS.as.Ltoolc_analyzer_Symbols$VariableSymbol(new ScalaJS.c.Ltoolc_analyzer_Symbols$VariableSymbol().init___T(arg.id__Ltoolc_ast_Trees$Identifier().value__T()).setType__Ltoolc_analyzer_Types$Type__Ltoolc_analyzer_Types$Typed(ScalaJS.m.Ltoolc_analyzer_NameAnalysis().typeFor__Ltoolc_ast_Trees$TypeTree__Ltoolc_analyzer_Types$Type(arg.tpe__Ltoolc_ast_Trees$TypeTree())))
-  })), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())));
-  method.args__sci_List().foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$2) {
-    var arg = ScalaJS.as.Ltoolc_ast_Trees$Formal(arg$2);
-    return ScalaJS.as.Ltoolc_analyzer_Symbols$VariableSymbol(arg.getSymbol__Ltoolc_analyzer_Symbols$Symbol().setType__Ltoolc_analyzer_Types$Type__Ltoolc_analyzer_Types$Typed(ScalaJS.m.Ltoolc_analyzer_NameAnalysis().typeFor__Ltoolc_ast_Trees$TypeTree__Ltoolc_analyzer_Types$Type(arg.tpe__Ltoolc_ast_Trees$TypeTree())))
-  })));
-  symbol.members$und$eq__sci_Map__V(ScalaJS.as.sci_Map(method.vars__sci_List().foldLeft__O__F2__O(ScalaJS.m.s_Predef().Map__sci_Map$().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()), new ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4().init___Ltoolc_utils_Context__Ltoolc_analyzer_Symbols$MethodSymbol(ctx$1, symbol))));
-  this.assignTypeSymbol__Ltoolc_ast_Trees$TypeTree__V(method.retType__Ltoolc_ast_Trees$TypeTree());
-  symbol.setType__Ltoolc_analyzer_Types$Type__Ltoolc_analyzer_Types$Typed(this.typeFor__Ltoolc_ast_Trees$TypeTree__Ltoolc_analyzer_Types$Type(method.retType__Ltoolc_ast_Trees$TypeTree()));
+  symbol.params$und$eq__sci_Map__V(ScalaJS.as.sci_Map(method.args__sci_List().foldLeft__O__F2__O(ScalaJS.m.s_Predef().Map__sci_Map$().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()), new ScalaJS.c.sjsr_AnonFunction2().init___sjs_js_Function2((function(ctx$1) {
+    return (function(acc$2, newArg$2) {
+      var acc = ScalaJS.as.sci_Map(acc$2);
+      var newArg = ScalaJS.as.Ltoolc_ast_Trees$Formal(newArg$2);
+      var argName = newArg.id__Ltoolc_ast_Trees$Identifier().value__T();
+      if (acc.contains__O__Z(argName)) {
+        return (ctx$1.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V((("Two method arguments cannot have the same name (parameter " + argName) + " defined twice)"), newArg), acc)
+      } else {
+        var argSymbol = new ScalaJS.c.Ltoolc_analyzer_Symbols$VariableSymbol().init___T(argName);
+        newArg.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(argSymbol);
+        newArg.id__Ltoolc_ast_Trees$Identifier().setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(argSymbol);
+        ScalaJS.m.Ltoolc_analyzer_NameAnalysis().toolc$analyzer$NameAnalysis$$assignTypeSymbol$1__Ltoolc_ast_Trees$TypeTree__Ltoolc_utils_Context__V(newArg.tpe__Ltoolc_ast_Trees$TypeTree(), ctx$1);
+        return acc.$$plus__T2__sci_Map(ScalaJS.m.s_Predef$ArrowAssoc().$$minus$greater$extension__O__O__T2(ScalaJS.m.s_Predef().ArrowAssoc__O__O(argName), argSymbol))
+      }
+    })
+  })(ctx$1)))));
+  symbol.argList$und$eq__sci_List__V(ScalaJS.as.sci_List(method.args__sci_List().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(ctx$1) {
+    return (function(arg$2) {
+      var arg = ScalaJS.as.Ltoolc_ast_Trees$Formal(arg$2);
+      return ScalaJS.as.Ltoolc_analyzer_Symbols$VariableSymbol(new ScalaJS.c.Ltoolc_analyzer_Symbols$VariableSymbol().init___T(arg.id__Ltoolc_ast_Trees$Identifier().value__T()).setType__Ltoolc_analyzer_Types$Type__Ltoolc_analyzer_Types$Typed(ScalaJS.m.Ltoolc_analyzer_NameAnalysis().toolc$analyzer$NameAnalysis$$typeFor$1__Ltoolc_ast_Trees$TypeTree__Ltoolc_utils_Context__Ltoolc_analyzer_Types$Type(arg.tpe__Ltoolc_ast_Trees$TypeTree(), ctx$1)))
+    })
+  })(ctx$1)), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())));
+  method.args__sci_List().foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(ctx$1) {
+    return (function(arg$2) {
+      var arg = ScalaJS.as.Ltoolc_ast_Trees$Formal(arg$2);
+      return ScalaJS.as.Ltoolc_analyzer_Symbols$VariableSymbol(arg.getSymbol__Ltoolc_analyzer_Symbols$Symbol().setType__Ltoolc_analyzer_Types$Type__Ltoolc_analyzer_Types$Typed(ScalaJS.m.Ltoolc_analyzer_NameAnalysis().toolc$analyzer$NameAnalysis$$typeFor$1__Ltoolc_ast_Trees$TypeTree__Ltoolc_utils_Context__Ltoolc_analyzer_Types$Type(arg.tpe__Ltoolc_ast_Trees$TypeTree(), ctx$1)))
+    })
+  })(ctx$1)));
+  symbol.members$und$eq__sci_Map__V(ScalaJS.as.sci_Map(method.vars__sci_List().foldLeft__O__F2__O(ScalaJS.m.s_Predef().Map__sci_Map$().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()), new ScalaJS.c.sjsr_AnonFunction2().init___sjs_js_Function2((function(ctx$1, symbol$3) {
+    return (function(acc$2, newVar$2) {
+      var acc = ScalaJS.as.sci_Map(acc$2);
+      var newVar = ScalaJS.as.Ltoolc_ast_Trees$VarDecl(newVar$2);
+      var varName = newVar.id__Ltoolc_ast_Trees$Identifier().value__T();
+      if (acc.contains__O__Z(varName)) {
+        return (ctx$1.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V((("Variable " + varName) + " was already defined"), newVar), acc)
+      } else if (symbol$3.params__sci_Map().contains__O__Z(varName)) {
+        return (ctx$1.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V((("Variable " + varName) + " shadows a method parameter"), newVar), acc)
+      } else {
+        var varSymbol = new ScalaJS.c.Ltoolc_analyzer_Symbols$VariableSymbol().init___T(varName);
+        newVar.id__Ltoolc_ast_Trees$Identifier().setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(varSymbol);
+        newVar.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(varSymbol);
+        ScalaJS.m.Ltoolc_analyzer_NameAnalysis().toolc$analyzer$NameAnalysis$$assignTypeSymbol$1__Ltoolc_ast_Trees$TypeTree__Ltoolc_utils_Context__V(newVar.tpe__Ltoolc_ast_Trees$TypeTree(), ctx$1);
+        varSymbol.setType__Ltoolc_analyzer_Types$Type__Ltoolc_analyzer_Types$Typed(newVar.tpe__Ltoolc_ast_Trees$TypeTree().getType__Ltoolc_analyzer_Types$Type());
+        return acc.$$plus__T2__sci_Map(ScalaJS.m.s_Predef$ArrowAssoc().$$minus$greater$extension__O__O__T2(ScalaJS.m.s_Predef().ArrowAssoc__O__O(varName), varSymbol))
+      }
+    })
+  })(ctx$1, symbol)))));
+  this.toolc$analyzer$NameAnalysis$$assignTypeSymbol$1__Ltoolc_ast_Trees$TypeTree__Ltoolc_utils_Context__V(method.retType__Ltoolc_ast_Trees$TypeTree(), ctx$1);
+  symbol.setType__Ltoolc_analyzer_Types$Type__Ltoolc_analyzer_Types$Typed(this.toolc$analyzer$NameAnalysis$$typeFor$1__Ltoolc_ast_Trees$TypeTree__Ltoolc_utils_Context__Ltoolc_analyzer_Types$Type(method.retType__Ltoolc_ast_Trees$TypeTree(), ctx$1));
   method.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(symbol);
   method.id__Ltoolc_ast_Trees$Identifier().setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(symbol);
   return symbol
 });
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V = (function(expr, cl$4, methodSymbol$3) {
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$assignTypeSymbol$1__Ltoolc_ast_Trees$TypeTree__Ltoolc_utils_Context__V = (function(tpe, ctx$1) {
+  tpe.setType__Ltoolc_analyzer_Types$Type__Ltoolc_analyzer_Types$Typed(this.toolc$analyzer$NameAnalysis$$typeFor$1__Ltoolc_ast_Trees$TypeTree__Ltoolc_utils_Context__Ltoolc_analyzer_Types$Type(tpe, ctx$1))
+});
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$typeFor$1__Ltoolc_ast_Trees$TypeTree__Ltoolc_utils_Context__Ltoolc_analyzer_Types$Type = (function(tpe, ctx$1) {
+  var x1 = tpe;
+  if (ScalaJS.is.Ltoolc_ast_Trees$IntArrayType(x1)) {
+    return ScalaJS.m.Ltoolc_analyzer_Types$TIntArray()
+  };
+  if (ScalaJS.is.Ltoolc_ast_Trees$IntType(x1)) {
+    return ScalaJS.m.Ltoolc_analyzer_Types$TInt()
+  };
+  if (ScalaJS.is.Ltoolc_ast_Trees$BooleanType(x1)) {
+    return ScalaJS.m.Ltoolc_analyzer_Types$TBoolean()
+  };
+  if (ScalaJS.is.Ltoolc_ast_Trees$StringType(x1)) {
+    return ScalaJS.m.Ltoolc_analyzer_Types$TString()
+  };
+  if (ScalaJS.is.Ltoolc_ast_Trees$Identifier(x1)) {
+    var x6 = ScalaJS.as.Ltoolc_ast_Trees$Identifier(x1);
+    var value = x6.value__T();
+    var x1$2 = this.globalScope__Ltoolc_analyzer_Symbols$GlobalScope().lookupClass__T__s_Option(value);
+    if (ScalaJS.is.s_Some(x1$2)) {
+      var x2 = ScalaJS.as.s_Some(x1$2);
+      var s = ScalaJS.as.Ltoolc_analyzer_Symbols$ClassSymbol(x2.x__O());
+      return (x6.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(s), new ScalaJS.c.Ltoolc_analyzer_Types$TObject().init___Ltoolc_analyzer_Symbols$ClassSymbol(s))
+    };
+    return (ctx$1.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V(("class not found: " + value), x6.getSymbol__Ltoolc_analyzer_Symbols$Symbol()), ScalaJS.m.Ltoolc_analyzer_Types$TUntyped())
+  };
+  throw new ScalaJS.c.s_MatchError().init___O(x1)
+});
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$assignStatementsSymbols$1__sci_List__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__Ltoolc_utils_Context__V = (function(stats, cl, methodSymbol, ctx$1) {
+  stats.foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(ctx$1, cl$3, methodSymbol$1) {
+    return (function(stat$2) {
+      var stat = ScalaJS.as.Ltoolc_ast_Trees$StatTree(stat$2);
+      ScalaJS.m.Ltoolc_analyzer_NameAnalysis().toolc$analyzer$NameAnalysis$$assignStatSymbols$1__Ltoolc_ast_Trees$StatTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__Ltoolc_utils_Context__V(stat, cl$3, methodSymbol$1, ctx$1)
+    })
+  })(ctx$1, cl, methodSymbol)))
+});
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$assignStatSymbols$1__Ltoolc_ast_Trees$StatTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__Ltoolc_utils_Context__V = (function(stat, cl, methodSymbol, ctx$1) {
+  var _$this = this;
+  x: {
+    _assignStatSymbols: while (true) {
+      var x1 = stat;
+      matchEnd9: {
+        if (ScalaJS.is.Ltoolc_ast_Trees$Block(x1)) {
+          var x2 = ScalaJS.as.Ltoolc_ast_Trees$Block(x1);
+          var sts = x2.stats__sci_List();
+          _$this.toolc$analyzer$NameAnalysis$$assignStatementsSymbols$1__sci_List__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__Ltoolc_utils_Context__V(sts, cl, methodSymbol, ctx$1);
+          (void 0);
+          break matchEnd9
+        };
+        if (ScalaJS.is.Ltoolc_ast_Trees$If(x1)) {
+          var x3 = ScalaJS.as.Ltoolc_ast_Trees$If(x1);
+          var expr = x3.expr__Ltoolc_ast_Trees$ExprTree();
+          var thn = x3.thn__Ltoolc_ast_Trees$StatTree();
+          var els = x3.els__s_Option();
+          _$this.toolc$analyzer$NameAnalysis$$assignExprSymbols$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__Ltoolc_utils_Context__V(expr, cl, methodSymbol, ctx$1);
+          _$this.toolc$analyzer$NameAnalysis$$assignStatSymbols$1__Ltoolc_ast_Trees$StatTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__Ltoolc_utils_Context__V(thn, cl, methodSymbol, ctx$1);
+          els.map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(ctx$1, cl$4, methodSymbol$2) {
+            return (function(stat$2) {
+              var stat = ScalaJS.as.Ltoolc_ast_Trees$StatTree(stat$2);
+              ScalaJS.m.Ltoolc_analyzer_NameAnalysis().toolc$analyzer$NameAnalysis$$assignStatSymbols$1__Ltoolc_ast_Trees$StatTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__Ltoolc_utils_Context__V(stat, cl$4, methodSymbol$2, ctx$1)
+            })
+          })(ctx$1, cl, methodSymbol)));
+          (void 0);
+          break matchEnd9
+        };
+        if (ScalaJS.is.Ltoolc_ast_Trees$While(x1)) {
+          var x4 = ScalaJS.as.Ltoolc_ast_Trees$While(x1);
+          var expr$2 = x4.expr__Ltoolc_ast_Trees$ExprTree();
+          var stat$2 = x4.stat__Ltoolc_ast_Trees$StatTree();
+          _$this.toolc$analyzer$NameAnalysis$$assignExprSymbols$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__Ltoolc_utils_Context__V(expr$2, cl, methodSymbol, ctx$1);
+          stat = stat$2;
+          continue _assignStatSymbols;
+          break matchEnd9
+        };
+        if (ScalaJS.is.Ltoolc_ast_Trees$Println(x1)) {
+          var x5 = ScalaJS.as.Ltoolc_ast_Trees$Println(x1);
+          var expr$3 = x5.expr__Ltoolc_ast_Trees$ExprTree();
+          _$this.toolc$analyzer$NameAnalysis$$assignExprSymbols$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__Ltoolc_utils_Context__V(expr$3, cl, methodSymbol, ctx$1);
+          (void 0);
+          break matchEnd9
+        };
+        if (ScalaJS.is.Ltoolc_ast_Trees$Assign(x1)) {
+          var x6 = ScalaJS.as.Ltoolc_ast_Trees$Assign(x1);
+          var id = x6.id__Ltoolc_ast_Trees$Identifier();
+          var expr$4 = x6.expr__Ltoolc_ast_Trees$ExprTree();
+          if ((id !== null)) {
+            var name = id.value__T();
+            _$this.toolc$analyzer$NameAnalysis$$assignExprSymbols$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__Ltoolc_utils_Context__V(expr$4, cl, methodSymbol, ctx$1);
+            var x1$2 = methodSymbol.lookupVar__T__s_Option(name);
+            if (ScalaJS.is.s_Some(x1$2)) {
+              var x2$2 = ScalaJS.as.s_Some(x1$2);
+              var s = ScalaJS.as.Ltoolc_analyzer_Symbols$VariableSymbol(x2$2.x__O());
+              id.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(s);
+              (void 0);
+              break matchEnd9
+            };
+            if (ScalaJS.anyRefEqEq(ScalaJS.m.s_None(), x1$2)) {
+              ctx$1.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V(("no such variable : " + id.value__T()), id);
+              (void 0);
+              break matchEnd9
+            };
+            throw new ScalaJS.c.s_MatchError().init___O(x1$2)
+          }
+        };
+        if (ScalaJS.is.Ltoolc_ast_Trees$ArrayAssign(x1)) {
+          var x7 = ScalaJS.as.Ltoolc_ast_Trees$ArrayAssign(x1);
+          var id$2 = x7.id__Ltoolc_ast_Trees$Identifier();
+          var index = x7.index__Ltoolc_ast_Trees$ExprTree();
+          var expr$5 = x7.expr__Ltoolc_ast_Trees$ExprTree();
+          if ((id$2 !== null)) {
+            var name$2 = id$2.value__T();
+            _$this.toolc$analyzer$NameAnalysis$$assignExprSymbols$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__Ltoolc_utils_Context__V(expr$5, cl, methodSymbol, ctx$1);
+            _$this.toolc$analyzer$NameAnalysis$$assignExprSymbols$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__Ltoolc_utils_Context__V(index, cl, methodSymbol, ctx$1);
+            id$2.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(ScalaJS.as.Ltoolc_analyzer_Symbols$Symbol(methodSymbol.lookupVar__T__s_Option(name$2).get__O()));
+            (void 0);
+            break matchEnd9
+          }
+        };
+        throw new ScalaJS.c.s_MatchError().init___O(x1)
+      };
+      break x
+    }
+  }
+});
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_utils_Context__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V = (function(expr, ctx$1, cl$5, methodSymbol$3) {
   var _$this = this;
   x: {
     _inner: while (true) {
@@ -27322,7 +27384,7 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$i
           var x2 = ScalaJS.as.Ltoolc_ast_Trees$And(x1);
           var lhs = x2.lhs__Ltoolc_ast_Trees$ExprTree();
           var rhs = x2.rhs__Ltoolc_ast_Trees$ExprTree();
-          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(lhs, cl$4, methodSymbol$3);
+          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_utils_Context__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(lhs, ctx$1, cl$5, methodSymbol$3);
           expr = rhs;
           continue _inner;
           break matchEnd19
@@ -27331,7 +27393,7 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$i
           var x3 = ScalaJS.as.Ltoolc_ast_Trees$Or(x1);
           var lhs$2 = x3.lhs__Ltoolc_ast_Trees$ExprTree();
           var rhs$2 = x3.rhs__Ltoolc_ast_Trees$ExprTree();
-          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(lhs$2, cl$4, methodSymbol$3);
+          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_utils_Context__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(lhs$2, ctx$1, cl$5, methodSymbol$3);
           expr = rhs$2;
           continue _inner;
           break matchEnd19
@@ -27340,7 +27402,7 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$i
           var x4 = ScalaJS.as.Ltoolc_ast_Trees$Plus(x1);
           var lhs$3 = x4.lhs__Ltoolc_ast_Trees$ExprTree();
           var rhs$3 = x4.rhs__Ltoolc_ast_Trees$ExprTree();
-          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(lhs$3, cl$4, methodSymbol$3);
+          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_utils_Context__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(lhs$3, ctx$1, cl$5, methodSymbol$3);
           expr = rhs$3;
           continue _inner;
           break matchEnd19
@@ -27349,7 +27411,7 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$i
           var x5 = ScalaJS.as.Ltoolc_ast_Trees$Minus(x1);
           var lhs$4 = x5.lhs__Ltoolc_ast_Trees$ExprTree();
           var rhs$4 = x5.rhs__Ltoolc_ast_Trees$ExprTree();
-          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(lhs$4, cl$4, methodSymbol$3);
+          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_utils_Context__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(lhs$4, ctx$1, cl$5, methodSymbol$3);
           expr = rhs$4;
           continue _inner;
           break matchEnd19
@@ -27358,7 +27420,7 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$i
           var x6 = ScalaJS.as.Ltoolc_ast_Trees$Times(x1);
           var lhs$5 = x6.lhs__Ltoolc_ast_Trees$ExprTree();
           var rhs$5 = x6.rhs__Ltoolc_ast_Trees$ExprTree();
-          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(lhs$5, cl$4, methodSymbol$3);
+          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_utils_Context__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(lhs$5, ctx$1, cl$5, methodSymbol$3);
           expr = rhs$5;
           continue _inner;
           break matchEnd19
@@ -27367,7 +27429,7 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$i
           var x7 = ScalaJS.as.Ltoolc_ast_Trees$Div(x1);
           var lhs$6 = x7.lhs__Ltoolc_ast_Trees$ExprTree();
           var rhs$6 = x7.rhs__Ltoolc_ast_Trees$ExprTree();
-          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(lhs$6, cl$4, methodSymbol$3);
+          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_utils_Context__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(lhs$6, ctx$1, cl$5, methodSymbol$3);
           expr = rhs$6;
           continue _inner;
           break matchEnd19
@@ -27376,7 +27438,7 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$i
           var x8 = ScalaJS.as.Ltoolc_ast_Trees$LessThan(x1);
           var lhs$7 = x8.lhs__Ltoolc_ast_Trees$ExprTree();
           var rhs$7 = x8.rhs__Ltoolc_ast_Trees$ExprTree();
-          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(lhs$7, cl$4, methodSymbol$3);
+          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_utils_Context__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(lhs$7, ctx$1, cl$5, methodSymbol$3);
           expr = rhs$7;
           continue _inner;
           break matchEnd19
@@ -27385,7 +27447,7 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$i
           var x9 = ScalaJS.as.Ltoolc_ast_Trees$Equals(x1);
           var lhs$8 = x9.lhs__Ltoolc_ast_Trees$ExprTree();
           var rhs$8 = x9.rhs__Ltoolc_ast_Trees$ExprTree();
-          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(lhs$8, cl$4, methodSymbol$3);
+          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_utils_Context__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(lhs$8, ctx$1, cl$5, methodSymbol$3);
           expr = rhs$8;
           continue _inner;
           break matchEnd19
@@ -27394,7 +27456,7 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$i
           var x10 = ScalaJS.as.Ltoolc_ast_Trees$ArrayRead(x1);
           var arr = x10.arr__Ltoolc_ast_Trees$ExprTree();
           var index = x10.index__Ltoolc_ast_Trees$ExprTree();
-          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(arr, cl$4, methodSymbol$3);
+          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_utils_Context__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(arr, ctx$1, cl$5, methodSymbol$3);
           expr = index;
           continue _inner;
           break matchEnd19
@@ -27410,26 +27472,39 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$i
           var x12 = ScalaJS.as.Ltoolc_ast_Trees$MethodCall(x1);
           var obj = x12.obj__Ltoolc_ast_Trees$ExprTree();
           var args = x12.args__sci_List();
-          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(obj, cl$4, methodSymbol$3);
-          args.foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(cl$4, methodSymbol$3) {
-            return (function(x$16$2) {
-              var x$16 = ScalaJS.as.Ltoolc_ast_Trees$ExprTree(x$16$2);
-              ScalaJS.m.Ltoolc_analyzer_NameAnalysis().toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(x$16, cl$4, methodSymbol$3)
+          _$this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_utils_Context__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(obj, ctx$1, cl$5, methodSymbol$3);
+          args.foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(ctx$1, cl$5, methodSymbol$3) {
+            return (function(x$6$2) {
+              var x$6 = ScalaJS.as.Ltoolc_ast_Trees$ExprTree(x$6$2);
+              ScalaJS.m.Ltoolc_analyzer_NameAnalysis().toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_utils_Context__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(x$6, ctx$1, cl$5, methodSymbol$3)
             })
-          })(cl$4, methodSymbol$3)));
+          })(ctx$1, cl$5, methodSymbol$3)));
           (void 0);
           break matchEnd19
         };
         if (ScalaJS.is.Ltoolc_ast_Trees$Identifier(x1)) {
           var x13 = ScalaJS.as.Ltoolc_ast_Trees$Identifier(x1);
           var value = x13.value__T();
-          var symbol = ScalaJS.as.Ltoolc_analyzer_Symbols$VariableSymbol(methodSymbol$3.lookupVar__T__s_Option(value).get__O());
-          x13.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(symbol);
+          var x1$2 = methodSymbol$3.lookupVar__T__s_Option(value);
+          matchEnd5: {
+            var symbol;
+            if (ScalaJS.is.s_Some(x1$2)) {
+              var x2$2 = ScalaJS.as.s_Some(x1$2);
+              var s = ScalaJS.as.Ltoolc_analyzer_Symbols$VariableSymbol(x2$2.x__O());
+              var symbol = x13.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(s);
+              break matchEnd5
+            };
+            if (ScalaJS.anyRefEqEq(ScalaJS.m.s_None(), x1$2)) {
+              var symbol = (ctx$1.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V(("symbol not found : " + value), x13), (void 0));
+              break matchEnd5
+            };
+            throw new ScalaJS.c.s_MatchError().init___O(x1$2)
+          };
           break matchEnd19
         };
         if (ScalaJS.is.Ltoolc_ast_Trees$This(x1)) {
           var x14 = ScalaJS.as.Ltoolc_ast_Trees$This(x1);
-          x14.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(cl$4);
+          x14.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(cl$5);
           (void 0);
           break matchEnd19
         };
@@ -27459,6 +27534,9 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$i
       break x
     }
   }
+});
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.toolc$analyzer$NameAnalysis$$assignExprSymbols$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__Ltoolc_utils_Context__V = (function(expr, cl, methodSymbol, ctx$1) {
+  this.toolc$analyzer$NameAnalysis$$inner$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_utils_Context__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(expr, ctx$1, cl, methodSymbol)
 });
 ScalaJS.c.Ltoolc_analyzer_NameAnalysis$.prototype.init___ = (function() {
   ScalaJS.c.Ltoolc_utils_Pipeline.prototype.init___.call(this);
@@ -27512,12 +27590,9 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$1.prototype.apply__sci_Map__
     return (this.ctx$1$2.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V(((("Class '" + cName) + "' already defined at ") + acc.get__O__s_Option(cName).map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$1$2) {
       var x$1 = ScalaJS.as.Ltoolc_analyzer_Symbols$ClassSymbol(x$1$2);
       return x$1.position__T()
-    })))), this.ctx$1$2.reporter__Ltoolc_utils_Reporter().error$default$2__Ltoolc_utils_Positioned()), acc)
+    })))), newClass.id__Ltoolc_ast_Trees$Identifier().getSymbol__Ltoolc_analyzer_Symbols$Symbol()), acc)
   } else if (ScalaJS.objectEquals(cName, ScalaJS.m.Ltoolc_analyzer_NameAnalysis().globalScope__Ltoolc_analyzer_Symbols$GlobalScope().mainClass__Ltoolc_analyzer_Symbols$ClassSymbol().name__T())) {
-    return (this.ctx$1$2.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V((("You cannot define a class with the same name as the main object (at " + acc.get__O__s_Option(cName).map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$2$2) {
-      var x$2 = ScalaJS.as.Ltoolc_analyzer_Symbols$ClassSymbol(x$2$2);
-      return x$2.position__T()
-    })))) + ")"), this.ctx$1$2.reporter__Ltoolc_utils_Reporter().error$default$2__Ltoolc_utils_Positioned()), acc)
+    return (this.ctx$1$2.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V("You cannot define a class with the same name as the main object", newClass.id__Ltoolc_ast_Trees$Identifier().getSymbol__Ltoolc_analyzer_Symbols$Symbol()), acc)
   } else {
     var symbol = new ScalaJS.c.Ltoolc_analyzer_Symbols$ClassSymbol().init___T(newClass.id__Ltoolc_ast_Trees$Identifier().value__T());
     newClass.id__Ltoolc_ast_Trees$Identifier().setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(symbol);
@@ -27572,7 +27647,7 @@ ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3.prototype = ScalaJS.c.Ltoo
 ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3.prototype.apply__Ltoolc_ast_Trees$ClassDecl__V = (function(cl) {
   var classSymbol = ScalaJS.as.Ltoolc_analyzer_Symbols$ClassSymbol(ScalaJS.m.Ltoolc_analyzer_NameAnalysis().globalScope__Ltoolc_analyzer_Symbols$GlobalScope().lookupClass__T__s_Option(cl.id__Ltoolc_ast_Trees$Identifier().value__T()).get__O());
   ScalaJS.m.Ltoolc_analyzer_NameAnalysis().toolc$analyzer$NameAnalysis$$analyseMethod2$1__Ltoolc_ast_Trees$ClassDecl__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_utils_Context__Ltoolc_ast_Trees$Program__V(cl, classSymbol, this.ctx$1$f, this.prog$1$2);
-  cl.methods__sci_List().foreach__F1__V(new ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16().init___Ltoolc_analyzer_NameAnalysis$$anonfun$run$3__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_ast_Trees$ClassDecl(this, classSymbol, cl))
+  cl.methods__sci_List().foreach__F1__V(new ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10().init___Ltoolc_analyzer_NameAnalysis$$anonfun$run$3__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_ast_Trees$ClassDecl(this, classSymbol, cl))
 });
 ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3.prototype.apply__O__O = (function(v1) {
   return (this.apply__Ltoolc_ast_Trees$ClassDecl__V(ScalaJS.as.Ltoolc_ast_Trees$ClassDecl(v1)), (void 0))
@@ -27607,36 +27682,36 @@ ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3 = new ScalaJS.ClassTypeDat
 });
 ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3.prototype.$classData = ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3;
 /** @constructor */
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16 = (function() {
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10 = (function() {
   ScalaJS.c.sr_AbstractFunction1.call(this);
   this.$$outer$2 = null;
   this.classSymbol$1$2 = null;
   this.cl$6$2 = null
 });
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16.prototype = new ScalaJS.h.sr_AbstractFunction1();
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16.prototype.constructor = ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16;
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10.prototype = new ScalaJS.h.sr_AbstractFunction1();
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10.prototype.constructor = ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10;
 /** @constructor */
-ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16 = (function() {
+ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10 = (function() {
   /*<skip>*/
 });
-ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16.prototype = ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16.prototype;
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16.prototype.apply__Ltoolc_ast_Trees$MethodDecl__V = (function(method) {
+ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10.prototype = ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10.prototype;
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10.prototype.apply__Ltoolc_ast_Trees$MethodDecl__V = (function(method) {
   var methodSymbol = ScalaJS.as.Ltoolc_analyzer_Symbols$MethodSymbol(ScalaJS.as.Ltoolc_analyzer_Symbols$ClassSymbol(ScalaJS.m.Ltoolc_analyzer_NameAnalysis().globalScope__Ltoolc_analyzer_Symbols$GlobalScope().lookupClass__T__s_Option(this.cl$6$2.id__Ltoolc_ast_Trees$Identifier().value__T()).get__O()).lookupMethod__T__s_Option(method.id__Ltoolc_ast_Trees$Identifier().value__T()).get__O());
   var methodName = methodSymbol.name__T();
   var parentOpt = methodSymbol.classSymbol__Ltoolc_analyzer_Symbols$ClassSymbol().parent__s_Option();
   var hasParent = (!parentOpt.isEmpty__Z());
-  if ((hasParent && ScalaJS.uZ(ScalaJS.as.Ltoolc_analyzer_Symbols$ClassSymbol(parentOpt.get__O()).lookupMethod__T__s_Option(methodName).map__F1__s_Option(new ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17().init___Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16__Ltoolc_analyzer_Symbols$MethodSymbol(this, methodSymbol)).getOrElse__F0__O(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
+  if ((hasParent && ScalaJS.uZ(ScalaJS.as.Ltoolc_analyzer_Symbols$ClassSymbol(parentOpt.get__O()).lookupMethod__T__s_Option(methodName).map__F1__s_Option(new ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11().init___Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10__Ltoolc_analyzer_Symbols$MethodSymbol(this, methodSymbol)).getOrElse__F0__O(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
     return false
   })))))) {
-    this.$$outer$2.ctx$1$f.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V((("Method " + methodName) + " overloads a method in a parent class"), this.$$outer$2.ctx$1$f.reporter__Ltoolc_utils_Reporter().error$default$2__Ltoolc_utils_Positioned())
+    this.$$outer$2.ctx$1$f.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V((("Method " + methodName) + " overloads a method in a parent class"), methodSymbol)
   };
-  ScalaJS.m.Ltoolc_analyzer_NameAnalysis().assignStatementsSymbols__sci_List__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(method.stats__sci_List(), this.classSymbol$1$2, methodSymbol);
-  ScalaJS.m.Ltoolc_analyzer_NameAnalysis().assignExprSymbols__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__V(method.retExpr__Ltoolc_ast_Trees$ExprTree(), this.classSymbol$1$2, methodSymbol)
+  ScalaJS.m.Ltoolc_analyzer_NameAnalysis().toolc$analyzer$NameAnalysis$$assignStatementsSymbols$1__sci_List__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__Ltoolc_utils_Context__V(method.stats__sci_List(), this.classSymbol$1$2, methodSymbol, this.$$outer$2.ctx$1$f);
+  ScalaJS.m.Ltoolc_analyzer_NameAnalysis().toolc$analyzer$NameAnalysis$$assignExprSymbols$1__Ltoolc_ast_Trees$ExprTree__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_analyzer_Symbols$MethodSymbol__Ltoolc_utils_Context__V(method.retExpr__Ltoolc_ast_Trees$ExprTree(), this.classSymbol$1$2, methodSymbol, this.$$outer$2.ctx$1$f)
 });
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16.prototype.apply__O__O = (function(v1) {
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10.prototype.apply__O__O = (function(v1) {
   return (this.apply__Ltoolc_ast_Trees$MethodDecl__V(ScalaJS.as.Ltoolc_ast_Trees$MethodDecl(v1)), (void 0))
 });
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16.prototype.init___Ltoolc_analyzer_NameAnalysis$$anonfun$run$3__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_ast_Trees$ClassDecl = (function($$outer, classSymbol$1, cl$6) {
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10.prototype.init___Ltoolc_analyzer_NameAnalysis$$anonfun$run$3__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_ast_Trees$ClassDecl = (function($$outer, classSymbol$1, cl$6) {
   if (($$outer === null)) {
     throw ScalaJS.unwrapJavaScriptException(null)
   } else {
@@ -27647,84 +27722,84 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16.prototyp
   ScalaJS.c.sr_AbstractFunction1.prototype.init___.call(this);
   return this
 });
-ScalaJS.is.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16)))
+ScalaJS.is.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10)))
 });
-ScalaJS.as.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16 = (function(obj) {
-  return ((ScalaJS.is.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.analyzer.NameAnalysis$$anonfun$run$3$$anonfun$apply$16"))
+ScalaJS.as.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10 = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.analyzer.NameAnalysis$$anonfun$run$3$$anonfun$apply$10"))
 });
-ScalaJS.isArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16)))
+ScalaJS.isArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10)))
 });
-ScalaJS.asArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16 = (function(obj, depth) {
-  return ((ScalaJS.isArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.analyzer.NameAnalysis$$anonfun$run$3$$anonfun$apply$16;", depth))
+ScalaJS.asArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10 = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.analyzer.NameAnalysis$$anonfun$run$3$$anonfun$apply$10;", depth))
 });
-ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16 = new ScalaJS.ClassTypeData({
-  Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16: 0
-}, false, "toolc.analyzer.NameAnalysis$$anonfun$run$3$$anonfun$apply$16", ScalaJS.d.sr_AbstractFunction1, {
-  Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16: 1,
+ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10 = new ScalaJS.ClassTypeData({
+  Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10: 0
+}, false, "toolc.analyzer.NameAnalysis$$anonfun$run$3$$anonfun$apply$10", ScalaJS.d.sr_AbstractFunction1, {
+  Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1,
   sr_AbstractFunction1: 1,
   F1: 1,
   O: 1
 });
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16.prototype.$classData = ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16;
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10.prototype.$classData = ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10;
 /** @constructor */
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17 = (function() {
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11 = (function() {
   ScalaJS.c.sr_AbstractFunction1.call(this);
-  this.methodSymbol$1$2 = null
+  this.methodSymbol$4$2 = null
 });
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17.prototype = new ScalaJS.h.sr_AbstractFunction1();
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17.prototype.constructor = ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17;
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11.prototype = new ScalaJS.h.sr_AbstractFunction1();
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11.prototype.constructor = ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11;
 /** @constructor */
-ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17 = (function() {
+ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11 = (function() {
   /*<skip>*/
 });
-ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17.prototype = ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17.prototype;
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17.prototype.apply__Ltoolc_analyzer_Symbols$MethodSymbol__Z = (function(pMethod) {
-  return ((!ScalaJS.objectEquals(pMethod.getType__Ltoolc_analyzer_Types$Type(), this.methodSymbol$1$2.getType__Ltoolc_analyzer_Types$Type())) || (!ScalaJS.as.sc_SeqLike(ScalaJS.as.sc_TraversableLike(ScalaJS.as.sc_IterableLike(pMethod.argList__sci_List().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$14$2) {
-    var x$14 = ScalaJS.as.Ltoolc_analyzer_Symbols$VariableSymbol(x$14$2);
-    return x$14.getType__Ltoolc_analyzer_Types$Type()
-  })), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())).zip__sc_GenIterable__scg_CanBuildFrom__O(ScalaJS.as.sc_GenIterable(this.methodSymbol$1$2.argList__sci_List().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$15$2) {
-    var x$15 = ScalaJS.as.Ltoolc_analyzer_Symbols$VariableSymbol(x$15$2);
-    return x$15.getType__Ltoolc_analyzer_Types$Type()
+ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11.prototype = ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11.prototype;
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11.prototype.apply__Ltoolc_analyzer_Symbols$MethodSymbol__Z = (function(pMethod) {
+  return ((!ScalaJS.objectEquals(pMethod.getType__Ltoolc_analyzer_Types$Type(), this.methodSymbol$4$2.getType__Ltoolc_analyzer_Types$Type())) || (!ScalaJS.as.sc_SeqLike(ScalaJS.as.sc_TraversableLike(ScalaJS.as.sc_IterableLike(pMethod.argList__sci_List().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$7$2) {
+    var x$7 = ScalaJS.as.Ltoolc_analyzer_Symbols$VariableSymbol(x$7$2);
+    return x$7.getType__Ltoolc_analyzer_Types$Type()
+  })), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())).zip__sc_GenIterable__scg_CanBuildFrom__O(ScalaJS.as.sc_GenIterable(this.methodSymbol$4$2.argList__sci_List().map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$8$2) {
+    var x$8 = ScalaJS.as.Ltoolc_analyzer_Symbols$VariableSymbol(x$8$2);
+    return x$8.getType__Ltoolc_analyzer_Types$Type()
   })), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom())).filterNot__F1__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(tuple$2) {
     var tuple = ScalaJS.as.T2(tuple$2);
     return ScalaJS.objectEquals(tuple.$$und1__O(), tuple.$$und2__O())
   })))).isEmpty__Z()))
 });
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17.prototype.apply__O__O = (function(v1) {
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11.prototype.apply__O__O = (function(v1) {
   return this.apply__Ltoolc_analyzer_Symbols$MethodSymbol__Z(ScalaJS.as.Ltoolc_analyzer_Symbols$MethodSymbol(v1))
 });
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17.prototype.init___Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16__Ltoolc_analyzer_Symbols$MethodSymbol = (function($$outer, methodSymbol$1) {
-  this.methodSymbol$1$2 = methodSymbol$1;
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11.prototype.init___Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10__Ltoolc_analyzer_Symbols$MethodSymbol = (function($$outer, methodSymbol$4) {
+  this.methodSymbol$4$2 = methodSymbol$4;
   ScalaJS.c.sr_AbstractFunction1.prototype.init___.call(this);
   return this
 });
-ScalaJS.is.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17)))
+ScalaJS.is.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11)))
 });
-ScalaJS.as.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17 = (function(obj) {
-  return ((ScalaJS.is.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.analyzer.NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17"))
+ScalaJS.as.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11 = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.analyzer.NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11"))
 });
-ScalaJS.isArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17)))
+ScalaJS.isArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11)))
 });
-ScalaJS.asArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17 = (function(obj, depth) {
-  return ((ScalaJS.isArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.analyzer.NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17;", depth))
+ScalaJS.asArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11 = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.analyzer.NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11;", depth))
 });
-ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17 = new ScalaJS.ClassTypeData({
-  Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17: 0
-}, false, "toolc.analyzer.NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17", ScalaJS.d.sr_AbstractFunction1, {
-  Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17: 1,
+ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11 = new ScalaJS.ClassTypeData({
+  Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11: 0
+}, false, "toolc.analyzer.NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11", ScalaJS.d.sr_AbstractFunction1, {
+  Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1,
   sr_AbstractFunction1: 1,
   F1: 1,
   O: 1
 });
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17.prototype.$classData = ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$16$$anonfun$apply$17;
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11.prototype.$classData = ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$run$3$$anonfun$apply$10$$anonfun$apply$11;
 /** @constructor */
 ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseClassDecl$1$1 = (function() {
   ScalaJS.c.sr_AbstractFunction1.call(this);
@@ -27745,9 +27820,9 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$ana
     var x2 = ScalaJS.as.s_Some(x1);
     var v = ScalaJS.as.Ltoolc_analyzer_Symbols$ClassSymbol(x2.x__O());
     return ScalaJS.m.Ltoolc_analyzer_NameAnalysis().toolc$analyzer$NameAnalysis$$analyseClassDecl$1__Ltoolc_ast_Trees$ClassDecl__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_utils_Context__Ltoolc_ast_Trees$Program__Ltoolc_analyzer_Symbols$ClassSymbol(ScalaJS.as.Ltoolc_ast_Trees$ClassDecl(this.prog$1$2.classes__sci_List().find__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer) {
-      return (function(x$6$2) {
-        var x$6 = ScalaJS.as.Ltoolc_ast_Trees$ClassDecl(x$6$2);
-        return ScalaJS.anyRefEqEq(x$6.id__Ltoolc_ast_Trees$Identifier().value__T(), ScalaJS.as.Ltoolc_ast_Trees$Identifier(arg$outer.cl$1$f.parent__s_Option().get__O()).value__T())
+      return (function(x$3$2) {
+        var x$3 = ScalaJS.as.Ltoolc_ast_Trees$ClassDecl(x$3$2);
+        return ScalaJS.anyRefEqEq(x$3.id__Ltoolc_ast_Trees$Identifier().value__T(), ScalaJS.as.Ltoolc_ast_Trees$Identifier(arg$outer.cl$1$f.parent__s_Option().get__O()).value__T())
       })
     })(this))).get__O()), v, this.ctx$1$2, this.prog$1$2)
   };
@@ -27856,9 +27931,9 @@ ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$ana
 ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$1.prototype = ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$1.prototype;
 ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$1.prototype.apply__Ltoolc_analyzer_Symbols$ClassSymbol__V = (function(parent) {
   ScalaJS.m.Ltoolc_analyzer_NameAnalysis().toolc$analyzer$NameAnalysis$$analyseMethod2$1__Ltoolc_ast_Trees$ClassDecl__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_utils_Context__Ltoolc_ast_Trees$Program__V(ScalaJS.as.Ltoolc_ast_Trees$ClassDecl(this.prog$1$2.classes__sci_List().find__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer) {
-    return (function(x$7$2) {
-      var x$7 = ScalaJS.as.Ltoolc_ast_Trees$ClassDecl(x$7$2);
-      return ScalaJS.anyRefEqEq(x$7.id__Ltoolc_ast_Trees$Identifier().value__T(), ScalaJS.as.Ltoolc_ast_Trees$Identifier(arg$outer.cl$2$f.parent__s_Option().get__O()).value__T())
+    return (function(x$4$2) {
+      var x$4 = ScalaJS.as.Ltoolc_ast_Trees$ClassDecl(x$4$2);
+      return ScalaJS.anyRefEqEq(x$4.id__Ltoolc_ast_Trees$Identifier().value__T(), ScalaJS.as.Ltoolc_ast_Trees$Identifier(arg$outer.cl$2$f.parent__s_Option().get__O()).value__T())
     })
   })(this))).get__O()), parent, this.ctx$1$2, this.prog$1$2)
 });
@@ -27911,15 +27986,9 @@ ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$ana
 ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2.prototype = ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2.prototype;
 ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2.prototype.apply__sci_Map__Ltoolc_ast_Trees$MethodDecl__sci_Map = (function(acc, newMethod) {
   var mName = newMethod.id__Ltoolc_ast_Trees$Identifier().value__T();
-  return (acc.contains__O__Z(mName) ? (this.ctx$1$2.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V(((((("Method '" + mName) + "' already defined in class ") + this.cl$2$2.id__Ltoolc_ast_Trees$Identifier().value__T()) + " at ") + acc.get__O__s_Option(mName).map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$8$2) {
-    var x$8 = ScalaJS.as.Ltoolc_analyzer_Symbols$MethodSymbol(x$8$2);
-    return x$8.position__T()
-  })))), this.ctx$1$2.reporter__Ltoolc_utils_Reporter().error$default$2__Ltoolc_utils_Positioned()), acc) : (((!this.cl$2$2.parent__s_Option().isEmpty__Z()) && ScalaJS.uZ(ScalaJS.m.Ltoolc_analyzer_NameAnalysis().globalScope__Ltoolc_analyzer_Symbols$GlobalScope().lookupClass__T__s_Option(ScalaJS.as.Ltoolc_ast_Trees$Identifier(this.cl$2$2.parent__s_Option().get__O()).value__T()).map__F1__s_Option(new ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10().init___Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2__T__Ltoolc_ast_Trees$MethodDecl(this, mName, newMethod)).getOrElse__F0__O(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
+  return (acc.contains__O__Z(mName) ? (this.ctx$1$2.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V(((("Method '" + mName) + "' already defined in class ") + this.cl$2$2.id__Ltoolc_ast_Trees$Identifier().value__T()), newMethod), acc) : (((!this.cl$2$2.parent__s_Option().isEmpty__Z()) && ScalaJS.uZ(ScalaJS.m.Ltoolc_analyzer_NameAnalysis().globalScope__Ltoolc_analyzer_Symbols$GlobalScope().lookupClass__T__s_Option(ScalaJS.as.Ltoolc_ast_Trees$Identifier(this.cl$2$2.parent__s_Option().get__O()).value__T()).map__F1__s_Option(new ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8().init___Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2__T__Ltoolc_ast_Trees$MethodDecl(this, mName, newMethod)).getOrElse__F0__O(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
     return false
-  }))))) ? (this.ctx$1$2.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V((((("Method '" + mName) + "' overloads a method in a parent class (at ") + acc.get__O__s_Option(mName).map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$10$2) {
-    var x$10 = ScalaJS.as.Ltoolc_analyzer_Symbols$MethodSymbol(x$10$2);
-    return x$10.position__T()
-  })))) + ")"), this.ctx$1$2.reporter__Ltoolc_utils_Reporter().error$default$2__Ltoolc_utils_Positioned()), acc) : acc.$$plus__T2__sci_Map(ScalaJS.m.s_Predef$ArrowAssoc().$$minus$greater$extension__O__O__T2(ScalaJS.m.s_Predef().ArrowAssoc__O__O(mName), ScalaJS.m.Ltoolc_analyzer_NameAnalysis().toolc$analyzer$NameAnalysis$$createMethodSymbol$1__Ltoolc_ast_Trees$MethodDecl__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_utils_Context__Ltoolc_analyzer_Symbols$MethodSymbol(newMethod, this.symbol$2$2, this.ctx$1$2)))))
+  }))))) ? (this.ctx$1$2.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V((("Method '" + mName) + "' overloads a method in a parent class"), newMethod), acc) : acc.$$plus__T2__sci_Map(ScalaJS.m.s_Predef$ArrowAssoc().$$minus$greater$extension__O__O__T2(ScalaJS.m.s_Predef().ArrowAssoc__O__O(mName), ScalaJS.m.Ltoolc_analyzer_NameAnalysis().toolc$analyzer$NameAnalysis$$createMethodSymbol$1__Ltoolc_ast_Trees$MethodDecl__Ltoolc_analyzer_Symbols$ClassSymbol__Ltoolc_utils_Context__Ltoolc_analyzer_Symbols$MethodSymbol(newMethod, this.symbol$2$2, this.ctx$1$2)))))
 });
 ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2.prototype.apply__O__O__O = (function(v1, v2) {
   return this.apply__sci_Map__Ltoolc_ast_Trees$MethodDecl__sci_Map(ScalaJS.as.sci_Map(v1), ScalaJS.as.Ltoolc_ast_Trees$MethodDecl(v2))
@@ -27955,20 +28024,20 @@ ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$ana
 });
 ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2.prototype.$classData = ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2;
 /** @constructor */
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10 = (function() {
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8 = (function() {
   ScalaJS.c.sr_AbstractFunction1.call(this);
   this.mName$1$2 = null;
   this.newMethod$1$f = null
 });
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10.prototype = new ScalaJS.h.sr_AbstractFunction1();
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10.prototype.constructor = ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10;
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8.prototype = new ScalaJS.h.sr_AbstractFunction1();
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8.prototype.constructor = ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8;
 /** @constructor */
-ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10 = (function() {
+ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8 = (function() {
   /*<skip>*/
 });
-ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10.prototype = ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10.prototype;
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10.prototype.apply__Ltoolc_analyzer_Symbols$ClassSymbol__Z = (function(x$9) {
-  return ScalaJS.uZ(x$9.lookupMethod__T__s_Option(this.mName$1$2).map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer) {
+ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8.prototype = ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8.prototype;
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8.prototype.apply__Ltoolc_analyzer_Symbols$ClassSymbol__Z = (function(x$5) {
+  return ScalaJS.uZ(x$5.lookupMethod__T__s_Option(this.mName$1$2).map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer) {
     return (function(m$2) {
       var m = ScalaJS.as.Ltoolc_analyzer_Symbols$MethodSymbol(m$2);
       return (m.params__sci_Map().size__I() !== arg$outer.newMethod$1$f.args__sci_List().size__I())
@@ -27977,162 +28046,38 @@ ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$ana
     return false
   }))))
 });
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10.prototype.apply__O__O = (function(v1) {
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8.prototype.apply__O__O = (function(v1) {
   return this.apply__Ltoolc_analyzer_Symbols$ClassSymbol__Z(ScalaJS.as.Ltoolc_analyzer_Symbols$ClassSymbol(v1))
 });
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10.prototype.init___Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2__T__Ltoolc_ast_Trees$MethodDecl = (function($$outer, mName$1, newMethod$1) {
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8.prototype.init___Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2__T__Ltoolc_ast_Trees$MethodDecl = (function($$outer, mName$1, newMethod$1) {
   this.mName$1$2 = mName$1;
   this.newMethod$1$f = newMethod$1;
   ScalaJS.c.sr_AbstractFunction1.prototype.init___.call(this);
   return this
 });
-ScalaJS.is.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10)))
+ScalaJS.is.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8)))
 });
-ScalaJS.as.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10 = (function(obj) {
-  return ((ScalaJS.is.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.analyzer.NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10"))
+ScalaJS.as.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8 = (function(obj) {
+  return ((ScalaJS.is.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.analyzer.NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8"))
 });
-ScalaJS.isArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10)))
+ScalaJS.isArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8)))
 });
-ScalaJS.asArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10 = (function(obj, depth) {
-  return ((ScalaJS.isArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.analyzer.NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10;", depth))
+ScalaJS.asArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8 = (function(obj, depth) {
+  return ((ScalaJS.isArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.analyzer.NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8;", depth))
 });
-ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10 = new ScalaJS.ClassTypeData({
-  Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10: 0
-}, false, "toolc.analyzer.NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10", ScalaJS.d.sr_AbstractFunction1, {
-  Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10: 1,
+ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8 = new ScalaJS.ClassTypeData({
+  Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8: 0
+}, false, "toolc.analyzer.NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8", ScalaJS.d.sr_AbstractFunction1, {
+  Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1,
   sr_AbstractFunction1: 1,
   F1: 1,
   O: 1
 });
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10.prototype.$classData = ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$10;
-/** @constructor */
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1 = (function() {
-  ScalaJS.c.sr_AbstractFunction2.call(this);
-  this.ctx$1$2 = null
-});
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1.prototype = new ScalaJS.h.sr_AbstractFunction2();
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1.prototype.constructor = ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1;
-/** @constructor */
-ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1 = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1.prototype = ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1.prototype;
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1.prototype.apply__sci_Map__Ltoolc_ast_Trees$Formal__sci_Map = (function(acc, newArg) {
-  var argName = newArg.id__Ltoolc_ast_Trees$Identifier().value__T();
-  if (acc.contains__O__Z(argName)) {
-    return (this.ctx$1$2.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V(((("Two method arguments cannot have the same name (parameter " + argName) + " defined twice), at ") + acc.get__O__s_Option(argName).map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$11$2) {
-      var x$11 = ScalaJS.as.Ltoolc_analyzer_Symbols$VariableSymbol(x$11$2);
-      return x$11.position__T()
-    })))), this.ctx$1$2.reporter__Ltoolc_utils_Reporter().error$default$2__Ltoolc_utils_Positioned()), acc)
-  } else {
-    var argSymbol = new ScalaJS.c.Ltoolc_analyzer_Symbols$VariableSymbol().init___T(argName);
-    newArg.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(argSymbol);
-    newArg.id__Ltoolc_ast_Trees$Identifier().setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(argSymbol);
-    ScalaJS.m.Ltoolc_analyzer_NameAnalysis().assignTypeSymbol__Ltoolc_ast_Trees$TypeTree__V(newArg.tpe__Ltoolc_ast_Trees$TypeTree());
-    return acc.$$plus__T2__sci_Map(ScalaJS.m.s_Predef$ArrowAssoc().$$minus$greater$extension__O__O__T2(ScalaJS.m.s_Predef().ArrowAssoc__O__O(argName), argSymbol))
-  }
-});
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1.prototype.apply__O__O__O = (function(v1, v2) {
-  return this.apply__sci_Map__Ltoolc_ast_Trees$Formal__sci_Map(ScalaJS.as.sci_Map(v1), ScalaJS.as.Ltoolc_ast_Trees$Formal(v2))
-});
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1.prototype.init___Ltoolc_utils_Context = (function(ctx$1) {
-  this.ctx$1$2 = ctx$1;
-  ScalaJS.c.sr_AbstractFunction2.prototype.init___.call(this);
-  return this
-});
-ScalaJS.is.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1)))
-});
-ScalaJS.as.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1 = (function(obj) {
-  return ((ScalaJS.is.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.analyzer.NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1"))
-});
-ScalaJS.isArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1)))
-});
-ScalaJS.asArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1 = (function(obj, depth) {
-  return ((ScalaJS.isArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.analyzer.NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1;", depth))
-});
-ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1 = new ScalaJS.ClassTypeData({
-  Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1: 0
-}, false, "toolc.analyzer.NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1", ScalaJS.d.sr_AbstractFunction2, {
-  Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1,
-  sr_AbstractFunction2: 1,
-  F2: 1,
-  O: 1
-});
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1.prototype.$classData = ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$1;
-/** @constructor */
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4 = (function() {
-  ScalaJS.c.sr_AbstractFunction2.call(this);
-  this.ctx$1$2 = null;
-  this.symbol$3$2 = null
-});
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4.prototype = new ScalaJS.h.sr_AbstractFunction2();
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4.prototype.constructor = ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4;
-/** @constructor */
-ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4 = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4.prototype = ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4.prototype;
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4.prototype.apply__sci_Map__Ltoolc_ast_Trees$VarDecl__sci_Map = (function(acc, newVar) {
-  var varName = newVar.id__Ltoolc_ast_Trees$Identifier().value__T();
-  if (acc.contains__O__Z(varName)) {
-    return (this.ctx$1$2.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V(((("Variable " + varName) + " was already defined at ") + acc.get__O__s_Option(varName).map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$12$2) {
-      var x$12 = ScalaJS.as.Ltoolc_analyzer_Symbols$VariableSymbol(x$12$2);
-      return x$12.position__T()
-    })))), this.ctx$1$2.reporter__Ltoolc_utils_Reporter().error$default$2__Ltoolc_utils_Positioned()), acc)
-  } else if (this.symbol$3$2.params__sci_Map().contains__O__Z(varName)) {
-    return (this.ctx$1$2.reporter__Ltoolc_utils_Reporter().error__O__Ltoolc_utils_Positioned__V(((("Variable " + varName) + " shadows a method parameter, at ") + this.symbol$3$2.params__sci_Map().get__O__s_Option(varName).map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(x$13$2) {
-      var x$13 = ScalaJS.as.Ltoolc_analyzer_Symbols$VariableSymbol(x$13$2);
-      return x$13.position__T()
-    })))), this.ctx$1$2.reporter__Ltoolc_utils_Reporter().error$default$2__Ltoolc_utils_Positioned()), acc)
-  } else {
-    var varSymbol = new ScalaJS.c.Ltoolc_analyzer_Symbols$VariableSymbol().init___T(varName);
-    newVar.id__Ltoolc_ast_Trees$Identifier().setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(varSymbol);
-    newVar.setSymbol__Ltoolc_analyzer_Symbols$Symbol__Ltoolc_analyzer_Symbols$Symbolic(varSymbol);
-    ScalaJS.m.Ltoolc_analyzer_NameAnalysis().assignTypeSymbol__Ltoolc_ast_Trees$TypeTree__V(newVar.tpe__Ltoolc_ast_Trees$TypeTree());
-    varSymbol.setType__Ltoolc_analyzer_Types$Type__Ltoolc_analyzer_Types$Typed(newVar.tpe__Ltoolc_ast_Trees$TypeTree().getType__Ltoolc_analyzer_Types$Type());
-    return acc.$$plus__T2__sci_Map(ScalaJS.m.s_Predef$ArrowAssoc().$$minus$greater$extension__O__O__T2(ScalaJS.m.s_Predef().ArrowAssoc__O__O(varName), varSymbol))
-  }
-});
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4.prototype.apply__O__O__O = (function(v1, v2) {
-  return this.apply__sci_Map__Ltoolc_ast_Trees$VarDecl__sci_Map(ScalaJS.as.sci_Map(v1), ScalaJS.as.Ltoolc_ast_Trees$VarDecl(v2))
-});
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4.prototype.init___Ltoolc_utils_Context__Ltoolc_analyzer_Symbols$MethodSymbol = (function(ctx$1, symbol$3) {
-  this.ctx$1$2 = ctx$1;
-  this.symbol$3$2 = symbol$3;
-  ScalaJS.c.sr_AbstractFunction2.prototype.init___.call(this);
-  return this
-});
-ScalaJS.is.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4)))
-});
-ScalaJS.as.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4 = (function(obj) {
-  return ((ScalaJS.is.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4(obj) || (obj === null)) ? obj : ScalaJS.throwClassCastException(obj, "toolc.analyzer.NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4"))
-});
-ScalaJS.isArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4)))
-});
-ScalaJS.asArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4 = (function(obj, depth) {
-  return ((ScalaJS.isArrayOf.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4(obj, depth) || (obj === null)) ? obj : ScalaJS.throwArrayCastException(obj, "Ltoolc.analyzer.NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4;", depth))
-});
-ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4 = new ScalaJS.ClassTypeData({
-  Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4: 0
-}, false, "toolc.analyzer.NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4", ScalaJS.d.sr_AbstractFunction2, {
-  Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1,
-  sr_AbstractFunction2: 1,
-  F2: 1,
-  O: 1
-});
-ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4.prototype.$classData = ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$createMethodSymbol$1$4;
+ScalaJS.c.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8.prototype.$classData = ScalaJS.d.Ltoolc_analyzer_NameAnalysis$$anonfun$toolc$analyzer$NameAnalysis$$analyseMethod2$1$2$$anonfun$apply$8;
 /** @constructor */
 ScalaJS.c.Ltoolc_analyzer_Symbols$ClassSymbol = (function() {
   ScalaJS.c.Ltoolc_analyzer_Symbols$Symbol.call(this);
@@ -34010,9 +33955,6 @@ ScalaJS.c.s_Predef$.prototype.Map__sci_Map$ = (function() {
 });
 ScalaJS.c.s_Predef$.prototype.implicitly__O__O = (function(e) {
   return e
-});
-ScalaJS.c.s_Predef$.prototype.error__T__sr_Nothing$ = (function(message) {
-  ScalaJS.m.s_sys_package().error__T__sr_Nothing$(message)
 });
 ScalaJS.c.s_Predef$.prototype.assert__Z__V = (function(assertion) {
   if ((!assertion)) {

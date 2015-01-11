@@ -340,6 +340,11 @@
             value: localStorage['prog'] || ""
           });
 
+          // Setup "as-you-type" compilation
+          var lazyCompile = _.debounce(compile, 1000);
+          editor.on("change", lazyCompile);
+          lazyCompile();
+
           function reportError(file, line, col) {
             var tk = editor.getTokenAt({line: line, ch: col});
             markers.push(editor.markText({line: line, ch: tk.start}, {line: line, ch: tk.end}, {className: 'mark-error'}));

@@ -445,7 +445,6 @@ var Engine = (function() {
 
       // Resolve jumps
       _.each(jumps, function(jump) {
-        log.info('resolving jump '+jump.label);
         jump.setOffset(labels[jump.label] - jump.offset);
       });
       jumps.length = 0;

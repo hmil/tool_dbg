@@ -32,7 +32,11 @@ var Engine = (function() {
   };
 
   StateMachine.prototype.push = function(value) {
-    this.stack.push(value);
+    if (_.isNumber(value)) {
+      this.stack.push(~~value);
+    } else {
+      this.stack.push(value);
+    }
   };
 
   StateMachine.prototype.pop = function() {

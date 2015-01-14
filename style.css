@@ -83,3 +83,19 @@ html, body {
 .mark-error {
   background-image: url('squiggle.png');
 }
+
+.var-name {
+  max-width: 120px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  position: absolute;
+}
+
+.var-value {
+  margin-left: 120px;
+  position: absolute;
+}
+
+.var-wrap {
+  position: relative;
+}

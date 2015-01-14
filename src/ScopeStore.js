@@ -32,8 +32,10 @@ ScopeStore.prototype.getChildren = function(parent, options){
     var ret = [];
 
     if (this._scope.this != null) {
-        ret.push({
-        name: "this", 
+      ret.push({
+        name: "this",
+        value: "Object",
+        labelType: "html",
         hasChildren: true, 
         id: this._uniqId(), 
         children: this._scope.this
@@ -41,7 +43,7 @@ ScopeStore.prototype.getChildren = function(parent, options){
     }
 
     _.each(this._scope.locals, function(val, key) {
-      ret.push({name: key+'\t'+val, id: that._uniqId(), children: val, hasChildren: _.keys(val).length != 0});
+      ret.push({name: key, value: makeValueLabel(val), id: that._uniqId(), children: formatValue(val), hasChildren: _.keys(val).length != 0});
     });
 
     return ret;
@@ -49,10 +51,32 @@ ScopeStore.prototype.getChildren = function(parent, options){
     var cObj = parent.children;
     return _.map(_.keys(cObj), function(cname) {
       var val = cObj[cname];
-      return {name: cname+'\t'+val, id: that._uniqId(), children: val, hasChildren: _.keys(val).length != 0};
+      return {name: cname, value: makeValueLabel(val), id: that._uniqId(), children: formatValue(val), hasChildren: _.keys(val).length != 0};
     });
   }
 };
+
+function makeValueLabel(el) {
+  if (_.isArray(el)) {
+    return 'Array('+el.length+')';
+  } else if (_.isObject(el)) {
+    return 'Object';
+  } else {
+    return el;
+  }
+}
+
+function formatValue(el) {
+  if (_.isArray(el)) {
+    var tmp = { length: el.length };
+    for (var i = 0 ; i < el.length ; ++i) {
+      tmp[i] = el[i];
+    }
+    return tmp;
+  } else {
+    return el;
+  }
+}
 
 ScopeStore.prototype._uniqId = function() {
   return this._counter++;

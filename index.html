@@ -141,6 +141,10 @@
           var ScopeStoreModel = dojo.extend(ObjectStoreModel, {
               mayHaveChildren: function(node) {
                 return node.hasChildren;
+              },
+
+              getLabel: function(item) {
+                return '<span class="var-wrap"><span class="var-name">'+item.name+'</span><span class="var-value">'+item.value+'</span></span>';
               }
           });
 
@@ -313,15 +317,16 @@
 
           var myModel = new ScopeStoreModel({
             store: callStackStore,
+            labelType: 'html',
             query: {root: true}
           });
 
           var variablesTree = new Tree({
-             model: myModel,
-             showRoot: false,
-             getIconStyle: function() {
+            model: myModel,
+            showRoot: false,
+            getIconStyle: function() {
               return {display: "none"};
-             }
+            }
           });
 
 

@@ -62,11 +62,10 @@
             data-dojo-props="region: 'center'">
           <script type="dojo/method">initVariablesPanel();</script>
         </div>
-        <div id="breakpointsPanel" class="edgePanel"
+        <div id="callstackPanel" class="edgePanel"
             data-dojo-type="dijit/layout/ContentPane"
             data-dojo-props="region: 'top', splitter: true">
-          
-
+          <script type="dojo/method">initCallstackList()</script>
           </div>
         </div>
       </div>
@@ -107,6 +106,7 @@
 
     <script src="lib/browserfs.js"></script>
     <script src="src/ScopeStore.js"></script>
+    <script src="src/CallstackStore.js"></script>
 
     <!-- fs and ScalaJS -->
     <script type="text/javascript">
@@ -138,15 +138,28 @@
         ],
         function(registry, BorderContainer, TabContainer, ContentPane, ObjectStoreModel, Tree, Observable , MenuBar) {
 
+          var highlightedLine = -1;
+
           var ScopeStoreModel = dojo.extend(ObjectStoreModel, {
               mayHaveChildren: function(node) {
                 return node.hasChildren;
               },
 
               getLabel: function(item) {
-                return '<span class="var-wrap"><span class="var-name">'+item.name+'</span><span class="var-value">'+item.value+'</span></span>';
+                return '<span class="var-wrap"><span class="var-name">'+item.name+'</span>' + (typeof item.value === 'undefined' ? '' : '<span class="var-value">'+item.value+'</span></span>');
               }
           });
+
+          var CallstackListStoreModel = _(ObjectStoreModel).extend({
+            mayHaveChildren: function(node) {
+              return false;
+            },
+
+            getLabel: function(item) {
+              return item.label;
+            }
+          });
+
 
           function refreshVariablesTree() {
             var tree = variablesTree;
@@ -159,6 +172,20 @@
             }
             tree.postMixInProperties();
             tree._load();
+          }
+
+          function refreshCallstackList() {
+            var list = callstackList;
+            list.dndController.selectNone(); 
+            list._itemNodesMap = {};
+            list.model.root = null;
+            list.rootNode.state = "UNCHECKED";
+            if (list.rootNode) {
+                list.rootNode.destroyRecursive();
+            }
+            list.postMixInProperties();
+            list._load();
+            console.log("Refreshing callstack")
           }
 
           document.body.setAttribute('style', '');
@@ -177,6 +204,14 @@
             editor.scrollTo(null, t - middleHeight - 5); 
           } 
 
+          function highlightLine(i) {
+            editor.removeLineClass(highlightedLine, 'background', 'line-highlight')
+            editor.addLineClass(i, 'background', 'line-highlight')
+            highlightedLine = i;
+          }
+
+          function highlightAsmLine(i) { }// todo}
+
           var markers = [];
           function clearMarkers() {
             _.each(markers, function(m) {
@@ -184,7 +219,7 @@
             });
             markers.length = 0;
             editor.clearGutter('breakpoints');
-            console.log(editor.lineCount());
+
             var codeLine = engine.getNextLine();
             if (codeLine < editor.lineCount()) {
               editor.removeLineClass(codeLine, 'background', 'line-highlight');
@@ -266,6 +301,10 @@
             variablesTree.placeAt(registry.byId('variablesPanel')).startup();
           };
 
+          window.initCallstackList = function() {
+            callstackList.placeAt(registry.byId('callstackPanel')).startup();
+          }
+
           function wrapEngineOp(op) {
             return function() {
               if (!engine.isRunning()) return;
@@ -279,10 +318,17 @@
               }
               callStackStore.setScope(engine.getCurrentScope());
               refreshVariablesTree();
+
+              callstackListStore.setCallstack(engine.getCallStack());
+              refreshCallstackList();
+
               if (engine.isRunning()) {
                 asmEdit.addLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
                 jumpToLine(engine.getNextASMLine(), asmEdit);
-                editor.addLineClass(engine.getNextLine(), 'background', 'line-highlight');
+
+                highlightLine(engine.getNextLine())
+                //editor.addLineClass(engine.getNextLine(), 'background', 'line-highlight');
+                //highlightedLine = engine.getNextLine();
                 jumpToLine(engine.getNextLine(), editor);
               } else {
                 log.info("Program ended");
@@ -327,6 +373,37 @@
             getIconStyle: function() {
               return {display: "none"};
             }
+          });
+
+          // callstack list
+
+          var callstackListStore = new CallstackStore(engine)
+
+          var model = new CallstackListStoreModel({
+            store: callstackListStore, 
+            labelType: "html", 
+            query: {root: true}
+          })
+
+          var callstackList = new Tree({
+            model: model, 
+            showRoot: false, 
+            getIconStyle: function() { return {display: "none" } }
+          })
+
+          dojo.connect(callstackList, 'onClick', function(item, node, evt)  {
+              if(item.scope) {
+                callStackStore.setScope(item.scope)
+                refreshVariablesTree()
+
+                /*editor.removeLineClass(highlightedLine, 'background', 'line-highlight');
+                jumpToLine(item.line, editor)
+                editor.addLineClass(item.line, 'background', 'line-highlight');
+                highlightedLine = item.line;*/
+                highlightLine(item.line);
+
+                // todo : asm                
+              }
           });
 
 

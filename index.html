@@ -30,9 +30,6 @@
           data-dojo-props="iconClass:'fa fa-level-down', showLabel:false, onClick:stepInto">Step into</div
       ><div data-dojo-type="dijit/form/Button" id="toolbar1.stepOut"
           data-dojo-props="iconClass:'fa fa-level-up', showLabel:false, onClick:stepOut">Step out</div
-      ><span data-dojo-type="dijit/ToolbarSeparator"
-      ></span><div data-dojo-type="dijit/form/Button" id="toolbar1.compile"
-          data-dojo-props="iconClass:'fa fa-cogs', showLabel:false, onClick:compile">Compile</div
       >
     </div>
     <div id="appLayout" class="demoLayout"
@@ -262,8 +259,6 @@
             editor._highlightedLine = i;
           }
 
-          function highlightAsmLine(i) { }// todo}
-
           var markers = [];
           function clearMarkers() {
             _.each(markers, function(m) {
@@ -271,7 +266,9 @@
             });
             markers.length = 0;
             editor.clearGutter('breakpoints');
+          }
 
+          function clearLineHighlights() {
             var codeLine = engine.getNextLine();
             if (codeLine < editor.lineCount()) {
               editor.removeLineClass(codeLine, 'background', 'line-highlight');
@@ -311,6 +308,9 @@
                 json = JSON.parse(out);
                 engine.load(json);
                 console.log("Program loaded");
+                clearMarkers();
+                clearLineHighlights();
+                refreshBreakpointsList();
                 asmEdit.setValue(engine.getProgramAsText());
                 asmEdit.addLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
               }
@@ -321,9 +321,7 @@
             }
           };
 
-          // engrenages
           window.compile = function() {
-            clearMarkers();
             localStorage['prog'] = editor.getValue();
             fs.writeFile('/test.tool', editor.getValue(), function(err) {
               if (err) throw err;
@@ -410,7 +408,7 @@
           });
 
           window.resetCode = function() {
-            clearMarkers();
+            clearLineHighlights();
             engine.reset();
             log.info("Program reinitialized");
           };
@@ -583,7 +581,7 @@
 
           function makeMarker(enabled) {
             var marker = document.createElement("div");
-            marker.style.color = "#822";
+            marker.style.color = "#f00";
             if(enabled === false) {
               marker.style.color = "#4f4242";
             } 

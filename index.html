@@ -62,7 +62,7 @@
             data-dojo-props="region: 'center'">
           <script type="dojo/method">initVariablesPanel();</script>
         </div>
-        <div id="callstackPanel" class="edgePanel"
+        <div id="callstackPanel" class="edgePanel nochrome"
             data-dojo-type="dijit/layout/ContentPane"
             data-dojo-props="region: 'top', splitter: true">
           <script type="dojo/method">initCallstackList()</script>
@@ -396,7 +396,7 @@
 
           var callstackList = new Tree({
             model: model, 
-            showRoot: true, 
+            showRoot: false, 
             getIconStyle: function() { return {display: "none" } }
           })
 

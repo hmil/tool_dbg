@@ -30,10 +30,11 @@ CallstackStore.prototype.getChildren = function(parent, options){
 		var id = that._uniqId();
 		if(i == 0) {
 			return {
-				name:"Main function", 
+				name:"Main function"
 				hasChildren: false, 
 				line: call.line,
-				id: id
+				id: id,
+        isScope: true
 			}
 		}
 		return {
@@ -41,7 +42,8 @@ CallstackStore.prototype.getChildren = function(parent, options){
 			hasChildren: false, 
 			scope: call,
 			line: call.line,
-			id: id
+			id: id, 
+      isScope: true
 		}
 	})
   /*var that = this;

@@ -146,7 +146,12 @@
               },
 
               getLabel: function(item) {
-                return '<span class="var-wrap"><span class="var-name">'+item.name+'</span>' + (typeof item.value === 'undefined' ? '' : '<span class="var-value">'+item.value+'</span></span>');
+                // TODO : temporary fix
+                if(item.isScope) {
+                  return item.name;
+                }
+
+                return '<span class="var-wrap"><span class="var-name">'+item.name+'</span><span class="var-value">'+item.value+'</span></span>';
               }
           });
 
@@ -204,10 +209,14 @@
             editor.scrollTo(null, t - middleHeight - 5); 
           } 
 
-          function highlightLine(i) {
-            editor.removeLineClass(highlightedLine, 'background', 'line-highlight')
+          function highlightLine(i, editor) {
+            var editor = editor || window.editor;
+            
+            if(editor._highlightedLine) {
+              editor.removeLineClass(editor._highlightedLine, 'background', 'line-highlight');
+            }
             editor.addLineClass(i, 'background', 'line-highlight')
-            highlightedLine = i;
+            editor._highlightedLine = i;
           }
 
           function highlightAsmLine(i) { }// todo}
@@ -392,23 +401,33 @@
           })
 
           dojo.connect(callstackList, 'onClick', function(item, node, evt)  {
+
               if(item.scope) {
                 callStackStore.setScope(item.scope)
                 refreshVariablesTree()
+                var sourceLine;
+                var asmLine;
 
-                /*editor.removeLineClass(highlightedLine, 'background', 'line-highlight');
-                jumpToLine(item.line, editor)
-                editor.addLineClass(item.line, 'background', 'line-highlight');
-                highlightedLine = item.line;*/
-                highlightLine(item.line);
+                var nextSibling = node.getNextSibling();
+                if(nextSibling) {
+                  sourceLine = nextSibling.item.scope.ret_line;
+                  asmLine = nextSibling.item.scope.ret_addr;
+                }
+                else { 
+                  sourceLine = engine.getNextLine();
+                  asmLine = engine.getNextASMLine();
+                }
+                highlightLine(sourceLine);
+                jumpToLine(sourceLine, editor);
 
-                // todo : asm                
+                highlightLine(asmLine, asmEdit);
+                jumpToLine(asmLine, asmEdit);
               }
           });
 
 
           var myTextArea = document.getElementById("code");
-          var editor = CodeMirror(function(elt) {
+          window.editor = CodeMirror(function(elt) {
             myTextArea.parentNode.replaceChild(elt, myTextArea);
           }, {
             lineNumbers: true,
@@ -434,7 +453,7 @@
           }
 
           var asmTextArea = document.getElementById("asm");
-          var asmEdit = CodeMirror(function(elt) {
+          window.asmEdit = CodeMirror(function(elt) {
             asmTextArea.parentNode.replaceChild(elt, asmTextArea);
           }, {
             lineNumbers: true,

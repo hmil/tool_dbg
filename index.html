@@ -439,6 +439,7 @@
             breakpointsStore.removeBreakpoint(line);
             engine.removeBreakpoint(line);
             editor.setGutterMarker(line, "breakpoints", null);
+            editor.removeLineClass(line, 'background', 'breakpoint-line-highlight');
           }
 
           function clearBreakpointsHighlights() {

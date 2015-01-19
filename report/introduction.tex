@@ -1,4 +1,4 @@
-During the semester, we have implemented a full compiler for Tool written in Scala. It outputs Java byte code, and can consequently run on the JVM.
+During the semester, we have implemented a full compiler for Tool written in Scala. It outputs Java byte code which can consequently run on the JVM.
 
 Throughout this period, we had the occasion to write quite a number of Tool programs, which allowed us to notice that it could be tedious to debug Tool code. That's why we chose to develop a debugger for Tool.
 
@@ -10,10 +10,10 @@ Throughout this period, we had the occasion to write quite a number of Tool prog
 \item Step-by-step execution: step over lines, step into / out function calls
 \item See the value of every variable
 \item See the current call stack
-\item Real-time compilation
+\item integrated code editor and compiler
 \end{enumerate}
 
-To avoid the need of downloading extra software, we chose to make our debugger run in the browser.
+We chose to implement our debugger as a single web page such that it is cross platform, easy to use (no binary to download) and can still be used offline. Moreover, it allows us to leverage the browser's garbage collector to implement easily the debugging VM (see "Virtual machine implementation")
 
 % [Describe in a few words what you did in the first part of the compiler project
 %(the non-optional labs)]Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

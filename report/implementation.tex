@@ -14,14 +14,15 @@ First, we had to make a new version of the code generator. The compiler now outp
 	\end{itemize}
 \end{itemize}
 
-The code takes the form of a custom simplified bytecode-like language, whose full specification can be found in the Annex. It is similar to Java's, with several notable differences.
+The code is a simplified bytecode-like language (in it's textual representation), whose full specification can be found in the Appendix. The opcodes are similar to the ones found in Java's bytecode, with several notable differences.
 
 \begin{itemize}
 \item variables, methods and classes are referred to by their name, and not a numeric identifier
-\item an instruction \textsc{stat} is used to map bytecode instructions to source code lines
-% todo
+\item an instruction \textsc{stat} is used to map instructions to source code lines
+\item locales are resolved at runtime
 \end{itemize}
 
+This bytecode-like language seemed to be the best solution. First, we could have transpiled directly to JavaScript and use some JS magic to allow the step-by-step execution. While it could seem like a feasible solution at first, due to the highly dynamic nature of JS, it is in practice not possible to break a function call to allow for instance "step into" and "step out" operations. This means that we need to create a machine able to execute the code with a clean debugging interface. We could also have interpreted the tool code directly but since we already have a compiler for tool, it allows us to implement a very simple stack machine which is easier than a complete tool interpreter. This justifies our choice regarding this low-level code representation.
 
 %If you are using theoretical concepts, explain them first in this subsection.
 %Even if they come from the course (eg. lattices), try to explain the essential
@@ -34,8 +35,7 @@ The code takes the form of a custom simplified bytecode-like language, whose ful
 \subsection{Porting the compiler in the browser}
 
 To make the compiler run in the browser, we used \textsc{ScalaJS}, an EPFL-made library that transcompiles Scala to JavaScript.
-\textbf{TODO[Hadrien] Talk about browserFS}
-This allows us to conveniently output a JSON file (described in section \ref{subsec:backend}) containing the program structure and code.
+It needs however some bindings to properly interact with JavaScript code. We wanted to make as few modifications as possible to the compiler's CLI interface. To this end, we used browserFS, a library that creates a nodejs-style filesystem interface, and created a few simple nodejs-scala bindings so that this interface could be used instead of java's filesystem. It worked well for input files but got a little dirty as far as output was concerned. We therefore opted for a more invasive technique. A JS function in charge of receiving the compilation output is called directly in the code generation stage of the compiler which makes this specific version of the compiler unusable outside of the web IDE.
 
 
 \subsection{Implementation of the virtual machine}

@@ -56,18 +56,6 @@ The state machine contains information about the current state of the program (s
      \caption{(Non-exhaustive) class structure}
 \end{figure}
 
-Each instruction is represented by a JavaScript function that can change the program's state by using the state machine's methods.
-
-\begin{lstlisting}[caption=Example implementation the multiplication instruction]
-function fn_mul(sm) {
-  var b = sm.pop();
-  var a = sm.pop();
-  sm.push(a * b);
-}
-\end{lstlisting}
-
-When a (bytecode level) instruction has to be executed, the JavaScript function associated is executed, and the program counter incremented.
-
 \subsubsection{Control flow}
 
 \textbf{TODO : talk about labels, step in, step out, etc}

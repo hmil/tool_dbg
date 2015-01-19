@@ -30,7 +30,7 @@ CallstackStore.prototype.getChildren = function(parent, options){
 		var id = that._uniqId();
 		if(i == 0) {
 			return {
-				name:"Main function"
+				name:"Main function",
 				hasChildren: false, 
 				line: call.line,
 				id: id,

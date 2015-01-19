@@ -1,2 +1,2 @@
 # tool_dbg
-A "tool" debugger
+A "tool" debugger in the browser

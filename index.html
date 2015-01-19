@@ -572,6 +572,7 @@
           editor.on("gutterClick", function(cm, n) {
             var info = cm.lineInfo(n);
             if (info.gutterMarkers) {
+              breakpointsStore.removeBreakpoint(n);
               engine.removeBreakpoint(n);
               cm.setGutterMarker(n, "breakpoints", null);
             } else if (engine.isBreakable(n)) {

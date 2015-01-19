@@ -67,6 +67,25 @@
             data-dojo-props="region: 'top', splitter: true">
           <script type="dojo/method">initCallstackList()</script>
           </div>
+
+        <div id="breakpointsPanel" class="edgePanel"
+            data-dojo-type="dijit/layout/ContentPane"
+            data-dojo-props="region: 'bottom', splitter: true">
+            <script type="dojo/method">initBreakpointsPanel()</script>
+            <!-- menu -->
+            <ul id="breakpoints_menu" data-dojo-type="dijit/Menu"
+              data-dojo-props='style:"display: none;", targetNodeIds: ["breakpointsPanel"], selector: ".dijitTreeNode"'>
+            <li data-dojo-type="dijit/MenuItem">
+              <script type="dojo/connect" data-dojo-event="onClick">
+                      var item = dijit.byNode(this.getParent().currentTarget).item;
+                      removeBreakpointAction(item.line);
+                </script>
+                    Remove
+                  </li>
+            </ul>
+
+            <!--end menu -->
+          </div>
         </div>
       </div>
     </div>
@@ -107,6 +126,7 @@
     <script src="lib/browserfs.js"></script>
     <script src="src/ScopeStore.js"></script>
     <script src="src/CallstackStore.js"></script>
+    <script src="src/BreakpointsStore.js"></script>
 
     <!-- fs and ScalaJS -->
     <script type="text/javascript">
@@ -132,11 +152,11 @@
       require(["dijit/registry", "dijit/layout/BorderContainer",
           "dijit/layout/TabContainer", "dijit/layout/ContentPane",
           "dijit/tree/ObjectStoreModel", "dijit/Tree", "dojo/store/Observable",
-          "dijit/MenuBar", "dijit/MenuBarItem", "dijit/PopupMenuBarItem",
+          "dijit/MenuBar", "dojo/dom", "dijit/MenuBarItem", "dijit/PopupMenuBarItem",
           "dijit/DropDownMenu", "dijit/MenuItem",
           "dojo/domReady!"
         ],
-        function(registry, BorderContainer, TabContainer, ContentPane, ObjectStoreModel, Tree, Observable , MenuBar) {
+        function(registry, BorderContainer, TabContainer, ContentPane, ObjectStoreModel, Tree, Observable , MenuBar, dom) {
 
           var highlightedLine = -1;
 
@@ -147,7 +167,7 @@
 
               getLabel: function(item) {
                 // TODO : temporary fix
-                if(item.isScope) {
+                if(item.isScope || item.isBreakpoint) {
                   return item.name;
                 }
 
@@ -161,9 +181,19 @@
             },
 
             getLabel: function(item) {
-              return item.label;
+              return item.name;
             }
           });
+
+          var BreakpointsStoreModel = _(ObjectStoreModel).extend({
+            mayHaveChildren: function(node) {
+              return false;
+            },
+
+            getLabel: function(item) {
+              return item.name;
+            }
+          })
 
 
           function refreshVariablesTree() {
@@ -191,6 +221,19 @@
             list.postMixInProperties();
             list._load();
             console.log("Refreshing callstack")
+          }
+
+          function refreshBreakpointsList() {
+            var list = breakpointsList;
+            list.dndController.selectNone(); 
+            list._itemNodesMap = {};
+            list.model.root = null;
+            list.rootNode.state = "UNCHECKED";
+            if (list.rootNode) {
+                list.rootNode.destroyRecursive();
+            }
+            list.postMixInProperties();
+            list._load();
           }
 
           document.body.setAttribute('style', '');
@@ -314,9 +357,14 @@
             callstackList.placeAt(registry.byId('callstackPanel')).startup();
           }
 
+          window.initBreakpointsPanel = function() {
+            breakpointsList.placeAt(registry.byId('breakpointsPanel')).startup();
+          }
+
           function wrapEngineOp(op) {
             return function() {
               if (!engine.isRunning()) return;
+              clearBreakpointsHighlights();
               asmEdit.removeLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
               editor.removeLineClass(engine.getNextLine(), 'background', 'line-highlight');
               try {
@@ -368,6 +416,59 @@
           };
 
           
+          // breakpoints
+
+          var breakpointsStore = new BreakpointsStore();
+          var breakpointsModel = new BreakpointsStoreModel({
+            store: breakpointsStore, 
+            labelType: 'html', 
+            query: {root: true}
+          });
+          var breakpointsList = new Tree({
+            model: breakpointsModel, 
+            showRoot: true,
+            getIconStyle: function() { return {display: "none"} } 
+          })
+
+          engine.addBreakpointsListener(function(breakpoints) {
+            breakpointsStore.setBreakpoints(breakpoints);
+            refreshBreakpointsList();
+          });
+
+          window.removeBreakpointAction = function(line) {
+            breakpointsStore.removeBreakpoint(line);
+            engine.removeBreakpoint(line);
+            editor.setGutterMarker(line, "breakpoints", null);
+          }
+
+          function clearBreakpointsHighlights() {
+            var length = engine.getProgramLength();
+            for(var i = 0; i < length; i++) {
+              editor.removeLineClass(i, 'background', 'breakpoint-line-highlight');
+            }
+          }
+
+          dojo.connect(breakpointsList, 'onClick', function(item, node, evt) {
+            var cl = evt.target.className;
+            if(cl == "status-disabled") {
+              evt.target.className = "status-enabled";
+              engine.setBreakpoint(item.line);
+              breakpointsStore.enable(item.line);
+              editor.setGutterMarker(item.line, "breakpoints", makeMarker());
+            }
+            else if(cl == "status-enabled") {
+              evt.target.className = "status-disabled";
+              engine.removeBreakpoint(item.line);
+              breakpointsStore.disable(item.line);
+              editor.setGutterMarker(item.line, "breakpoints", makeMarker(false));
+            }
+            else {
+              clearBreakpointsHighlights();
+              editor.addLineClass(item.line, 'background', 'breakpoint-line-highlight')
+              jumpToLine(item.line, editor);
+            }
+          }); 
+          // variables
           var callStackStore = new ScopeStore(engine);
 
           var myModel = new ScopeStoreModel({
@@ -426,6 +527,7 @@
           });
 
 
+
           var myTextArea = document.getElementById("code");
           window.editor = CodeMirror(function(elt) {
             myTextArea.parentNode.replaceChild(elt, myTextArea);
@@ -477,9 +579,12 @@
             }
           });
 
-          function makeMarker() {
+          function makeMarker(enabled) {
             var marker = document.createElement("div");
             marker.style.color = "#822";
+            if(enabled === false) {
+              marker.style.color = "#4f4242";
+            } 
             marker.innerHTML = "●";
             return marker;
           }

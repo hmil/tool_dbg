@@ -57,9 +57,13 @@ var Engine = (function() {
     return this.curLine;
   };
 
-  StateMachine.prototype.newScope = function(instance) {
+  StateMachine.prototype.newScope = function(instance, methodName) {
+    var method = instance._methods[methodName]
+
     this.scopes.push({
       this: instance,
+      mname: methodName,
+      line: parseInt(method.code[0].split(" ")[1]), // line at which the method begins
       locals: {},
       ret_addr: this.pc,
       ret_line: this.curLine
@@ -273,7 +277,7 @@ var Engine = (function() {
   function Instr_Invoke(mname) {
     Instruction.call(this, '\tinvoke '+mname, function(sm) {
       var obj = sm.pop();
-      sm.newScope(obj);
+      sm.newScope(obj, mname);
       var method = obj._methods[mname];
       sm.pc = method.addr - 1;
       _.each(method.args, function(p) {
@@ -397,13 +401,15 @@ var Engine = (function() {
       prog.push(parsed);
     }
 
-    function makeClass(cd) {
+    function makeClass(cd, cname) {
       function Class() {
         var that = this;
         _.each(cd.fields, function(f, fname) {
           that[fname] = newOfType(f);
         });
       };
+
+      Class.prototype.cname = cname;
       Class.prototype._methods = {};
 
       _.each(cd.methods, function(md, mname) {
@@ -442,9 +448,8 @@ var Engine = (function() {
         prog.push(new Instruction('', fn_invalid));
         prog.push(new Instruction('# --- class ' + cname.replace(/\n/g, ' ') + ' ---', fn_invalid));
 
-        classes[cname] = makeClass(cd);
+        classes[cname] = makeClass(cd, cname);
       });
-
       breakpoints = new Array(prog.length);
 
       // Resolve jumps

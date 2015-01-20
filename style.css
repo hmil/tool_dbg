@@ -54,9 +54,16 @@ html, body {
 }
 
 #callstackPanel {
-  height: 200px;
+  height: 20%;
 }
 
+#breakpointsPanel {
+  height: 20%;
+}
+
+#variablesPanel {
+  height: 40%;
+}
 #console {
   margin: 0;
   padding: 5px;
@@ -79,6 +86,11 @@ html, body {
 .line-highlight {
   background-color: #DCF8B8;
 }
+
+.breakpoint-line-highlight {
+  background-color: #f8ebb8;
+}
+
 *
 .mark-error {
   background-image: url('squiggle.png');
@@ -98,4 +110,27 @@ html, body {
 
 .var-wrap {
   position: relative;
+}
+
+.breakpoint {
+  position: relative;
+}
+
+.desc {
+  margin-left: 50px;
+  position: absolute;
+}
+.status-enabled, .status-disabled {
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  background-repeat: no;
+}
+
+.status-enabled {
+  background-image: url('active.png');
+}
+
+.status-disabled {
+  background-image: url('unactive.png');
 }

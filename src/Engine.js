@@ -298,7 +298,8 @@ var Engine = (function() {
     var labels = {};
     var jumps = [];
     var breakpoints = [];
-
+    var breakpointsList = [];
+    var breakpointsListeners = [];
     var classes = {};
 
 
@@ -386,6 +387,7 @@ var Engine = (function() {
     function Engine() {
       this._prog = prog;
       this._sm = sm;
+      this.breakpointsListeners = []
     }
 
     function parseInstr(instr) {
@@ -451,6 +453,7 @@ var Engine = (function() {
         classes[cname] = makeClass(cd, cname);
       });
       breakpoints = new Array(prog.length);
+      breakpointsList = [];
 
       // Resolve jumps
       _.each(jumps, function(jump) {
@@ -468,6 +471,10 @@ var Engine = (function() {
         return instr.toString();
       }).join('\n');
     };
+
+    Engine.prototype.getProgramLength = function() {
+      return prog.length;
+    }
 
 
     // Execution control
@@ -546,14 +553,42 @@ var Engine = (function() {
       return sm.pc;
     };
 
+    Engine.prototype.addBreakpointsListener = function(cb) {
+      breakpointsListeners.push(cb);
+    };
+
+    Engine.prototype.removeBreakpointsListener = function(cb) {
+      var index = breakpointsListeners.indexOf(cb);
+      if(index > -1) {
+        breakpointsListeners.splice(index, 1);
+      }
+    };
+
+    Engine.prototype.notifyBreakpointsListeners = function() {
+      for(var i in breakpointsListeners) {
+        breakpointsListeners[i].call(null, breakpointsList);
+      }
+    };
+
+    // line du breakpoint - 1<
     Engine.prototype.setBreakpoint = function(instr) {
-      console.log("setting br at "+instr);
       breakpoints[instr] = true;
+      breakpointsList.push(instr);
+      this.notifyBreakpointsListeners();
     };
 
     Engine.prototype.removeBreakpoint = function(instr) {
-      console.log("deleting br at "+instr);
       breakpoints[instr] = false;
+      var index = breakpointsList.indexOf(instr);
+      if(index > -1) {
+        if(breakpointsList.length === 1) {
+          breakpointsList.length = 0;
+        } 
+        else {
+          breakpointsList.splice(index, 1);
+        }
+      }
+      this.notifyBreakpointsListeners();
     };
 
     Engine.prototype.hasBreakpoint = function(instr) {

@@ -30,9 +30,6 @@
           data-dojo-props="iconClass:'fa fa-level-down', showLabel:false, onClick:stepInto">Step into</div
       ><div data-dojo-type="dijit/form/Button" id="toolbar1.stepOut"
           data-dojo-props="iconClass:'fa fa-level-up', showLabel:false, onClick:stepOut">Step out</div
-      ><span data-dojo-type="dijit/ToolbarSeparator"
-      ></span><div data-dojo-type="dijit/form/Button" id="toolbar1.compile"
-          data-dojo-props="iconClass:'fa fa-cogs', showLabel:false, onClick:compile">Compile</div
       >
     </div>
     <div id="appLayout" class="demoLayout"
@@ -66,6 +63,25 @@
             data-dojo-type="dijit/layout/ContentPane"
             data-dojo-props="region: 'top', splitter: true">
           <script type="dojo/method">initCallstackList()</script>
+          </div>
+
+        <div id="breakpointsPanel" class="edgePanel nochrome"
+            data-dojo-type="dijit/layout/ContentPane"
+            data-dojo-props="region: 'bottom', splitter: true">
+            <script type="dojo/method">initBreakpointsPanel()</script>
+            <!-- menu -->
+            <ul id="breakpoints_menu" data-dojo-type="dijit/Menu"
+              data-dojo-props='style:"display: none;", targetNodeIds: ["breakpointsPanel"], selector: ".dijitTreeNode"'>
+            <li data-dojo-type="dijit/MenuItem">
+              <script type="dojo/connect" data-dojo-event="onClick">
+                      var item = dijit.byNode(this.getParent().currentTarget).item;
+                      removeBreakpointAction(item.line);
+                </script>
+                    Remove
+                  </li>
+            </ul>
+
+            <!--end menu -->
           </div>
         </div>
       </div>
@@ -107,6 +123,7 @@
     <script src="lib/browserfs.js"></script>
     <script src="src/ScopeStore.js"></script>
     <script src="src/CallstackStore.js"></script>
+    <script src="src/BreakpointsStore.js"></script>
 
     <!-- fs and ScalaJS -->
     <script type="text/javascript">
@@ -132,11 +149,11 @@
       require(["dijit/registry", "dijit/layout/BorderContainer",
           "dijit/layout/TabContainer", "dijit/layout/ContentPane",
           "dijit/tree/ObjectStoreModel", "dijit/Tree", "dojo/store/Observable",
-          "dijit/MenuBar", "dijit/MenuBarItem", "dijit/PopupMenuBarItem",
+          "dijit/MenuBar", "dojo/dom", "dijit/MenuBarItem", "dijit/PopupMenuBarItem",
           "dijit/DropDownMenu", "dijit/MenuItem",
           "dojo/domReady!"
         ],
-        function(registry, BorderContainer, TabContainer, ContentPane, ObjectStoreModel, Tree, Observable , MenuBar) {
+        function(registry, BorderContainer, TabContainer, ContentPane, ObjectStoreModel, Tree, Observable , MenuBar, dom) {
 
           var highlightedLine = -1;
 
@@ -147,7 +164,7 @@
 
               getLabel: function(item) {
                 // TODO : temporary fix
-                if(item.isScope) {
+                if(item.isScope || item.isBreakpoint) {
                   return item.name;
                 }
 
@@ -161,9 +178,19 @@
             },
 
             getLabel: function(item) {
-              return item.label;
+              return item.name;
             }
           });
+
+          var BreakpointsStoreModel = _(ObjectStoreModel).extend({
+            mayHaveChildren: function(node) {
+              return false;
+            },
+
+            getLabel: function(item) {
+              return item.name;
+            }
+          })
 
 
           function refreshVariablesTree() {
@@ -193,6 +220,19 @@
             console.log("Refreshing callstack")
           }
 
+          function refreshBreakpointsList() {
+            var list = breakpointsList;
+            list.dndController.selectNone(); 
+            list._itemNodesMap = {};
+            list.model.root = null;
+            list.rootNode.state = "UNCHECKED";
+            if (list.rootNode) {
+                list.rootNode.destroyRecursive();
+            }
+            list.postMixInProperties();
+            list._load();
+          }
+
           document.body.setAttribute('style', '');
 
           function parseError(msg) {
@@ -219,8 +259,6 @@
             editor._highlightedLine = i;
           }
 
-          function highlightAsmLine(i) { }// todo}
-
           var markers = [];
           function clearMarkers() {
             _.each(markers, function(m) {
@@ -228,7 +266,9 @@
             });
             markers.length = 0;
             editor.clearGutter('breakpoints');
+          }
 
+          function clearLineHighlights() {
             var codeLine = engine.getNextLine();
             if (codeLine < editor.lineCount()) {
               editor.removeLineClass(codeLine, 'background', 'line-highlight');
@@ -268,6 +308,9 @@
                 json = JSON.parse(out);
                 engine.load(json);
                 console.log("Program loaded");
+                clearMarkers();
+                clearLineHighlights();
+                refreshBreakpointsList();
                 asmEdit.setValue(engine.getProgramAsText());
                 asmEdit.addLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
               }
@@ -278,9 +321,7 @@
             }
           };
 
-          // engrenages
           window.compile = function() {
-            clearMarkers();
             localStorage['prog'] = editor.getValue();
             fs.writeFile('/test.tool', editor.getValue(), function(err) {
               if (err) throw err;
@@ -314,9 +355,14 @@
             callstackList.placeAt(registry.byId('callstackPanel')).startup();
           }
 
+          window.initBreakpointsPanel = function() {
+            breakpointsList.placeAt(registry.byId('breakpointsPanel')).startup();
+          }
+
           function wrapEngineOp(op) {
             return function() {
               if (!engine.isRunning()) return;
+              clearBreakpointsHighlights();
               asmEdit.removeLineClass(engine.getNextASMLine(), 'background', 'line-highlight');
               editor.removeLineClass(engine.getNextLine(), 'background', 'line-highlight');
               try {
@@ -362,12 +408,66 @@
           });
 
           window.resetCode = function() {
-            clearMarkers();
+            clearLineHighlights();
             engine.reset();
             log.info("Program reinitialized");
           };
 
           
+          // breakpoints
+
+          var breakpointsStore = new BreakpointsStore();
+          var breakpointsModel = new BreakpointsStoreModel({
+            store: breakpointsStore, 
+            labelType: 'html', 
+            query: {root: true}
+          });
+          var breakpointsList = new Tree({
+            model: breakpointsModel, 
+            showRoot: true,
+            getIconStyle: function() { return {display: "none"} } 
+          })
+
+          engine.addBreakpointsListener(function(breakpoints) {
+            breakpointsStore.setBreakpoints(breakpoints);
+            refreshBreakpointsList();
+          });
+
+          window.removeBreakpointAction = function(line) {
+            breakpointsStore.removeBreakpoint(line);
+            engine.removeBreakpoint(line);
+            editor.setGutterMarker(line, "breakpoints", null);
+            editor.removeLineClass(line, 'background', 'breakpoint-line-highlight');
+          }
+
+          function clearBreakpointsHighlights() {
+            var length = engine.getProgramLength();
+            for(var i = 0; i < length; i++) {
+              editor.removeLineClass(i, 'background', 'breakpoint-line-highlight');
+            }
+          }
+
+          dojo.connect(breakpointsList, 'onClick', function(item, node, evt) {
+            var cl = evt.target.className;
+            if(cl == "status-disabled") {
+              evt.target.className = "status-enabled";
+              engine.setBreakpoint(item.line);
+              breakpointsStore.enable(item.line);
+              editor.setGutterMarker(item.line, "breakpoints", makeMarker());
+            }
+            else if(cl == "status-enabled") {
+              evt.target.className = "status-disabled";
+              engine.removeBreakpoint(item.line);
+              breakpointsStore.disable(item.line);
+              editor.setGutterMarker(item.line, "breakpoints", makeMarker(false));
+            }
+            else {
+              clearBreakpointsHighlights();
+              editor.addLineClass(item.line, 'background', 'breakpoint-line-highlight')
+              jumpToLine(item.line, editor);
+            }
+          }); 
+          // variables
           var callStackStore = new ScopeStore(engine);
 
           var myModel = new ScopeStoreModel({
@@ -426,6 +526,7 @@
           });
 
 
+
           var myTextArea = document.getElementById("code");
           window.editor = CodeMirror(function(elt) {
             myTextArea.parentNode.replaceChild(elt, myTextArea);
@@ -470,6 +571,7 @@
           editor.on("gutterClick", function(cm, n) {
             var info = cm.lineInfo(n);
             if (info.gutterMarkers) {
+              breakpointsStore.removeBreakpoint(n);
               engine.removeBreakpoint(n);
               cm.setGutterMarker(n, "breakpoints", null);
             } else if (engine.isBreakable(n)) {
@@ -478,9 +580,12 @@
             }
           });
 
-          function makeMarker() {
+          function makeMarker(enabled) {
             var marker = document.createElement("div");
-            marker.style.color = "#822";
+            marker.style.color = "#f00";
+            if(enabled === false) {
+              marker.style.color = "#4f4242";
+            } 
             marker.innerHTML = "●";
             return marker;
           }

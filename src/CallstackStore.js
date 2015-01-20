@@ -12,7 +12,7 @@ CallstackStore.prototype.idProperty = 'id';
 
 CallstackStore.prototype.query = function(query, options) {
   if (query.root) {
-    return [{id: this._uniqId(), name: 'root', hasChildren: true}];
+    return [{id: this._uniqId(), name: '<b>Callstack</b>', isScope: true, hasChildren: true}];
   }
 };
 

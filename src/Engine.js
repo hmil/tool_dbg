@@ -482,7 +482,8 @@ var Engine = (function() {
     Engine.prototype.run = function() {
       // Carry on while we are not on a breakpoint that is different from the current one if any
       var curLine = sm.getNextLine();
-      while (this.isRunning() && (!breakpoints[this.getNextLine()] || sm.getNextLine() === curLine)) {
+      var curLen  = sm.scopes.length;
+      while (this.isRunning() && (!breakpoints[this.getNextLine()] || (sm.getNextLine() === curLine && sm.scopes.length === curLen))) {
         this.tick();
       }
     };
@@ -583,7 +584,7 @@ var Engine = (function() {
       if(index > -1) {
         if(breakpointsList.length === 1) {
           breakpointsList.length = 0;
-        } 
+        }
         else {
           breakpointsList.splice(index, 1);
         }

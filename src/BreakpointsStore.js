@@ -7,7 +7,6 @@ BreakpointsStore.prototype.idProperty = 'id';
 
 BreakpointsStore.prototype.query = function(query, options) {
   if (query.root) {
-    console.log(this._breakpoints);
     var n = _(this._breakpoints).isEmpty() ? ' (none)' : '';
     return [{id: this._uniqId(), name: '<b>Breakpoints'+n+'</b>', isBreakpoint: true, hasChildren: true}];
   }

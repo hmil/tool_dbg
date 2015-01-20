@@ -1,12 +1,11 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{Features}{section.1}% 2
-\BOOKMARK [1][-]{section.2}{Examples}{}% 3
-\BOOKMARK [1][-]{section.3}{Implementation}{}% 4
-\BOOKMARK [2][-]{subsection.3.1}{Modifying the compiler backend}{section.3}% 5
-\BOOKMARK [2][-]{subsection.3.2}{Porting the compiler in the browser}{section.3}% 6
-\BOOKMARK [2][-]{subsection.3.3}{Implementation of the virtual machine}{section.3}% 7
-\BOOKMARK [3][-]{subsubsection.3.3.1}{Architecture}{subsection.3.3}% 8
-\BOOKMARK [3][-]{subsubsection.3.3.2}{Control flow}{subsection.3.3}% 9
-\BOOKMARK [2][-]{subsection.3.4}{Developing the web interface}{section.3}% 10
-\BOOKMARK [2][-]{subsection.3.5}{Implementation Details}{section.3}% 11
-\BOOKMARK [1][-]{section.4}{Possible Extensions}{}% 12
+\BOOKMARK [2][-]{subsection.1.2}{Running the debugger}{section.1}% 3
+\BOOKMARK [1][-]{section.2}{Implementation}{}% 4
+\BOOKMARK [2][-]{subsection.2.1}{Modifying the compiler backend}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.2}{Porting the compiler in the browser}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.3}{Implementation of the virtual machine}{section.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Architecture}{subsection.2.3}% 8
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Control flow}{subsection.2.3}% 9
+\BOOKMARK [2][-]{subsection.2.4}{Developing the web interface}{section.2}% 10
+\BOOKMARK [1][-]{section.3}{Possible Extensions}{}% 11

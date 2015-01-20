@@ -6,6 +6,7 @@
 \BOOKMARK [2][-]{subsection.2.2}{Porting the compiler in the browser}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.3}{Implementation of the virtual machine}{section.2}% 7
 \BOOKMARK [3][-]{subsubsection.2.3.1}{Architecture}{subsection.2.3}% 8
-\BOOKMARK [3][-]{subsubsection.2.3.2}{Control flow}{subsection.2.3}% 9
-\BOOKMARK [2][-]{subsection.2.4}{Developing the web interface}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.4}{Developing the web interface}{section.2}% 9
+\BOOKMARK [3][-]{subsubsection.2.4.1}{Control flow}{subsection.2.4}% 10
 \BOOKMARK [1][-]{section.3}{Possible Extensions}{}% 11
+\BOOKMARK [1][-]{section.4}{Resources}{}% 12

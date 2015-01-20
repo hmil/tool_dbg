@@ -300,6 +300,7 @@ var Engine = (function() {
     var breakpoints = [];
     var breakpointsList = [];
     var breakpointsListeners = [];
+    var breakableLines = [];
     var classes = {};
 
 
@@ -322,7 +323,9 @@ var Engine = (function() {
         case 'ret':
           return new Instruction('\tret', fn_ret);
         case 'stat':
-          return new Instr_Stat(parseInt(text.substr(split + 1)));
+          var line = parseInt(text.substr(split + 1));
+          breakableLines[line] = true;
+          return new Instr_Stat(line);
         case 'sub':
           return new Instruction('\t'+text, fn_sub);
         case 'add':
@@ -597,7 +600,7 @@ var Engine = (function() {
     };
 
     Engine.prototype.isBreakable = function(instr) {
-      return true;
+      return breakableLines[instr];
     };
 
     // State dump

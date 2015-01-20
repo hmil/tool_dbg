@@ -5,3 +5,11 @@ One of the things we were told is that we could have transpiled the tool to java
 We are quite satisfied with the solution we came up with. We believe that with this tool (no pun intended), we would have gained massive time when writing test programs in tool. The feedback loop of writing code, finding bugs, killing bugs and writing code again would have been much tighter with everything contained in one single interface as it is in our solution. Now it is not perfect and we have a few ideas of things that could have been further improved:
 - The VM should run in a separate thread than the UI. This allows for the interface to stay responsive even when the tested program is stucked. Right now, if a program loops indefinitely, the tab must be closed in order for the program to stop running. It is not a trivial modification and involves some work with web workers and messaging, we believe it's a little out of the scope of this lab extension.
 - Although the core software involved in this extension works well, the UI is still pretty rough and could have been improved a bit. For instance it's annoying that the variables in the scope inspector collapse each time we step over something, especially if the value we are interrested in is deeply nested.
+
+todo:
+The debugger we made has a basic set of features, allowing us to debug any Tool program pretty efficiently. There are some feature enhancements that could be made, inspired from classic debuggers.
+\begin{itemize}
+\item Watch the value of expressions
+\item Change the value of variables from the interface
+\item Set conditional breakpoints
+\end{itemize}
